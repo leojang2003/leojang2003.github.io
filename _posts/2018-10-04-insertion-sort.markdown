@@ -29,9 +29,9 @@ Insertion sort pseudo code looks like this
 {% highlight C# %}
         public static void InsertionSort(int[] input)
         {
-            for(int i = 1; i < input.Length; i++)
+            for( int i = 1; i < input.Length; i++ )
             {
-                while( i > 0 && input[i] < input[i-1])
+                while( i > 0 && input[i] < input[i-1] )
                 {
                     var temp = input[i];
                     input[i] = input[i - 1];
