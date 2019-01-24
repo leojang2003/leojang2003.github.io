@@ -31,13 +31,12 @@ Insertion sort pseudo code looks like this
         {
             for(int i = 1; i < input.Length; i++)
             {
-                var key = input[i];
-                var targetIndex = i - 1;
-                while(targetIndex >= 0 && input[targetIndex] > key)
+                while( i > 0 && input[i] < input[i-1])
                 {
-                    input[targetIndex+1] = input[targetIndex];
-                    input[targetIndex] = key;
-                    targetIndex--;
+                    var temp = input[i];
+                    input[i] = input[i - 1];
+                    input[i - 1] = temp;
+                    i--;
                 }
             }
         }
