@@ -27,19 +27,15 @@ Insertion sort pseudo code looks like this
 
 
 {% highlight C# %}
-        public static void InsertionSort(int[] input)
+for(int i = 1; i < input.Length; i++)
+{
+        while( i > 0 && input[i] < input[i-1])
         {
-            for(int i = 1; i < input.Length; i++)
-            {
-                var key = input[i];
-                var targetIndex = i - 1;
-                while(targetIndex >= 0 && input[targetIndex] > key)
-                {
-                    input[targetIndex+1] = input[targetIndex];
-                    input[targetIndex] = key;
-                    targetIndex--;
-                }
-            }
+            var temp = input[i];
+            input[i] = input[i - 1];
+            input[i - 1] = temp;
+            i--;
         }
+}        
 {% endhighlight %}
 
