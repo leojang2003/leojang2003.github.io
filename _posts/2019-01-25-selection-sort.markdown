@@ -25,5 +25,24 @@ Selection sort pseudo code looks like this
 
 
 {% highlight C# %}
-        
+    // Initial 
+    for (int i = 1; i < input.Length; i++)
+    {
+        int min = i-1;
+
+        for ( int j = i; j < input.Length; j++)
+        {
+            if(input[min] > input[j])
+            {
+                min = j;                        
+            }
+        }
+
+        if ( min != i-1 )
+        {
+            var temp = input[i-1];
+            input[i-1] = input[min];
+            input[min] = temp;
+        }                
+    }        
 {% endhighlight %}
