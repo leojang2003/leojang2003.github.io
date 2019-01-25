@@ -25,7 +25,7 @@ Selection sort pseudo code looks like this
 
 
 {% highlight C# %}
-    // Initial 
+    // Initial version 01/25
     for (int i = 1; i < input.Length; i++)
     {
         int min = i-1;
