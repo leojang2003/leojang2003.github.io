@@ -7,7 +7,7 @@ tags: Algorithm
 
 ---
 
-Insertion sort pseudo code looks like this
+Selection sort pseudo code looks like this
 
 {% highlight C# %}
 // repeat (numOfElements - 1) times
