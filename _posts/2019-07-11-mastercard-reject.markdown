@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MasterCard 清算檔剔退原因"
+title:  "MasterCard 清算被拒原因"
 date:   2019-07-11 13:42:00 +0800
 categories: Business
 tags: MasterCard
@@ -8,11 +8,11 @@ tags: MasterCard
 <h3>0670</h3>
 <main>
 <div>
-{% highlight html %}  
+{% highlight html linenos %}  
 ? ERROR                                                                                               SOURCE                          
 ? CODE    DESCRIPTION                                                                                MESSAGE #   ELEMENT ID           
 ?                                                                                                                                     
-? 0670    PDS0158S4 INTERCHANGE RATE DESIGNATOR DOES NOT MEET TIMELINESS CRITERIA AND/OR DE12S1 DATE  00001169    P0158 S04           
+? 0670    PDS0158S4 INTERCHANGE RATE DESIGNATOR DOES NOT MEET TIMELINESS CRITERIA AND/OR DE12S1 DATE  00000001    P0158 S04           
 ?          CONTAINS INVALID DATA                                                                                                      
 ?                                                                                                                                     
 ? MESSAGE DETAILS                                                                                                                     
@@ -22,6 +22,10 @@ tags: MasterCard
 ?                *P0158 S04     73                                                                                                    
 ?                 ...
 {% endhighlight html %}  
+</div>
+  
+<div>
+IRD 過期，解法 Rekey
 </div>
 
 <h2>2514</h2>
