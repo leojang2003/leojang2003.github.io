@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MasterCard 清算檔剔退原因"
-date:   2019-07-06 13:42:00 +0800
+date:   2019-07-11 13:42:00 +0800
 categories: Business
 tags: MasterCard
 ---
