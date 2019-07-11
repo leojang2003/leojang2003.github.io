@@ -5,10 +5,6 @@ date:   2019-07-06 13:42:00 +0800
 categories: Business
 tags: MasterCard
 ---
-
-## main
-
-{% highlight html %}
 <h2>0670</h2>
 <main>
 <div>
@@ -26,4 +22,4 @@ SERVICE CODE MUST BE PRESENT AND EQUAL TO 100-199,500-599,700-799.
 </div>
 
 </main>
-{% endhighlight html %}
+
