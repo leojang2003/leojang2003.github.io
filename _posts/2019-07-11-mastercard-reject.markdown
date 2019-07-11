@@ -5,13 +5,23 @@ date:   2019-07-11 13:42:00 +0800
 categories: Business
 tags: MasterCard
 ---
-<h2>0670</h2>
+<h3>0670</h3>
 <main>
 <div>
-PDS0158S4 INTERCHANGE RATE DESIGNATOR DOES NOT MEET TIMELINESS CRITERIA AND/OR DE12S1 DATE
-CONTAINS INVALID DATA
-
-*P0158 S04     73  交易帶的 IRD = 73 過期
+{% highlight html %}  
+ ? ERROR                                                                                               SOURCE                          
+ ? CODE    DESCRIPTION                                                                                MESSAGE #   ELEMENT ID           
+ ?                                                                                                                                     
+ ? 0670    PDS0158S4 INTERCHANGE RATE DESIGNATOR DOES NOT MEET TIMELINESS CRITERIA AND/OR DE12S1 DATE  00001169    P0158 S04           
+ ?          CONTAINS INVALID DATA                                                                                                      
+ ?                                                                                                                                     
+ ? MESSAGE DETAILS                                                                                                                     
+ ?                                                                                                                                     
+ ?                 MTI           1240                                                                                                  
+ ?                 ...                                                                                              
+ ?                *P0158 S04     73                                                                                                    
+ ?                 ...
+{% endhighlight html %}  
 </div>
 
 <h2>2514</h2>
