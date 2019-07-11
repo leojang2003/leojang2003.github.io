@@ -9,18 +9,18 @@ tags: MasterCard
 <main>
 <div>
 {% highlight html %}  
- ? ERROR                                                                                               SOURCE                          
- ? CODE    DESCRIPTION                                                                                MESSAGE #   ELEMENT ID           
- ?                                                                                                                                     
- ? 0670    PDS0158S4 INTERCHANGE RATE DESIGNATOR DOES NOT MEET TIMELINESS CRITERIA AND/OR DE12S1 DATE  00001169    P0158 S04           
- ?          CONTAINS INVALID DATA                                                                                                      
- ?                                                                                                                                     
- ? MESSAGE DETAILS                                                                                                                     
- ?                                                                                                                                     
- ?                 MTI           1240                                                                                                  
- ?                 ...                                                                                              
- ?                *P0158 S04     73                                                                                                    
- ?                 ...
+? ERROR                                                                                               SOURCE                          
+? CODE    DESCRIPTION                                                                                MESSAGE #   ELEMENT ID           
+?                                                                                                                                     
+? 0670    PDS0158S4 INTERCHANGE RATE DESIGNATOR DOES NOT MEET TIMELINESS CRITERIA AND/OR DE12S1 DATE  00001169    P0158 S04           
+?          CONTAINS INVALID DATA                                                                                                      
+?                                                                                                                                     
+? MESSAGE DETAILS                                                                                                                     
+?                                                                                                                                     
+?                 MTI           1240                                                                                                  
+?                 ...                                                                                              
+?                *P0158 S04     73                                                                                                    
+?                 ...
 {% endhighlight html %}  
 </div>
 
