@@ -8,9 +8,9 @@ tags: You-Don't-Know-JS
 <h3>0670</h3>
 <main>
 <div>
-{% highlight html %}  
-In a traditional compiled-language process, a chunk of source code, your program, will undergo typically three steps before it is executed,
-roughly called "compilation":
+  
+>In a traditional compiled-language process, a chunk of source code, your program, will undergo typically three steps before it is >executed,
+>roughly called "compilation":
 傳統上編譯語言執行前會經過三個步驟。
   
 Tokenizing/Lexing: breaking up a string of characters into meaningful (to the language) chunks, called tokens. For instance, consider the program: var a = 2;. This program would likely be broken up into the following tokens: var, a, =, 2, and ;. 
