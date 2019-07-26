@@ -5,8 +5,6 @@ date:   2019-07-26 10:28:00 +0800
 categories: JavaScript
 tags: You-Don't-Know-JS
 ---
-<h3>0670</h3>
-<main>
 <div>
   
 >In a traditional compiled-language process, a chunk of source code, your program, will undergo typically three steps before it is >executed,
@@ -31,5 +29,4 @@ Code-Generation 將 AST 轉為可執行的程式碼 executable code
 
 </div>
 
-</main>
 
