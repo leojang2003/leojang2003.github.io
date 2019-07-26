@@ -8,7 +8,7 @@ $font-stack: 400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Hel
 
 // Styles
 body {
-  font-family: $font-stack !important;    
+  font: $font-stack;    
 }
 
 
