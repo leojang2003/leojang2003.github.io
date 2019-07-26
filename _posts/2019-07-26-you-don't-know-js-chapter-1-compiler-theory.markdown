@@ -5,10 +5,10 @@ date:   2019-07-26 10:28:00 +0800
 categories: JavaScript
 tags: You-Don't-Know-JS
 ---
-<div>
-  
->In a traditional compiled-language process, a chunk of source code, your program, will undergo typically three steps before it is >executed,
->roughly called "compilation":
+
+In a traditional compiled-language process, a chunk of source code, your program, will undergo typically three steps before it is executed,
+roughly called "compilation":
+
 傳統上編譯語言執行前會經過三個步驟。
   
 Tokenizing/Lexing: breaking up a string of characters into meaningful (to the language) chunks, called tokens. For instance, consider the program: var a = 2;. This program would likely be broken up into the following tokens: var, a, =, 2, and ;. 
@@ -23,10 +23,6 @@ The tree for var a = 2; might start with a top-level node called VariableDeclara
 Code-Generation: the process of taking an AST and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
 Code-Generation 將 AST 轉為可執行的程式碼 executable code
 
-</div>
-  
-<div>
 
-</div>
 
 
