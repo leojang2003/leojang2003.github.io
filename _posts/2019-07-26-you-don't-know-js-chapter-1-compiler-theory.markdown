@@ -25,7 +25,6 @@ The tree for var a = 2; might start with a top-level node called VariableDeclara
 Code-Generation: the process of taking an AST and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
 Code-Generation 將 AST 轉為可執行的程式碼 executable code
 
-{% endhighlight html %}  
 </div>
   
 <div>
