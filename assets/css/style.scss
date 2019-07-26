@@ -1,8 +1,10 @@
 ---
+# Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import "{{ site.theme }}";
-$font-stack: "Source Code Pro", "微軟正黑體", "Microsoft JhengHei";
+@import "minima";
+
+$font-stack: 400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft Yahei";
 
 // Styles
 .body {
