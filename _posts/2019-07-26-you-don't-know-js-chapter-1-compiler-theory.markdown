@@ -8,7 +8,7 @@ tags: You-Don't-Know-JS
 <h3>0670</h3>
 <main>
 <div>
-{% highlight html linenos %}  
+{% highlight html %}  
 In a traditional compiled-language process, a chunk of source code, your program, will undergo typically three steps before it is executed,
 roughly called "compilation":
 傳統上編譯語言執行前會經過三個步驟。
