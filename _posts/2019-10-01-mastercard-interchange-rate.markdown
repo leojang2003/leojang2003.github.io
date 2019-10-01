@@ -8,6 +8,8 @@ tags: master-card
 
 interchange rate = 發卡行回傭，國內來說為 1.55%
 
+### About Interchange Programs
+
 Interchange programs specify the criteria that a transaction must meet to qualify for its associated interchange fee (rate).
 Mastercard applies interchange rates as part of the clearing and settlement process. The following characteristics of the transaction determine the interchange rate that is applied to the transaction:
 
@@ -17,6 +19,10 @@ Mastercard applies interchange rates as part of the clearing and settlement proc
 • The interchange rate designator (IRD) (PDS 0158 [Business Activity], subfield 4 [Interchange Rate Designator]). 
 An IRD represents an interchange program and its associated interchange rate.
 IRD 代表對應的 interchange program 及發卡行回傭 
+
+Transaction type is criteria that GCMS considers when qualifying transactions for interchange
+programs.A transaction type Is identified by DE 3 (Processing Code), subfield 1 (Cardholder Transaction Type)
+IRD 會看
 
 
 
