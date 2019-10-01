@@ -25,6 +25,13 @@ IRD 代表一個 interchange program 及發卡行回傭
 Transaction type is criteria that GCMS considers when qualifying transactions for interchange
 programs.A transaction type Is identified by DE 3 (Processing Code), subfield 1 (Cardholder Transaction Type)
 
+Transaction type 與 IRD 有關
+
+Key criteria in interchange processing are the regions in which transactions are issued and
+acquired.
+
+區域與 IRD 有關
+
 
 
 
