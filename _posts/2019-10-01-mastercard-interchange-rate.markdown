@@ -51,7 +51,19 @@ acquired.
 
 <br />
 
+#### Card Program ID
 
+<br />
+
+> Card program ID is a criterion that GCMS considers when qualifying transactions for interchange programs.
+
+交易適用的交換程式 ( Interchange programs ) 
+
+<br />
+
+> GCMS can recognize cards that have more than one card program identifier association for a single issuing account range. Based on information in the message and parameters maintained at Mastercard, GCMS determines the most appropriate card program identifier to use (in PDS 0158 [Business Activity], subfield 1 [Card Program Identifier]) with the transaction if the transaction is not submitted by the originator of the message.
+
+<br />
 
 
 
