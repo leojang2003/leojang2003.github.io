@@ -51,7 +51,7 @@ acquired.
 
 <br />
 
-#### **Card Program ID**
+#### Card Program ID
 
 <br />
 
@@ -74,5 +74,17 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 <br />
 
+#### Card Program ID 與 GCMS Product ID
 
+> In addition to the business service and interchange rate designator (IRD), the combination of card program ID and GCMS product ID also may be a factor in qualifying a transaction for a particular interchange program.
+
+除了 business service 與 interchange rate designator (IRD) 之外，card program ID 與 GCMS product ID 的組合也會影響交易選擇的 interchange program
+
+<br />
+
+> Each issuer’s account range is assigned one or more card program IDs, each within an associated GCMS product ID. This information is stored at Mastercard and provided to customers in the IPM Mastercard Parameter Extract (MPE) file. GCMS uses this information to help determine whether a transaction qualifies for the submitted IRD.
+
+每個卡號有對應一個或多個 Card Program ID，每個 Card Program ID 對應一個 GCMS product ID。此資訊存在 MasterCard 提供給客戶的 IPM Mastercard Parameter Extract (MPE) 檔案。GCMS 利用此資訊決定交易是否符合送出的 IRD。
+
+<br />
 
