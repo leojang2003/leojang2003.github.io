@@ -8,6 +8,8 @@ tags: master-card
 
 interchange rate = 發卡行回傭，國內來說為 1.55%
 
+<br />
+
 #### 關於 Interchange Programs
 
 Interchange programs specify the criteria that a transaction must meet to qualify for its associated interchange fee (rate).
