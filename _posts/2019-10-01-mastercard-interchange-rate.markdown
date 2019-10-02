@@ -78,7 +78,7 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 > In addition to the business service and interchange rate designator (IRD), the combination of card program ID and GCMS product ID also may be a factor in qualifying a transaction for a particular interchange program.
 
-除了 business service 與 interchange rate designator (IRD) 之外，card program ID 與 GCMS product ID 的組合也會影響交易選擇的 interchange program
+除了 business service 與 interchange rate designator (IRD) 之外，card program ID 與 GCMS product ID 的組合也會影響交易所選擇的 interchange program。
 
 <br />
 
