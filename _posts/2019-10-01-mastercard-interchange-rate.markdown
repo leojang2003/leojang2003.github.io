@@ -63,9 +63,9 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 > GCMS can recognize cards that have more than one card program identifier association for a single issuing account range. Based on information in the message and parameters maintained at Mastercard, GCMS determines the most appropriate card program identifier to use (in PDS 0158 [Business Activity], subfield 1 [Card Program Identifier]) with the transaction if the transaction is not submitted by the originator of the message.
 
-<br />
-
 一個卡號可能有對應多個 Card Program ID，GCMS 會決定最合適的 Card Program ID ( 在 PDS 0158 [Business Activity] 的 subfield 1 [Card Program Identifier] )。下面是 PDS 0158 的範例，這邊 Card Program Identifier 放的是 MCC
+
+<br />
 
 > P0158 S01     MCC  
 > P0158 S02  
