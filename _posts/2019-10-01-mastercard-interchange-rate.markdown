@@ -23,6 +23,8 @@ Mastercard applies interchange rates as part of the clearing and settlement proc
 
 #### 關於 Interchange Rate Designator
 
+<br />
+
 > An IRD represents an interchange program and its associated interchange rate.
 
 IRD 代表一個 interchange program 及發卡行回傭 
