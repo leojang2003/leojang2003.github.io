@@ -19,6 +19,8 @@ Mastercard applies interchange rates as part of the clearing and settlement proc
 
 交換程式 ( Interchange programs ) 指出要滿足特定 interchange fee 必須符合的條件，MasterCard 在清算的過程會套用 interchange rate 至各交易。以下屬性決定要套用哪種 interchange rate 至各交易
 
+<br />
+
 > - The card program identifier and business service arrangement 
 > - The interchange rate designator (IRD) (PDS 0158 [Business Activity], subfield 4 [Interchange Rate Designator]). 
 
