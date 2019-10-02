@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MasterCard IRD"
+title:  "MasterCard"
 date:   2019-10-01 16:46:00 +0800
 categories: MasterCard
 tags: master-card
@@ -12,7 +12,7 @@ interchange rate = 發卡行回傭，國內來說為 1.55%
 
 #### 關於 Interchange Programs
 
-Interchange programs specify the criteria that a transaction must meet to qualify for its associated interchange fee (rate).
+> Interchange programs specify the criteria that a transaction must meet to qualify for its associated interchange fee (rate).
 Mastercard applies interchange rates as part of the clearing and settlement process. The following characteristics of the transaction determine the interchange rate that is applied to the transaction:
 
 交換程式 ( Interchange programs ) 指出要滿足特定 interchange fee 必須符合的條件，MasterCard 在清算的過程會套用 interchange rate 至各交易。以下屬性決定要套用哪種 interchange rate 至各交易
