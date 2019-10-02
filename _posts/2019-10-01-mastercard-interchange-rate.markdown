@@ -6,7 +6,7 @@ categories: MasterCard
 tags: master-card
 ---
 
-interchange rate = 發卡行回傭，國內來說為 1.55%
+interchange rate = 發卡行回佣，國內來說為 1.55%
 
 <br />
 
@@ -33,7 +33,7 @@ Mastercard applies interchange rates as part of the clearing and settlement proc
 
 > An IRD represents an interchange program and its associated interchange rate.
 
-**IRD** 代表一個 *interchange program* 及發卡行回傭 
+**IRD** 代表一個 *interchange program* 及發卡行回佣 
 
 <br />
 
