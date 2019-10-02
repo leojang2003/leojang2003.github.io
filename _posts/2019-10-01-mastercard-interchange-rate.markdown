@@ -33,21 +33,21 @@ Mastercard applies interchange rates as part of the clearing and settlement proc
 
 > An IRD represents an interchange program and its associated interchange rate.
 
-*IRD* 代表一個 *interchange program* 及發卡行回傭 
+**IRD** 代表一個 *interchange program* 及發卡行回傭 
 
 <br />
 
 > Transaction type is criteria that GCMS considers when qualifying transactions for interchange
 programs. A transaction type Is identified by DE 3 (Processing Code), subfield 1 (Cardholder Transaction Type)
 
-Transaction type 與 *IRD* 有關，Transaction type 在 DE 3 的 Subfield 1
+Transaction type 與 **IRD** 有關，Transaction type 在 DE 3 的 Subfield 1
 
 <br />
 
 > Key criteria in interchange processing are the regions in which transactions are issued and
 acquired.
 
-區域與 *IRD* 有關
+區域與 **IRD** 有關
 
 <br />
 
