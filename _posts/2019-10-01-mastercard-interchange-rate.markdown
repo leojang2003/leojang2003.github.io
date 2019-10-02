@@ -65,7 +65,7 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 <br />
 
-一個卡號可能有對應多個 Card Program ID，GCMS 會決定最合適的 Card Program ID ( 在 PDS 0158, subfield 1 )
+一個卡號可能有對應多個 Card Program ID，GCMS 會決定最合適的 Card Program ID ( 在 PDS 0158 [Business Activity] 的 subfield 1 [Card Program Identifier] )
 
 
 
