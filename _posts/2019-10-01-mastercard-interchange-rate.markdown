@@ -19,6 +19,7 @@ Mastercard applies interchange rates as part of the clearing and settlement proc
 - The interchange rate designator (IRD) (PDS 0158 [Business Activity], subfield 4 [Interchange Rate Designator]). 
 <br />
 <br />
+
 #### 關於 Interchange Rate Designator
 
 An IRD represents an interchange program and its associated interchange rate.
