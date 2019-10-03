@@ -100,6 +100,9 @@ The set of card program identifiers for which the interchange rate designator (I
 - MSI—Maestro
 - PVL—Private label
 
+Card Program Identifiers 包含 DMC,DMC, MSI, PVL
+
+
 ##### Clearing Message Element
 
 PDS 0158 (Business Activity), subfield 1 (Card Program Identifier) 
