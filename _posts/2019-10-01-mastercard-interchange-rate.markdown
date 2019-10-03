@@ -88,8 +88,11 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 <br />
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+#### Interchange Program Qualifying Criteria
+
+| Criteria/Description        | Clearing Message Element           | Cool  |
+| --------------------------- |:----------------------------------:| -----:|
+| Card Program Identifier 
+The set of card program identifiers for which the interchange rate designator (IRD) is valid. Values include, but are not limited to:    | right-aligned |
+| col 2 is      | centered      |
+| zebra stripes | are neat      |
