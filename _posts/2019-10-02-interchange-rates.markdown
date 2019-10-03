@@ -60,6 +60,7 @@ tags: master-card
 <br />
 
 **Mastercard Electronic Consumer Interregional Rate**
+
 | IRD | Program Name        | Rate (USD)           |
 | ------------- |:-------------:|:-------------:|
 | IRD 74 | Interregional Mastercard Electronic Card Consumer | 1.10% + 0.00 |
