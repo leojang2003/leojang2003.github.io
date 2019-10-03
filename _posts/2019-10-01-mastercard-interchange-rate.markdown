@@ -118,8 +118,6 @@ The set of card program identifiers for which the interchange rate designator (I
 
 Card Program Identifiers 包含 DMC,MCC, MSI, PVL, 最常見的就是 MCC
 
-<br />
-
 **Clearing Message Element**
 
 PDS 0158 (Business Activity), subfield 1 (Card Program Identifier) 
@@ -139,8 +137,6 @@ GCMS Product Identifier
 
 The set of clearing product identifiers for the IRD.
 The set includes all account range products currently being masked under the specific GCMS Product Identifier.
-
-<br />
 
 **Clearing Message Element**
 
@@ -162,8 +158,6 @@ contain zeros.
 Unless otherwise stated it is assumed that both
 originals and reversals are permitted.
 
-<br />
-
 **Clearing Message Element**
 
 Transaction Function
@@ -178,8 +172,6 @@ Transaction Function
 
 Card Acceptor Business (CAB) Program
 
-<br />
-
 **Clearing Message Element**
 
 DE 26 (Card Acceptor Business Code [MCC])
@@ -190,8 +182,6 @@ DE 26 (Card Acceptor Business Code [MCC])
 **Criteria/Description**
 
 Timeliness
-
-<br />
 
 **Clearing Message Element**
 
@@ -206,8 +196,6 @@ Timeliness
 
 Approval Code
 
-<br />
-
 **Clearing Message Element**
 
 DE 38 (Approval Code)
@@ -218,8 +206,6 @@ DE 38 (Approval Code)
 **Criteria/Description**
 
 Trace ID
-
-<br />
 
 **Clearing Message Element**
 
@@ -232,8 +218,6 @@ DE 63 (Transaction Life Cycle ID), subfield 2 (Trace ID) consisting of the Bankn
 
 Point of Service Data Code
 
-<br />
-
 **Clearing Message Element**
 
 DE 22 (Point of Service Data Code)
@@ -244,8 +228,6 @@ DE 22 (Point of Service Data Code)
 **Criteria/Description**
 
 Card Acceptor Business Code (MCC)
-
-<br />
 
 **Clearing Message Element**
 
@@ -258,8 +240,6 @@ DE 26 (Card Acceptor Business Code)
 
 Amount Tolerance
 
-<br />
-
 **Clearing Message Element**
 
 DE 4 (Amount, Transaction)
@@ -270,8 +250,6 @@ DE 4 (Amount, Transaction)
 **Criteria/Description**
 
 Service Code
-
-<br />
 
 **Clearing Message Element**
 
@@ -284,7 +262,7 @@ DE 40 (Service Code)
 
 Card Acceptor ID Code
 
-<br />
+**Clearing Message Element**
 
 DE 42 (Card Acceptor ID Code)
 
@@ -300,8 +278,6 @@ DE 42 (Card Acceptor ID Code)
 - Card Acceptor State, Province, or Region Code
 - Card Acceptor Country Code
 
-<br />
-
 **Clearing Message Element**
 
 DE 43
@@ -313,7 +289,7 @@ DE 43
 
 Mastercard Assigned ID
 
-<br />
+**Clearing Message Element**
 
 PDS 0176 (Mastercard Assigned ID)
 
@@ -323,8 +299,6 @@ PDS 0176 (Mastercard Assigned ID)
 **Criteria/Description**
 
 Financial Detail Addendum/1644
-
-<br />
 
 **Clearing Message Element**
 
