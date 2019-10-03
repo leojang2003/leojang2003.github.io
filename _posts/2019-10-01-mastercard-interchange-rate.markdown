@@ -102,7 +102,7 @@ The set of card program identifiers for which the interchange rate designator (I
 - MSI—Maestro
 - PVL—Private label
 
-Card Program Identifiers 包含 DMC,DMC, MSI, PVL
+Card Program Identifiers 包含 DMC,MCC, MSI, PVL, 最常見的就是 MCC
 
 <br />
 
@@ -113,3 +113,197 @@ PDS 0158 (Business Activity), subfield 1 (Card Program Identifier)
 If not submitted in the message, GCMS derives this value from:
 - DE 2 (Primary Account Number [PAN]), or
 - DE 93 (Transaction Receiver Institution ID Code) when DE 2 is not present in the message (Fee Collections/1740 [Other] only)
+
+如果 Card Program Identifier 沒帶值，則從 DE 2 或 DE 93 取得
+
+<br />
+
+**Criteria/Description**
+
+GCMS Product Identifier
+
+The set of clearing product identifiers for the IRD.
+The set includes all account range products currently being masked under the specific GCMS Product Identifier.
+
+<br />
+
+**Clearing Message Element**
+
+- PDS 0002 (GCMS Product Identifier)
+- Derived from DE 2 (Primary Account Number[PAN])
+
+<br />
+
+**Criteria/Description**
+
+Transaction Type
+
+The transaction types for which the IRD is valid. GCMS validates the combination of MTI, Function Code, Processing Code, and Reversal Indicator to help ensure the transaction is valid for the IRD.
+
+The DE 3 criteria refers to DE 3, subfield 1(Cardholder Transaction Type). Unless otherwise stated, DE 3 subfields 2 and 3, (Cardholder From Account and Cardholder To Account) must
+contain zeros.
+
+Unless otherwise stated it is assumed that both
+originals and reversals are permitted.
+
+<br />
+
+**Clearing Message Element**
+
+Transaction Function
+- Transaction Function (MTI + DE 24 [Function Code])
+- DE 3 (Processing Code)
+- PDS 0025 (Message Reversal Indicator), subfield 1 (Message Reversal Indicator)
+
+<br />
+
+**Criteria/Description**
+
+Card Acceptor Business (CAB) Program
+
+<br />
+
+**Clearing Message Element**
+
+DE 26 (Card Acceptor Business Code [MCC])
+
+<br />
+
+**Criteria/Description**
+
+Timeliness
+
+<br />
+
+**Clearing Message Element**
+
+- DE 12 (Date and Time, Local Transaction)
+- PDS 0105 (File ID), subfield 2 (File Reference Date)
+- PDS 0158 (Business Activity), subfield 4(Interchange Rate Designator)
+
+<br />
+
+**Criteria/Description**
+
+Approval Code
+
+<br />
+
+**Clearing Message Element**
+
+DE 38 (Approval Code)
+
+<br />
+
+**Criteria/Description**
+
+Trace ID
+
+<br />
+
+**Clearing Message Element**
+
+DE 63 (Transaction Life Cycle ID), subfield 2 (Trace ID) consisting of the Banknet Reference Number(nine positions) followed by the Banknet Date(four positions in the format MMDD)
+
+<br />
+
+**Criteria/Description**
+
+Point of Service Data Code
+
+<br />
+
+**Clearing Message Element**
+
+DE 22 (Point of Service Data Code)
+
+<br />
+
+**Criteria/Description**
+
+Card Acceptor Business Code (MCC)
+
+<br />
+
+**Clearing Message Element**
+
+DE 26 (Card Acceptor Business Code)
+
+<br />
+
+**Criteria/Description**
+
+Amount Tolerance
+
+<br />
+
+**Clearing Message Element**
+
+DE 4 (Amount, Transaction)
+
+<br />
+
+**Criteria/Description**
+
+Service Code
+
+<br />
+
+**Clearing Message Element**
+
+DE 40 (Service Code)
+
+<br />
+
+**Criteria/Description**
+
+Card Acceptor ID Code
+
+<br />
+
+DE 42 (Card Acceptor ID Code)
+
+<br />
+
+**Criteria/Description**
+
+- Card Acceptor Name
+- Card Acceptor Street Address
+- Card Acceptor City
+- Card Acceptor Postal (ZIP) Code
+- Card Acceptor State, Province, or Region Code
+- Card Acceptor Country Code
+
+<br />
+
+**Clearing Message Element**
+
+DE 43
+
+<br />
+
+**Criteria/Description**
+
+Mastercard Assigned ID
+
+<br />
+
+PDS 0176 (Mastercard Assigned ID)
+
+<br />
+
+**Criteria/Description**
+
+Financial Detail Addendum/1644
+
+<br />
+
+**Clearing Message Element**
+
+Various elements within the Financial Detail Addendum/1644, and, when applicable, the associated First Presentment/1240
+
+<br />
+
+
+
+
