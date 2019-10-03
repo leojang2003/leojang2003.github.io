@@ -43,6 +43,7 @@ tags: master-card
 註 : 75 為常見的報送的 IRD
 
 <br />
+
 **Mastercard Interregional Commercial Rates** 
 
 | IRD | Program Name        | Rate (USD)           |
@@ -55,3 +56,10 @@ tags: master-card
 | IRD 67 | Interregional Commercial Purchasing Data Rate II | 1.70% + 0.00 |
 | IRD IP | Interregional Commercial Premium Standard | 2.00% + 0.00 |
 | IRD MS | Interregional Mastercard MoneySend Payment | 0.00% + 0.00 |
+
+<br />
+
+**Mastercard Electronic Consumer Interregional Rate**
+| IRD | Program Name        | Rate (USD)           |
+| ------------- |:-------------:|:-------------:|
+| IRD 74 | Interregional Mastercard Electronic Card Consumer | 1.10% + 0.00 |
