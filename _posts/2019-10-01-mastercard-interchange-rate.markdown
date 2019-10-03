@@ -88,3 +88,8 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 <br />
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
