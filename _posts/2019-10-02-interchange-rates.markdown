@@ -38,3 +38,8 @@ tags: master-card
 | IRD 75, 85, 95|Interregional Consumer Standard |1.60% + 0.00      |
 | IRD 79|Interregional Consumer Full UCAF |1.54% + 0.00      |
 | IRD MS|Interregional Mastercard MoneySend Payment |0.00% + 0.00      |
+
+<br />
+註 : 75 為常見的報送的 IRD
+
+<br />
