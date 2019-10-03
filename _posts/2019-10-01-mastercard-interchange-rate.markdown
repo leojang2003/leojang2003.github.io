@@ -98,6 +98,14 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 <br />
 
+> Certain transaction criteria determine the interchange program for which a transaction may
+qualify. The following criteria qualify transactions for interchange programs.
+
+特定交易準則會決定該交易適用的 interchange program，以下為 interchange program 會參考的準則
+
+<br />
+<br />
+
 **Criteria/Description**
 
 Card Program Identifier
@@ -123,6 +131,7 @@ If not submitted in the message, GCMS derives this value from:
 如果 Card Program Identifier 沒帶值，則從 DE 2 或 DE 93 取得
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -138,6 +147,7 @@ The set includes all account range products currently being masked under the spe
 - PDS 0002 (GCMS Product Identifier)
 - Derived from DE 2 (Primary Account Number[PAN])
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -162,6 +172,7 @@ Transaction Function
 - PDS 0025 (Message Reversal Indicator), subfield 1 (Message Reversal Indicator)
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -173,6 +184,7 @@ Card Acceptor Business (CAB) Program
 
 DE 26 (Card Acceptor Business Code [MCC])
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -188,6 +200,7 @@ Timeliness
 - PDS 0158 (Business Activity), subfield 4(Interchange Rate Designator)
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -199,6 +212,7 @@ Approval Code
 
 DE 38 (Approval Code)
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -212,6 +226,7 @@ Trace ID
 DE 63 (Transaction Life Cycle ID), subfield 2 (Trace ID) consisting of the Banknet Reference Number(nine positions) followed by the Banknet Date(four positions in the format MMDD)
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -223,6 +238,7 @@ Point of Service Data Code
 
 DE 22 (Point of Service Data Code)
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -236,6 +252,7 @@ Card Acceptor Business Code (MCC)
 DE 26 (Card Acceptor Business Code)
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -247,6 +264,7 @@ Amount Tolerance
 
 DE 4 (Amount, Transaction)
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -260,6 +278,7 @@ Service Code
 DE 40 (Service Code)
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -269,6 +288,7 @@ Card Acceptor ID Code
 
 DE 42 (Card Acceptor ID Code)
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -287,6 +307,7 @@ DE 42 (Card Acceptor ID Code)
 DE 43
 
 <br />
+<br />
 
 **Criteria/Description**
 
@@ -296,6 +317,7 @@ Mastercard Assigned ID
 
 PDS 0176 (Mastercard Assigned ID)
 
+<br />
 <br />
 
 **Criteria/Description**
@@ -308,7 +330,7 @@ Financial Detail Addendum/1644
 
 Various elements within the Financial Detail Addendum/1644, and, when applicable, the associated First Presentment/1240
 
-<br />
+
 
 
 
