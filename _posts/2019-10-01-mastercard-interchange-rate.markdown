@@ -108,7 +108,7 @@ qualify. The following criteria qualify transactions for interchange programs.
 
 **Criteria/Description**
 
-Card Program Identifier
+_Card Program Identifier_
 
 The set of card program identifiers for which the interchange rate designator (IRD) is valid. Values include, but are not limited to:
 - DMC—Debit Mastercard
@@ -133,7 +133,7 @@ If not submitted in the message, GCMS derives this value from:
 
 **Criteria/Description**
 
-GCMS Product Identifier
+_GCMS Product Identifier_
 
 The set of clearing product identifiers for the IRD.
 The set includes all account range products currently being masked under the specific GCMS Product Identifier.
@@ -148,7 +148,7 @@ The set includes all account range products currently being masked under the spe
 
 **Criteria/Description**
 
-Transaction Type
+_Transaction Type_
 
 The transaction types for which the IRD is valid. GCMS validates the combination of MTI, Function Code, Processing Code, and Reversal Indicator to help ensure the transaction is valid for the IRD.
 
@@ -170,7 +170,7 @@ Transaction Function
 
 **Criteria/Description**
 
-Card Acceptor Business (CAB) Program
+_Card Acceptor Business (CAB) Program_
 
 **Clearing Message Element**
 
@@ -181,7 +181,7 @@ DE 26 (Card Acceptor Business Code [MCC])
 
 **Criteria/Description**
 
-Timeliness
+_Timeliness_
 
 **Clearing Message Element**
 
@@ -194,7 +194,7 @@ Timeliness
 
 **Criteria/Description**
 
-Approval Code
+_Approval Code_
 
 **Clearing Message Element**
 
@@ -205,7 +205,7 @@ DE 38 (Approval Code)
 
 **Criteria/Description**
 
-Trace ID
+_Trace ID_
 
 **Clearing Message Element**
 
@@ -216,7 +216,7 @@ DE 63 (Transaction Life Cycle ID), subfield 2 (Trace ID) consisting of the Bankn
 
 **Criteria/Description**
 
-Point of Service Data Code
+_Point of Service Data Code_
 
 **Clearing Message Element**
 
@@ -227,7 +227,7 @@ DE 22 (Point of Service Data Code)
 
 **Criteria/Description**
 
-Card Acceptor Business Code (MCC)
+_Card Acceptor Business Code (MCC)_
 
 **Clearing Message Element**
 
@@ -238,7 +238,7 @@ DE 26 (Card Acceptor Business Code)
 
 **Criteria/Description**
 
-Amount Tolerance
+_Amount Tolerance_
 
 **Clearing Message Element**
 
@@ -249,7 +249,7 @@ DE 4 (Amount, Transaction)
 
 **Criteria/Description**
 
-Service Code
+_Service Code_
 
 **Clearing Message Element**
 
@@ -260,7 +260,7 @@ DE 40 (Service Code)
 
 **Criteria/Description**
 
-Card Acceptor ID Code
+_Card Acceptor ID Code_
 
 **Clearing Message Element**
 
@@ -271,12 +271,12 @@ DE 42 (Card Acceptor ID Code)
 
 **Criteria/Description**
 
-- Card Acceptor Name
-- Card Acceptor Street Address
-- Card Acceptor City
-- Card Acceptor Postal (ZIP) Code
-- Card Acceptor State, Province, or Region Code
-- Card Acceptor Country Code
+- _Card Acceptor Name_
+- _Card Acceptor Street Address_
+- _Card Acceptor City_
+- _Card Acceptor Postal (ZIP) Code_
+- _Card Acceptor State, Province, or Region Code_
+- _Card Acceptor Country Code_
 
 **Clearing Message Element**
 
@@ -287,7 +287,7 @@ DE 43
 
 **Criteria/Description**
 
-Mastercard Assigned ID
+_Mastercard Assigned ID_
 
 **Clearing Message Element**
 
@@ -298,7 +298,7 @@ PDS 0176 (Mastercard Assigned ID)
 
 **Criteria/Description**
 
-Financial Detail Addendum/1644
+_Financial Detail Addendum/1644_
 
 **Clearing Message Element**
 
