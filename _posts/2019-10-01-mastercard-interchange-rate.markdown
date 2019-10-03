@@ -1,10 +1,16 @@
 ---
 layout: post
-title:  "MasterCard"
-date:   2019-10-01 16:46:00 +0800
-categories: MasterCard
+title:  "Interchange Concepts"
+date:   2019-10-02 11:45:00 +0800
+categories: MasterCard, Interchange
 tags: master-card
 ---
+
+此文章來源為 Interchange Manual 的 Chapter 1
+
+<br />
+
+#### 名詞解釋
 
 interchange rate = 發卡行回佣，國內來說為 1.55%
 
