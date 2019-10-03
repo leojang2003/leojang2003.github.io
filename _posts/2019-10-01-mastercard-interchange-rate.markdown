@@ -90,7 +90,9 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 #### Interchange Program Qualifying Criteria
 
-##### Criteria/Description
+<br />
+
+**Criteria/Description**
 
 Card Program Identifier
 
@@ -102,8 +104,9 @@ The set of card program identifiers for which the interchange rate designator (I
 
 Card Program Identifiers 包含 DMC,DMC, MSI, PVL
 
+<br />
 
-##### Clearing Message Element
+**Clearing Message Element**
 
 PDS 0158 (Business Activity), subfield 1 (Card Program Identifier) 
 
