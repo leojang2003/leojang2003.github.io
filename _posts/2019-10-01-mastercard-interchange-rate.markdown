@@ -90,20 +90,20 @@ GCMS 決定交易適用的交換程式 ( Interchange programs ) 會參考 Card P
 
 #### Interchange Program Qualifying Criteria
 
-| Criteria/Description        | Clearing Message Element           | Cool  |
-| --------------------------- |:----------------------------------:| -----:|
-| Card Program Identifier  The set of card program identifiers for which the interchange rate designator (IRD) is valid. Values include, but are not limited to: 
+##### Criteria/Description
+
+Card Program Identifier
+
+The set of card program identifiers for which the interchange rate designator (IRD) is valid. Values include, but are not limited to:
 - DMC—Debit Mastercard
 - MCC—Mastercard Credit
 - MSI—Maestro
-- PVL—Private label   | 
-PDS 0158 (Business Activity), subfield 1 (Card
-Program Identifier)
-If not submitted in the message, GCMS derives
-this value from:
+- PVL—Private label
+
+##### Clearing Message Element
+
+PDS 0158 (Business Activity), subfield 1 (Card Program Identifier) 
+
+If not submitted in the message, GCMS derives this value from:
 - DE 2 (Primary Account Number [PAN]), or
-- DE 93 (Transaction Receiver Institution ID
-Code) when DE 2 is not present in the
-message (Fee Collections/1740 [Other] only)|
-| col 2 is      | centered      |
-| zebra stripes | are neat      |
+- DE 93 (Transaction Receiver Institution ID Code) when DE 2 is not present in the message (Fee Collections/1740 [Other] only)
