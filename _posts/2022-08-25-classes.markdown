@@ -1,7 +1,7 @@
-{:note}
+{: .note}
 筆記: 這裡所說的 name 這個字，泛指的是所有可以指派名稱的程式物件，包含 variable、constant、function、class、或其他任何可以 assign name 的物件
 
-{:note}
+{:.note}
 注意: dot notation . 後面接的東西，在這裡都稱為 attribute，如 z.real() 表示 real 是 z 物件的 attribute
 
 物件是執行時(runtime)才會建立，建立之後是可以修改的，另外
