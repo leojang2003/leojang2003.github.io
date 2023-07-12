@@ -1,0 +1,20 @@
+
+script 名稱之後的其他參數，將轉換為一個 string 的 list 指派給 sys module 的 argv 變數
+
+{% highlight Python %}
+
+# 執行指令如下，傳入參數 p1 與 p2
+py sample.py p1 p2 
+
+# 檔案內容如下
+import sys
+print(argv[0]); # argv[0] 的值為 sample.py
+print(argv[1]); # argv[1] 的值為 p1
+print(argv[2]); # argv[2] 的值為 p2
+
+{% endhighlight %}
+
+Python 原始檔預設以 UTF-8 編碼，變更編碼在檔案開頭新增
+{% highlight Python %}
+# -*- coding: cp1252 -*-
+{% endhighlight %}

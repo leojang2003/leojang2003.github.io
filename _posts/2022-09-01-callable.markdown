@@ -1,0 +1,480 @@
+## Python Callable Types
+
+{:note}
+名詞定義: function : 函式 / method : 方法
+
+Python 有內建許多的 type，其中一種是 Callable Types，Callable 物件包含
+
+使用者定義的函式 		user-defined functions 
+內建函式				built-in functions
+內建物件的方法			methods of built-in objects
+物件					class objects
+物件的函式				methods of class instances
+有實作__call__()的物件  all objects having a __call__() method are callable
+
+## 使用者定義的函式
+
+有以下特殊的 attributes
+
+__doc__
+函式的 doc string，沒有回傳 None; 子類別不繼承 / 可覆寫
+
+__name__
+函式的名稱 / 可覆寫
+
+__qualname__
+函式的 qualified 名稱，使用於 Python 3.3 之後 / 可覆寫
+
+__module__
+函式所在的 module 名稱，沒有回傳 None / 可覆寫
+
+__defaults__
+Tuple 包含參數的預設值，如果參數有預設值的話 / 可覆寫
+
+__code__
+檢視 function 的參數與 name / 可覆寫
+
+__globals__
+
+只像一個 dictionary 包含函式的 global variables / 唯讀
+
+__dict__
+The namespace 支援任意 function attributes 的 namespace / 可覆寫
+
+__closure__
+
+None 或是 tuple 包含函式的 free variables 的綁定 / 唯讀
+
+__annotations__
+
+dict 包含參數的 annotation，鍵值是參數名稱，'return' for the return annotation, if provided. / 可覆寫
+
+__kwdefaults__
+
+dict 包含 keyword-only 參數的預設值 / 可覆寫
+
+
+## 物件方法 Instance methods
+
+實例方法用結合 class、一個 class instance 與其他任何 callable 物件 (通常為使用者定義函式)
+
+__self__ 	是 class instance 物件
+__func__ 	是 function 物件
+__doc__ 	是 method 的文件(等同 __func__.__doc__)
+__name__ 	是 method 名稱(等同 __func__.__name__)
+__module__ 	是 method 所在的 module 名稱 / 沒有回傳 None
+
+在透過 instance 取得 attribute 時，如果該 attribute 是 user-defined function 物件或是 class method 物件，則會建立 User-defined method 物件
+
+method 支援讀取任意屬性的屬性，不可設定(補充說明 : 下面章節會說，自訂函式可透過 __dict__ 新增/讀取任意屬性)
+
+當我們讀 class 的屬性時，會建立一個 User-defined method object，如果該屬性是 user-defined function object 或是 class method object
+
+When an instance method object is created by retrieving a user-defined function object from a class via one of its instances, its __self__ attribute is the instance, and the method object is said to be bound. The new method’s __func__ attribute is the original function object.
+
+當我們因從 class 的 instance 取得 user-defined function object 時，一個 instance method object 會建立，他的 __self__ 屬性就是該 instance，而 method 物件會綁定，新 method 的 __func__ 屬性即是原本的 function 物件
+
+When an instance method object is created by retrieving a class method object from a class or instance, its __self__ attribute is the class itself, and its __func__ attribute is the function object underlying the class method.
+
+當我們因從 class 的 instance 取得 class method object 時，一個 instance method object 會建立，他的 __self__ 屬性就是該 class，其 __func__ 屬性為 class method 下的 function 物件
+
+When an instance method object is called, the underlying function (__func__) is called, inserting the class instance (__self__) in front of the argument list. For instance, when C is a class which contains a definition for a function f(), and x is an instance of C, calling x.f(1) is equivalent to calling C.f(x, 1).
+
+當呼叫 instance method object 時，會呼叫底下的 function (__func__)，將 class instance (__self__) 塞入參數 list 中，舉例來說，C有一個函式 f()，x 為 C 的 instance，呼叫 x.f(1) 等同呼叫 C.f(x,1)
+
+When an instance method object is derived from a class method object, the “class instance” stored in __self__ will actually be the class itself, so that calling either x.f(1) or C.f(1) is equivalent to calling f(C,1) where f is the underlying function.
+
+當一個 instance method object 從 class method object 衍生出，儲存在 __self__ 裡的 class instance 實際上會是 class 本身，所以不管是呼叫 x.f(1) 還是 C.f(1) 都等同於呼叫 f(C,1)
+
+Note that the transformation from function object to instance method object happens each time the attribute is retrieved from the instance. In some cases, a fruitful optimization is to assign the attribute to a local variable and call that local variable. Also notice that this transformation only happens for user-defined functions; other callable objects (and all non-callable objects) are retrieved without transformation. It is also important to note that user-defined functions which are attributes of a class instance are not converted to bound methods; this only happens when the function is an attribute of the class.
+
+{% highlight Python %}
+import types
+
+def udfunc():
+    print('udfunc called')
+
+class Person:
+
+    def __init__(self):
+        pass
+
+    def objmethod(self):
+        '''objmethod description'''
+        print('obj method called')
+
+    def objmethod2(self):
+        '''objmethod2 description'''
+        print('object method 2 called')
+
+    # 這是 class method
+    @classmethod
+    def clsmethod(self):
+        print('class method called')
+
+print('測試一般 function')
+u1 = udfunc
+print(type(u1))                                 # <class 'function'>
+# print(u1.__func__)                              # 'function' object has no attribute '__func__'
+
+print('測試 class 的 method')
+f1 = Person().objmethod
+print(type(f1)) # <class 'method'>
+print(f1)   # <bound method Person.objmethod of <__main__.Person object at ...>>
+print(isinstance(f1, types.MethodType))         # True
+print(f1.__func__)                              # <function Person.objmethod at 0x000002D8D9B555A0>
+print(f1.__func__(f1.__self__))                 # obj method called
+print(dir(f1))
+# ['__call__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__func__', '__ge__', '__get__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__self__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+#
+
+print(' .... ')
+
+f2 = Person.objmethod
+print(type(f2)) # <class 'function'>
+print(f2)   # <function Person.objmethod at ...>
+print(isinstance(f2, types.FunctionType))       # True
+print(dir(f2))
+# ['__annotations__', '__builtins__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__globals__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__', '__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+
+
+print(' 測試 class 的 class method ')
+f3 = Person().clsmethod
+print(type(f3))                                 # <class 'method'>
+print(f3)   # <bound method Person.clsmethod of <class '__main__.Person'>>
+print(isinstance(f3, types.MethodType))         # True
+print(f3.__func__)                              # <function Person.clsmethod at ...>
+print(f3.__func__(f3.__self__))                 # class method called
+print(dir(f3))
+# ['__call__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__func__', '__ge__', '__get__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__self__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
+
+print(' f4 ... ')
+
+f4 = Person.clsmethod
+print(type(f4))                                 # <class 'method'>
+print(f4)   # <bound method Person.clsmethod of <class '__main__.Person'>>
+print(isinstance(f4, types.MethodType))         # True
+print(f4.__func__)                              # <function Person.clsmethod at ...>
+print(f4.__func__(f4.__self__))                 # class method called
+print(dir(f4))
+print('end f4 ...')
+{% endhighlight %}
+
+
+https://stackoverflow.com/questions/38573353/terminology-a-user-defined-function-object-attribute
+
+
+
+## 特殊屬性 __doc__ 
+
+{% highlight Python %}
+author = 'Mike'
+
+def test_func():
+	'''
+	this is description of test_func
+	'''
+	
+print(test_func.__doc__)
+# this is description of test_func
+
+# 屬性可覆寫
+test_func.__doc__ = 'new description for func'
+
+print(test_func.__doc__)
+# new description for func
+# 變成新的 doc string 了
+{% endhighlight %}
+
+
+## 特殊屬性 __name__ 
+
+{% highlight Python %}
+def test_func():
+	pass
+
+print(test_func.__name__)
+# test_func
+
+# 可覆寫
+test_func.__name__ = 'test_func_v2'
+
+print(test_func.__name__)
+# test_func_v2
+{% endhighlight %}
+
+
+## 特殊屬性 __qualname__ 
+
+{% highlight Python %}
+def test_func():
+	pass
+
+print(test_func.__qualname__)
+# test_func
+
+# 可覆寫
+test_func.__qualname__ = 'test_func_qual'
+
+print(test_func.__qualname__)
+# test_func_qual
+{% endhighlight %}
+
+
+## 特殊屬性 __module__ 
+
+{% highlight Python %}
+def test_func():
+	pass
+
+print(test_func.__module__)
+# __main__
+
+# 可覆寫
+test_func.__module__ = 'mike_module'
+
+print(test_func.__module__)
+# mike_module
+{% endhighlight %}
+
+
+## 特殊屬性 __defaults__ 
+
+{% highlight Python %}
+def test_func(user='empty', modal='Toyota', year='1911', **kwargs):
+	print('user', user, 'drives', modal, 'of', year)	
+	for args in kwargs:
+		print('kwargs', args)
+	pass
+
+print(test_func.__defaults__)
+# ('empty', 'Toyota', '1911')
+
+# 可覆寫
+test_func.__defaults__ = ('Jane Dole', 'Tesla', '2022')
+
+print(test_func.__defaults__)
+# ('Jane Dole', 'Tesla', '2022')
+
+test_func()
+# user Jane Dole drives Tesla of 2022
+
+# 如果覆寫不完整，從後面的預設值開始覆寫起
+test_func.__defaults__ = ('Ford', '1996')
+test_func('Tim')
+# user Tim drives Ford of 1996
+{% endhighlight %}
+
+
+## 特殊屬性 __code__  (唯獨)
+
+{% highlight Python %}
+location = 'Dallas'
+state = 'TX'
+
+def test_func(user='empty', modal='Toyota', year='1911', **kwargs):
+	location
+	state
+	country = 'US'
+	print('user', user, 'drives', modal, 'of', year)	
+	for args in kwargs:
+		print('kwargs', args)
+	pass
+
+# 以下屬性都是唯獨
+print(test_func.__code__.co_argcount) 
+# 3 
+
+print(test_func.__code__.co_code) 
+# ...
+
+print(test_func.__code__.co_consts) 
+# (None, 'US', 'user', 'drives', 'of', 'kwargs')
+
+print(test_func.__code__.co_filename) 
+# D:\mod4.py
+ 
+print(test_func.__code__.co_firstlineno) 
+# 4
+
+print(test_func.__code__.co_flags) 
+# 75 
+
+print(test_func.__code__.co_freevars)
+# ()
+
+print(test_func.__code__.co_name) 
+# test_func
+
+print(test_func.__code__.co_names) 
+# ('location', 'state', 'print')
+
+print(test_func.__code__.co_nlocals) 
+# 6
+
+print(test_func.__code__.co_posonlyargcount) 
+# 0
+
+print(test_func.__code__.co_stacksize) 
+# 7 
+
+print(test_func.__code__.co_varnames) 
+# ('user', 'modal', 'year', 'kwargs', 'country', 'args')
+{% endhighlight %}
+
+
+## 特殊屬性 __globals__ (唯獨) 
+
+{% highlight Python %}
+location = 'Dallas'
+state = 'TX'
+
+def test_func(user='empty', modal='Toyota', year='1911', **kwargs):
+	location
+	state
+	country = 'US'
+	print('user', user, 'drives', modal, 'of', year)	
+	for args in kwargs:
+		print('kwargs', args)
+	pass
+
+# 兩者相同
+print(test_func.__globals__.keys())
+# dict_keys(['__name__', ..., 'location', 'state', 'test_func'])
+print(globals().keys()) 
+# dict_keys(['__name__', ..., 'location', 'state', 'test_func'])
+{% endhighlight %}
+
+
+## 特殊屬性 __dict__ 
+
+{% highlight Python %}
+location = 'Dallas'
+state = 'TX'
+
+def test_func(user='empty', modal='Toyota', year='1911', **kwargs):
+	location
+	state
+	country = 'US'
+	print('user', user, 'drives', modal, 'of', year)	
+	for args in kwargs:
+		print('kwargs', args)
+	pass
+
+def log():
+	print('log called...')
+	pass
+	
+# 幫 test_func 新增屬性
+test_func.execute_time = '2022-09-02'
+test_func.aux = log
+
+print(test_func.__dict__)
+# {'execute_time': '2022-09-02', 'aux': <function log at 0x0000016D0A1FACB0>}
+
+# 可覆寫
+test_func.__dict__['execute_time'] = '2022-09-03'
+del test_func.__dict__['aux']
+print(test_func.__dict__)
+# {'execute_time': '2022-09-03'}
+{% endhighlight %}
+
+
+## 特殊屬性 __closure____  (唯獨) 
+
+{% highlight Python %}
+def test_func(distance:'int'=40, user:'str'='tbd', *, type='train'):		
+	
+	def inner():		
+		print(user, 'travel by', type)		
+	
+	return inner
+
+# closure 有兩個自由變數 user, type
+# 注意 cell_contents 的順序與參數定義的順序相反
+	
+print(test_func().__closure__[0])
+# <cell at ...: str object at ...>
+print(test_func().__closure__[0].cell_contents)
+# train
+
+print(test_func().__closure__[1])
+# <cell at ...: str object at ...>
+print(test_func().__closure__[1].cell_contents)
+# tdb
+
+print(test_func().__closure__[2])
+# closure 只有兩個 free variable
+# tuple index out of range
+{% endhighlight %}
+
+
+## 特殊屬性 __annotation____ 
+
+{% highlight Python %}
+class A:
+	
+	def __init__(self):
+		pass
+		
+	def a_run(self, distance):
+		print(distance)
+
+# print(A.__annotations__)
+
+def wrap(obj):
+	return str.title(obj)
+	
+print(dir(__builtins__))
+
+def test_func(distance:abs(-40), user:wrap('jane dole')='tbd', *, type='train') -> A:		
+	
+	def inner():		
+		print(user, 'travel by', type)		
+	
+	return inner
+
+print(test_func.__annotations__)
+# {'distance': 40, 'user': 'Jane Dole', 'return': <class '__main__.A'>}
+
+# 修改 annotation
+test_func.__annotations__['distance'] = str
+
+print(test_func.__annotations__)
+# {'distance': <class 'str'>, 'user': 'Jane Dole', 'return': <class '__main__.A'>}
+{% endhighlight %}
+
+
+## 特殊屬性 __kwdefaults__ 
+
+{% highlight Python %}
+def test_func(distance:int, user:str.title('jane dole')='tbd', *, type='train', **kwargs) -> str:	
+	
+	result = ''
+			
+	result = result + ' distance = ' + str(distance)
+	result = result + ' user = ' + user
+	result = result + ' type = ' + type	
+		
+	return result
+
+print(test_func.__kwdefaults__)
+# {'type': 'train'}
+
+print(test_func(15))
+#  distance = 15 user = tbd type = train
+
+# 修改 annotation
+test_func.__kwdefaults__['type'] = 'airplane'
+test_func.__kwdefaults__['count'] = 60
+
+print(test_func.__kwdefaults__)
+# {'type': 'airplane', 'count': 60}
+# 多了一個 count，但沒用到
+
+print(test_func(15))
+# distance = 15 user = tbd type = airplane
+{% endhighlight %}
+ 
+
+

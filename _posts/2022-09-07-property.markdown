@@ -1,0 +1,579 @@
+{% highlight Python %}
+{% endhighlight %} 
+
+{:note}
+managed attribute = property
+
+使用 Python 的 property()，我們可以在 class 建立 managed attributes，managed attributes 也就是所謂的 properties，用於在不會破壞 public API 下，可以變更內部實作方式，舉例來說使用者讀取 A.p 這裡的 p 就是 public API 給外界讀取，我們可以變更 property p 的實作方式，而使用者呼叫 p 的方式保持不變
+
+Properties 是建立 managed attributes 最受歡迎的方式
+
+## 簡單的 get/set (非 Pythonic)
+
+{% highlight Python %}
+class Point:
+    def __init__(self, x, y):
+        self._x = x
+        self._y = y
+
+    def get_x(self):
+        return self._x
+
+    def set_x(self, value):
+        self._x = value
+
+    def get_y(self):
+        return self._y
+
+    def set_y(self, value):
+        self._y = value
+p = Point(20,30)      
+print(p._x) # 20 # 還是可以存取 _ 開頭的變數
+{% endhighlight %}  
+
+{:note}
+Python 沒有所謂的 private，只能在命名時加註底線，但該 attribute 還是可存取的
+
+
+## Pythonic 的 get/set
+
+因為上述的 getter/setter 並沒有對 _x/_y 做特別的處理，比較 Pythonic 的方式如下
+
+{% highlight Python %}
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+
+point = Point(12, 5)
+print(point.x) 
+print(point.y)
+
+point.x = 42
+print(point.x)
+{% endhighlight %} 
+
+{:note}
+上述程式顯示了一個 Python 的基本概念，也就是曝露 attributes 給 end user 在 Python 是相當正常且普遍的。我們不需要使用 getter/setter 來包裹類別，但我們要怎麼處理需求牽涉到 API 變更?
+
+解答: 將 attribute 轉為 property (另一種方式為使用 descriptor)
+
+Properties 像是介於一般 attribute 與 method 之間，舉例來說我們可將 .x and .y 變成 properties， 之後我可以像 attribute 的方式去存取他們，檯面下我們也會有 method 持有(hold) .x and .y ，這 method 讓我們可以修改 propertie 內部的實作方式
+
+{:note}
+Property 非 Python 獨有，JavaScript, C#, Kotlin 也有類似的
+
+Python properties 的主要優點在於，讓我們得以用 public API 的方式揭露 attributes。當我們需要變更底下的實作時，我們只需要將 attribute 改為 property 即可輕易修改
+
+
+## property() 簡介
+
+嚴格算起來，property 是一個類別，但設計成 function 的用法，所以 Python 開發人員會稱 property 為 function，這也是 property 不像其他 class 是大寫開頭的 
+
+使用 property()，我們可以將 getter/setter method 附加到 class 的 attribute。這樣，我們可以處理 attribute 內部的實作而不會曝露 getter/setter method 
+
+以下是 property 的規格，property(fget=None, fset=None, fdel=None, doc=None)
+前兩個參數接受 function object 做為 getter (fget) 與 setter (fset) method
+
+fget	Function 用於回傳 managed attribute 的 value
+fset	Function 用於設定 managed attribute 的 value 
+fdel	Function 定義 managed attribute 如何處理刪除
+doc	    property 的 docstring
+
+property() 回傳 managed attribute 本身。 如果我們存取 managed attribute，如 obj.attr，Python 會自動呼叫 fget()。如果我們指派值給 attribute，如 obj.attr = value，Python 會呼叫 fset() 並將值傳入參數，如果我們執行 del obj.attr，則 Python 會呼叫 fdel()，有設定 doc 的話，使用 help() 可以顯示 docstring 的內容
+
+{:note}
+property() 的前三個參數為 function 物件，我們可以將 function 物件想像成沒有()的 function
+
+我們可以將 property() 使用成 function 或 decorator，decorator 是較為常見的作法
+
+
+## 使用 property() 建立 attributes
+
+{% highlight Python %}
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+
+    def _get_radius(self):
+        print("Get radius")
+        return self._radius
+
+    def _set_radius(self, value):
+        print("Set radius")
+        self._radius = value
+
+    def _del_radius(self):
+        print("Delete radius")
+        del self._radius
+    
+    radius = property(
+        fget=_get_radius,
+        fset=_set_radius,
+        fdel=_del_radius,
+        doc="The radius property." # help()時可以顯示
+    )
+
+circle = Circle(42.0)
+print(circle.radius)
+
+circle.radius = 100.0
+{% endhighlight %} 
+
+{:note}
+上述程式中，radius 是一個 class attribute 存放 property 物件
+
+.radius property 隱藏非公開的 instance attribute ._radius，而 ._radius 即是 managed attribute，我們可以直接存取 .radius，內部 Python 會視情況自動呼叫 ._get_radius() 與 ._set_radius()
+
+{:note}
+._radius 是 non-public 的 instance attribute
+
+Properties 為 class attributes 用於管理 instance attributes，我們可以把 property 想成 method 集合再一起
+
+{% highlight Python %}
+Circle.radius.fget
+<function Circle._get_radius at ...>
+
+Circle.radius.fset
+<function Circle._set_radius at ...>
+
+Circle.radius.fdel
+<function Circle._del_radius at ...>
+
+dir(Circle.radius)
+# [..., '__get__', ..., '__set__', ...]
+
+c = Circle(20)
+Circle.radius.__set__(c, 60)
+Circle.radius.__get__(c)
+{% endhighlight %}
+
+Properties 也會覆寫 descriptors. 如果我們用 dir() 檢查 property 的內部 member，我們會發現 .__set__() 與 .__get__() 會在 list 中。這些 methods 提供 descriptor protocol 的預設實作
+
+當我們沒有提供自訂的 setter method 時，預設的 __set__() 會執行，此時我們會收到一個 AttributeError 因為程式不知道如何設定 property，說明如下
+
+假設我們沒有實作 setter()
+{% highlight Python %}
+# 檔案 pyproperty.py
+class Property:
+    "Emulate PyProperty_Type() in Objects/descrobject.c"
+
+    def __init__(self, fget=None, fset=None, fdel=None, doc=None):
+        print('Property __init__', fget)
+        self.fget = fget
+        self.fset = fset
+        self.fdel = fdel
+        if doc is None and fget is not None:
+            doc = fget.__doc__
+        self.__doc__ = doc
+        self._name = ''
+
+    def __set_name__(self, owner, name):
+        print('__set_name__', name)
+        self._name = name
+
+    def __get__(self, obj, objtype=None):
+        print('__get__')
+        if obj is None:
+            return self
+        if self.fget is None:
+            raise AttributeError(f'unreadable attribute {self._name}')
+        return self.fget(obj)
+
+    def __set__(self, obj, value):
+        print('__set__')
+        if self.fset is None:
+            raise AttributeError(f"can't set attribute {self._name}")
+        self.fset(obj, value)
+{% endhighlight %}
+        
+        
+{% highlight Python %}        
+# 檔案 test.py
+import pyproperty
+
+class Circle:
+    def __init__(self, radius):
+        print('呼叫 Circle 的 __init__', radius)
+        self._radius = radius
+
+    @pyproperty.Property
+    def radius(self):
+        """The radius property."""
+        print("呼叫 Circle 的 radius")
+        return self._radius
+{% endhighlight %}
+
+        
+在還沒有初始化物件前，執行 test.py 後，顯示結果如下
+{% highlight Python %}
+# 呼叫 Property 的 __init__ fget  <function Circle.radius at 0x0000017D3243B2E0>
+# __set_name__ radius
+{% endhighlight %}
+因為 @property 的語法，等同於 radius = pyproperty.Property(radius)，所以會執行 Property 類別的 __init__ method，pyproperty.Property(radius) 會回傳 pyproperty.Property 物件，此時 Circle 就有一個名為 radius 的 pyproperty.Property 物件
+
+假設我們初始化 Circle 並存取 _radius
+
+{% highlight Python %}
+c2 = Circle(607.0)
+print('c2._radius=', c2._radius, 'id=', id(c2._radius))
+
+# 呼叫 Circle 的 __init__ 607.0
+# c2._radius= 607.0 id= 2525236677200
+{% endhighlight %}
+
+假設我們要讀 property，則我們可以看到 c2.radius 會呼叫 Property 的 __get__，然後呼叫 fget
+
+{% highlight Python %}
+print('c2.radius=', c2.radius)
+
+# __get__
+# 呼叫 Circle 的 radius
+# c2.radius= 607.0 id= 2525236677200
+{% endhighlight %}
+
+如果我們在 Circle 新增 setter 方法，可以看到 setter 方法回會傳一個新的 Property 物件，我們可以看到前後的物件的位址是不一樣的，這裡我們將呼叫 setter 前的 radius 指派給 g
+
+{% highlight Python %}        
+# 檔案 test2.py
+import pyproperty
+
+class Circle:
+    def __init__(self, radius):
+        print('呼叫 Circle 的 __init__', radius)
+        self._radius = radius
+
+    @pyproperty.Property
+    def radius(self):
+        """The radius property."""
+        print("呼叫 Circle 的 radius")
+        return self._radius
+    
+    # 我們這裡將 radius 放到 g
+    g = radius
+    
+    print('radius before setter=', radius)
+    print('g before setter     =', g)
+    
+    @radius.setter
+    def radius(self, value):
+        print("Set radius")
+        self._radius = value
+        
+    print('radius after setter=', radius)
+    print('g after setter     =', g)
+    
+# 呼叫 Property 的 __init__ fget= <function Circle.radius at 0x000002354EE0B130>
+# radius before setter= <pyproperty.Property object at 0x000002354EDEFC40>
+# g after setter      = <pyproperty.Property object at 0x000002354EDEFC40>
+# setter called
+# 呼叫 Property 的 __init__ fget= <function Circle.radius at 0x000002354EE0B130>
+# radius after setter= <pyproperty.Property object at 0x000002354EDEFB20>
+# g after setter     = <pyproperty.Property object at 0x000002354EDEFC40>
+# __set_name__ radius
+# __set_name__ g 
+{% endhighlight %}
+
+我們沒辦法幫 g 指派值，因為 g 只有設定 getter，所以出現 AttributeError，但當我們設定 c2.radius = 900 時，c2.g 也一併變成 900
+
+{% highlight Python %}
+c2 = Circle(607.0)
+# c2.g = 100 # AttributeError: can't set attribute g
+c2.radius = 900
+print('c2.g=', c2.g) # c2.g= 900
+{% endhighlight %}
+
+
+## 使用 property() 做為裝飾器
+
+裝飾器語法
+{% highlight Python %}
+@decorator
+def func(a):
+    return a
+{% endhighlight %}
+
+等同於
+
+{% highlight Python %}
+def func(a):
+    return a
+
+func = decorator(func)
+{% endhighlight %} 
+
+{% highlight Python %}
+# circle.py
+
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+
+    @property
+    def radius(self):
+        """The radius property."""
+        print("Get radius")
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        print("Set radius")
+        self._radius = value
+
+    @radius.deleter
+    def radius(self):
+        print("Delete radius")
+        del self._radius
+{% endhighlight %} 
+
+當我們使用 @radius.setter 裝飾第二個 .radius() 函式，setter 會回傳一個新的 property (注意，是回傳一個新的 property) ，然後重新指派 .radius 這個 name，這個新的 property 會包含原先的 getter 與 新的 setter 函式。
+
+{% highlight Python %}
+>>> dir(Circle.radius)
+[..., 'deleter', ..., 'getter', 'setter']
+{% endhighlight %} 
+除了 .fget、.fset、.fdel, ... 外，property 也提供.deleter()、.getter()與.setter()，這三個 method 會回傳一個新的 property 物件。
+
+{:note}
+總結 : 
+我們不需要使用()來用 method 的方式去呼叫 .radius()，取而代之的是我們可以像是存取一般 attribute 的方式存取 .radius，這也是 property 主要的使用方式。它讓我們可以將 method 看待成 attribute，而程式會自己呼叫底下對應的 method
+
+{:note}
+通常來說，如果不須做特別處理的話，不要將 attribute 轉為 property，不然程式會變得冗長
+
+一種 property() 的基本的用法是，property() 也可以替你的 class 提供唯讀的 attribute
+
+{% highlight Python %}
+# point.py
+
+class Point:
+    def __init__(self, x, y):
+        self._x = x
+        self._y = y
+
+    @property
+    def x(self):
+        return self._x
+
+    @property
+    def y(self):
+        return self._y
+{% endhighlight %} 
+
+現在 x, y 都是唯讀，當使用者嘗試 point.x = 42 時，會出現錯誤
+{% highlight Python %}
+from point import Point
+
+point = Point(12, 5)
+
+print(point.x)
+print(point.y)
+
+point.x = 42 # AttributeError
+{% endhighlight %} 
+
+## 設定 read-write 的 property
+
+{% highlight Python %}
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        self._radius = float(value)
+
+    @property
+    def diameter(self):
+        return self.radius * 2
+
+    @diameter.setter
+    def diameter(self, value):
+        self.radius = value / 2
+{% endhighlight %}
+
+{:note}
+注意 __init__ 裡面，是呼叫 self.radius = radius，而不是 self._radius = radius，這是因為呼叫 self.radius 會透過 @radius.setter，可以做型別的檢查，可以避免初始化時傳入不適合的值
+
+
+## 設定 write-write 的 property
+
+{% highlight Python %}
+# users.py
+
+import hashlib
+import os
+
+class User:
+    def __init__(self, name, password):
+        self.name = name
+        self.password = password
+
+    @property
+    def password(self):
+        raise AttributeError("Password is write-only")
+
+    @password.setter
+    def password(self, plaintext):
+        salt = os.urandom(32)
+        self._hashed_password = hashlib.pbkdf2_hmac(
+            "sha256", plaintext.encode("utf-8"), salt, 100_000
+        )
+{% endhighlight %}
+
+## 暫存 Computed Attributes
+
+property() 適合用於 lazy 或是 computed 的 property，但如果是經常要讀取的，則可以將值先存起來。有的時候我們會需要存取經常被 computed 的值，
+
+{% highlight Python %}
+from time import sleep
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+        self._diameter = None
+
+    @property
+    def diameter(self):
+        if self._diameter is None:
+            sleep(0.5)  # Simulate a costly computation
+            self._diameter = self.radius * 2
+        return self._diameter
+{% endhighlight %}
+
+這裡將將值暫存到 _diameter，但是上述程式如果變更 radius 的值，_diameter 的值不會連動，property會回傳錯誤的 _diameter
+
+{% highlight Python %}
+# circle.py
+
+from time import sleep
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        self._diameter = None
+        self._radius = value
+
+    @property
+    def diameter(self):
+        if self._diameter is None:
+            sleep(0.5)  # Simulate a costly computation
+            self._diameter = self._radius * 2
+        return self._diameter
+{% endhighlight %}
+
+修改成每次呼叫 setter 的時侯，重設 _diameter 就 OK 了
+
+也可以使用 functools.cached_property() 來暫存
+
+{% highlight Python %}
+# circle.py
+
+from functools import cached_property
+from time import sleep
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @cached_property
+    def diameter(self):
+        sleep(0.5)  # Simulate a costly computation
+        return self.radius * 2
+{% endhighlight %}
+
+上述 radius 的值是可以變動的，如果要有一個不會被變更的 cached property
+
+{% highlight Python %}
+# circle.py
+
+from functools import cache
+from time import sleep
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    @cache
+    def diameter(self):
+        sleep(0.5) # Simulate a costly computation
+        return self.radius * 2
+{% endhighlight %}
+
+## Logging
+
+{% highlight Python %}
+# circle.py
+
+import logging
+
+logging.basicConfig(
+    format="%(asctime)s: %(message)s",
+    level=logging.INFO,
+    datefmt="%H:%M:%S"
+)
+
+class Circle:
+    def __init__(self, radius):
+        self._msg = '"radius" was %s. Current value: %s'
+        self.radius = radius
+
+    @property
+    def radius(self):
+        """The radius property."""
+        logging.info(self._msg % ("accessed", str(self._radius)))
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        try:
+            self._radius = float(value)
+            logging.info(self._msg % ("mutated", str(self._radius)))
+        except ValueError:
+            logging.info('validation error while mutating "radius"')
+{% endhighlight %}
+
+## 刪除 managed attribute
+
+{% highlight Python %}
+# tree.py
+
+class TreeNode:
+    def __init__(self, data):
+        self._data = data
+        self._children = []
+
+    @property
+    def children(self):
+        return self._children
+
+    @children.setter
+    def children(self, value):
+        if isinstance(value, list):
+            self._children = value
+        else:
+            del self.children
+            self._children.append(value)
+
+    @children.deleter
+    def children(self):
+        self._children.clear()
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}("{self._data}")'
+{% endhighlight %}
