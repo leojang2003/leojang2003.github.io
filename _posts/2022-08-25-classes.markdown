@@ -1,4 +1,4 @@
-{:note}
+{. note}
 筆記: 這裡所說的 name 這個字，泛指的是所有可以指派名稱的程式物件，包含 variable、constant、function、class、或其他任何可以 assign name 的物件
 
 {:note}
