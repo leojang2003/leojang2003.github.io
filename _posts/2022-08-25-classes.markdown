@@ -1,4 +1,4 @@
-{: .note}
+{:.note}
 筆記: 這裡所說的 name 這個字，泛指的是所有可以指派名稱的程式物件，包含 variable、constant、function、class、或其他任何可以 assign name 的物件
 
 {:.note}
@@ -96,10 +96,10 @@ raise_exception()
 
 Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執行當下才會去從內層到外層 scope，找出該 name
 
-{:note}
+{:.note}
 注意 : assignment 不會複製資料，它們只是將 name 綁定 (bind) 到 object。 刪除也是如此：語法 del x 是從 local scope 的 namespace 中刪除 x 的 binding。 事實上，所有引入新名稱的操作都使用本地範圍：特別是 import 語句和函數定義將模塊或函數名稱綁定在本地範圍內。
 
-{:note}
+{:.note}
 locals():
 更新並回傳表示 current local symbol table 的 dictionary。在函式區塊而不是 class 區塊中呼叫 locals() 時會回傳自由變數 (Free variables)。請注意，在 module 階層中，locals() 和 globals() 是相同的 dictionary。
 
@@ -112,7 +112,7 @@ locals():
 4. def fun(arg1, arg2, ., argN) 方法內的參數定義
 5. class myClass: ....
 
-{:note}
+{:.note}
 注意: assignment operations 和 reference/access operations 有一個重大的差異，那就是當我們 reference 一個 name，我們是試著取得他的內容(content) 或是值(value)，當我們 assign 一個 name，我們是試著建立(create)一個 name 或是試著修改(modify)他 
 
 Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬於哪一個 scope，舉例來說，在方法內 assign 值給 name，則該 name 會有一個 local scope，如果在所有方法之外 assign 值給 name，則該 name 會有一個 global scope
@@ -155,7 +155,7 @@ sys.__dict__['__name__']
 
 當參考一個 name 時，則由內而外依序搜尋 scope。程式執行時，最多可以有 4 個 active 的 scope，任何時候可以保證至少有2個 active scope，global 與 built-in
 
-{:note}
+{:.note}
 唯有在 function 使用 name，才會存取 local scope。唯有在 nested function 中使用 name，才會存取 enclosing scope
 
 ## Local Scope
@@ -173,7 +173,7 @@ square(10) # The square of 10 is: 100
 print(result) # Isn't accessible from outside square()
 {% endhighlight %}
 
-{:note}
+{:.note}
 當我們在呼叫 function 後試著存取 result 或是 base，Python 會傳回 NameError，因為 result 和 base 只存在呼叫 square() 時所建立的 local scope，當我們試著存取不在任何 scope 中的 name，我們會得到一個 NameError 錯誤訊息顯示 name 找不到
 
 ## __code__ 關鍵字
@@ -216,7 +216,7 @@ inner_func()
 
 當我呼叫 outer_func() 時，我們會建立一個 local scope，而 outer_func() 的 local scope，同時也是 inner_func() 的 enclosing scope。從 inner_func() 看，此 scope 既不是 global scope 也不是 local scope，這是一個介於 local 與 global 之間的特殊 scope，叫做 enclosing scope。
 
-{:note}
+{:.note}
 某種意義上來說， inner_func() 是個 temporary function，只有在執行 enclosing function (outer_func())時才會建立。注意只有在 outer_func() 內才看的到 inner_func()
 
 inner_func() 內可以看到我們在 enclosing scope 建立的所有 name，有一例外，就是在呼叫 inner_func() 後建立的 name，inner_func() 是看不的
@@ -240,7 +240,7 @@ outer_func()
 ## Modules: The Global Scope
 從程式執行之際，我們就已經在 Python 的 global scope 中，Python 會將程式的 main script 轉成 __main__ 的模組，此模組的 namespace 即是我們程式的主要 global scope
  
-{:Note}
+{:.note}
 在 Python，global scope 與 global names 的概念是與模組的檔案緊密相關，舉例來說，如果我們在模組的 top-level 定義一個 name，則對此模組來說，此 name 為 global 的，這也是為什麼這種 scope 也被稱為 module scope
 
 如果我們是在 interactive session，我們會看到 __main__ 也是主模組的名稱
@@ -262,14 +262,14 @@ print(dir())
 ['__annotations__', '__builtins__',..., '__package__', '__spec__', 'var'] # 多了 var
 {% endhighlight %}
 
-{:note}
+{:.note}
 程式執行時只會有一個 global scope，直到程式關閉時才會終止，name forgotten
 
 ## global 變數
-{:note}
+{:.note}
 使用 global 變數不是一個好的 practice，須盡量避免，請用改用別的方式改寫程式
 
-{:note}
+{:.note}
 好的程式習慣:
 function 內使用 local name
 物件 name 要獨特
@@ -328,7 +328,7 @@ def increment():
 increment()
 {% endhighlight %}
 
-{:note}
+{:.note}
 Python 預設在 function 內的 assignment 都是 local variable
 
 在方法內變更全域變數
@@ -408,7 +408,7 @@ print('global:', x)
 # global: global
 {% endhighlight %}
 
-{:note}
+{:.note}
 這裡說一個 Python 奇特的地方，當沒有使用 global 或是 nonlocal 關鍵字時，對 name 做指派 (assignment) 值時，永遠都是在指派給該 scope 中的變數，也就是若是該 scope 中沒有此 name，則會建立一個 name 做 assignment。就算外層有相同名稱的 name，也是在該 scope 建立一個相同名稱的 name
 
 
@@ -453,7 +453,7 @@ abs(-15)
 # abs 被改寫了
 {% endhighlight %}
 
-{:note}
+{:.note}
 改寫 built-in names 最好步要做
 
 總結，global name 與 local name 需用不同的名稱
@@ -483,7 +483,7 @@ square(15)
 225
 {% endhighlight %}
 
-{:note}
+{:.note}
 注意 : 像 exp 這樣的變數叫做 free variables。他們是在 code block 使用中但沒有在那定義，free variables 是 closure 可以在不同 function call 中保留狀態的原因
 
 {% highlight Python %}
@@ -640,7 +640,7 @@ A.var
 
 如果我們嘗試使用 class object 而不是 instance 來存取 var，那麼我們將收到 AttributeError，因為無法使用 class object 存取 instance attribute。
 
-{:note}
+{:.note}
 class object 無法存取 instance attribute
 
 總結來說，每當需要存取 attribute 時，Python 程式第一個會看 instance local scope 或 namespace，若沒有的話再來看 class local scope 或 namespace，如果也不存在 class namespace，則丟出 AttributeError
@@ -699,8 +699,8 @@ print(A().__dict__.keys())
 Instance: 使用 self.var 存取 instance attribute.
 Class: 使用 A.var 存取 class attribute.
 
-{:note}
+{:.note}
 好的 OOP 準則不建議我們使用 instance attributes 蓋過 class attributes
 
-{:note}
+{:.note}
 注意 class 的 .__dict__  與 instance 的 .__dict__ 室兩者獨立不同的 dict，這也是為什麼 class attributes 在我們 run 或 import 模組內定義的 class 時就是 available 的，反之 instance attributes 只有在建立物件後才會 available
