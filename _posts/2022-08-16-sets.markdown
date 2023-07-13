@@ -46,8 +46,6 @@ basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 'crabgrass' in basket # False
 ```
 
-另外 set 運算支援如下
-
 ```python
 a = set('abracadabra')
 b = set('alacazam')
@@ -56,7 +54,7 @@ a  # {'a', 'r', 'b', 'c', 'd'}
 b  # {'a', 'l', 'c', 'z', 'm'}
 ```
 
-### 差集
+差集
 
 ```python
 a = set('abracadabra')
@@ -68,7 +66,7 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 a - b  # {'r', 'd', 'b'} 在 a 不在 b 的物件
 ```
 
-### 聯集
+聯集
 
 ```python
 a  # {'a', 'r', 'b', 'c', 'd'}
@@ -77,7 +75,7 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 a | b  # {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'} 聯集
 ```
 
-### 交集
+交集
 
 ```python
 a  # {'a', 'r', 'b', 'c', 'd'}
@@ -86,7 +84,7 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 a & b # {'a', 'c'} 交集
 ```
 
-### 僅出現在其中一個集合中，不同時出現在兩個
+僅出現在其中一個集合中，不同時出現在兩個
 
 ```python
 a  # {'a', 'r', 'b', 'c', 'd'}
@@ -95,14 +93,14 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 a ^ b # {'r', 'd', 'b', 'm', 'z', 'l'} 
 ```
 
-### 支援 Set Comprehensions
+支援 Set Comprehensions
 
 ```python
 a = {x for x in 'abracadabra' if x not in 'abc'}
 a # {'r', 'd'}
 ```
 
-### 只要是 iterable 都可以做 Set Comprehensions
+只要是 iterable 都可以做 Set Comprehensions
 
 ```python
 dict = {"a":1, "b":2, "c":3}
