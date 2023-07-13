@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: About me
+subtitle: One thing at a time
 ---
 
-
+A software developer in Taipei, Taiwan
