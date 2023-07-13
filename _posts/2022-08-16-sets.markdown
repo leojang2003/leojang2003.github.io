@@ -14,8 +14,9 @@ basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 print(basket) 
 # {'orange', 'banana', 'pear', 'apple'} 
 # 這裡可以看到重複的元素被移除了
-
 ```
+
+## set 的參數
 
 set() 方法接受一個 iterable 的參數，像是 list、tuple、string
 
@@ -31,47 +32,67 @@ set(s) # {'a', 'b'}
 
 # 可以看到 list、tuple、string 轉成 set 後
 # 都將重複的元素的移除
-
 ```
 
+## set 支援的運算
 
 set 是否包含某個物件時，可以用 in
+
 ```python
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 # {'orange', 'banana', 'pear', 'apple'}
 
 'orange' in basket # True
 'crabgrass' in basket # False
-
 ```
 
-set 運算支援如下
+另外 set 運算支援如下
+
 ```python
 a = set('abracadabra')
 b = set('alacazam')
 
 a  # {'a', 'r', 'b', 'c', 'd'}
 b  # {'a', 'l', 'c', 'z', 'm'}
+```
+### 差集
 
-a - b  # {'r', 'd', 'b'} 在a不在b的物件
-
-a | b  # {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'} 在a或在b中的物件，聯集
-
-a & b # {'a', 'c'} 在a且在b中的物件，交集
-
-a ^ b # {'r', 'd', 'b', 'm', 'z', 'l'} 僅出現在其中一個集合中，不同時出現在兩個
-
+```python
+a - b  # {'r', 'd', 'b'} 在 a 不在 b 的物件
 ```
 
-set 也支援 Set Comprehensions
+### 聯集
+
+```python
+a | b  # {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'} 聯集
+```
+
+### ㄏㄛ交集
+
+```python
+a & b # {'a', 'c'} 交集
+```
+
+### 僅出現在其中一個集合中，不同時出現在兩個
+
+```python
+a ^ b # {'r', 'd', 'b', 'm', 'z', 'l'} 
+```
+
+### 支援 Set Comprehensions
+
 ```python
 a = {x for x in 'abracadabra' if x not in 'abc'}
 a # {'r', 'd'}
+```
+### 只要是 iterable 都可以做 Set Comprehensions
 
+```python
 dict = {"a":1, "b":2, "c":3}
 dict2 = {"a":1, "q":2}
 
-a = {x for x in dict2 if x not in dict} # 只要是 iterable 都可以做 Set Comprehensions
+a = {x for x in dict2 if x not in dict}
 a # {'q'}
-
 ```
+
+在 dict2 不在 dict 的 key 只有 q
