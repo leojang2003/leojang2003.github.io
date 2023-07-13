@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  /*font-family: 'Lora', 'Times New Roman', serif;*/
   font-size: 1.125rem;
   color: {{ site.text-col | default: "#404040" }};
   position: relative;
@@ -21,6 +21,7 @@ body {
   background-attachment: fixed;
   {% endif %}
   overflow-wrap: break-word;
+  font-size:19px;
 }
 p {
   line-height: 1.5;
