@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About me
-subtitle: One thing at a time
+subtitle: Be yourself; everyone else is already taken.
 ---
 
-A software developer in Taipei, Taiwan
+
