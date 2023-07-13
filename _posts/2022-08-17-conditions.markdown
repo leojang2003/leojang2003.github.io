@@ -1,7 +1,3 @@
-
-Condition
-
-
 ### in / not in 比較運算子
 
 ```python
