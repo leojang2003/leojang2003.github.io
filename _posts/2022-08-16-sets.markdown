@@ -21,7 +21,7 @@ print(basket)
 https://colorhunt.co/palette/f7ecdee9dac19ed2c654bab9
 
 set() 方法接受一個 iterable 的參數，像是 list、tuple、string
-{% highlight Python %}
+```python
 l = ['a','b','b']
 set(l) # {'a', 'b'}
 
@@ -30,22 +30,22 @@ set(t) # {'a', 'b'}
 
 s = 'abb'
 set(s) # {'a', 'b'}
-{% endhighlight %}
+```
 
 string 也被轉成
 
 set 是否包含某個物件時，可以用 in
-{% highlight Python %}
+```python
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 # {'orange', 'banana', 'pear', 'apple'}
 
 'orange' in basket # True
 'crabgrass' in basket # False
 
-{% endhighlight %}
+```
 
 set 運算支援如下
-{% highlight Python %}
+```python
 a = set('abracadabra')
 b = set('alacazam')
 
@@ -60,10 +60,10 @@ a & b # {'a', 'c'} 在a且在b中的物件，交集
 
 a ^ b # {'r', 'd', 'b', 'm', 'z', 'l'} 僅出現在其中一個集合中，不同時出現在兩個
 
-{% endhighlight %}
+```
 
 set 也支援 Set Comprehensions
-{% highlight Python %}
+```python
 a = {x for x in 'abracadabra' if x not in 'abc'}
 a # {'r', 'd'}
 
@@ -73,4 +73,4 @@ dict2 = {"a":1, "q":2}
 a = {x for x in dict2 if x not in dict} # 只要是 iterable 都可以做 Set Comprehensions
 a # {'q'}
 
-{% endhighlight %}
+```
