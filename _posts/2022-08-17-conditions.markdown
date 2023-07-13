@@ -100,4 +100,4 @@ union() - 聯集
 intersection() - 交集  
 difference() - 差集，a.difference(b) 與 b.difference(a) 是不同的  
 symmetric_difference() - 等同聯集減掉交集  
-
+test
