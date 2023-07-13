@@ -8,14 +8,14 @@ set 是沒有重複元素的無序集合。
 {:.note} 
 要建立一個空集，你必須使用 set()，而不是大括號 {}，{} 會建立一個空的 dict。
 
-{% highlight Python %}
+```Python
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 
 print(basket) 
 # {'orange', 'banana', 'pear', 'apple'} 
 # 這裡可以看到重複的元素被移除了
 
-{% endhighlight %}
+```
 
 {:.note}
 https://colorhunt.co/palette/f7ecdee9dac19ed2c654bab9
