@@ -55,7 +55,7 @@ b = set('alacazam')
 a  # {'a', 'r', 'b', 'c', 'd'}
 b  # {'a', 'l', 'c', 'z', 'm'}
 ```
-<div> </div>
+
 ### 差集
 
 ```python
@@ -67,7 +67,7 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 
 a - b  # {'r', 'd', 'b'} 在 a 不在 b 的物件
 ```
-<div> </div>
+
 ### 聯集
 
 ```python
@@ -76,7 +76,7 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 
 a | b  # {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'} 聯集
 ```
-<div> </div>
+
 ### 交集
 
 ```python
@@ -85,7 +85,7 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 
 a & b # {'a', 'c'} 交集
 ```
-<div> </div>
+
 ### 僅出現在其中一個集合中，不同時出現在兩個
 
 ```python
@@ -94,14 +94,14 @@ b  # {'a', 'l', 'c', 'z', 'm'}
 
 a ^ b # {'r', 'd', 'b', 'm', 'z', 'l'} 
 ```
-<div> </div>
+
 ### 支援 Set Comprehensions
 
 ```python
 a = {x for x in 'abracadabra' if x not in 'abc'}
 a # {'r', 'd'}
 ```
-<div> </div>
+
 ### 只要是 iterable 都可以做 Set Comprehensions
 
 ```python
