@@ -876,24 +876,15 @@ pre code {
   background-color: transparent;
   border-radius: 0;
 }
-/*
+
 pre {
   font-size: 0.875rem;
   line-height: 1.5em;
   border-radius: 0.25rem;
   padding: 0.59375rem;
 }
-*/
-pre {
-    padding: 0.4rem 0.5rem 0.4rem 0.8rem;
-    border-radius: 5px;
-    background-color: #E9DAC1;    
-    overflow: auto;
-}
 
-pre code {   
-    background-color: #E9DAC1 !important;       
-}
+
 .highlight pre {
   border: none;
   background: none;
