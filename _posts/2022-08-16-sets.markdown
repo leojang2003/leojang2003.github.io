@@ -1,7 +1,13 @@
 
-set 是沒有重複元素的無序集合。大括弧或 set() 函數可用於建立 set。注意：要創建一個空集，你必須使用 set()，而不是 {}，{} 會建立一個空的 dict
+set 是沒有重複元素的無序集合。
 
-{% highlight Python %}
+## 如何建立 set
+
+{} 或 set() 函數可用於建立 set。
+
+{:.note} 要建立一個空集，你必須使用 set()，而不是 {}，{} 會建立一個空的 dict。
+
+{% highlight Python linenos %}
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 
 print(basket) 
@@ -24,6 +30,8 @@ set(t) # {'a', 'b'}
 s = 'abb'
 set(s) # {'a', 'b'}
 {% endhighlight %}
+
+string 也被轉成
 
 set 是否包含某個物件時，可以用 in
 {% highlight Python %}
