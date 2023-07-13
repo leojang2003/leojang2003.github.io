@@ -17,22 +17,23 @@ print(basket)
 
 ```
 
-{:.note}
-https://colorhunt.co/palette/f7ecdee9dac19ed2c654bab9
-
 set() 方法接受一個 iterable 的參數，像是 list、tuple、string
+
 ```python
 l = ['a','b','b']
 set(l) # {'a', 'b'}
 
-t = ['a','b','b']
+t = ('a','b','b')
 set(t) # {'a', 'b'}
 
 s = 'abb'
 set(s) # {'a', 'b'}
+
+# 可以看到 list、tuple、string 轉成 set 後
+# 都將重複的元素的移除
+
 ```
 
-string 也被轉成
 
 set 是否包含某個物件時，可以用 in
 ```python
