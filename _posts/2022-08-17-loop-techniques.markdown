@@ -40,8 +40,7 @@ for q, a in zip(questions, answers):
 
 # What is your name?  It is lancelot.
 # What is your quest?  It is the holy grail.
-# What is your favorite color?  It is blue.	
-	
+# What is your favorite color?  It is blue.		
 ```
 <br/>
 
@@ -76,8 +75,7 @@ for i in sorted(basket):
 # banana
 # orange
 # orange
-# pear
-	
+# pear	
 ```
 <br/>
 
@@ -101,5 +99,8 @@ filtered_data # [56.2, 51.7, 55.3, 52.5, 47.8]
 
 ```python
 filtered_data = [ value for value in raw_data if not math.isnan(value) ]
-		
 ```
+
+<br/>
+<br/>
+<br/>
