@@ -7,10 +7,7 @@ print ('x' in s) # False
 print ('x' not in s) # True
 
 ```
-{:.spaceBelow} 
-   
-
-  
+<br/>
 
 ### is / is not 比較運算子
 
