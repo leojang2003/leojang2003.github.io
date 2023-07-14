@@ -56,6 +56,13 @@ Dictionary 是由 key:value 組成，key 必須是 immutable 的物件，如果�
 {:.note}
 immutable 物件包含 int, float, complex, bool, str, bytes, tuple
 
+```python
+dict = {(1,2): 1, (1,4): 2, (1,2): 6} # 也可以用 tuple 當作 dict 的 key
+
+dict {(1,2): 6, (1,4): 2} # 這邊可以看到舊的 key 被新的 key 取代了
+
+```
+
 補充說明如何將 int 轉成 byte，可以使用 to_bytes
 ```python
 # byte 可以表示 0 ~ 255
@@ -64,12 +71,7 @@ immutable 物件包含 int, float, complex, bool, str, bytes, tuple
 ```
 <br/>
 
-```python
-dict = {(1,2): 1, (1,4): 2, (1,2): 6} # 也可以用 tuple 當作 dict 的 key
 
-dict {(1,2): 6, (1,4): 2} # 這邊可以看到舊的 key 被新的 key 取代了
-
-```
 <br/>
 ### 刪除 dict 的 key/value
 刪除 dict 的物件
