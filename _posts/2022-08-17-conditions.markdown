@@ -93,3 +93,5 @@ sequence 物件可以與具有相同 sequence type 的其他物件進行比較�
 dict 沒有支援比較，set 比較請用內建方法 union() 聯集、intersection() 交集、difference() 差集，a.difference(b) 與 b.difference(a) 是不同的、symmetric_difference()  等同聯集減掉交集
 
 <br/>
+<br/>
+<br/>
