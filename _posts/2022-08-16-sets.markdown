@@ -15,7 +15,7 @@ print(basket)
 # {'orange', 'banana', 'pear', 'apple'} 
 # 這裡可以看到重複的元素被移除了
 ```
-
+<br/>
 ## set 的參數
 
 set() 方法接受一個 iterable 的參數，像是 list、tuple、string
@@ -108,10 +108,8 @@ dict2 = {"a":1, "q":2}
 
 a = {x for x in dict2 if x not in dict}
 a # {'q'}
+# 在 dict2 不在 dict 的 key 只有 q
 ```
-
-在 dict2 不在 dict 的 key 只有 q
-
 <br/>
 <br/>
 <br/>
