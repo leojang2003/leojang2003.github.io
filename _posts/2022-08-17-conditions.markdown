@@ -26,7 +26,7 @@ print(node is not node2) # False
 <br/>
 ### and / or / not 的優先順序
 
-not, and, or 的優先序是低於一般運算子(+-*/)，3者之間的優先序為 not > and > or，所以 A and not B or C 等同於 (A and (not B)) or C。and / or 是所謂的 short-circuit 運算子，以 A and B and C 為例，假設 A and B 為 False，A and C 為 True，則在評估 A and B 為 False 時就會結束，不會評估繼續評估 C。
+and, or, not 的優先序是低於一般運算子(+-*/)，3者之間的優先序為 not > and > or，所以 A and not B or C 等同於 (A and (not B)) or C。and / or 是所謂的 short-circuit 運算子，以 A and B and C 為例，假設 A and B 為 False，A and C 為 True，則在評估 A and B 為 False 時就會結束，不會評估繼續評估 C。
 
 <br/>
 ### 將比較的結果或是其他 boolean expression 指派到變數
