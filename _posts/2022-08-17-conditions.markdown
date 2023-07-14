@@ -7,7 +7,8 @@ print ('x' in s) # False
 print ('x' not in s) # True
 
 ```
-{:.spaceBelow} &nbsp
+{:.spaceBelow} 
+   
 
   
 
