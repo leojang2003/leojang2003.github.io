@@ -64,7 +64,7 @@ br{
 li {
   padding-left:1ch;
 }
-li:marker{
+li::marker{
   content: '☆'
   color:#0E6FC9
 }
