@@ -1133,7 +1133,6 @@ p.note {
     overflow: auto;
 }
 
-p.br {
-  margin-top:0px;
-  margin-bottom:0px;
+p.spaceBelow {  
+  margin-bottom:20px;
 }
