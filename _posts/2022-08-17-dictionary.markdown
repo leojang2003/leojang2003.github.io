@@ -117,7 +117,6 @@ power = {x: x**2 for x in (2, 4, 6)}
 - {: .arrow}dict 只能接受 immutable 的物件作為 key
 - {: .arrow}key 可以使用 in / not in 檢查
 
-
-
-
-
+<br/>
+<br/>
+<br/>
