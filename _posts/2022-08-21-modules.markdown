@@ -1,81 +1,103 @@
+### 什麼是 module
+
 module 是一個包含定義 (definition) 和陳述式 (statement) 的 Python 檔案，舉例來說以下的檔案為 fibo.py
 
-{% highlight Python %}
-# 檔名 fibo.py
-# 模組的名稱就是 fibo
+以下是檔案 fibo.py 的內容，module 的名稱就是 fibo 
 
+```python
 fibo_exec_by = ''
 fibo_author = 'Mike Williams'
 fibo_time = '2022-08-21'
 
-def fib(n):    # write Fibonacci series up to n
+def fib(n):    # 列出 finbonacci 數列
     a, b = 0, 1
     while a < n:
         print(a, end=' ')
         a, b = b, a+b
     print()
 
-# 以下這段 if 內容只有用 script 才會執行，__name__ 才會是 __main__
-# 如果用 import 的方式，則 __name__ 會是 fibo
-# 一個模組可以包含可執行的陳述式(executable statements)如下，是用來初始化模組用的
-# 他們只有在 import (或是 script)的時候會執行，僅執行一次。
 if __name__ == "__main__":
     fibo_exec_by = 'cmd'
     import sys
     fib(int(sys.argv[1]))
 else:
     fibo_exec_by = 'import'
-{% endhighlight %}
+```
 
-## 如何引入模組
+fibo.py 的 if 區塊內容只有用 script 才會執行，__name__ 才會是 __main__
+如果用 import 的方式，則 __name__ 會是 fibo
 
-{% highlight Python %}
+### module 的初始化
+
+一個 module 可以包含可執行的陳述式(executable statements)如上述的 if 區塊，是用來初始化 module 用的
+他們只有在 import(或是 script)的時候會執行，僅執行一次。
+
+### 引入 module 方式 1
+
+```python
 import fibo 
 
 fibo.fib(20)  # 0 1 1 2 3 5 8 13
 fibo.fibo_author   # 'Mike Williams'
 fibo.__name__ # fibo
-{% endhighlight %}
+```
+<br/>
+### 引入 module 方式 2
 
-如果模組名稱後面接 as，則該綁定模組到該變數名稱
-{% highlight Python %}
+如果 module 名稱後面接 as，則該綁定 module 到該變數名稱
+
+```python
 import fibo as x
 x.author    # 'Mike Williams'
 fibo.author # 'Mike Williams'
-{% endhighlight %}
+```
 
-另一種 import 的方式，直接將欲引入的模組內的'方法或變數'加入現有模組的命名空間，使用這種方式，模組的名稱沒有被引入 local 命名空間
-{% highlight Python %}
-from fibo import fib, fib2
+<br/>
+### 引入 module 方式 3
+
+另一種 import 的方式，直接將要引入的 module 內的'方法或變數'加入現有 module 的命名空間，使用這種方式，module 的 name 沒有被引入 local 命名空間
+
+```python
+from fibo import fib, fibo_exec_by
 fib(500)
 
-fibo # NameError: name 'fibo' is not defined. 模組的名稱未定義，無法使用
-{% endhighlight %}
+# 以下執行錯誤
+# module 的名稱 fibo 未定義，無法呼叫
+fibo # NameError: name 'fibo' is not defined.  
+```
 
-每個模組有自己的私有 namespace，有自己的全域變數，使用者不需擔心自己定義的全域變數與模組的全域變數衝突，使用者也可以用 modname.itemname 的方式存取模組的全域變數。
+<br/>
+### 引入 module 方式 4
 
-模組可以 import 其他的模組，import 語法不需要寫在一開始，如果 import 語法是寫在類別與方法外，則被引入的模組會加入現有模組的 global namespace 中。
+as 語法也可以用 from 
+```python
+from fibo import fib as fibonacci
+fibonacci(20) # 0 1 1 2 3 5 8 13
+```
+
+<br/>
+### module 的全域變數
+
+每個 module 有自己的私有 namespace，有自己的全域變數，使用者不需擔心自己定義的全域變數與 module 的全域變數衝突，使用者也可以用 modname.globalname 的方式存取 module 的全域變數。經測試，使用者無法修改引入 module 的全域變數。
+
+module 可以 import 其他的 module ，import 語法不需要寫在一開始，如果 import 語法是寫在 class 與 function外，則被引入的 module 會加入現有 module 的 global namespace 中。這合理，因為如果是在 class 或 function 內引用，外層是看不到的。
 
 {:.note}
 盡量不用 from modname import * 的方式，避免造成閱讀不易
 
-as 語法也可以用 from 
-{% highlight Python %}
-from fibo import fib as fibonacci
-fibonacci(20) # 0 1 1 2 3 5 8 13
-{% endhighlight %}
+<br/>
 
-## 用 script 的方式執行 module
+### 用 script 的方式執行 module
 
-當使用 script 的方式執行模組時如下，
+當使用 script 的方式執行 module 時如下，
 
-{% highlight Python %}
+```python
 python fibo.py <arguments>
-{% endhighlight %}
+```
 
-模組的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， __name__ 會被設成 __main__，所以在模組下方加入以下程式，可以讓此模組判斷執行模組的方式
+module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， __name__ 會被設成 __main__，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
 
-{% highlight Python %}
+```python
 if __name__ == "__main__":
     # 以 script 的方式執行
     fibo_exec_by = 'cmd'
@@ -88,67 +110,70 @@ else:
 # 使用 script 執行 fibo.py 時，會執行 if 的內容
 $ python fibo.py 50 # 0 1 1 2 3 5 8 13 21 34
 
-{% endhighlight %}
+```
+<br/>
+###  module 搜尋順序
 
-## 模組搜尋順序
-
-- sys.builtin_module_names 的內建模組名稱
+- sys.builtin_module_names 的內建 module 名稱
 - sys.path 下的所有路徑
     - 現有 script 的路徑
     - 環境變數 PYTHONPATH 
     - site-packages 目錄
 
-{% highlight Python %}
+```python
 
 print(sys.path) ...
 
 D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py 
 ['D:\\Python\\playgound', 'D:\\Python\\playgound', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\DLLs', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\lib', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310', 'D:\\Python\\playgound\\lib\\site-packages']
-{% endhighlight %}
+```
 
-初始化後，Python 程式可以修改 sys.path。目前執行運行的 script 的目錄會被擺在搜索路徑的開頭，優先於標準庫路徑之前。這表示目錄的script會優先於library目錄中的同名模組。
+初始化後，Python 程式可以修改 sys.path。目前執行的 script 的目錄會被擺在搜索路徑的開頭，優先於 standard library 路徑之前。這表示目錄的 script 會優先於 standard library 目錄中的同名 module 。
 
-## 編譯後的Python檔案
+### 編譯後的Python檔案
 
-為了加速模組的載入時間，編編譯後的檔案置於__pycache__資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
+為了加速 module 的載入時間，編編譯後的檔案置於__pycache__資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
 
-## dir()
+### dir()
 
-內建 dir() 回傳一個 list 列出所有模組定義的名稱
-{% highlight Python %}
+如果是在 module 中呼叫內建 dir()，會回傳一個 list ，包含所有 module 的 attribute 的 name，
+{:.note}
+注意在不同層級呼叫 dir() 會回傳不同的結果。
+
+```python
 import fibo
 
 print(dir(fibo))
 # ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fib', 'fibo_author', 'fibo_source', 'fibo_time']
 
-{% endhighlight %}
+```
 
 若是 dir() 沒有傳入參數，則回傳目前定義的所有名稱
-{% highlight Python %}
+```python
 import fibo
 
 print(dir())
 # ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fibo']
 
-{% endhighlight %}
+```
 
 {:.note}
-注意 dir() 會回傳所有變數、模組、方法的名稱
+注意 dir() 會回傳所有變數、 module 、方法的名稱
 
-dir() 不會回傳內建的方法與變數的名稱，如需要可使用 builtins 模組
-{% highlight Python %}
+dir() 不會回傳內建的方法與變數的名稱，如需要可使用 builtins  module 
+```python
 import builtins
 
 print(dir(builtins))
 
-{% endhighlight %}
+```
 
 ## Packages
 
-Package 是由一系列模組所構成，一個資料夾必須要有 __init__.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 __init__.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定__all__ 變數
+Package 是由一系列 module 所構成，一個資料夾必須要有 __init__.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 __init__.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定__all__ 變數
 
-使用 Package 可以單獨引入其中一個模組
-{% highlight Python %}
+使用 Package 可以單獨引入其中一個 module 
+```python
 sound/                          Top-level package
       __init__.py               Initialize the sound package
       formats/                  Subpackage for file format conversions
@@ -175,47 +200,47 @@ sound/                          Top-level package
 import sound.effects.echo
 
 sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)
-{% endhighlight %}
+```
 
 或是使用 from ... import
-{% highlight Python %}
+```python
 from sound.effects import echo
 
 echo.echofilter(input, output, delay=0.7, atten=4)
-{% endhighlight %}
+```
 
 {:.note}
 使用 from package import item 的方式，item 可以是 package 的 submodule (或稱subpackage)，或是 package 定義的名稱 (方法、類別、變數)，相反的當使用 import item.subitem.subsubitem 時，除了最後一個之外其他每個 item 都必須是 package，最後一個只能是 module 或是 package，不可以是前一個 item 定義的名稱 (方法、類別、變數) 
 
 ## 使用 * 引入 package
-如果 package 的 __init__.py 有定義 __all__，此變數會定義當使用 from package import * 需要匯入的所有模組名稱，package 作者可以決定是否更新此變數當 package 改版時
-{% highlight Python %}
+如果 package 的 __init__.py 有定義 __all__，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱，package 作者可以決定是否更新此變數當 package 改版時
+```python
 # 假設 sound/effects/__init__.py 包含以下
 __all__ = ["echo", "surround", "reverse"]
     
-# 則呼叫 from sound.effects import * 時，會引入 "echo", "surround", "reverse" 這三個模組
-{% endhighlight %}
+# 則呼叫 from sound.effects import * 時，會引入 "echo", "surround", "reverse" 這三個 module 
+```
     
-如果 package 的 __init__.py 沒有定義 __all__，語法 from sound.effects import * 不會引入所有 sound.effects 的子模組，他只確保 sound.effects 會引入，還有其他此 package 定義的名稱，這包含 __init__.py 中定義的名稱以及子模組，與 import 語法引入的子模組
-{% highlight Python %}
+如果 package 的 __init__.py 沒有定義 __all__，語法 from sound.effects import * 不會引入所有 sound.effects 的子 module ，他只確保 sound.effects 會引入，還有其他此 package 定義的名稱，這包含 __init__.py 中定義的名稱以及子 module ，與 import 語法引入的子 module 
+```python
 import sound.effects.echo
 import sound.effects.surround
 from sound.effects import *
-{% endhighlight %} 
+``` 
 
 ## package 內的參考
 ## absolute import
     
-當 package 要參考同層兄弟的 package 時，可以使用 absolute import 來參考兄弟的子 package。 例如，如果 sound.filters.vocoder 模組需要使用 sound.effects 包中的 echo 模組，則可以使用 from sound.effects import echo。
+當 package 要參考同層兄弟的 package 時，可以使用 absolute import 來參考兄弟的子 package。 例如，如果 sound.filters.vocoder  module 需要使用 sound.effects 包中的 echo  module ，則可以使用 from sound.effects import echo。
 
 ## relative import
 
-您也可以使用 from module import name 形式做相對導入。這些 import 使用 . 來指示相對導入中涉及的 current 和 parent packages。 例如，從 surround 模組中，您可以使用：
-{% highlight Python %}
+您也可以使用 from module import name 形式做相對導入。這些 import 使用 . 來指示相對導入中涉及的 current 和 parent packages。 例如，從 surround  module 中，您可以使用：
+```python
 from . import echo
 from .. import formats
 from .. filters import equalizer
-{% endhighlight %} 
+``` 
 
 {:.note}
-請注意，relative import 是基於當前模組的名稱。由於主模組的名稱始終為“__main__”，因此用作 Python application 的主模組的模組必須始終使用 absolute import。   
+請注意，relative import 是基於當前 module 的名稱。由於主 module 的名稱始終為“__main__”，因此用作 Python application 的主 module 的 module 必須始終使用 absolute import。   
