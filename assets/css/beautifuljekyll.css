@@ -61,6 +61,13 @@ br{
   margin-top: 0; /* change this to whatever height you want it */
   margin-bottom: 3rem; /* change this to whatever height you want it */
 }
+li {
+  padding-left:1ch;
+}
+li:marker{
+  content: '☆'
+  color:#0E6FC9
+}
 blockquote {
   color: #808080;
   font-style: italic;
