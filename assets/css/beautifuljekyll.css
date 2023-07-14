@@ -65,8 +65,8 @@ li {
   padding-left:1ch;
 }
 li::marker{
-  content: '☆'
-  color:#0E6FC9
+  content: '☆';
+  color:#0E6FC9;
 }
 blockquote {
   color: #808080;
