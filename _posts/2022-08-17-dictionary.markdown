@@ -111,11 +111,11 @@ power = {x: x**2 for x in (2, 4, 6)}
 <br>
 
 ### 總結
-- 使用 {}, dict() 可以建立一個空的 dict
-- 搭配 keyword argument 可以不用使用冒號初始化 dict
-- list(dict) 可以將 key 轉成一個 list
-- dict 只能接受 immutable 的物件作為 key
-- key 可以使用 in / not in 檢查
+- {:.arrow}使用 {}, dict() 可以建立一個空的 dict
+- {:.arrow}搭配 keyword argument 可以不用使用冒號初始化 dict
+- {:.arrow}list(dict) 可以將 key 轉成一個 list
+- {:.arrow}dict 只能接受 immutable 的物件作為 key
+- {:.arrow}key 可以使用 in / not in 檢查
 
 
 
