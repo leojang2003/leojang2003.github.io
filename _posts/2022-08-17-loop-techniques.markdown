@@ -84,8 +84,8 @@ for i in sorted(basket):
 有時候在走訪 sequence 的時候有變更的需求，較好的做法是直接 append() 到一個新的 sequence
 
 ```python
-
 import math
+
 raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
 filtered_data = []
 for value in raw_data:
