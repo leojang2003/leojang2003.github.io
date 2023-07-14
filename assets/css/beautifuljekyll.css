@@ -61,10 +61,10 @@ br{
   margin-top: 0; /* change this to whatever height you want it */
   margin-bottom: 3rem; /* change this to whatever height you want it */
 }
-ul li {
+li.arrow {
   padding-left:1ch;
 }
-ul li::marker{
+li.arrow::marker{
   content: '☆';
   color:#0E6FC9;
 }
