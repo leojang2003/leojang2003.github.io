@@ -1,6 +1,5 @@
 ### in / not in 比較運算子
-{:.br}
-  
+
 ```python
 s = set('abcdef') # 初始化一個set
 
