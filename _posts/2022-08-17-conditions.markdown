@@ -8,7 +8,6 @@ print ('x' not in s) # True
 
 ```
 <br/>
-
 ### is / is not 比較運算子
 
 ```python
@@ -24,12 +23,12 @@ print(node is node2) # True
 print(node is not node2) # False
 
 ```
-
+<br/>
 ### and / or / not 的優先順序
 
 not, and, or 的優先序是低於一般運算子(+-*/)，3者之間的優先序為 not > and > or，所以 A and not B or C 等同於 (A and (not B)) or C。and / or 是所謂的 short-circuit 運算子，以 A and B and C 為例，假設 A and B 為 False，A and C 為 True，則在評估 A and B 為 False 時就會結束，不會評估繼續評估 C。
 
-
+<br/>
 ### 將比較的結果或是其他 boolean expression 指派到變數
 
 ```python
@@ -63,13 +62,13 @@ while x:=random.randint(0,3)
     print(x)
     time.sleep(5)
 ```
-
+<br/>
 ### 比較是可以串連的
 
 ```python
 a < b == c tests # a 是否小於 b 且 b 是否等於 c
 ```
-
+<br/>
 ### 物件比較
 
 sequence 物件可以與具有相同 sequence type 的其他物件進行比較。比較方式使用 lexicographical ordering：首先比較前兩項，如果它們不同，則確定比較的結果；如果它們相等，則比較接下來的兩項，依此類推，直到任一 sequence 用完。
