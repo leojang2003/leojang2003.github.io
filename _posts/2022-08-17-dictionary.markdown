@@ -62,6 +62,7 @@ immutable 物件包含 int, float, complex, bool, str, bytes, tuple
 (255).to_bytes(4, byteorder='big') #b'\x00\x00\x01\xff'
 (256).to_bytes(4, byteorder='big') #b'\x00\x00\x01\x00'
 ```
+<br/>
 
 ```python
 dict = {(1,2): 1, (1,4): 2, (1,2): 6} # 也可以用 tuple 當作 dict 的 key
@@ -105,6 +106,14 @@ dict = {"c": 1, "b": 2, "a": 3}
 power = {x: x**2 for x in (2, 4, 6)}
 # {2: 4, 4: 16, 6: 36}
 ```
+<br>
+
+### 總結
+- 使用 {}, dict() 可以建立一個空的 dict
+- 搭配 keyword argument 可以不用使用冒號初始化 dict
+- list(dict) 可以將 key 轉成一個 list
+- dict 只能接受 immutable 的物件作為 key
+- key 可以使用 in / not in 檢查
 
 
 
