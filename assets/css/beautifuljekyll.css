@@ -1131,3 +1131,8 @@ p.note {
     background-color: #dfebf5;
     overflow: auto;
 }
+
+p.br {
+  margin-top:0px;
+  margin-bottom:0px;
+}
