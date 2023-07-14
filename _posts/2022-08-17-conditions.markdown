@@ -7,7 +7,8 @@ print ('x' in s) # False
 print ('x' not in s) # True
 
 ```
-<div></div>
+{:.spaceBelow}
+&nbsp
 ### is / is not 比較運算子
 
 ```python
