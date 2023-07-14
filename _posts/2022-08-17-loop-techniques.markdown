@@ -1,30 +1,38 @@
 
-Looping Techniques
-{% highlight Python %}
-{% endhighlight %}
+### 走訪 dict 
 
 走訪 dict 可以使用 items()
-{% highlight Python %}
+
+```python
 knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+
 for k, v in knights.items():
     print(k, v)
 	
 # gallahad the pure
 # robin the brave
-{% endhighlight %}
+```
+<br/>
+
+### 走訪 sequence
 
 走訪 sequence 時，可以使用 enumerate() 同時取得 index 跟 value
-{% highlight Python %}
+
+```python
 for i, v in enumerate(['tic', 'tac', 'toe']):
     print(i, v)
 
 	# 0 tic
 # 1 tac
 # 2 toe
-{% endhighlight %}
+```
+<br/>
+
+### 同時走訪多個 sequence
 
 同時走訪多個 sequences 可以使用 zip()
-{% highlight Python %}
+
+```python
 questions = ['name', 'quest', 'favorite color']
 answers = ['lancelot', 'the holy grail', 'blue']
 for q, a in zip(questions, answers):
@@ -34,10 +42,14 @@ for q, a in zip(questions, answers):
 # What is your quest?  It is the holy grail.
 # What is your favorite color?  It is blue.	
 	
-{% endhighlight %}
+```
+<br/>
+
+### 反向走訪 sequence
 
 反向走訪 sequences 可以使用 reversed()
-{% highlight Python %}
+
+```python
 for i in reversed(range(1, 10, 2)):
     print(i)
 	
@@ -46,10 +58,14 @@ for i in reversed(range(1, 10, 2)):
 # 5
 # 3
 # 1
-{% endhighlight %}
+```
+<br/>
+
+### 排序後走訪 sequence
 
 將一個 sequence 排序後走訪，可以使用 sorted() 會回傳一個排序後的 new sequence
-{% highlight Python %}
+
+```python
 
 basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
 for i in sorted(basket):
@@ -62,10 +78,14 @@ for i in sorted(basket):
 # orange
 # pear
 	
-{% endhighlight %}
+```
+<br/>
 
-有時候在走訪 sequence 的時候有變更的需求，較好的做法是直接產生append()成一個新的 sequence
-{% highlight Python %}
+### 走訪 sequence 時若要變更 sequence 的內容
+
+有時候在走訪 sequence 的時候有變更的需求，較好的做法是直接 append() 到一個新的 sequence
+
+```python
 
 import math
 raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
@@ -75,10 +95,11 @@ for value in raw_data:
         filtered_data.append(value)
 
 filtered_data # [56.2, 51.7, 55.3, 52.5, 47.8]		
-{% endhighlight %}
+```
 
 接續上述，也可以使用 list comprehension 方式如下
-{% highlight Python %}
+
+```python
 filtered_data = [ value for value in raw_data if not math.isnan(value) ]
 		
-{% endhighlight %}
+```
