@@ -8,8 +8,7 @@ print ('x' not in s) # True
 
 ```
 {:.spaceBelow} &nbsp
-{:.spaceBelow}   
-{:.spaceBelow} 
+
   
 
 ### is / is not 比較運算子
