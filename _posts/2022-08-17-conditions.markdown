@@ -1,4 +1,4 @@
-### in / not in 比較運算子
+### in / not in 比較運算子  
 
 ```python
 s = set('abcdef') # 初始化一個set
@@ -7,7 +7,7 @@ print ('x' in s) # False
 print ('x' not in s) # True
 
 ```
-
+  
 ### is / is not 比較運算子
 
 ```python
