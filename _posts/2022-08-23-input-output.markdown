@@ -82,7 +82,7 @@ for x in range(10):
 '729'
 ```
 
-{:note}
+{:.note}
 string x 傳入 repr() 時，會在左右加上單引號，回傳 'x'
 
 ## str.rfill()

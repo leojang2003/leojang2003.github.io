@@ -56,7 +56,7 @@ for cls in [B, C, D]:
 # D
 ```
 
-{:note}
+{:.note}
 raise 後面可以接一個 exception 物件，或是一個 Exception 類別，如果是後者，則背後會建立該類別的物件
 
 如果 except 順序倒過來，因為 C D 皆為 B 的子類別，所以只會執行 except B:

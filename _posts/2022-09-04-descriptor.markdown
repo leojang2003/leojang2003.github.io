@@ -18,10 +18,10 @@ a.y                         # Descriptor lookup
 
 ```
 
-{:note}
+{:.note}
 在尋訪 a.x attribute 時，點運算子會在 class dictionary 找到 'x': 5。在尋訪 a.y 時，點運算子會藉由識別其 __get__ method 找到 descriptor 實例，recognized by its  method. 呼叫該 method 會回傳 10。注意 10 不是存在 class dictionary 或是 instance dictionary，而是呼叫時即時產生。
 
-{:note}
+{:.note}
 descriptors 一個常見的用途是針對 instance data 做存取管理(managing access)。descriptor 會指派到 class dictionary 中的一個 public attribute，然而實際上的資料是儲存在 instance dictionary 的一個 private attribute。當 public attribute 被存取時，descriptor 的 __get__() 與 __set__() method 會被觸發
 
 ```python
@@ -93,7 +93,7 @@ Person.__dict__
 
 ```
 
-{:note}
+{:.note}
 問題來了，為什麼 __dict__ 裡面沒有 age ? 
 
 根據定義

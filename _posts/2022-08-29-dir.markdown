@@ -4,7 +4,7 @@
 
 如果物件有定義 __dir__()方法，則呼叫 dir(物件) 時，會呼叫物件的 __dir__()方法，
 
-{:note}
+{:.note}
 注意 dir() 回傳的是 '目前' 的 local scope，呼叫 dir() 的位置會決定回傳回來是哪種 scope
 
 ## dir() 回傳 global scope / built-in scope
@@ -34,13 +34,13 @@ import mod1
 # mod1 ends ....
 ```
 
-{:note}
+{:.note}
 補充說明 :
-{:note}
+{:.note}
 這裡可以看到可以執行 sample.py 時，import mod1 會呼叫 dir()，其中的 __builtins__ 是一個 dict，值得注意的是，如果是在 __main__ 中呼叫 dir() 則，這裡的 __builtins__ 變成了一個名為 builtins 的 module
-{:note}
+{:.note}
                                                                           
-{:note}
+{:.note}
 根據 Python Doc，多數 modules 都有名為 __builtins__ 在 global scope 中，__builtins__ 的值通常為 builtins 模組，或是該模組的 __dict__ 的值
 
 ```python

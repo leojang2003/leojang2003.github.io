@@ -1,6 +1,6 @@
 ## Python Callable Types
 
-{:note}
+{:.note}
 名詞定義: function : 函式 / method : 方法
 
 Python 有內建許多的 type，其中一種是 Callable Types，Callable 物件包含

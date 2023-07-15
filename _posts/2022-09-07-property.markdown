@@ -1,7 +1,7 @@
 ```python
 ``` 
 
-{:note}
+{:.note}
 managed attribute = property
 
 使用 Python 的 property()，我們可以在 class 建立 managed attributes，managed attributes 也就是所謂的 properties，用於在不會破壞 public API 下，可以變更內部實作方式，舉例來說使用者讀取 A.p 這裡的 p 就是 public API 給外界讀取，我們可以變更 property p 的實作方式，而使用者呼叫 p 的方式保持不變
@@ -31,7 +31,7 @@ p = Point(20,30)
 print(p._x) # 20 # 還是可以存取 _ 開頭的變數
 ```  
 
-{:note}
+{:.note}
 Python 沒有所謂的 private，只能在命名時加註底線，但該 attribute 還是可存取的
 
 
@@ -54,14 +54,14 @@ point.x = 42
 print(point.x)
 ``` 
 
-{:note}
+{:.note}
 上述程式顯示了一個 Python 的基本概念，也就是曝露 attributes 給 end user 在 Python 是相當正常且普遍的。我們不需要使用 getter/setter 來包裹類別，但我們要怎麼處理需求牽涉到 API 變更?
 
 解答: 將 attribute 轉為 property (另一種方式為使用 descriptor)
 
 Properties 像是介於一般 attribute 與 method 之間，舉例來說我們可將 .x and .y 變成 properties， 之後我可以像 attribute 的方式去存取他們，檯面下我們也會有 method 持有(hold) .x and .y ，這 method 讓我們可以修改 propertie 內部的實作方式
 
-{:note}
+{:.note}
 Property 非 Python 獨有，JavaScript, C#, Kotlin 也有類似的
 
 Python properties 的主要優點在於，讓我們得以用 public API 的方式揭露 attributes。當我們需要變更底下的實作時，我們只需要將 attribute 改為 property 即可輕易修改
@@ -83,7 +83,7 @@ doc	    property 的 docstring
 
 property() 回傳 managed attribute 本身。 如果我們存取 managed attribute，如 obj.attr，Python 會自動呼叫 fget()。如果我們指派值給 attribute，如 obj.attr = value，Python 會呼叫 fset() 並將值傳入參數，如果我們執行 del obj.attr，則 Python 會呼叫 fdel()，有設定 doc 的話，使用 help() 可以顯示 docstring 的內容
 
-{:note}
+{:.note}
 property() 的前三個參數為 function 物件，我們可以將 function 物件想像成沒有()的 function
 
 我們可以將 property() 使用成 function 或 decorator，decorator 是較為常見的作法
@@ -121,12 +121,12 @@ print(circle.radius)
 circle.radius = 100.0
 ``` 
 
-{:note}
+{:.note}
 上述程式中，radius 是一個 class attribute 存放 property 物件
 
 .radius property 隱藏非公開的 instance attribute ._radius，而 ._radius 即是 managed attribute，我們可以直接存取 .radius，內部 Python 會視情況自動呼叫 ._get_radius() 與 ._set_radius()
 
-{:note}
+{:.note}
 ._radius 是 non-public 的 instance attribute
 
 Properties 為 class attributes 用於管理 instance attributes，我們可以把 property 想成 method 集合再一起
@@ -335,11 +335,11 @@ class Circle:
 ``` 
 除了 .fget、.fset、.fdel, ... 外，property 也提供.deleter()、.getter()與.setter()，這三個 method 會回傳一個新的 property 物件。
 
-{:note}
+{:.note}
 總結 : 
 我們不需要使用()來用 method 的方式去呼叫 .radius()，取而代之的是我們可以像是存取一般 attribute 的方式存取 .radius，這也是 property 主要的使用方式。它讓我們可以將 method 看待成 attribute，而程式會自己呼叫底下對應的 method
 
-{:note}
+{:.note}
 通常來說，如果不須做特別處理的話，不要將 attribute 轉為 property，不然程式會變得冗長
 
 一種 property() 的基本的用法是，property() 也可以替你的 class 提供唯讀的 attribute
@@ -399,7 +399,7 @@ class Circle:
         self.radius = value / 2
 ```
 
-{:note}
+{:.note}
 注意 __init__ 裡面，是呼叫 self.radius = radius，而不是 self._radius = radius，這是因為呼叫 self.radius 會透過 @radius.setter，可以做型別的檢查，可以避免初始化時傳入不適合的值
 
 

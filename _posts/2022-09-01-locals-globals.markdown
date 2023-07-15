@@ -1,6 +1,6 @@
 # locals()
 
-{:note}
+{:.note}
 名詞定義: function : 函式 / method : 方法
 
 Update and return a dictionary representing the current local symbol table. Free variables are returned by locals() when it is called in function blocks, but not in class blocks. Note that at the module level, locals() and globals() are the same dictionary.
