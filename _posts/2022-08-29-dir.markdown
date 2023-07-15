@@ -2,7 +2,9 @@
 
 內建方法，當沒有傳入參數時，會回傳目前 local scope 的 names。當有傳入參數時，會回傳該物件的 valid attributes
 
-如果物件有定義 __ dir __()方法，則呼叫 dir(物件) 時，會呼叫物件的 __ dir __()方法，
+如果物件有定義 __ dir __() 方法，則呼叫 dir(物件) 時，會呼叫物件自己定義的 __ dir __() 方法，
+
+如果 object 沒有定義 __ dir __() 方法，則 dir() 會儘力從 object 的 __ dict __ 屬性（如果有定義）和其 type object 收集資訊。生成的 list 不一定完整，當 object 有自己定義的 getattr() 方法時，可能會不準確。
 
 {:.note}
 注意 dir() 回傳的是 '目前' 的 local scope，呼叫 dir() 的位置會決定回傳回來是哪種 scope
