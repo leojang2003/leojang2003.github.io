@@ -2,26 +2,26 @@
 
 如果沒有 exception，則 except 區塊不會執行，若是有 exception 且 exception name 一致，則會執行 except 區塊，若是 exception 沒有處理，則會傳到外層的 try，如果外層也沒處理，則變成未處理的 exception
 
-{% highlight Python %}
+```python
 while True:
     try:
         x = int(input("Please enter a number: "))
         break
     except ValueError:
         print("Oops!  That was no valid number.  Try again...")
-{% endhighlight %}
+```
 
 可以有多個 except，但只有一個會執行
 
 也可以使用 tuple 
 
-{% highlight Python %}
+```python
 except (RuntimeError, TypeError, NameError):
     pass
-{% endhighlight %}
+```
 
 except 子句如果有吻合 exception 的話就會執行，如果 except 後的 exception 是丟出的 exception 的父類別時，則此 exception 子句會執行。反過來說，如果 except 後的 exception 是丟出的 exception 的子類別時，則不會執行 exception 子句
-{% highlight Python %}
+```python
 class B(Exception):
     pass
 
@@ -54,13 +54,13 @@ for cls in [B, C, D]:
 # True
 # <class '__main__.D'>
 # D
-{% endhighlight %}
+```
 
 {:note}
 raise 後面可以接一個 exception 物件，或是一個 Exception 類別，如果是後者，則背後會建立該類別的物件
 
 如果 except 順序倒過來，因為 C D 皆為 B 的子類別，所以只會執行 except B:
-{% highlight Python %}
+```python
 class B(Exception):
     pass
 
@@ -95,10 +95,10 @@ for cls in [B, C, D]:
 # True
 # <class '__main__.D'>
 # B
-{% endhighlight %}
+```
 
 所有的 exception 都是繼承自 BaseException，所以可以使用該類別作為一個 wildcard。
-{% highlight Python %}
+```python
 import sys
 
 try:
@@ -112,10 +112,10 @@ except ValueError:
 except BaseException as err:
     print(f"Unexpected {err=}, {type(err)=}")
     raise
-{% endhighlight %}
+```
 
 try … except 可以接 else，當 try 沒有異常時會執行
-{% highlight Python %}
+```python
 py sample.py myfile.txt
 
 for arg in sys.argv[1:]:
@@ -129,9 +129,9 @@ for arg in sys.argv[1:]:
 		
 # myfile.txt has 1 lines
 		
-{% endhighlight %}
+```
 
-{% highlight Python %}
+```python
 try:
     raise Exception('spam', 'eggs')
 except Exception as inst:# 綁定 exception 物件到 inst
@@ -148,10 +148,10 @@ except Exception as inst:# 綁定 exception 物件到 inst
 ('spam', 'eggs')
 x = spam
 y = eggs
-{% endhighlight %}
+```
 
 繼承 Exception 並覆寫 __str__() 方法
-{% highlight Python %}
+```python
 class SubException(Exception):
 		
 	def __init__(self, *args):
@@ -168,24 +168,24 @@ except Exception as inst:
     print(inst)          
 	# SubException 覆寫 __str__() 方法，print() 顯示如下
 	# ***['spam', 'eggs']***
-{% endhighlight %}	
+```	
 
 如果要知道是否有特定的 exception 但不想處理，則可以直接 raise
-{% highlight Python %}
+```python
 try:
     raise NameError('HiThere')
 except NameError:
     print('An exception flew by!')
     raise
-{% endhighlight %}
+```
 
 ## Exception Chaining
-{% highlight Python %}
+```python
 # exc must be exception instance or None.
 raise RuntimeError from exc
-{% endhighlight %}
+```
 
-{% highlight Python %}
+```python
 def func():
     raise ConnectionError
 
@@ -204,10 +204,10 @@ The above exception was the direct cause of the following exception:
 Traceback (most recent call last):
   File "<stdin>", line 4, in <module>
 RuntimeError: Failed to open database
-{% endhighlight %}
+```
 
 在 except 和 finally 出現的 exception 會自動 exception chaining，若要關閉這樣的行為可以使用
-{% highlight Python %}
+```python
 try:
     open('database.sqlite')
 except OSError:
@@ -216,7 +216,7 @@ except OSError:
 Traceback (most recent call last):
   File "<stdin>", line 4, in <module>
 RuntimeError
-{% endhighlight %}
+```
 
 ## finally
 如果有 finally 子句，則 finally 子句將作為 try 語句完成之前的最後一個任務執行。無論 try 語句是否產生e exception，finally 子句都會運行。以下幾點討論了發生異常時更複雜的情況：
@@ -227,27 +227,27 @@ RuntimeError
 
 如果 finally 子句包含 return 語句，則返回值將是 finally 子句的 return 語句中的值，而不是 try 子句的 return 語句中的值。
 
-{% highlight Python %}
+```python
 def bool_return():
     try:
         return True
     finally:
         return False
 bool_return() # False
-{% endhighlight %}
+```
 
 如果 finally 子句執行 break、continue 或 return 語句，則不會重新引發異常。如果 try 語句到達 break、continue 或 return 語句，finally 子句將在 break、continue 或 return 語句執行之前執行。
 
-{% highlight Python %}
+```python
 def bool_return():
     try:
         raise ZeroDivisionError
     finally:
         return 'finally'
 bool_return() # 'finally'
-{% endhighlight %}
+```
 	
-{% highlight Python %}
+```python
 def raise_exception():
 	for i in range(5):
 		if i == 3:
@@ -264,4 +264,4 @@ def raise_exception():
 raise_exception()
 # finally
 # 因為 finally 有 break 所以不會出現 exception
-{% endhighlight %}		
+```		

@@ -1,6 +1,6 @@
 ## Class Attribute
 
-{% highlight Python %}
+```python
 class Car:
     
     model = 'Sedan'
@@ -20,6 +20,6 @@ nissan.roadTrip()
 
 print(ford.mileage)     # 1000
 print(nissan.mileage)   # 1000
-{% endhighlight %}
+```
 
 可以看到不同的 object 共用同一個 Class Attribute

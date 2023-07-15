@@ -1,6 +1,3 @@
-{% highlight Python %}
-{% endhighlight %}
-
 ## dir() 方法
 
 內建方法，當沒有傳入參數時，會回傳目前 local scope 的 names。當有傳入參數時，會回傳該物件的 valid attributes
@@ -12,7 +9,7 @@
 
 ## dir() 回傳 global scope / built-in scope
 
-{% highlight Python %}
+```python
 # 檔案 mod1.py
 
 name = 'John'
@@ -25,17 +22,17 @@ print('mod1 ends ....')
 def run():
 	print('mod1')
 
-{% endhighlight %}
+```
 
 主檔案 sample.py 如下
-{% highlight Python %}
+```python
 import mod1
 
 # 執行 sample.py 結果如下 ...
 # mod1 starts ....
 # ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'age', 'name']
 # mod1 ends ....
-{% endhighlight %}
+```
 
 {:note}
 補充說明 :
@@ -46,20 +43,20 @@ import mod1
 {:note}
 根據 Python Doc，多數 modules 都有名為 __builtins__ 在 global scope 中，__builtins__ 的值通常為 builtins 模組，或是該模組的 __dict__ 的值
 
-{% highlight Python %}
+```python
 # 檔案 sample.py
 print(__builtins__)
 
 # 執行 sample.py 結果如下 ...
 <module 'builtins' (built-in)> 	# 可以看到 __builtins__ 是個 module
 print(__builtins__.abs(-10)) 	# 可以呼叫 module 的方法
-{% endhighlight %}
+```
 
 ## dir() 回傳 function scope / enclosing scope
 
 執行以下程式
 
-{% highlight Python %}
+```python
 ef father(father_name):
 	
 	father_desc = f'father is {father_name}'
@@ -76,13 +73,13 @@ father('James')
 
 # outer scope names ...  ['father_desc', 'father_name']
 # inner scope names ...  ['father_desc', 'son_desc', 'son_name']
-{% endhighlight %}
+```
 
 這裡可以看到在 son() 裡面呼叫 dir()，傳回的是 son() 的 local scope (這裡因為我們有加入 nonlocal 變數 father_desc，所以會回傳 3 個 name，若沒有設定 nonlocal 則僅回回傳 ['son_desc', 'son_name'] )
 
 ## 呼叫 dir() 時傳入物件
 
-{% highlight Python %}
+```python
 # 檔案 mod3.py ...
 class Mod3:
 		
@@ -97,11 +94,11 @@ from mod3 import Mod3
 obj = Mod3()
 print(dir(obj)) 
 #['__class__', '__delattr__', '__dict__', ... , '__subclasshook__', '__weakref__']
-{% endhighlight %}
+```
 
 ## 呼叫 dir() 時傳入物件，但自訂物件的 __dir__()
 
-{% highlight Python %}
+```python
 # 檔案 mod3.py ...
 class Mod3:
 		
@@ -120,13 +117,13 @@ from mod3 import Mod3
 
 obj = Mod3()
 print(dir(obj)) # ['a', 'b', 'c']
-{% endhighlight %}
+```
 
 ## 傳入不同類型物件，dir()會顯示的內容也不一樣
 
 ## 傳入 module 物件
 dir() 回傳模組的 attributes 的 names
-{% highlight Python %}
+```python
 # 檔案 mod1.py ...
 name = 'John'
 age = 20
@@ -138,12 +135,12 @@ def run():
 import mod1
 print(dir(mod1))
 ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'age', 'name', 'run']
-{% endhighlight %}
+```
 
 ## 傳入 type 或 class 物件
 dir() 回傳模組的 attributes 的 names，包含父類別的 attributes names
 
-{% highlight Python %}
+```python
 # 檔案 mod2.py ...
 class Mod2():
 	
@@ -173,4 +170,4 @@ print(dir(obj))
 # ['__class__', '__delattr__',... '__weakref__', 'run_mod2', 'run_mod3']
 # 父類別 Mod2 的方法 run_mod2 也回傳了	
 
-{% endhighlight %}
+```

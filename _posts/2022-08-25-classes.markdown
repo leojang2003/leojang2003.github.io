@@ -7,7 +7,7 @@ dot notation 後面接的東西，通稱為 attribute，如 z.real() 表示 real
 物件是執行時(runtime)才會建立，建立之後是可以修改的，另外
 同個物件可以綁定多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更
 
-{% highlight Python %}
+```python
 l = [1, 2, 3, 4, 5]
 dupe = l 
 
@@ -21,7 +21,7 @@ dupe2[2] = 'x' # 修改也會動到
 
 print(dupe_2) 	# [1, 2, 'x', 4, 5] 
 print(l) 		# [1, 2, 'x', 4, 5]
-{% endhighlight %}
+```
 
 ## 命名空間 Namespace
 
@@ -43,7 +43,7 @@ namespace 是在不同的時間被建立，且有不同的生命週期。包含 
 
 關於 namespaces 重要的是，不同 namespace 的 names 之間是沒有關聯的，不同 modules 可以定義相同的 function name，只要使用時加上 module 名稱的 prefix 即可
 
-{% highlight Python %}
+```python
 # 如果兩個 module 都有同樣的名稱
 # mod1.py
 def run():
@@ -66,12 +66,12 @@ from mod1 import run
 from mod2 import run
 
 run() # 'mod2'
-{% endhighlight %}
+```
 
 ## 何謂 Attribute Reference
 嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module名稱，而 funcname 是物件的 attribute，attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下
 
-{% highlight Python %}
+```python
 # my_module.py
 def raise_exception():
 	pass
@@ -85,7 +85,7 @@ raise_exception() # 'raise_exception'
 # name 'raise_exception' is not defined. 
 del raise_exception 
 raise_exception()
-{% endhighlight %}
+```
 
 
 ## Scope
@@ -125,18 +125,18 @@ Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬
 
 當我們 import sys，我們可以使用 .keys() 來檢視 sys.__dict__ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，__dict__ 抓住 sys 的 namespace，且是 module scope 的 concrete representation
 
-{% highlight Python %}
+```python
 import sys
 
 print(sys.__dict__.keys())
 dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', ...])
-{% endhighlight %}
+```
 
 進一步說，假設我們要存取定義在 sys 中的 __name__，一共有兩種方式可以 reference 
-{% highlight Python %}
+```python
 sys.__name__
 sys.__dict__['__name__']
-{% endhighlight %}
+```
 
 # LEGB 規則
 
@@ -164,14 +164,14 @@ Local Scope 或稱 function scope，是 Python 在呼叫 function 時建立的 s
 
 預設下，方法內指派的參數與 name 只存在呼叫 function 所建立的 local scope 中。當 function return 時，local scope 會摧毀且 name 會被遺忘
 
-{% highlight Python %}
+```python
 def square(base):
     result = base ** 2
     print(f'The square of {base} is: {result}')
 
 square(10) # The square of 10 is: 100
 print(result) # Isn't accessible from outside square()
-{% endhighlight %}
+```
 
 {:.note}
 當我們在呼叫 function 後試著存取 result 或是 base，Python 會傳回 NameError，因為 result 和 base 只存在呼叫 square() 時所建立的 local scope，當我們試著存取不在任何 scope 中的 name，我們會得到一個 NameError 錯誤訊息顯示 name 找不到
@@ -179,7 +179,7 @@ print(result) # Isn't accessible from outside square()
 ## __code__ 關鍵字
 
 我們可以呼叫 function 的 __code__ 來檢視 function 的參數與 name，
-{% highlight Python %}
+```python
 square.__code__.co_varnames
 ('base', 'result')
 square.__code__.co_argcount
@@ -188,13 +188,13 @@ square.__code__.co_consts
 (None, 2, 'The square of ', ' is: ')
 square.__code__.co_name
 'square'
-{% endhighlight %}
+```
 
 ## Nested Functions: The Enclosing Scope
 
 Enclosing (nonlocal) scope 是當我們在 function 內加入 function。我們在 enclosing scope 定義的 name  通常被稱為 nonlocal names
 
-{% highlight Python %}
+```python
 def outer_func():
     # 此區塊是 outer_func() 的 local scope
     var = 100  # A nonlocal var
@@ -212,7 +212,7 @@ outer_func()
 
 inner_func()
 # NameError: name 'inner_func' is not defined
-{% endhighlight %}
+```
 
 當我呼叫 outer_func() 時，我們會建立一個 local scope，而 outer_func() 的 local scope，同時也是 inner_func() 的 enclosing scope。從 inner_func() 看，此 scope 既不是 global scope 也不是 local scope，這是一個介於 local 與 global 之間的特殊 scope，叫做 enclosing scope。
 
@@ -221,7 +221,7 @@ inner_func()
 
 inner_func() 內可以看到我們在 enclosing scope 建立的所有 name，有一例外，就是在呼叫 inner_func() 後建立的 name，inner_func() 是看不的
 
-{% highlight Python %}
+```python
 def outer_func():
     var = 100
     def inner_func():
@@ -235,7 +235,7 @@ def outer_func():
 outer_func()
 # Printing var from inner_func(): 100
 # NameError: free variable 'another_var' referenced before assignment in enclosing scope
-{% endhighlight %}
+```
  
 ## Modules: The Global Scope
 從程式執行之際，我們就已經在 Python 的 global scope 中，Python 會將程式的 main script 轉成 __main__ 的模組，此模組的 namespace 即是我們程式的主要 global scope
@@ -245,22 +245,22 @@ outer_func()
 
 如果我們是在 interactive session，我們會看到 __main__ 也是主模組的名稱
 
-{% highlight Python %}
+```python
 >>> __name__
 '__main__'
-{% endhighlight %}
+```
 
 每當我們執行 Python 程式或是執行 interactive session 如上，編譯器會執行該模組或 script 裡的程式碼，當作我們程式的進入點，此模組或 script 會以一個特殊的名稱__main__載入，從此在之後，我們的 main global scope 就是 __main__ 的 scope
 
 想檢查 main global scope 裡有的 names，我們可以使用 dir()。如果呼叫 dir() 沒有給參數，則是回傳目前 global scope 的 names 
 
-{% highlight Python %}
+```python
 print(dir())
 ['__annotations__', '__builtins__',..., '__package__', '__spec__']
 var = 100  # 新增變數後，會加入 global scope 
 print(dir())
 ['__annotations__', '__builtins__',..., '__package__', '__spec__', 'var'] # 多了 var
-{% endhighlight %}
+```
 
 {:.note}
 程式執行時只會有一個 global scope，直到程式關閉時才會終止，name forgotten
@@ -284,7 +284,7 @@ function 內使用 local name
 
 具體行為是哪種，取決於我們是在哪個 scope 做 assignment。如果我們嘗試在 function 內要給 global name 做 assignment，那麼我們將在函數的 local scope 內建立該 name，隱藏或覆蓋 global name。這表示著我們將無法從 function 內部變更在 function 外定義的大多數變數 (除非使用 global 關鍵字)
 
-{% highlight Python %}
+```python
 x = 10 # global 變數
 
 def my_func():
@@ -297,42 +297,42 @@ my_func()
 print(x)
 # 5
 # 10 
-{% endhighlight %}
+```
 
 再一個例子
-{% highlight Python %}
+```python
 var = 100  # A global variable
 def increment():
     # UnboundLocalError: local variable 'var' referenced before assignment
     var = var + 1  
 
 increment()
-{% endhighlight %}
+```
 
 以下 OK，讀取 global 變數後 print()
-{% highlight Python %}
+```python
 var = 100  # global 變數
 def increment():
     print(var)
     
 increment()
-{% endhighlight %}
+```
 
 以下 OK，讀取 global 變數後 print()
-{% highlight Python %}
+```python
 var = 100  # global 變數
 def increment():
     print(var)	# local variable 'var' referenced before assignment
 	var = 200 	# 多了這行造成程式判斷前一行 var 為 local variable
     
 increment()
-{% endhighlight %}
+```
 
 {:.note}
 Python 預設在 function 內的 assignment 都是 local variable
 
 在方法內變更全域變數
-{% highlight Python %}
+```python
 x = 10
 
 def my_func():
@@ -342,10 +342,10 @@ def my_func():
 	pass
 	
 my_func()
-{% endhighlight %}
+```
 
 使用 global 變數，在方法內變更全域變數
-{% highlight Python %}
+```python
 x = 10
 
 def my_func():
@@ -356,10 +356,10 @@ def my_func():
 	
 my_func()
 print(x) # 20 外面也被改變
-{% endhighlight %}
+```
 
 如何分享全域變數
-{% highlight Python %}
+```python
 # mod1.py
 name = 'John'
 age = 20
@@ -376,12 +376,12 @@ import mod1
 import mod2
 
 print(mod1.name, mod1.age) # 'Queen 60'
-{% endhighlight %}
+```
 
 ## nonlocal 關鍵字
 
 用於 nested 方法，使用 nonlocal 來存取，nonlocal 只能存在於 nested function 的 enclosing scope，不能存在 local scope 或是 global scope
-{% highlight Python %}
+```python
 x = 'global'
 
 def outer():
@@ -406,7 +406,7 @@ print('global:', x)
 # inner: inner
 # outer: inner
 # global: global
-{% endhighlight %}
+```
 
 {:.note}
 這裡說一個 Python 奇特的地方，當沒有使用 global 或是 nonlocal 關鍵字時，對 name 做指派 (assignment) 值時，永遠都是在指派給該 scope 中的變數，也就是若是該 scope 中沒有此 name，則會建立一個 name 做 assignment。就算外層有相同名稱的 name，也是在該 scope 建立一個相同名稱的 name
@@ -417,7 +417,7 @@ print('global:', x)
 built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python 編譯器時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以免費獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。
 
 注意 builtins 的 names 會總是載入到一個名為 __builtins__ 的 global Python scope
-{% highlight Python %}
+```python
 dir()
 # ['__annotations__', '__builtins__',..., '__package__', '__spec__']
 # global Python scope
@@ -439,19 +439,19 @@ builtins.sum([1, 2, 3, 4, 5])
 import builtins
 __builtins__.sum([1, 2, 3, 4, 5])
 # 15
-{% endhighlight %}
+```
 
 上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數
 
 built-in names 可以被覆寫，如下
-{% highlight Python %}
+```python
 abs(-15)  # Standard use of a built-in function
 # 15
 abs = 20  # Redefine a built-in name in the global scope
 abs(-15) 
 # TypeError: 'int' object is not callable
 # abs 被改寫了
-{% endhighlight %}
+```
 
 {:.note}
 改寫 built-in names 最好步要做
@@ -466,7 +466,7 @@ Closures 是 enclosing Python scope 的一個特例，nested function 的內層 
 
 closure 提供了一種在 function calls 之間保留狀態信息的方法。當我們想要基於 lazy 或 delayed evaluation的概念撰寫程式時，這可能很有用。
 
-{% highlight Python %}
+```python
 def power_factory(exp):
     def power(base):
         return base ** exp
@@ -481,12 +481,12 @@ cube(5)
 125
 square(15)
 225
-{% endhighlight %}
+```
 
 {:.note}
 注意 : 像 exp 這樣的變數叫做 free variables。他們是在 code block 使用中但沒有在那定義，free variables 是 closure 可以在不同 function call 中保留狀態的原因
 
-{% highlight Python %}
+```python
 def mean():
     sample = []
     def _mean(number):
@@ -505,7 +505,7 @@ current_mean(11)
 12.0
 current_mean(13)
 12.2
-{% endhighlight %}
+```
 
 ## 使用 import 將 name 加入 scope
 
@@ -515,7 +515,7 @@ current_mean(13)
 
 ## Comprehension Variables Scope
 
-{% highlight Python %}
+```python
 >>> [item for item in range(5)]
 [0, 1, 2, 3, 4]
 >>> item  # 試著存取 comprehension variable
@@ -523,10 +523,10 @@ current_mean(13)
 #   File "<stdin>", line 1, in <module>
 #     item
 # NameError: name 'item' is not defined
-{% endhighlight %}
+```
 
 但是一般的 for loop，在 loop 外是可以存取 loop variable 的
-{% highlight Python %}
+```python
 >>> for item in range(5):
     print(item)
 ...
@@ -537,13 +537,13 @@ current_mean(13)
 4
 >>> item  # Access the loop variable
 4
-{% endhighlight %}
+```
 
 ## Exception Variables Scope
 
 另一個 Python scope 的特殊案例是 exception variables。exception variables 是一個變數，當 try 語法觸發一個 exception，該變數會指向該 exception。在 Python 3.x 中，此類變數僅存在 except 區塊的 local scope，並且在 except 區塊結束時被遺忘。
 
-{% highlight Python %}
+```python
 lst = [1, 2, 3]
 try:
     lst[4]
@@ -555,7 +555,7 @@ except IndexError as err:
 
 print(err) 	# NameError: name 'err' is not defined
 print(ex) 	# 這樣可以
-{% endhighlight %}
+```
 
 ## Class and Instance Attributes Scope
 
@@ -563,18 +563,18 @@ print(ex) 	# 這樣可以
 
 與函數不同，class 的 local scope 不是在呼叫時建立的，而是在執行時建立的。每個 class 物件都有自己的 .__dict__ 屬性，該屬性包含所有 class attribute 所在的 class scope 或 namespace。看看這段程式：
 
-{% highlight Python %}
+```python
 class A:
    attr = 100
 print(A.__dict__.keys())
 #dict_keys(['__module__', 'attr', '__dict__', '__weakref__', '__doc__'])
-{% endhighlight %}
+```
 
 當檢查 .__dict__ 的 keys() 時，我們會看到 attr 與其他特殊 name 一起在列表中。該 dict 為 class 的 local scope。此 scope 內的 name 對 class的所有 instance 和 class 本身都是可見的。
 
 要從 class 外部存取 class 的 attribute，需要使用點符號，如下所示：
 
-{% highlight Python %}
+```python
 class A:
     attr = 100
     print(attr)  # 在 class 裡可直接存取 attributes
@@ -589,14 +589,14 @@ A.attr2
 # AttributeError:
 # 試著存取不存在的 attribute我們
 # type object 'A' has no attribute 'attr2'
-{% endhighlight %}
+```
 
 可以使用物件透過 dot notation 存取 class attribute
-{% highlight Python %}
+```python
 >>> obj = A()
 >>> obj.attr
 100
-{% endhighlight %}
+```
 
 在建立 instance 後，我們可以使用 dot notation 存取 class 的 attribute，就像我們在此處使用 obj.attr 所做的那樣。class attribute 是特定於 class object，但我們可以從 class 的任何 instance 存取它們。值得注意的是，class attribute 對 class 的所有 instance都是通用的。如果我們修改 class attribute，則更改將在該 class 的所有 instance 中可見。
 
@@ -606,7 +606,7 @@ A.attr2
 
 要從 class 內部建立、更新或存取任何 instance attribute，我們需要使用 self 和 dot notation。這裡，self 是一個特殊的 attribute，表示當前 instance。另一方面，要從 class 外部更新或存取任何 instance attribute，我們需要建立一個 instance，然後使用點表示法。這是它的工作原理：
 
-{% highlight Python %}
+```python
 class A:
     def __init__(self, var):
         self.var = var  # 建立新的 instance attribute
@@ -615,13 +615,13 @@ class A:
 obj = A(100)
 print(obj.__dict__) # {'var': 200}
 print(obj.var) # 200
-{% endhighlight %}
+```
 
 class A 接受一個名為 var 的參數，它使用賦值操作 self.var *= 2 在 .__init__() 內自動加倍。請注意，當您檢查 obj 上的 .__dict__ 時，您會得到一個包含所有 instance attribute 的字典。在這種情況下，字典僅包含名稱 var，其值現在為 200。
 
 instance attribute 最好在 __init__ 內初始化
 
-{% highlight Python %}
+```python
 class A:
     def __init__(self, var):
         self.var = var
@@ -636,7 +636,7 @@ print(obj.duplicate_var()) # 200
 A.var
 # class A '物件'沒有 attribute A
 # AttributeError: type object 'A' has no attribute 'var'
-{% endhighlight %}
+```
 
 如果我們嘗試使用 class object 而不是 instance 來存取 var，那麼我們將收到 AttributeError，因為無法使用 class object 存取 instance attribute。
 
@@ -647,18 +647,18 @@ class object 無法存取 instance attribute
 
 雖然 class 會定義一個 class local scope 或 namespace，但他們不會建立 methods 的 enclosing scope。因此，當我們實作一個 class 時，參考 attributes 與 methods 時都必須使用 dot notation
 
-{% highlight Python %}
+```python
 class A:
 	var = 100
     def print_var(self):
         print(var)
 
 A().print_var() # NameError: name 'var' is not defined
-{% endhighlight %}
+```
 
 因為 classes 不會幫 method 建立 enclosing scope，所以我們不能從 print_var() 直接存取 var。要從任意 method 中存取 class attributes 我們必須使用 dot notation。
 
-{% highlight Python %}
+```python
 class A:
 	var = 100
     def print_var(self):
@@ -667,11 +667,11 @@ class A:
 		print(self.var)	# 要用 dot notation 存取 var	
 
 A().print_var() # NameError: name 'var' is not defined
-{% endhighlight %}
+```
 
 我們可以以 instance attribute 覆寫 class attribute，這樣會變更我們 class 的 general behavior，但是，我們可以同時存取兩種 attribute 使用 dot notation 如下所示：
 
-{% highlight Python %}
+```python
 class A:
     var = 100
     def __init__(self):
@@ -692,7 +692,7 @@ print(A.__dict__.keys())
 # dict_keys(['__module__', 'var', '__init__',..., '__getattribute__'])
 print(A().__dict__.keys())
 # dict_keys(['var'])
-{% endhighlight %}
+```
 
 上述 class 有同名的 instance attribute 與 class attribute 名為 var. 
 

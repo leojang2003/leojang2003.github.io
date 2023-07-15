@@ -2,7 +2,7 @@
 
 我們可以看到繼承的 2 個父類別，同時有 walk() 方法，當我們呼叫 Human 物件的 walk() 方法時，實際執行的 walk() 方法與繼承的順序有關，因為先繼承 Mamal，所以會執行 Mamal 類別的 walk()
 
-{% highlight Python %}
+```python
 class Animal:
 	
 	blood = 'Red'
@@ -40,11 +40,11 @@ class Human(Mammal, Animal):
 
 Lisa = Human(3)
 Lisa.walk() # Mammal walk with 3
-{% endhighlight %}
+```
 
 如果將 Human 繼承的順序顛倒如下，當我們呼叫 Human 物件的 walk() 方法時，實際執行的會是 Animal 類別 walk() 
 
-{% highlight Python %}
+```python
 class Human(Animal, Mammal):
 	
 	gender = 'male'
@@ -60,4 +60,4 @@ class Human(Animal, Mammal):
 
 Lisa = Human(3)
 Lisa.walk() # Animal walk with 3
-{% endhighlight %}
+```

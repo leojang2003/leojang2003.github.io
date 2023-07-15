@@ -15,7 +15,7 @@ Return the dictionary implementing the current module namespace. For code within
 
 變數 a 定義在 outer()，如果我們看 inner()，變數 a 沒有定義，但 inner() 有使用變數 a 因此變數 a 在 inner() function 叫做 Free Variable.
 
-{% highlight Python %}
+```python
 def outer():
     a = 20
   
@@ -26,11 +26,11 @@ def outer():
 
 outer()
 Output
-{% endhighlight %}
+```
 
 
 測試如下
-{% highlight Python %}
+```python
 import builtins
 
 author = 'Mike'
@@ -91,7 +91,7 @@ tom.a_run(20)
 
 print(tom.a_run.__func__)
 
-{% endhighlight %}
+```
 
 
 		

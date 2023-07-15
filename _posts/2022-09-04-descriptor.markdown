@@ -2,7 +2,7 @@
 
 要使用 descriptor，descriptor 需儲存為 class variable 在別的 class 中:
 
-{% highlight Python %}
+```python
 class Ten:
     def __get__(self, obj, objtype=None):
         return 10
@@ -16,7 +16,7 @@ a = A()                     # 建立類別 A 的實例
 a.x                         # 一般的 attribute lookup
 a.y                         # Descriptor lookup
 
-{% endhighlight %}
+```
 
 {:note}
 在尋訪 a.x attribute 時，點運算子會在 class dictionary 找到 'x': 5。在尋訪 a.y 時，點運算子會藉由識別其 __get__ method 找到 descriptor 實例，recognized by its  method. 呼叫該 method 會回傳 10。注意 10 不是存在 class dictionary 或是 instance dictionary，而是呼叫時即時產生。
@@ -24,7 +24,7 @@ a.y                         # Descriptor lookup
 {:note}
 descriptors 一個常見的用途是針對 instance data 做存取管理(managing access)。descriptor 會指派到 class dictionary 中的一個 public attribute，然而實際上的資料是儲存在 instance dictionary 的一個 private attribute。當 public attribute 被存取時，descriptor 的 __get__() 與 __set__() method 會被觸發
 
-{% highlight Python %}
+```python
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -63,25 +63,25 @@ mary = Person('Mary M', 30)
 # Person __init__
 # LoggedAgeAccess __set__ 
 # INFO:root:Updating 'age' to 30
-{% endhighlight %}
+```
 
 這裡因為呼叫 self.age = age 會觸發 __set__，因而顯示 LoggedAgeAccess __set__
 
-{% highlight Python %}
+```python
 vars(mary)  
 # {'name': 'Mary M', '_age': 30}
-{% endhighlight %}
+```
 
 注意這裡，實際上的資料是存在 _age 這個 private attribute 中。vars() 會回傳 __dict__ attribute，所以等同於呼叫 mary.__dict__
 
 以下是 intance dictionary
-{% highlight Python %}
+```python
 mary.__dict__
 # {'name': 'Mary M', '_age': 30}
-{% endhighlight %}
+```
 
 以下是 class dictionary
-{% highlight Python %}
+```python
 Person.__dict__ 
 # {..., 
 	'age': <__main__.LoggedAgeAccess object at 0x000002AD8009F820>, 
@@ -91,7 +91,7 @@ Person.__dict__
 	'__dict__': <attribute '__dict__' of 'Person' objects>, 
 	...}
 
-{% endhighlight %}
+```
 
 {:note}
 問題來了，為什麼 __dict__ 裡面沒有 age ? 
@@ -99,10 +99,10 @@ Person.__dict__
 根據定義
 object.__dict__ : A dictionary or other mapping object used to store an object's (writable) attributes，我推測這裡的 writable attribute 指的是 instance attribute，因為這裡的 age 是 class attribute，所以 mary.__dict__ 沒有 age
 
-{% highlight Python %}
+```python
 dir(mary)
 # [..., '_age', 'age', 'birthday', 'name', 'ten' ...]
-{% endhighlight %}
+```
 
 ## object.__set_name__
 
@@ -222,7 +222,7 @@ __set_name__(self, owner, name)
 
 只實作 __get__ 稱為 non-data descriptor，實作 __set__() 或 __delete__() 稱為 data descriptor
 
-{% highlight Python %}
+```python
 # descriptors.py
 class Verbose_attribute():
     def __get__(self, obj, type=None) -> object:
@@ -238,14 +238,14 @@ class Foo():
 my_foo_object = Foo()
 x = my_foo_object.attribute1
 print(x)
-{% endhighlight %}
+```
 
 ## descriptor 與 property 的關係
 
 property 實際上就是 descriptor
 
 用 property 可以寫成下面
-{% highlight Python %}
+```python
  # property_decorator.py
 class Foo():
     @property
@@ -257,11 +257,11 @@ class Foo():
     def attribute1(self, value) -> None:
         print("accessing the attribute to set the value")
         raise AttributeError("Cannot change the value")
-{% endhighlight %}
+```
 
 等同於
 
-{% highlight Python %}
+```python
 # property_function.py
 class Foo():
     def getter(self) -> object:
@@ -273,7 +273,7 @@ class Foo():
         raise AttributeError("Cannot change the value")
 
     attribute1 = property(getter, setter)
-{% endhighlight %}
+```
 
 property() 回傳一個實作 descriptor protocol 的 property object。
 
@@ -281,7 +281,7 @@ property() 回傳一個實作 descriptor protocol 的 property object。
 
 背後將呼叫 obj.method(*args) 變成 method(obj, *args) 是在 function object 的 .__get__() 實作中，這也是一個 non-data descriptor。特別來說，當 function object 實作 .__get__() 當我們使用 dot notation 存取時會回傳 bound method。
 
-{% highlight Python %}
+```python
 import types
 
 class Function(object):
@@ -291,4 +291,4 @@ class Function(object):
         if obj is None:
             return self
         return types.MethodType(self, obj)
-{% endhighlight %}
+```

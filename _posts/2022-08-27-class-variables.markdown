@@ -1,4 +1,4 @@
-{% highlight Python %}
+```python
 class Dog:
     num_legs = 4
 
@@ -31,4 +31,4 @@ print('jack has ', jack.num_legs, 'legs') # jack has  6 legs
 
 # 其他物件的類別變數的值，不受影響
 print('jill has ', jill.num_legs, 'legs') # jill has  4 legs
-{% endhighlight %}
+```

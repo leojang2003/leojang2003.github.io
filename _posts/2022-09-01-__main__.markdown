@@ -4,10 +4,10 @@ import Python moudle 或 package 時，__name__ 會設定為 module 的 name，�
 
 如果檔案是屬於一個 package，則 name 會包含 package 的路徑
 
-{% highlight Python %}
+```python
 from concurrent.futures import process
 print(process.__name__) # 'concurrent.futures.process'
-{% endhighlight %}
+```
 
 可是，如果 module 是在 top-level code environment 執行，則 __name__ 會設成 __main__
 
@@ -19,39 +19,39 @@ Top-level code 執行的環境，該環境的 name 是 __main__。'Top-level cod
 top-level code environment 可以是...
 
 interactive prompt 的 scope:
-{% highlight Python %}
+```python
 >>>
 >>> __name__
 '__main__'
-{% endhighlight %}
+```
 
 當成檔案參數傳遞給 Python interpreter 的 Python module:
-{% highlight Python %}
+```python
 $ py helloworld.py
 Hello, world!
-{% endhighlight %}
+```
 
 使用參數 -m 傳入 Python interpreter 的 module 或 package
-{% highlight Python %}
+```python
 $ py -m tarfile
 usage: tarfile.py [-h] [-v] (...)
-{% endhighlight %}
+```
 
 使用參數 -c 傳入 Python interpreter 的 程式
-{% highlight Python %}
+```python
 $ py -c "import this"
 The Zen of Python, by Tim Peters
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
 ...
-{% endhighlight %}
+```
 
 以上情境，top-level module 的 __name__ 都設為 '__main__'
 
 引此，一個 module 可以藉由檢查 __name__ 判斷自己是否執行在 top-level environment，以下是常用的情境
-{% highlight Python %}
+```python
 if __name__ == '__main__':
     # Execute when the module is not initialized from an import statement.
     ...
-{% endhighlight %}
+```

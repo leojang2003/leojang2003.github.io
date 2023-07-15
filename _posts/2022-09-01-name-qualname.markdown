@@ -3,7 +3,7 @@
 The qualified name of the class, function, method, descriptor, or generator instance.
 New in version 3.3.
 
-{% highlight Python %}
+```python
 import builtins
 
 author = 'Mike'
@@ -36,6 +36,6 @@ print(test_func.__name__)       # test_func
 print(test_func.__qualname__)   # test_func
 print(tom.a_run.__name__)       # a_run
 print(tom.a_run.__qualname__)   # A.a_run
-{% endhighlight %}
+```
 
 

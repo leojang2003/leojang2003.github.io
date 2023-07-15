@@ -1,6 +1,6 @@
 The str() 方法會回傳一個可讀的 reprensentation，repr() 會回傳 interpreter 可讀的 reprensentation。若是沒有特別的 representation，str() 與 repr() 回傳相同的東西，如 lists/dictionaries，而 Strings就有不同的 representations
 
-{% highlight Python %}
+```python
 s = 'Hello, world.'
 str(s)
 'Hello, world.'
@@ -21,32 +21,32 @@ print(str(hello))  # hello, world
 # repr() 參數可以是 Python 物件:
 ... repr((x, y, ('spam', 'eggs')))
 "(32.5, 40000, ('spam', 'eggs'))"
-{% endhighlight %}
+```
 
 ## Formatted string literals 
 簡稱 f-string，可以將 Python expression 包入 string 中
 
 小數點後三位，類似str.format()的語法
-{% highlight Python %}
+```python
 import math
 print(f'The value of pi is approximately {math.pi:.3f}.')
 # The value of pi is approximately 3.142.
-{% endhighlight %}
+```
 
 設定最小數字寬
-{% highlight Python %}
+```python
 table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
 for name, phone in table.items():
     print(f'{name:10} ==> {phone:10d}')
 # Sjoerd     ==>       4127
 # Jack       ==>       4098
 # Dcab       ==>       7678
-{% endhighlight %}
+```
 
 ## str.rjust()
 str.rjust(n) 在寬度n靠右左補空白。還有類似的方法 str.ljust() 和 str.center()。這些方法不寫任何東西，它們只是返回一個新的字串。如果輸入字串太長，他們不會截斷它，而是原樣返回
 
-{% highlight Python %}
+```python
 for x in range(10):
     print(repr(x*x*x).rjust(3))
 
@@ -62,9 +62,9 @@ for x in range(10):
 343
 512
 729
-{% endhighlight %}
+```
 
-{% highlight Python %}
+```python
 for x in range(10):
     print(repr(str(x*x*x)).rjust(5))
 
@@ -80,7 +80,7 @@ for x in range(10):
 '343'
 '512'
 '729'
-{% endhighlight %}
+```
 
 {:note}
 string x 傳入 repr() 時，會在左右加上單引號，回傳 'x'
@@ -89,17 +89,17 @@ string x 傳入 repr() 時，會在左右加上單引號，回傳 'x'
 
 靠右左補0
 
-{% highlight Python %}
+```python
 '12'.zfill(5)               # '00012'
 'a'.zfill(5)                # '0000a'
 '-3.14'.zfill(7)            # '-003.14'
 '3.14159265359'.zfill(5)    # '3.14159265359'
-{% endhighlight %}
+```
 
 ## 讀寫檔案
-{% highlight Python %}
+```python
 f = open('workfile', 'w', encoding="utf-8")
-{% endhighlight %}
+```
 
 'w' 寫入
 'r' 讀取(預設)
@@ -107,64 +107,64 @@ f = open('workfile', 'w', encoding="utf-8")
 'r+' 讀寫
 
 建議加上 with，好處是會自動關閉檔案
-{% highlight Python %}
+```python
 with open('workfile', encoding="utf-8") as f:
     read_data = f.read()
 
 # We can check that the file has been automatically closed.
 f.closed
-{% endhighlight %}
+```
 
 如果沒用 with，則需手動加上 f.close
 
 ## 讀檔案 read()
-{% highlight Python %}
+```python
 f.read()
 # 'This is the entire file.\n'
 f.read()
 # '' 結束
 
-{% endhighlight %}
+```
 
 ## 讀檔案 readline()
-{% highlight Python %}
+```python
 f.readline()
 # 'This is the first line of the file.\n'
 f.readline()
 # 'Second line of the file\n'
 f.readline()
 # ''
-{% endhighlight %}
+```
 
 ## 讀檔案使用 for
-{% highlight Python %}
+```python
 for line in f:
     print(line, end='')
 # This is the first line of the file.
 # Second line of the file
-{% endhighlight %}
+```
 
 ## 讀取所有行數並儲存到 list
-{% highlight Python %}
+```python
 list(f) 或是 f.readlines()
-{% endhighlight %}
+```
 
 ## f.write()
-{% highlight Python %}
+```python
 f.write('This is a test\n') # 回傳15 寫入的char數
-{% endhighlight %}
+```
 
 其他型別要寫入需要先轉型成 str
-{% highlight Python %}
+```python
 value = ('the answer', 42)
 s = str(value)  # convert the tuple to string
 f.write(s) # 18
-{% endhighlight %}
+```
 
 ## json
 
 import json
-{% highlight Python %}
+```python
 with open('file.txt', 'w') as f:
 
     x = [1, 'simple', 'list']
@@ -176,5 +176,5 @@ with open('file.txt', 'w') as f:
 with open('file.txt', 'r') as f:
     file = json.load(f)
     print (file) # {'age': 20, 'height': 176, 'born': {'country': 'usa', 'city': 'dallas'}}
-{% endhighlight %}
+```
 

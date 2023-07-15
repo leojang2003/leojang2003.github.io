@@ -1,5 +1,5 @@
-{% highlight Python %}
-{% endhighlight %} 
+```python
+``` 
 
 {:note}
 managed attribute = property
@@ -10,7 +10,7 @@ Properties 是建立 managed attributes 最受歡迎的方式
 
 ## 簡單的 get/set (非 Pythonic)
 
-{% highlight Python %}
+```python
 class Point:
     def __init__(self, x, y):
         self._x = x
@@ -29,7 +29,7 @@ class Point:
         self._y = value
 p = Point(20,30)      
 print(p._x) # 20 # 還是可以存取 _ 開頭的變數
-{% endhighlight %}  
+```  
 
 {:note}
 Python 沒有所謂的 private，只能在命名時加註底線，但該 attribute 還是可存取的
@@ -39,7 +39,7 @@ Python 沒有所謂的 private，只能在命名時加註底線，但該 attribu
 
 因為上述的 getter/setter 並沒有對 _x/_y 做特別的處理，比較 Pythonic 的方式如下
 
-{% highlight Python %}
+```python
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -52,7 +52,7 @@ print(point.y)
 
 point.x = 42
 print(point.x)
-{% endhighlight %} 
+``` 
 
 {:note}
 上述程式顯示了一個 Python 的基本概念，也就是曝露 attributes 給 end user 在 Python 是相當正常且普遍的。我們不需要使用 getter/setter 來包裹類別，但我們要怎麼處理需求牽涉到 API 變更?
@@ -91,7 +91,7 @@ property() 的前三個參數為 function 物件，我們可以將 function 物�
 
 ## 使用 property() 建立 attributes
 
-{% highlight Python %}
+```python
 class Circle:
     def __init__(self, radius):
         self._radius = radius
@@ -119,7 +119,7 @@ circle = Circle(42.0)
 print(circle.radius)
 
 circle.radius = 100.0
-{% endhighlight %} 
+``` 
 
 {:note}
 上述程式中，radius 是一個 class attribute 存放 property 物件
@@ -131,7 +131,7 @@ circle.radius = 100.0
 
 Properties 為 class attributes 用於管理 instance attributes，我們可以把 property 想成 method 集合再一起
 
-{% highlight Python %}
+```python
 Circle.radius.fget
 <function Circle._get_radius at ...>
 
@@ -147,14 +147,14 @@ dir(Circle.radius)
 c = Circle(20)
 Circle.radius.__set__(c, 60)
 Circle.radius.__get__(c)
-{% endhighlight %}
+```
 
 Properties 也會覆寫 descriptors. 如果我們用 dir() 檢查 property 的內部 member，我們會發現 .__set__() 與 .__get__() 會在 list 中。這些 methods 提供 descriptor protocol 的預設實作
 
 當我們沒有提供自訂的 setter method 時，預設的 __set__() 會執行，此時我們會收到一個 AttributeError 因為程式不知道如何設定 property，說明如下
 
 假設我們沒有實作 setter()
-{% highlight Python %}
+```python
 # 檔案 pyproperty.py
 class Property:
     "Emulate PyProperty_Type() in Objects/descrobject.c"
@@ -186,10 +186,10 @@ class Property:
         if self.fset is None:
             raise AttributeError(f"can't set attribute {self._name}")
         self.fset(obj, value)
-{% endhighlight %}
+```
         
         
-{% highlight Python %}        
+```python        
 # 檔案 test.py
 import pyproperty
 
@@ -203,39 +203,39 @@ class Circle:
         """The radius property."""
         print("呼叫 Circle 的 radius")
         return self._radius
-{% endhighlight %}
+```
 
         
 在還沒有初始化物件前，執行 test.py 後，顯示結果如下
-{% highlight Python %}
+```python
 # 呼叫 Property 的 __init__ fget  <function Circle.radius at 0x0000017D3243B2E0>
 # __set_name__ radius
-{% endhighlight %}
+```
 因為 @property 的語法，等同於 radius = pyproperty.Property(radius)，所以會執行 Property 類別的 __init__ method，pyproperty.Property(radius) 會回傳 pyproperty.Property 物件，此時 Circle 就有一個名為 radius 的 pyproperty.Property 物件
 
 假設我們初始化 Circle 並存取 _radius
 
-{% highlight Python %}
+```python
 c2 = Circle(607.0)
 print('c2._radius=', c2._radius, 'id=', id(c2._radius))
 
 # 呼叫 Circle 的 __init__ 607.0
 # c2._radius= 607.0 id= 2525236677200
-{% endhighlight %}
+```
 
 假設我們要讀 property，則我們可以看到 c2.radius 會呼叫 Property 的 __get__，然後呼叫 fget
 
-{% highlight Python %}
+```python
 print('c2.radius=', c2.radius)
 
 # __get__
 # 呼叫 Circle 的 radius
 # c2.radius= 607.0 id= 2525236677200
-{% endhighlight %}
+```
 
 如果我們在 Circle 新增 setter 方法，可以看到 setter 方法回會傳一個新的 Property 物件，我們可以看到前後的物件的位址是不一樣的，這裡我們將呼叫 setter 前的 radius 指派給 g
 
-{% highlight Python %}        
+```python        
 # 檔案 test2.py
 import pyproperty
 
@@ -273,37 +273,37 @@ class Circle:
 # g after setter     = <pyproperty.Property object at 0x000002354EDEFC40>
 # __set_name__ radius
 # __set_name__ g 
-{% endhighlight %}
+```
 
 我們沒辦法幫 g 指派值，因為 g 只有設定 getter，所以出現 AttributeError，但當我們設定 c2.radius = 900 時，c2.g 也一併變成 900
 
-{% highlight Python %}
+```python
 c2 = Circle(607.0)
 # c2.g = 100 # AttributeError: can't set attribute g
 c2.radius = 900
 print('c2.g=', c2.g) # c2.g= 900
-{% endhighlight %}
+```
 
 
 ## 使用 property() 做為裝飾器
 
 裝飾器語法
-{% highlight Python %}
+```python
 @decorator
 def func(a):
     return a
-{% endhighlight %}
+```
 
 等同於
 
-{% highlight Python %}
+```python
 def func(a):
     return a
 
 func = decorator(func)
-{% endhighlight %} 
+``` 
 
-{% highlight Python %}
+```python
 # circle.py
 
 class Circle:
@@ -325,14 +325,14 @@ class Circle:
     def radius(self):
         print("Delete radius")
         del self._radius
-{% endhighlight %} 
+``` 
 
 當我們使用 @radius.setter 裝飾第二個 .radius() 函式，setter 會回傳一個新的 property (注意，是回傳一個新的 property) ，然後重新指派 .radius 這個 name，這個新的 property 會包含原先的 getter 與 新的 setter 函式。
 
-{% highlight Python %}
+```python
 >>> dir(Circle.radius)
 [..., 'deleter', ..., 'getter', 'setter']
-{% endhighlight %} 
+``` 
 除了 .fget、.fset、.fdel, ... 外，property 也提供.deleter()、.getter()與.setter()，這三個 method 會回傳一個新的 property 物件。
 
 {:note}
@@ -344,7 +344,7 @@ class Circle:
 
 一種 property() 的基本的用法是，property() 也可以替你的 class 提供唯讀的 attribute
 
-{% highlight Python %}
+```python
 # point.py
 
 class Point:
@@ -359,10 +359,10 @@ class Point:
     @property
     def y(self):
         return self._y
-{% endhighlight %} 
+``` 
 
 現在 x, y 都是唯讀，當使用者嘗試 point.x = 42 時，會出現錯誤
-{% highlight Python %}
+```python
 from point import Point
 
 point = Point(12, 5)
@@ -371,11 +371,11 @@ print(point.x)
 print(point.y)
 
 point.x = 42 # AttributeError
-{% endhighlight %} 
+``` 
 
 ## 設定 read-write 的 property
 
-{% highlight Python %}
+```python
 import math
 
 class Circle:
@@ -397,7 +397,7 @@ class Circle:
     @diameter.setter
     def diameter(self, value):
         self.radius = value / 2
-{% endhighlight %}
+```
 
 {:note}
 注意 __init__ 裡面，是呼叫 self.radius = radius，而不是 self._radius = radius，這是因為呼叫 self.radius 會透過 @radius.setter，可以做型別的檢查，可以避免初始化時傳入不適合的值
@@ -405,7 +405,7 @@ class Circle:
 
 ## 設定 write-write 的 property
 
-{% highlight Python %}
+```python
 # users.py
 
 import hashlib
@@ -426,13 +426,13 @@ class User:
         self._hashed_password = hashlib.pbkdf2_hmac(
             "sha256", plaintext.encode("utf-8"), salt, 100_000
         )
-{% endhighlight %}
+```
 
 ## 暫存 Computed Attributes
 
 property() 適合用於 lazy 或是 computed 的 property，但如果是經常要讀取的，則可以將值先存起來。有的時候我們會需要存取經常被 computed 的值，
 
-{% highlight Python %}
+```python
 from time import sleep
 
 class Circle:
@@ -446,11 +446,11 @@ class Circle:
             sleep(0.5)  # Simulate a costly computation
             self._diameter = self.radius * 2
         return self._diameter
-{% endhighlight %}
+```
 
 這裡將將值暫存到 _diameter，但是上述程式如果變更 radius 的值，_diameter 的值不會連動，property會回傳錯誤的 _diameter
 
-{% highlight Python %}
+```python
 # circle.py
 
 from time import sleep
@@ -474,13 +474,13 @@ class Circle:
             sleep(0.5)  # Simulate a costly computation
             self._diameter = self._radius * 2
         return self._diameter
-{% endhighlight %}
+```
 
 修改成每次呼叫 setter 的時侯，重設 _diameter 就 OK 了
 
 也可以使用 functools.cached_property() 來暫存
 
-{% highlight Python %}
+```python
 # circle.py
 
 from functools import cached_property
@@ -494,11 +494,11 @@ class Circle:
     def diameter(self):
         sleep(0.5)  # Simulate a costly computation
         return self.radius * 2
-{% endhighlight %}
+```
 
 上述 radius 的值是可以變動的，如果要有一個不會被變更的 cached property
 
-{% highlight Python %}
+```python
 # circle.py
 
 from functools import cache
@@ -513,11 +513,11 @@ class Circle:
     def diameter(self):
         sleep(0.5) # Simulate a costly computation
         return self.radius * 2
-{% endhighlight %}
+```
 
 ## Logging
 
-{% highlight Python %}
+```python
 # circle.py
 
 import logging
@@ -546,11 +546,11 @@ class Circle:
             logging.info(self._msg % ("mutated", str(self._radius)))
         except ValueError:
             logging.info('validation error while mutating "radius"')
-{% endhighlight %}
+```
 
 ## 刪除 managed attribute
 
-{% highlight Python %}
+```python
 # tree.py
 
 class TreeNode:
@@ -576,4 +576,4 @@ class TreeNode:
 
     def __repr__(self):
         return f'{self.__class__.__name__}("{self._data}")'
-{% endhighlight %}
+```

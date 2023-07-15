@@ -1,4 +1,4 @@
-{% highlight Python %}
+```python
 class Pizza:
     # 類別變數
     store = 'Papa John'
@@ -46,4 +46,4 @@ print(pizza2.zipcode) # 75252
 # hawaii() 建立了類別別數 zipcode，而類別變數的變動會反映在所有物件上
 # 所以現在 pizza1 也有 zipcode 值了
 print(pizza1.zipcode) # 75252
-{% endhighlight %}
+```

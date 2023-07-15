@@ -1,9 +1,9 @@
-{% highlight Python %}
-{% endhighlight %} 
+```python
+``` 
 
 以下是 property() 如何以 descriptor protocol 的方式實作，我們知道 property() 是個 class 但是當成 function 使用
 
-{% highlight Python %}
+```python
 class Property:
     "Emulate PyProperty_Type() in Objects/descrobject.c"
 
@@ -57,7 +57,7 @@ class Property:
         prop = type(self)(self.fget, self.fset, fdel, self.__doc__)
         prop._name = self._name
         return prop
-{% endhighlight %} 
+``` 
 
 ## __set_name__(self, owner, name) 方法
 當 class 建立時，type.__new__() 會掃描 class variables，並呼叫所有 __set_name__() 的 callback
@@ -72,7 +72,7 @@ class A:
   
 # C __set_name__ called <class '__main__.A'> x
 
-{% highlight Python %}
+```python
 import pyproperty
 import inspect
 
@@ -111,7 +111,7 @@ class Circle:
 # c2.radius = 303
 # print('radius =' ,c2.radius)
 # del c2.radius
-{% endhighlight %} 
+``` 
 
 參考來源
 https://docs.python.org/3/howto/descriptor.html#properties
