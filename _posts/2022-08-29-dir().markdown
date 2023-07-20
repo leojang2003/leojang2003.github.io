@@ -258,6 +258,8 @@ import mod3
 obj = mod3.Mod3()
 print(dir(obj))
 # ['__class__', '__delattr__',... '__weakref__', 'run_mod2', 'run_mod3']
-# 父類別 Mod2 的方法 run_mod2 也回傳了	
-
+# 父類別 Mod2 的方法 run_mod2 也回傳了
 ```
+<br/>
+<br/>
+<br/>
