@@ -66,8 +66,8 @@ pprint(module1)
 
 <br/>
 
-- {: .arrow} _ _annotations_ _ 因為 my_var 有設定 annotation，不然就不會顯示 __annotations__
-- {: .arrow} _ _cached_ _ 顯示暫存檔位置 'D:\\Python\\__pycache__\\module1.cpython-310.pyc'
+- {: .arrow} _ _annotations_ _ 因為 my_var 有設定 annotation，不然就不會顯示 _ _annotations_ _
+- {: .arrow} _ _cached_ _ 顯示暫存檔位置 'D:\\Python\\_ _pycache_ _\\module1.cpython-310.pyc'
 - {: .arrow} _ _doc_ _ 顯示 docstring ' Module1 Content '
 - {: .arrow} _ _file_ _ 顯示匯入模組的位置 'D:\\Python\\module1.py'
 - {: .arrow} _ _loader_ _ 回傳 loader 物件，這物件使用 load_module() 將 module 載入到記憶體中。
@@ -113,10 +113,10 @@ import mod1
 ```
 
 {:.note}
-這裡可以看到可以執行 sample.py 時，import mod1 會呼叫 dir()，其中的 __builtins__ 是一個 dict(用法變成 __builtins__['abs'](-100))，值得注意的是，如果是在 __main__ 中呼叫 dir() 則，這裡的 __builtins__ 變成了一個名為 builtins 的 module(__builtins__.abs(-100))。
+這裡可以看到可以執行 sample.py 時，import mod1 會呼叫 dir()，其中的 _ _builtins_ _ 是一個 dict(用法變成 _ _builtins_ _['abs'](-100))，值得注意的是，如果是在 _ _main_ _ 中呼叫 dir() 則，這裡的 _ _builtins_ _ 變成了一個名為 builtins 的 module(_ _builtins_ _.abs(-100))。
                                                                           
 {:.note}
-根據 Python Doc，多數 modules 都有名為 __builtins__ 在 global scope 中，__builtins__ 的值通常為 builtins 模組，或是該模組的 __dict__ 的值，這兩者的差異僅為 Python 的實作細節。
+根據 Python Doc，多數 modules 都有名為 _ _builtins_ _ 在 global scope 中，_ _builtins_ _ 的值通常為 builtins 模組，或是該模組的 _ _dict_ _ 的值，這兩者的差異僅為 Python 的實作細節。
 
 ```python
 # 檔案 sample.py
@@ -179,7 +179,7 @@ print(dir(obj))
 
 <br/>
 
-### 呼叫 dir() 時傳入物件，但物件有自訂的 __dir__()
+### 呼叫 dir() 時傳入物件，但物件有自訂的 _ _dir_ _()
 
 ```python
 # 檔案 mod3.py ...
