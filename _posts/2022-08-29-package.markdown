@@ -1,0 +1,314 @@
+### 什麼是 package
+
+python 的 package 簡單來說，包含多個 module.py 並且有定義 _ _init_ _.py 的資料夾就會被視為一般的 package，沒有定義 _ _init_ _.py 被稱為 namespace package (目前不清楚什麼是 namespace package)。假設我們自創一個名為 animal 的 package 如下，當一個 package 被 import 時，package 資料夾內的所有 _ _init_ _.py 都會被執行，做為 package 初始化用。
+
+```python
+- animal/
+    - land/ 
+        ostrich.py
+        zebra.py
+    - sea/
+        whale.py
+    __init__.py
+    rain.py
+    sun.py
+main.py
+```
+
+我們另外在 animal 同一層建立 main.py 與 other\other.py 作為測試用。
+
+```python
+- animal/    
+- other/
+    other.py
+main.py
+```
+
+<br/>
+
+補充說明 _ _init_ _.py 可以設定 package-level 的變數，_ _init_ _.py 可以設定變數給 package 內的所有 module 共享。
+
+```python
+# __init__.py 檔案
+
+location = 'USA'
+```
+
+package 內要呼叫時可以使用
+
+```python
+# 某個檔案
+
+from animal import location
+print(location)
+# USA
+```
+
+<br/>
+
+### 引入 package
+
+要引入 package，我們可以使用 import {package_name}.{subfolder1}.{subfolder2}... 的方式引入，以下使用 main.py 示範。
+
+```python
+# main.py 檔案
+
+from animal.sun import sunny
+from animal.land.ostrich import ostrich
+from animal.sea.whale import whale
+```
+
+因為 python 會將執行 script 的目錄加入，所以如果輸入 sys.path 可以看到 main.py 所在的目錄 D:\qoo 有在 sys.path 中，sys.path 是 python 要去哪些目錄找 module 用。可以看到 main.py 所在的 D:\qoo 被自動加入到 sys.path 中。
+
+```python
+'D:\\qoo',
+ 'C:\\Users\\1051448\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip',
+ 'C:\\Users\\1051448\\AppData\\Local\\Programs\\Python\\Python310\\DLLs',
+ 'C:\\Users\\1051448\\AppData\\Local\\Programs\\Python\\Python310\\lib',
+ 'C:\\Users\\1051448\\AppData\\Local\\Programs\\Python\\Python310',
+ 'C:\\Users\\1051448\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages'
+```
+
+<br/>
+
+### package 內部的相對引入 relative import
+
+rain.py 如下
+
+```python
+# rain.py 檔案
+
+def raining(rain):
+    if rain:
+        print('a raining day ...')
+    else:
+        print('not a raining day ...')
+```    
+
+sun.py 如下
+
+```python
+# sun.py 檔案
+
+print('__name__=', __name__, '__package__=', __package__)
+
+from .rain import raining
+
+# 初始化 module 用
+raining(False)
+
+def sunny(name):
+	print(name, ': It''s a sunny day ...')
+```
+
+rain.py 和 sun.py 是在同一層資料夾，這裡我們可以看到 sun.py 有引入 raining 並呼叫，這裡的 from .rain import raining 就是相對引入(relative import)，一個 . 指的是同一層，二個點 .. 指的是上兩層，依此類推。執行 py main.py 如下。
+
+```python
+# main.py 檔案
+
+from animal.sun import sunny
+
+# 執行結果
+# __name__= animal.sun __package__= animal
+# not a raining day ...
+```
+
+main.py 只有一行 import，使用 from animal.sun import sunny 會載入整個 animal package，透過 import 的方式呼叫 sun.py，這時 _ _name_ _ 會是 animal.sun，而 _ _package_ _ 是 package 名稱 animal
+。第二行因為 sun.py 有呼叫 rain.py 的方法 raining()，所以會顯示 not a raining day ...。
+
+<br/>
+
+### 獨立執行 package 內部的檔案
+
+如果我們直接執行 py sun.py 時，會出現錯誤 ImportError: attempted relative import with no known parent package，這表示，若要獨立執行 package 內的檔案時，檔案定義的 relative import 是不行的，這時我們需要告訴 Python 要去哪找個 package。作法是，我們需要調整 sys.path 如下
+
+
+```python
+# sun.py 檔案
+
+print('__name__=', __name__, '__package__=', __package__)
+
+import sys
+import os
+
+# 修改如下
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__)) 
+# SCRIPT_DIR = D:\qoo\animal
+
+sys.path.append(os.path.dirname(SCRIPT_DIR)) 
+# 將 D:\qoo\ 加入 sys.path
+
+from animal.rain import raining
+
+def sunny(name):
+	print(name, ': It''s a sunny day ...')
+
+raining()
+```
+
+執行結果如下
+
+```python
+__name__= __main__ __package__= None        # 開始 script 
+__name__= animal.sun __package__= animal    # 執行 import 
+not a raining day ... caller =  animal.sun  # 執行 import 
+not a raining day ... caller =  __main__    # 回到 script
+```
+
+從 LOG 可以看到，sun.py 似乎被執行兩次。之所以會執行兩次的關係，是因為我們執行 py sun.py 時，這時_ _name_ _ 是 _ _main_ _，等到執行到 from animal.rain import raining 時，這時會載入 animal 這個 package，因為 _ _init.py_ _ 定義如下。
+
+```python
+# __init.py__ 檔案
+
+from . import rain
+from . import sun
+```
+
+因為 _ _init.py_ _ 的第二行 from . import sun 會載入 sun.py，這時 sun.py 會再執行一次，這時 _ _name_ _= animal.sun 而 _ _package_ _ 是 animal。
+
+如果我們調整 _ _init.py_ _ 如下，移除 from . import sun
+
+```python
+# __init.py__ 檔案
+
+from . import rain
+# from . import sun
+```
+
+則執行 py sun.py 結果如下，變正常了。
+
+```python
+__name__= __main__ __package__= None
+not a raining day ... caller =  __main__
+```
+
+因此，雖然我們在 sun.py 是呼叫 from animal.rain import raining，但 package 因為 _ _init_ _ 的關係會載入 sun.py，因此實際執行兩次 sun.py。
+
+<br/>
+
+### 從 package 之外的資料夾內 import package
+
+現在我們看 other\other.py
+
+```python
+# other\other.py
+import sys
+import os
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+
+import animal.rain
+```
+
+獨立執行這個 script 時，不能使用 relative import，所以要將 animal 所在的根目錄 D:\qoo\ 加到 sys.path 中，我們在呼叫 import animal 才不會出錯。
+
+<br/>
+
+### 在 package 內 import 該 package 的其他資料夾的檔案
+
+現在我們到 animal\land\ 下，裡面有兩個檔案 ostrich.py 和 zebra.py，ostrich.py 如下
+
+```python
+# ostrich.py 檔案
+
+import sys
+import os
+
+from ..sun import sunny
+from ..sea.whale import whale
+
+def ostrich():	
+	print('ostrich')
+	whale()
+```  
+
+這裡 ostrich.py 也是使用 relative import，.. 表示為上一層，因為無法單獨執行使用 relative import 的 script，如果把 ostrich.py 修改成以下即可單獨執行，<class 'pathlib.WindowsPath'> 物件有 parent 可以讀取路徑。
+
+```python
+# ostrich.py 檔案
+
+import sys
+import os
+from pathlib import Path
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# D:\qoo\animal\land
+path = Path(__file__).parents[2]
+# D:\qoo
+
+sys.path.append(str(path))
+
+from animal.sun import sunny
+from animal.sea.whale import whale
+
+def ostrich():	
+	print('ostrich')
+	whale()
+```  
+
+<br/>
+
+### import package 內同一層的檔案
+
+
+現在我們到 animal\land\ 的 zebra.py，zebra.py 如下
+
+```python
+# zebra.py 檔案
+
+from .ostrich import ostrich
+from ..sea.whale import whale
+from ..sun import sunny
+
+def zebra():
+	print('zebra')
+	whale()
+
+ostrich()
+sunny('Tom')
+``` 
+
+從 main.py 執行結果如下
+
+```python
+__name__= animal.sun __package__= animal
+not a raining day ... caller =  animal.sun
+ostrich
+whale
+Tom : Its a sunny day ...
+``` 
+
+zebra.py 呼叫同一層的 ostrich.py，呼叫上層的 sun.py，呼叫 sea\whale.py 都 OK，但若要單獨執行的話需要調整如下
+
+```python
+import sys
+import os
+from pathlib import Path
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+path = Path(__file__).parents[2]
+sys.path.append(str(path))
+
+from animal.sun import sunny
+from animal.sea.whale import whale
+from animal.land.ostrich import ostrich
+
+def zebra():
+	print('zebra')
+	whale()
+
+ostrich()
+sunny('Tom')
+``` 
+
+執行 py zebra.py 執行可以得到同樣的結果如下
+
+```python
+__name__= animal.sun __package__= animal
+not a raining day ... caller =  animal.sun
+ostrich
+whale
+Tom : Its a sunny day ...
+``` 
