@@ -64,6 +64,8 @@ pprint(module1)
  'my_var']
 ```
 
+<br/>
+
 - {: .arrow} _ _annotations_ _ 因為 my_var 有設定 annotation，不然就不會顯示 __annotations__
 - {: .arrow} _ _cached_ _ 顯示暫存檔位置 'D:\\Python\\__pycache__\\module1.cpython-310.pyc'
 - {: .arrow} _ _doc_ _ 顯示 docstring ' Module1 Content '
@@ -225,7 +227,7 @@ print(dir(mod1))
 ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'age', 'name', 'run']
 ```
 
-## 傳入 type 或 class 物件
+### 傳入 type 或 class 物件
 dir() 回傳模組的 attributes 的 names，包含父類別的 attributes names
 
 ```python
