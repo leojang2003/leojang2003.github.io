@@ -3,43 +3,43 @@
 {:.note}
  dir() 的用途在使用 interactive prompt 時提供必要資訊，並非完整的 names 清單，不同的 python release 呼叫 dir() 可能會顯示不同的結果。
 
-內建方法，當沒有傳入參數時，會回傳目前 local scope 的 names。當有傳入參數時，會回傳該物件的 valid attributes
+內建方法，當沒有傳入參數時，會回傳目前 local scope 的 names。當有傳入參數時，會回傳該物件有效的 attributes
 
 ```python
 # 檔案 mod1.py
 
 ''' Module1 Content '''
 
-m1_v1 : str = ''
+my_var : str = ''
 
-def m1_f1(n1 : str):    # write Fibonacci series up to n        
-    print(n1)
+def my_func(name : str):    # 
+    print(name)
         
 class class1():
 
-    c1_v1 = ''
-    c1_v2 = 'Mike Williams'
-    c1_v3 = '2022-08-21'
+    var1 = ''
+    var2 = 'Mike Williams'
+    var3 = '2022-08-21'
     
     if __name__ == "__main__":
-        c1_var1 = 'cmd'
+        var1 = 'cmd'
     else:
-        c1_v1 = 'import'
+        var1 = 'import'
         
-    print(c1_v1)
+    print(var1)
         
     def __getattribute__(self, name):
         print('__getattribute__')
-        if(name in ['c1_v3']):
+        if(name in ['c_var3']):
             return name + ' altered'
         else:
             return object.__getattribute__(self, name)
     
 class class2(class1):
 
-    c2_v1 : str = ''
-    c2_v2 : str = 'Mike Williams'
-    c2_v3 : str = '2022-08-21'
+    var1 : str = ''
+    var2 : str = 'Mike Williams'
+    var3 : str = '2022-08-21'
 ```
 
 假設我們有一個檔案 module1.py 如上，在 interactive prompt import 這個 module1 後，dir(module1) 得到結果如下
@@ -60,12 +60,11 @@ pprint(module1)
  '__spec__',
  'class1',
  'class2',
- 'm1_f1',
- 'm1_v1']
-
+ 'my_func',
+ 'my_var']
 ```
 
-- {: .arrow} _ _annotations_ _ 因為 m1_v1 有設定 annotation，不然就不會顯示 __annotations__
+- {: .arrow} _ _annotations_ _ 因為 my_var 有設定 annotation，不然就不會顯示 __annotations__
 - {: .arrow} _ _cached_ _ 顯示暫存檔位置 'D:\\Python\\__pycache__\\module1.cpython-310.pyc'
 - {: .arrow} _ _doc_ _ 顯示 docstring ' Module1 Content '
 - {: .arrow} _ _file_ _ 顯示匯入模組的位置 'D:\\Python\\module1.py'
@@ -73,8 +72,7 @@ pprint(module1)
 - {: .arrow} _ _name_ _ 顯示 module 的 name，若是 package 內的 module 會包含路徑。
 - {: .arrow} _ _package_ _ 顯示檔案所在 package 的 name。
 
-
-如果物件有定義 _ _dir_ _() 方法，則呼叫 dir(物件) 時，會呼叫物件自己定義的 _ _dir_ _() 方法，dir(物件) 會回傳物件的 attribute，包含 _ _dict_ _ 中的 attribute，所以 _ _dict_ _ 是 dir() 的子集。
+如果物件有定義 _ _dir_ _() 方法，則呼叫 dir(物件) 時，會呼叫物件自己定義的 _ _dir_ _() 方法，dir(物件) 會回傳物件的 attribute，包含 _ _dict_ _ 中的 attribute。
 
 如果 object 沒有定義 _ _dir_ _() 方法，則 dir() 會儘力從 object 的 _ _dict_ _ 屬性（如果有定義）和其 type object 收集資訊。生成的 list 不一定完整，當 object 有自己定義的 getattr() 方法時，可能會不準確。
 
