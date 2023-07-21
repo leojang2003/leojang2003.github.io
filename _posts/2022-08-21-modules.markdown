@@ -2,7 +2,7 @@
 layout: post
 title: Module 與 Package
 subtitle: 
-tags: [module, package, dir()]
+tags: [module, package, dir(), import, sys.path]
 comments: true
 ---
 
@@ -103,7 +103,7 @@ module 可以 import 其他的 module ，import 語法不需要寫在一開始�
 python fibo.py <arguments>
 ```
 
-module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， __name__ 會被設成 __main__，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
+module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， _ _name_ _ 會被設成 _ _main_ _，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
 
 ```python
 if __name__ == "__main__":
@@ -117,7 +117,6 @@ else:
 
 # 使用 script 執行 fibo.py 時，會執行 if 的內容
 $ python fibo.py 50 # 0 1 1 2 3 5 8 13 21 34
-
 ```
 <br/>
 ###  module 搜尋順序
@@ -129,7 +128,6 @@ $ python fibo.py 50 # 0 1 1 2 3 5 8 13 21 34
     - site-packages 目錄
 
 ```python
-
 print(sys.path) ...
 
 D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py 
@@ -140,7 +138,7 @@ D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py
 
 ### 編譯後的Python檔案
 
-為了加速 module 的載入時間，編編譯後的檔案置於__pycache__資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
+為了加速 module 的載入時間，編編譯後的檔案置於_ _pycache_ _資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
 
 ### dir()
 
@@ -153,7 +151,6 @@ import fibo
 
 print(dir(fibo))
 # ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fib', 'fibo_author', 'fibo_source', 'fibo_time']
-
 ```
 
 若是 dir() 沒有傳入參數，則回傳目前定義的所有名稱
@@ -162,7 +159,6 @@ import fibo
 
 print(dir())
 # ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fibo']
-
 ```
 
 {:.note}
@@ -173,12 +169,11 @@ dir() 不會回傳內建的方法與變數的名稱，如需要可使用 builtin
 import builtins
 
 print(dir(builtins))
-
 ```
 
-## Packages
+### Packages
 
-Package 是由一系列 module 所構成，一個資料夾必須要有 __init__.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 __init__.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定__all__ 變數
+Package 是由一系列 module 所構成，一個資料夾必須要有 _ _init_ _.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 _ _init_ _.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定_ _all_ _ 變數
 
 使用 Package 可以單獨引入其中一個 module 
 ```python
@@ -218,18 +213,135 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 ```
 
 {:.note}
-使用 from package import item 的方式，item 可以是 package 的 submodule (或稱subpackage)，或是 package 定義的名稱 (方法、類別、變數)，相反的當使用 import item.subitem.subsubitem 時，除了最後一個之外其他每個 item 都必須是 package，最後一個只能是 module 或是 package，不可以是前一個 item 定義的名稱 (方法、類別、變數) 
+使用 from package import item 的方式，item 可以是 package 的 submodule (或稱subpackage)，或是 package 定義的名稱 (方法、類別、變數)，相反的當使用 import item.subitem.subsubitem 時，除了最後一個之外其他每個 item 都必須是 package，最後一個只能是 module 或是 package，不可以是前一個 item 定義的名稱 (方法、類別、變數)
+
+舉例來說，語法必須是 
+- import package
+- import package.subpackage
+- import package.subpackage1.subpackage2
+- import package.module
+- import package.subpackage.module
+- import package.subpackage1.subpackage2.module
+- import module
 
 ## 使用 * 引入 package
-如果 package 的 __init__.py 有定義 __all__，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱，package 作者可以決定是否更新此變數當 package 改版時
+
+如果 package 的 _ _init_ _.py 有定義 _ _all_ _，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
+
+假設我們有 package 結構如下
+
+```python
+- animal\
+	# 一個 subpackage
+	- calculate\ 
+		cost.py
+			# get_cost()
+		__init__.py
+		
+	# 子資料夾
+	- land\ 
+		ostrich.py
+		zebra.py
+		
+	# 子資料夾	
+	- sea\ 
+		whale.py
+		
+	__init__.py
+	rain.py
+		# raining(rain, caller)
+	sun.py
+	tornado.py	
+		# twist()
+main.py
+```
+
+main.py 使用 from animal import *，並不像想像中會引入所有 animal 下的 module，實際引入的 module 是看 _ _init_ _.py 定義的 _ _all_ _ 變數。
+
+假設 _ _all_ _ 定義一個 module 
+
+```python
+# __init__.py 檔案
+
+__all__ = ['rain']
+```
+
+那麼執行 _ _main_ _.py 時，只能使用 rain module，無法使用其他 module
+```python
+# __main__.py 檔案
+
+rain.raining(True, __name__)
+
+animal.sun.sunny(__name__)
+# NameError: name 'animal' is not defined
+```
+
+假設 _ _all_ _ 定義一個 subpackage
+
+```python
+# __init__.py 檔案
+
+__all__ = ['calculate']
+```
+
+那麼執行 _ _main_ _.py 時，只能使用 calculate 這個 subpackage，無法使用其他 module
+
+```python
+# __main__.py 檔案
+
+calculate.cost.get_cost() 
+
+animal.sun.sunny(__name__)
+# NameError: name 'animal' is not defined
+```
+
+_ _all_ _ 也可以定義多個 module/package 如下
+```python
+# __init__.py 檔案
+
+__all__ = ['calculate', 'rain']
+```
+
+另一個例子
+
 ```python
 # 假設 sound/effects/__init__.py 包含以下
 __all__ = ["echo", "surround", "reverse"]
     
 # 則呼叫 from sound.effects import * 時，會引入 "echo", "surround", "reverse" 這三個 module 
 ```
-    
-如果 package 的 __init__.py 沒有定義 __all__，語法 from sound.effects import * 不會引入所有 sound.effects 的子 module ，他只確保 sound.effects 會引入，還有其他此 package 定義的名稱，這包含 __init__.py 中定義的名稱以及子 module ，與 import 語法引入的子 module 
+
+#DOC:    
+# 如果 package 的 __init__.py 沒有定義 __all__，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 __init__.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
+
+如果 package 的 _ _init_ _.py 沒有定義 _ _all_ _，就看 _ _init_ _.py 定義了 import 哪些 module/subpackage，
+
+假設現在 _ _init_ _.py 如下
+```python
+# __init__.py 檔案
+
+from . import tornado
+```
+
+那麼 main.py，就可以呼叫 tornado
+```python
+# __main__.py 檔案
+
+import animal
+animal.tornado.twist() 
+```
+
+另一種 main.py 的寫法
+```python
+# __main__.py 檔案
+
+from animal import *
+tornado.twist() 
+```
+{:.not}
+import 一個 package 可以存取那些 module/subpackage 都看 package 的 _ _init_ _.py 怎麼定義
+
+
 ```python
 import sound.effects.echo
 import sound.effects.surround
