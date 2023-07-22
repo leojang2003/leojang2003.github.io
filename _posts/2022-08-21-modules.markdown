@@ -352,15 +352,15 @@ import sound.effects.echo
 import sound.effects.surround
 from sound.effects import *
 ``` 
-
-## package 內的參考
-## absolute import
+<br/>
+### package 內的 absolute import
     
-當 package 要參考同層兄弟的 package 時，可以使用 absolute import 來參考兄弟的子 package。 例如，如果 sound.filters.vocoder  module 需要使用 sound.effects 包中的 echo  module ，則可以使用 from sound.effects import echo。
+當 package 要參考同層兄弟的 package 時，可以使用 absolute import 來參考 sibling 的 subpackage。 例如，如果 sound.filters.vocoder  module 需要使用 sound.effects 包中的 echo  module ，則可以使用 from sound.effects import echo。
 
-## relative import
+### package 內的 relative import
 
 您也可以使用 from module import name 形式做相對導入。這些 import 使用 . 來指示相對導入中涉及的 current 和 parent packages。 例如，從 surround  module 中，您可以使用：
+
 ```python
 from . import echo
 from .. import formats
@@ -368,4 +368,4 @@ from .. filters import equalizer
 ``` 
 
 {:.note}
-請注意，relative import 是基於當前 module 的名稱。由於主 module 的名稱始終為“__main__”，因此用作 Python application 的主 module 的 module 必須始終使用 absolute import。   
+請注意，relative import 是基於當前 module 的名稱。由於主 module 的名稱始終為"_ _ main _ _"，因此用作 Python application 的主 module 的 module 必須始終使用 absolute import。   
