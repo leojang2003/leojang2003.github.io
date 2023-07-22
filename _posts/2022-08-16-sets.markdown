@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sets
+title: Set
 subtitle: 
 tags: []
 comments: true
