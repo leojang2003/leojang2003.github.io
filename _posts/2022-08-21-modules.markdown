@@ -103,7 +103,7 @@ module 可以 import 其他的 module ，import 語法不需要寫在一開始�
 python fibo.py <arguments>
 ```
 
-module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， _ _name_ _ 會被設成 _ _main_ _，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
+module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， _ _ name _ _ 會被設成 _ _ main _ _，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
 
 ```python
 if __name__ == "__main__":
