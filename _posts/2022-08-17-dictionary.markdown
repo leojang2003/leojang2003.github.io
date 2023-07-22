@@ -1,3 +1,11 @@
+---
+layout: post
+title: Dictionary
+subtitle: 
+tags: [dict]
+comments: true
+---
+
 ### 如何建立 dict
 
 兩種方式可以建立 dict，使用 {} 或是 dict() 
