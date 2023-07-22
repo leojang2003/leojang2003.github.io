@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Package 細探
+title: Package continues
 subtitle: 
 tags: [module, package, dir(), import, sys.path]
 comments: true
