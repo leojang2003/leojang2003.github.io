@@ -221,13 +221,13 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 使用 from package import item 的方式，item 可以是 package 的 submodule (或稱subpackage)，或是 package 定義的名稱 (方法、類別、變數)，相反的當使用 import item.subitem.subsubitem 時，除了最後一個之外其他每個 item 都必須是 package，最後一個只能是 module 或是 package，不可以是前一個 item 定義的名稱 (方法、類別、變數)
 
 說白點，舉例來說，語法必須是 
-- {. arrow}import package
-- {. arrow}import package.subpackage
-- {. arrow}import package.subpackage1.subpackage2
-- {. arrow}import package.module
-- {. arrow}import package.subpackage.module
-- {. arrow}import package.subpackage1.subpackage2.module
-- {. arrow}import module
+- {: .arrow}import package
+- {: .arrow}import package.subpackage
+- {: .arrow}import package.subpackage1.subpackage2
+- {: .arrow}import package.module
+- {: .arrow}import package.subpackage.module
+- {: .arrow}import package.subpackage1.subpackage2.module
+- {: .arrow}import module
 
 ### 使用 * 引入 package
 
@@ -316,8 +316,7 @@ __all__ = ["echo", "surround", "reverse"]
     
 # 則呼叫 from sound.effects import * 時，會引入 "echo", "surround", "reverse" 這三個 module 
 ```
-
-#DOC:    
+  
 如果 package 的 _ _ init _ _.py 沒有定義 _ _ all _ _，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 _ _ init _ _.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
 
 如果 package 的 _ _ init _ _.py 沒有定義 _ _ all _ _，就看 _ _ init _ _.py 定義了 import 哪些 module/subpackage，
