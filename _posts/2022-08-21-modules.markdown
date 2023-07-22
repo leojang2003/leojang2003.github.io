@@ -176,10 +176,10 @@ import builtins
 
 print(dir(builtins))
 ```
-
+<br/>
 ### Packages
 
-Package 是由一系列 module 所構成，一個資料夾必須要有 _ _init_ _.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 _ _init_ _.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定 _ _all_ _ 變數
+Package 是由一系列 module 所構成，一個資料夾必須要有 _ _ init _ _.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 _ _ init _ _.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定 _ _ all _ _ 變數
 
 使用 Package 可以單獨引入其中一個 module 
 ```python
