@@ -8,7 +8,7 @@ comments: true
 
 ### 什麼是 package
 
-python 的 package 簡單來說，包含多個 module.py 並且有定義 _ _ init _ _.py 的資料夾就會被視為一般的 package，沒有定義 _ _ init _ _.py 被稱為 namespace package (目前不清楚什麼是 namespace package)。假設我們自創一個名為 animal 的 package 如下，當一個 package 被 import 時，package 資料夾內的所有 _ _ init _ _.py 都會被執行，做為 package 初始化用。
+Python 的 package 簡單來說，包含多個 module.py 並且有定義 _ _ init _ _.py 的資料夾就會被視為一般的 package，沒有定義 _ _ init _ _.py 被稱為 namespace package (目前不清楚什麼是 namespace package)。假設我們自創一個名為 animal 的 package 如下，當一個 package 被 import 時，package 資料夾內的所有 _ _ init _ _.py 都會被執行，做為 package 初始化用。
 
 ```python
 - animal/
@@ -66,7 +66,7 @@ from animal.land.ostrich import ostrich
 from animal.sea.whale import whale
 ```
 
-因為 python 會將執行 script 的目錄加入，所以如果輸入 sys.path 可以看到 main.py 所在的目錄 D:\qoo 有在 sys.path 中，sys.path 是 python 要去哪些目錄找 module 用。可以看到 main.py 所在的 D:\qoo 被自動加入到 sys.path 中。
+因為 Python 會將執行 script 的目錄加入，所以如果輸入 sys.path 可以看到 main.py 所在的目錄 D:\qoo 有在 sys.path 中，sys.path 是 Python 要去哪些目錄找 module 用。可以看到 main.py 所在的 D:\qoo 被自動加入到 sys.path 中。
 
 ```python
 'D:\\qoo',
