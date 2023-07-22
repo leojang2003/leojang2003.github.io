@@ -1,3 +1,11 @@
+---
+layout: post
+title: Conditions
+subtitle: 
+tags: []
+comments: true
+---
+
 ### in / not in 比較運算子
 
 ```python
