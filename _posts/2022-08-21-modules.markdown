@@ -121,8 +121,8 @@ $ python fibo.py 50 # 0 1 1 2 3 5 8 13 21 34
 <br/>
 ###  module 搜尋順序
 
--{: .arrow} sys.builtin_module_names 的內建 module 名稱
--{: .arrow} sys.path 下的所有路徑
+- {: .arrow} sys.builtin_module_names 的內建 module 名稱
+- {: .arrow} sys.path 下的所有路徑
     - 現有 script 的路徑
     - 環境變數 PYTHONPATH 
     - site-packages 目錄
