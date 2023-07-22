@@ -1,6 +1,14 @@
+---
+layout: post
+title: Package 細探
+subtitle: 
+tags: [module, package, dir(), import, sys.path]
+comments: true
+---
+
 ### 什麼是 package
 
-python 的 package 簡單來說，包含多個 module.py 並且有定義 _ _init_ _.py 的資料夾就會被視為一般的 package，沒有定義 _ _init_ _.py 被稱為 namespace package (目前不清楚什麼是 namespace package)。假設我們自創一個名為 animal 的 package 如下，當一個 package 被 import 時，package 資料夾內的所有 _ _init_ _.py 都會被執行，做為 package 初始化用。
+python 的 package 簡單來說，包含多個 module.py 並且有定義 _ _ init _ _.py 的資料夾就會被視為一般的 package，沒有定義 _ _ init _ _.py 被稱為 namespace package (目前不清楚什麼是 namespace package)。假設我們自創一個名為 animal 的 package 如下，當一個 package 被 import 時，package 資料夾內的所有 _ _ init _ _.py 都會被執行，做為 package 初始化用。
 
 ```python
 - animal/
@@ -26,7 +34,7 @@ main.py
 
 <br/>
 
-補充說明 _ _init_ _.py 可以設定 package-level 的變數，_ _init_ _.py 可以設定變數給 package 內的所有 module 共享。
+補充說明 _ _ init _ _.py 可以設定 package-level 的變數，_ _ init _ _.py 可以設定變數給 package 內的所有 module 共享。
 
 ```python
 # __init__.py 檔案
@@ -113,7 +121,7 @@ from animal.sun import sunny
 # not a raining day ...
 ```
 
-main.py 只有一行 import，使用 from animal.sun import sunny 會載入整個 animal package，透過 import 的方式呼叫 sun.py，這時 _ _name_ _ 會是 animal.sun，而 _ _package_ _ 是 package 名稱 animal
+main.py 只有一行 import，使用 from animal.sun import sunny 會載入整個 animal package，透過 import 的方式呼叫 sun.py，這時 _ _ name _ _ 會是 animal.sun，而 _ _ package _ _ 是 package 名稱 animal
 。第二行因為 sun.py 有呼叫 rain.py 的方法 raining()，所以會顯示 not a raining day ...。
 
 <br/>
@@ -156,21 +164,21 @@ not a raining day ... caller =  animal.sun  # 執行 import
 not a raining day ... caller =  __main__    # 回到 script
 ```
 
-從 LOG 可以看到，sun.py 似乎被執行兩次。之所以會執行兩次的關係，是因為我們執行 py sun.py 時，這時_ _name_ _ 是 _ _main_ _，等到執行到 from animal.rain import raining 時，這時會載入 animal 這個 package，因為 _ _init.py_ _ 定義如下。
+從 LOG 可以看到，sun.py 似乎被執行兩次。之所以會執行兩次的關係，是因為我們執行 py sun.py 時，這時_ _ name _ _ 是 _ _ main _ _，等到執行到 from animal.rain import raining 時，這時會載入 animal 這個 package，因為 _ _init.py_ _ 定義如下。
 
 ```python
-# __init.py__ 檔案
+# __init__.py 檔案
 
 from . import rain
 from . import sun
 ```
 
-因為 _ _init.py_ _ 的第二行 from . import sun 會載入 sun.py，這時 sun.py 會再執行一次，這時 _ _name_ _= animal.sun 而 _ _package_ _ 是 animal。
+因為 _ _init.py_ _ 的第二行 from . import sun 會載入 sun.py，這時 sun.py 會再執行一次，這時 _ _ name _ _= animal.sun 而 _ _ package _ _ 是 animal。
 
-如果我們調整 _ _init.py_ _ 如下，移除 from . import sun
+如果我們調整 _ _init _ _.py 如下，移除 from . import sun
 
 ```python
-# __init.py__ 檔案
+# __init__.py 檔案
 
 from . import rain
 # from . import sun
@@ -183,7 +191,7 @@ __name__= __main__ __package__= None
 not a raining day ... caller =  __main__
 ```
 
-因此，雖然我們在 sun.py 是呼叫 from animal.rain import raining，但 package 因為 _ _init_ _ 的關係會載入 sun.py，因此實際執行兩次 sun.py。
+因此，雖然我們在 sun.py 是呼叫 from animal.rain import raining，但 package 因為 _ _ init _ _ 的關係會載入 sun.py，因此實際執行兩次 sun.py。
 
 <br/>
 
