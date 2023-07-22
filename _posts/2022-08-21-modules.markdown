@@ -32,8 +32,8 @@ else:
     fibo_exec_by = 'import'
 ```
 
-fibo.py 的 if 區塊內容只有用 script 才會執行，__name__ 才會是 __main__
-如果用 import 的方式，則 __name__ 會是 fibo
+fibo.py 的 if 區塊內容只有用 script 才會執行，_ _name_ _ 才會是 _ _main_ _
+如果用 import 的方式，則 _ _name_ _ 會是 fibo
 
 ### module 的初始化
 
@@ -138,7 +138,7 @@ D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py
 
 ### 編譯後的Python檔案
 
-為了加速 module 的載入時間，編編譯後的檔案置於_ _pycache_ _資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
+為了加速 module 的載入時間，編編譯後的檔案置於 _ _pycache_ _ 資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
 
 ### dir()
 
@@ -173,7 +173,7 @@ print(dir(builtins))
 
 ### Packages
 
-Package 是由一系列 module 所構成，一個資料夾必須要有 _ _init_ _.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 _ _init_ _.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定_ _all_ _ 變數
+Package 是由一系列 module 所構成，一個資料夾必須要有 _ _init_ _.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 _ _init_ _.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定 _ _all_ _ 變數
 
 使用 Package 可以單獨引入其中一個 module 
 ```python
@@ -224,7 +224,7 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 - import package.subpackage1.subpackage2.module
 - import module
 
-## 使用 * 引入 package
+### 使用 * 引入 package
 
 如果 package 的 _ _init_ _.py 有定義 _ _all_ _，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
 
@@ -312,7 +312,7 @@ __all__ = ["echo", "surround", "reverse"]
 ```
 
 #DOC:    
-# 如果 package 的 __init__.py 沒有定義 __all__，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 __init__.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
+如果 package 的 _ _init_ _.py 沒有定義 _ _all_ _，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 _ _init_ _.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
 
 如果 package 的 _ _init_ _.py 沒有定義 _ _all_ _，就看 _ _init_ _.py 定義了 import 哪些 module/subpackage，
 
