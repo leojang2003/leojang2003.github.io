@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Module 與 Package
+title: Modules and package
 subtitle: 
 tags: [module, package, dir(), import, sys.path]
 comments: true
