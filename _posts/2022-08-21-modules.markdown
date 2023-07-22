@@ -32,8 +32,8 @@ else:
     fibo_exec_by = 'import'
 ```
 
-fibo.py 的 if 區塊內容只有用 script 才會執行，_ _name_ _ 才會是 _ _main_ _
-如果用 import 的方式，則 _ _name_ _ 會是 fibo
+fibo.py 的 if 區塊內容只有用 script 才會執行，_ _ name _ _ 才會是 _ _ main _ _
+如果用 import 的方式，則 _ _ name _ _ 會是 fibo
 
 ### module 的初始化
 
