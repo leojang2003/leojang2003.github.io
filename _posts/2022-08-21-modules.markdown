@@ -218,17 +218,16 @@ from sound.effects import echo
 echo.echofilter(input, output, delay=0.7, atten=4)
 ```
 
-{:.note}
 使用 from package import item 的方式，item 可以是 package 的 submodule (或稱subpackage)，或是 package 定義的名稱 (方法、類別、變數)，相反的當使用 import item.subitem.subsubitem 時，除了最後一個之外其他每個 item 都必須是 package，最後一個只能是 module 或是 package，不可以是前一個 item 定義的名稱 (方法、類別、變數)
 
-舉例來說，語法必須是 
-- import package
-- import package.subpackage
-- import package.subpackage1.subpackage2
-- import package.module
-- import package.subpackage.module
-- import package.subpackage1.subpackage2.module
-- import module
+說白點，舉例來說，語法必須是 
+- {. arrow}import package
+- {. arrow}import package.subpackage
+- {. arrow}import package.subpackage1.subpackage2
+- {. arrow}import package.module
+- {. arrow}import package.subpackage.module
+- {. arrow}import package.subpackage1.subpackage2.module
+- {. arrow}import module
 
 ### 使用 * 引入 package
 
