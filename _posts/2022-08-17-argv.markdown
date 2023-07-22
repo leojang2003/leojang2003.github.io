@@ -1,3 +1,10 @@
+---
+layout: post
+title: argv from sys module
+subtitle: 
+tags: []
+comments: true
+---
 
 script 名稱之後的其他參數，將儲存到 sys module 的 argv 變數，型態為一個 string 的 list  
 
