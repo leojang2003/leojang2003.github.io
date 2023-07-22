@@ -1,3 +1,10 @@
+---
+layout: post
+title: Loop techniques
+subtitle: 
+tags: [dict, reversed(), list]
+comments: true
+---
 
 ### 走訪 dict 
 
