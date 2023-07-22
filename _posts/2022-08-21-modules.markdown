@@ -131,14 +131,20 @@ $ python fibo.py 50 # 0 1 1 2 3 5 8 13 21 34
 print(sys.path) ...
 
 D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py 
-['D:\\Python\\playgound', 'D:\\Python\\playgound', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\DLLs', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\lib', 'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310', 'D:\\Python\\playgound\\lib\\site-packages']
+['D:\\Python\\playgound',
+'D:\\Python\\playgound',
+'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip',
+'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\DLLs',
+'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310\\lib',
+'C:\\Users\\Leo\\AppData\\Local\\Programs\\Python\\Python310',
+'D:\\Python\\playgound\\lib\\site-packages']
 ```
 
 初始化後，Python 程式可以修改 sys.path。目前執行的 script 的目錄會被擺在搜索路徑的最前面，優先於 standard library 路徑之前。這表示目錄的 script 會優先於 standard library 目錄中的同名 module 。
 
 ### 編譯後的Python檔案
 
-為了加速 module 的載入時間，編編譯後的檔案置於 _ _pycache_ _ 資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
+為了加速 module 的載入時間，編編譯後的檔案置於 _ _ pycache _ _ 資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
 
 ### dir()
 
