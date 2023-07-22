@@ -231,7 +231,7 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 
 ### 使用 * 引入 package
 
-如果 package 的 _ _init_ _.py 有定義 _ _all_ _，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
+如果 package 的 _ _ init _ _.py 有定義 _ _ all _ _，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
 
 假設我們有 package 結構如下
 
@@ -261,9 +261,9 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 main.py
 ```
 
-main.py 使用 from animal import *，並不像想像中會引入所有 animal 下的 module，實際引入的 module 是看 _ _init_ _.py 定義的 _ _all_ _ 變數。
+main.py 使用 from animal import *，並不像想像中會引入所有 animal 下的 module，實際引入的 module 是看 _ _ init _ _.py 定義的 _ _ all _ _ 變數。
 
-假設 _ _all_ _ 定義一個 module 
+假設 _ _ all _ _ 定義一個 module 
 
 ```python
 # __init__.py 檔案
@@ -271,7 +271,7 @@ main.py 使用 from animal import *，並不像想像中會引入所有 animal �
 __all__ = ['rain']
 ```
 
-那麼執行 _ _main_ _.py 時，只能使用 rain module，無法使用其他 module
+那麼執行 _ _ main _ _.py 時，只能使用 rain module，無法使用其他 module
 ```python
 # __main__.py 檔案
 
@@ -281,7 +281,7 @@ animal.sun.sunny(__name__)
 # NameError: name 'animal' is not defined
 ```
 
-假設 _ _all_ _ 定義一個 subpackage
+假設 _ _ all _ _ 定義一個 subpackage
 
 ```python
 # __init__.py 檔案
@@ -289,7 +289,7 @@ animal.sun.sunny(__name__)
 __all__ = ['calculate']
 ```
 
-那麼執行 _ _main_ _.py 時，只能使用 calculate 這個 subpackage，無法使用其他 module
+那麼執行 _ _ main _ _.py 時，只能使用 calculate 這個 subpackage，無法使用其他 module
 
 ```python
 # __main__.py 檔案
@@ -300,7 +300,8 @@ animal.sun.sunny(__name__)
 # NameError: name 'animal' is not defined
 ```
 
-_ _all_ _ 也可以定義多個 module/package 如下
+_ _ all _ _ 也可以定義多個 module/package 如下
+
 ```python
 # __init__.py 檔案
 
@@ -317,11 +318,11 @@ __all__ = ["echo", "surround", "reverse"]
 ```
 
 #DOC:    
-如果 package 的 _ _init_ _.py 沒有定義 _ _all_ _，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 _ _init_ _.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
+如果 package 的 _ _ init _ _.py 沒有定義 _ _ all _ _，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 _ _ init _ _.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
 
-如果 package 的 _ _init_ _.py 沒有定義 _ _all_ _，就看 _ _init_ _.py 定義了 import 哪些 module/subpackage，
+如果 package 的 _ _ init _ _.py 沒有定義 _ _ all _ _，就看 _ _ init _ _.py 定義了 import 哪些 module/subpackage，
 
-假設現在 _ _init_ _.py 如下
+假設現在 _ _ init  _ _.py 如下
 ```python
 # __init__.py 檔案
 
@@ -344,7 +345,7 @@ from animal import *
 tornado.twist() 
 ```
 {:.not}
-import 一個 package 可以存取那些 module/subpackage 都看 package 的 _ _init_ _.py 怎麼定義
+import 一個 package 可以存取那些 module/subpackage 都看 package 的 _ _ init _ _.py 怎麼定義
 
 
 ```python
