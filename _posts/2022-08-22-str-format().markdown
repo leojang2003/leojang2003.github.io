@@ -84,6 +84,7 @@ weapons = ['Shield', 'Sword', 'Dagger']
 
 {:.note}
 repr() 會回傳物件的 printable representation，如果物件有定義 _ _ repr _ _ () 則回傳自訂內容。
+
 {:.note}
 ascii() 會回傳物件的 printable representation，並使用 \x, \u or \U 跳脫非 ASCII 字元
 
