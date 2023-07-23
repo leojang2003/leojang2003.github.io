@@ -1,6 +1,12 @@
-{:.note}
+---
+layout: post
+title: str.format()
+subtitle: 
+tags: []
+comments: true
+---
 
-## str.format()
+### str.format()
 
 ```python
 replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
@@ -13,7 +19,7 @@ conversion        ::=  "r" | "s" | "a"
 format_spec       ::=  <described in the next section>
 ```
 
-## [field_name]
+### [field_name]
 
 field_name 是 optional 的，放的是要被格式化的值，可以是數字或是 keyword，如果是數字，表示為 positional argument，如果是 keyword，則是 keyword argument，解釋如下
 ```python
@@ -66,7 +72,7 @@ weapons = ['Shield', 'Sword', 'Dagger']
 # weapon Dagger
 ```
 
-## ["!" conversion]
+### ["!" conversion]
 
 ["!" conversion] 欄位會在 format 之前先做 type 目前共有3種 conversion flags '!s' 呼叫 str()， '!r' 會呼叫 repr()，'!a' 會呼叫 ascii()
 
@@ -80,7 +86,7 @@ weapons = ['Shield', 'Sword', 'Dagger']
 repr() 會回傳物件的 printable representation
 ascii() 會回傳物件的 printable representation，並使用 \x, \u or \U 跳脫非 ASCII 字元
 
-## format_spec
+### format_spec
 
 ```python
 format_spec     ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
@@ -93,7 +99,7 @@ precision       ::=  digit+
 type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
 ```
 
-## alignment options
+### alignment options
 
 '<' 靠左右補空白(此為多數物件的預設)
 ```python
@@ -124,7 +130,7 @@ type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" |
 '{0:^3}'.format(-2) # ' 2 '
 ```
 
-## sign option
+### sign option
 
 只用於數字符號
 
@@ -162,7 +168,7 @@ type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" |
 ## '#' option
 待補
 
-## grouping_option
+### grouping_option
 ',' 用來表示數字的千分位的逗號
 ```python
 {'{0:*>5,}.format(3000000)' # '3,000,000'
@@ -174,7 +180,7 @@ type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" |
 {'{0:*>5_}.format(3000000)' # '3_000_000'
 ```
 
-## [width] option
+### [width] option
 width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他 formatting 字元。如果沒有特別設定，則以內容的長度為準
 
 如果沒有特別設定 alignment，在 width 前面加上 '0' 開啟 sign-aware zero-padding for numeric types. 等同於使用=並補上'0'
@@ -188,7 +194,7 @@ width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他
 {'{0:010_}.format(3000)'   # '00_003_000' 兩者相同，沒設 align，設定 [0][width] 等同 [fill=0][align='=']
 ```
 
-## [precision] option
+### [precision] option
 顯示在小數點後要顯示幾位，需搭配 'f' 與 'F' 的 presentation type，或是 presentation type 'g'/'G' 的浮點述前後幾位。如果是 string presentation types，則表示'最大'欄位長度。數字 presentation type 不可使用 precision
 
 ```python
@@ -207,7 +213,7 @@ width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他
 '{0:>8.3}'.format('leojang') # '*****leo' 最大長度3，補到寬度8
 ```
 
-## [type] option
+### [type] option
 type 決定資料如何呈現
 
 string presentation type 可使用's'，字串預設可以忽略不用寫's' 
