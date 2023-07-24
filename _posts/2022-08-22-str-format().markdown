@@ -90,6 +90,11 @@ ascii() 會回傳物件的 printable representation，並使用 \x, \u or \U 跳
 
 ### format_spec
 
+如上所述，
+{: .box-note}
+**Note:** replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
+:冒號後面接的是 format_spec，規則如下
+
 ```python
 format_spec     ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
 fill            ::=  <any character>
@@ -101,15 +106,44 @@ precision       ::=  digit+
 type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
 ```
 
+### fill
+
+要填入的，可以是任何的字元，需搭配其他使用如 align ... 等
+
+``python
+'{0:xx>7}#'.format('apple')  
+#xxapple#
+```
+
 ### alignment options
 
 '<' 靠左右補空白(此為多數物件的預設)
+
+大部分物件在做str.format() 靠左時，如果不特別註明 '<' 的話，多數物件也是預設靠左，右補空白(補空白也是大部分物件預設)。值得注意的是，要做 align 不分左右，需要設定寬度 width 要多少，format()要知道總長度要是多少。
+
 ```python
-'{0:3}'.format(x)  # 'a   ' str的預設就是左靠右補空白
-'{0:<3}'.format(x) # 'a   ' 同上
+'{0:3}'.format('x', 'y')
+
+# 'x  ' 右補 2 個空白
+```
+
+看上面的例子，0 是 positional argument 為 'x'，如果是 1 的話就是 'y'。冒號 : 說明接來是 format_spec 開始，因為沒有接 '<' 而字串是預設靠左。3 指的是 width，所以會右補 2 個空白，總長度為 3 的字串 'x  '。如果設定的 width 小於要靠左的字串，則無任何改變。
+
+```python
+'{0:3}'.format('apple)
+
+# 'apple' 沒變
+```
+
+如果加上'<'結果是不變的
+  
+```python
+'{0:3}'.format('x')
+# 'x  ' 右補 2 個空白
 ```
 
 '>' 靠右左補空白(此為數字的預設)
+
 ```python
 '{0:3}'.format(2)  # '  2' 數字的預設就是右靠左補空白
 '{0:<3}'.format(2) # '  2' 同上
@@ -118,7 +152,8 @@ type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" |
 {:.note}
 除非 minimum field width 有定義，不然欄位的長度都會等於傳入的長度，有 [align] 沒有 [width] 是沒用的
 
-'=' 在sign之後/數字之前補空白，此選項僅適用於數字型別
+'=' 強制在 sign 之後與數字之前補空白，此選項僅適用於數字型別
+
 ```python
 '{0:=3}'.format(2)  # '  2'
 '{0:=3}'.format(-2) # '- 2'
@@ -128,6 +163,7 @@ type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" |
 {0:n}'.format(2) 僅於左側補 n-1 個空白
 
 '^' 置中
+
 ```python
 '{0:^3}'.format(-2) # ' 2 '
 ```
@@ -167,10 +203,47 @@ type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" |
 {'{0:*> 5}.format(-3)' # '000-3'
 ```
 
-## '#' option
-待補
+### '#' option
+
+'#' 是所謂的 alternate form，此選項僅對 integer、float、complex types 有效。對於 integer，當使用 binray、octal或 hexadecimal 輸出時，此選項將相應的前綴'0b、'0o'、'0x'或'0X'加到輸出
+
+```python
+'{0:>#5b}'.format(2)
+# 說明 : positional argument 0 | format 符號 | # | 寬度 5 | 2進位輸出
+#  0b10
+
+'{0:>#5o}'.format(8)
+# 說明 : positional argument 0 | format 符號 | # | 寬度 5 | 二進位輸出
+#  0o10
+
+'{0:>#5x}'.format(16)
+# 說明 : positional argument 0 | format 符號 | # | 寬度 5 | 16進位輸出
+#  0x10
+```
+
+{:.note}
+補充說明，若是要建立2,8,16進位的變數的話，則在數字前面加上 0b, 0o, 0x 即可，var = 0b11 表示數字 3，var = 0o11 表示數字 9，var = 0x11 表示數字 17。
+
+對於 float、complex type，使用 # 會強制顯示小數點，即使小數點後沒有位數也會顯示 .00000 。通常，僅當小數點字符後面有數字時，才會出現在這些轉換的結果中。此外，對於“g”和“G”轉換，不會從結果中刪除尾隨零。
+
+```python
+'{0:>.1f}'.format(2.0)
+# 說明 : positional argument 0 | format 符號 | >靠右 | # | 小數點後1位 | float 輸出
+# 2
+```
+
+可以看到如果是小數點後為 .0 的，不會顯示點(decimal-point character)
+
+```python
+'{0:>.1f}'.format(2.0)
+# 說明 : positional argument 0 | format 符號 | >靠右 | # | 小數點後1位 | float 輸出
+# 2.
+```
+如果使用 #，可以看到就算是小數點後為 .0 的，也是會顯示點(decimal-point character)
+
 
 ### grouping_option
+
 ',' 用來表示數字的千分位的逗號
 ```python
 {'{0:*>5,}.format(3000000)' # '3,000,000'
