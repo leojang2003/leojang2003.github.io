@@ -124,9 +124,9 @@ xxapple@
 
 ### alignment options
 
-'<' 靠左右補空白(此為多數物件的預設)
+'<' 靠左，右補空白(此為多數物件的預設)
 
-大部分物件在做str.format() 靠左時，如果不特別註明 '<' 的話，多數物件也是預設靠左，右補空白(補空白也是大部分物件預設)。值得注意的是，要做 align 不分左右，需要設定寬度 width 要多少，format()要知道總長度要是多少。
+大部分物件如果不特別註明 '<' 的話，多數物件也是預設靠左，右補空白(補空白也是大部分物件預設)。值得注意的是，有設 align 的話，不論是靠左右，都需要設定寬度 width ，format()要知道總長度要是多少。
 
 ```python
 '{0:3}'.format('x', 'y')
@@ -175,6 +175,8 @@ xxapple@
 '{0:^3}'.format(-2) # ' 2 '
 ```
 
+<br/>
+
 ### sign option
 
 只用於數字符號
@@ -209,7 +211,7 @@ xxapple@
 {'{0:*> 5}.format(3)'  # '000 3' 同樣結果 '#' 用於隔開 [width]
 {'{0:*> 5}.format(-3)' # '000-3'
 ```
-
+<br/>
 ### '#' option
 
 '#' 是所謂的 alternate form，此選項僅對 integer、float、complex types 有效。對於 integer，當使用 binray、octal或 hexadecimal 輸出時，此選項將相應的前綴'0b、'0o'、'0x'或'0X'加到輸出
@@ -229,25 +231,44 @@ xxapple@
 ```
 
 {:.note}
-補充說明，若是要建立2,8,16進位的變數的話，則在數字前面加上 0b, 0o, 0x 即可，var = 0b11 表示數字 3，var = 0o11 表示數字 9，var = 0x11 表示數字 17。
+補充說明，若是要建立2, 8, 16進位的變數的話，則在數字前面加上 0b, 0o, 0x 即可，var = 0b11 表示數字 3，var = 0o11 表示數字 9，var = 0x11 表示數字 17。
 
-對於 float、complex type，使用 # 會強制顯示小數點，即使小數點後沒有位數也會顯示 .00000 。通常，僅當小數點字符後面有數字時，才會出現在這些轉換的結果中。此外，對於“g”和“G”轉換，不會從結果中刪除尾隨零。
+對於 float、complex type，使用 # 會強制顯示小數點，像是 2.0 會顯示 2.。通常，僅有小數點後面有數字時，才會顯示 .。
 
 ```python
-'{0:>.1f}'.format(2.0)
-# 說明 : positional argument 0 | format 符號 | >靠右 | # | 小數點後1位 | float 輸出
+'{0:>.0f}'.format(2)
+# 說明 : positional argument 0 | format 符號 : | >靠右 | .0 小數點後0位 | float 輸出
 # 2
+
+'{0:>.1f}'.format(2)
+# 2.0
 ```
 
-可以看到如果是小數點後為 .0 的，不會顯示點(decimal-point character)
+上面可以看到如果是小數點後為 .0 的，不會顯示點(decimal-point character)，以上是正常情況
 
 ```python
-'{0:>.1f}'.format(2.0)
-# 說明 : positional argument 0 | format 符號 | >靠右 | # | 小數點後1位 | float 輸出
+'{0:>#.0f}'.format(2)
+# 說明 : positional argument 0 | format 符號 | >靠右 | # | .0 小數點後0位 | float 輸出
 # 2.
+
+'{0:>.1f}'.format(2)
+# 2.0
 ```
 如果使用 #，可以看到就算是小數點後為 .0 的，也是會顯示點(decimal-point character)
 
+此外，對於 g/G 的轉換，使用 # 則不會從結果中刪除尾隨零。
+
+```python
+'{0:>.4g}'.format(2)
+# 說明 : positional argument 0 | format 符號 | >靠右 |.4 小數點後4位 | g 輸出
+# 2.
+
+'{0:>#.4g}'.format(2)
+# 說明 : positional argument 0 | format 符號 | >靠右 | # | .4 小數點後4位 | g 輸出
+# 2.000
+```
+{:.note}
+在設定 g 輸出時，雖然設定了小數點後4位，實際只有顯示小數點後3位。
 
 ### grouping_option
 
