@@ -218,15 +218,15 @@ xxapple@
 
 ```python
 '{0:>#5b}'.format(2)
-# 說明 : positional argument 0 | format 符號 | # | 寬度 5 | 2進位輸出
+# 說明 : positional argument 0 | format 符號 : | # | 寬度 5 | 2進位輸出
 #  0b10
 
 '{0:>#5o}'.format(8)
-# 說明 : positional argument 0 | format 符號 | # | 寬度 5 | 二進位輸出
+# 說明 : positional argument 0 | format 符號 : | # | 寬度 5 | 二進位輸出
 #  0o10
 
 '{0:>#5x}'.format(16)
-# 說明 : positional argument 0 | format 符號 | # | 寬度 5 | 16進位輸出
+# 說明 : positional argument 0 | format 符號 : | # | 寬度 5 | 16進位輸出
 #  0x10
 ```
 
@@ -248,7 +248,7 @@ xxapple@
 
 ```python
 '{0:>#.0f}'.format(2)
-# 說明 : positional argument 0 | format 符號 | >靠右 | # | .0 小數點後0位 | float 輸出
+# 說明 : positional argument 0 | format 符號 : | >靠右 | # | .0 小數點後0位 | float 輸出
 # 2.
 
 '{0:>.1f}'.format(2)
@@ -260,11 +260,11 @@ xxapple@
 
 ```python
 '{0:>.4g}'.format(2)
-# 說明 : positional argument 0 | format 符號 | >靠右 |.4 小數點後4位 | g 輸出
+# 說明 : positional argument 0 | format 符號 : | >靠右 |.4 小數點後4位 | g 輸出
 # 2.
 
 '{0:>#.4g}'.format(2)
-# 說明 : positional argument 0 | format 符號 | >靠右 | # | .4 小數點後4位 | g 輸出
+# 說明 : positional argument 0 | format 符號 : | >靠右 | # | .4 小數點後4位 | g 輸出
 # 2.000 小數點後的0還在
 ```
 {: .note}
@@ -277,42 +277,50 @@ xxapple@
 {'{0:*>5,}.format(3000000)' # '3,000,000'
 ```
 
-'_' 針對浮點數和整數("d" presentation type)使用 _ 做千分位區隔。對於整數 presentation type "b"、"o"、"x"和"X"，將每隔 4 位插入 _。對於其他 presentation type，指定此選項是錯誤的。
+'_' 針對 float (f) 和 integer (d) 使用 _ 做千分位區隔。對於整數的 presentation type "b"、"o"、"x"和"X"，將每隔 4 位插入 _。對於其他 presentation type，指定此選項是錯誤的。
 
 ```python
 {'{0:*>5_}.format(3000000.1314)' # '3_000_000.1314'
+# 說明 : positional argument 0 | format 符號 : | filler * | >靠右 | 寬度5 | 千分位區隔
+
 {'{0:*>5_}.format(3000000)' # '3_000_000'
+
+{'{0:*>5_}.format(128)' # '1000_0000' 2進位表示，每4位插入_
 ```
 
 <br/>
 
 ### [width] option
-width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他 formatting 字元。如果沒有特別設定，則以內容的長度為準
+width 定義__最小__欄位寬度，包含任何 prefixes、分隔符號與其他 formatting 字元。如果沒有特別設定，則以內容的長度為準
 
-如果沒有特別設定 alignment，在 width 前面加上 '0' 開啟 sign-aware zero-padding for numeric types. 等同於使用=並補上'0'
+如果沒有特別設定 alignment，在 width 前面加上 '0' 等同正負號(若有的話)後補0，僅適用整數，等同於使用=並補上'0'。
 
 ```python
-
-'{0:8}'.format('leojang')  # 'leojang '
-'{0:>8}'.format('leojang') # ' leojang'
+'{0:8}'.format('leojang')  # 'leojang ' 字串預設靠左右補空白
+'{0:>8}'.format('leojang') # ' leojang' 將字串改成靠右，預設補空白
 
 {'{0:0=10_}.format(3000)'  # '00_003_000'
+# 說明 : positional argument 0 | format 符號 : | filler 0 | 正負號後補0| 寬度10 | 千分位區隔
+
 {'{0:010_}.format(3000)'   # '00_003_000' 兩者相同，沒設 align，設定 [0][width] 等同 [fill=0][align='=']
 ```
 
 <br/>
 
 ### [precision] option
-顯示在小數點後要顯示幾位，需搭配 'f' 與 'F' 的 presentation type，或是 presentation type 'g'/'G' 的浮點述前後幾位。如果是 string presentation types，則表示'最大'欄位長度。數字 presentation type 不可使用 precision
+
+顯示在小數點後要顯示幾位，需搭配 'f' 與 'F' 的 presentation type，或是 presentation type 'g'/'G' 的浮點述前後幾位。如果是 string presentation types，則表示__最大__欄位長度。數字 presentation type 不可使用 precision
 
 ```python
 {'0:0=4.3f'}.format(3000.14565) # 3000.146
+# 說明 : positional argument 0 | format 符號 : | filler 0 | 正負號後補0| 寬度4 | 小數點後3位 | 顯示 float
+
 {'0:0=4.3F'}.format(3000.14565) # 3000.146
 
 {'0:0=6.3f'}.format(3000.14565) # 3000.146
 {'0:0=6.3F'}.format(3000.14565) # 3000.146
 
-{'0:0=10.3f'}.format(3000.14565) # 003000.146
+{'0:0=10.3f'}.format(3000.14565) # 003000.146 最小長度10 左側補0
 {'0:0=10.3F'}.format(3000.14565) # 003000.146
 
 {'0:0=10.3g'}.format(3000.14565) # 000003e+03
@@ -324,6 +332,7 @@ width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他
 <br/>
 
 ### [type] option
+
 type 決定資料如何呈現
 
 string presentation type 可使用's'，字串預設可以忽略不用寫's' 
@@ -353,21 +362,21 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 ```
 
 'e' 科學符號
-'e' 科學符號大寫
+'E' 科學符號大寫
 ```python
 '{0:e}'.format(314151617)	# 3.141516e+08 沒有設定 precision，float則顯示6位
-'{0:E}'.format(3000)		# 3.000000e+03 大寫E
+'{0:E}'.format(3000)		# 3.000000E+03 大寫E
 '{0:e}'.format(0.003)		# 3.000000e-03
-'{0:E}'.format(0.003)		# 3.000000e-03
+'{0:E}'.format(0.003)		# 3.000000E-03
 
 '{0:.3e}'.format(314151617)		# 3.142e+08 有設定 precision，顯示設定的3位
 ```
 
 'f' 浮點數，預設小數點後6位
 'F' 同'f'，但將 nan 顯示 NAN，inf 顯示 INF
-'g'
-'G'
-'n'
+'g' 先跳過
+'G' 先跳過
+'n' 先跳過
 '%' 數字乘100加上 %
 ```python
 '{0:%}'.format(0.3) # 30.000000%
