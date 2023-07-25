@@ -109,15 +109,18 @@ grouping_option ::=  "_" | ","
 precision       ::=  digit+
 type            ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
 ```
+<br/>
 
 ### fill
 
 要填入的，可以是任何的字元，需搭配其他使用如 align ... 等
 
-``python
-'{0:xx>7}#'.format('apple')  
-#xxapple#
+```python
+'{0:x>7}@'.format('apple')  
+xxapple@
 ```
+
+<br/>
 
 ### alignment options
 
