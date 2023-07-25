@@ -267,7 +267,7 @@ xxapple@
 # 說明 : positional argument 0 | format 符號 | >靠右 | # | .4 小數點後4位 | g 輸出
 # 2.000 小數點後的0還在
 ```
-{:.note}
+{: .note}
 在設定 g 輸出時，雖然設定了小數點後4位，實際只有顯示小數點後3位。
 
 ### grouping_option
