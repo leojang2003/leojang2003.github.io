@@ -345,7 +345,9 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 <br/>
 
 - {: .arrow}'b' 數字轉成二進位
-- <br/>
+
+<br/>
+
 ```python
 '{0:0=4b}'.format(8) # '1000'
 '{0:0=5b}'.format(8) # '01000'
