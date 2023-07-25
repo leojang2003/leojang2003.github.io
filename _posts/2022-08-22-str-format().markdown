@@ -346,24 +346,24 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 '{0:0=4b}'.format(8) # '1000'
 '{0:0=5b}'.format(8) # '01000'
 ```
-
+<br/>
 - {: .arrow}'c' 數字轉成 unicode
 - {: .arrow}'d' 數字轉成10進位，數字預設可以忽略不用寫'd' 
 - {: .arrow}'o' 數字轉成8進位
 - {: .arrow}'x' 數字轉成16進位，超過9用小寫英文字
 - {: .arrow}'X' 數字轉成16進位，超過9用大寫英文字，加上#顯示是會加上0x
 - {: .arrow}'n' 等同'd'，差別在於使用 local setting 插入數字分隔字元
-
+<br/>
 ```python
 '{0:x}'.format(31)	# 1f
 '{0:X}'.format(31)	# 1F
 '{0:#x}'.format(31)	# 0x1f
 '{0:#X}'.format(31)	# 0X1F # 都變成大寫
 ```
-
+<br/>
 - {: .arrow}'e' 科學符號\
 - {: .arrow}'E' 科學符號大寫
-
+<br/>
 ```python
 '{0:e}'.format(314151617)	# 3.141516e+08 沒有設定 precision，float則顯示6位
 '{0:E}'.format(3000)		# 3.000000E+03 大寫E
@@ -372,13 +372,13 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 
 '{0:.3e}'.format(314151617)		# 3.142e+08 有設定 precision，顯示設定的3位
 ```
-
+<br/>
 - {: .arrow}'f' 浮點數，預設小數點後6位
 - {: .arrow}'F' 同'f'，但將 nan 顯示 NAN，inf 顯示 INF
 - {: .arrow}'g' 先跳過
 - {: .arrow}'G' 先跳過
 - {: .arrow}'%' 數字乘100加上 %
-  
+<br/>  
 ```python
 '{0:%}'.format(0.3) # 30.000000%
 '{0:.0%}'.format(0.3) # 30%
