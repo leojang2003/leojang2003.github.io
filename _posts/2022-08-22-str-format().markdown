@@ -283,6 +283,8 @@ xxapple@
 {'{0:*>5_}.format(3000000)' # '3_000_000'
 ```
 
+<br/>
+
 ### [width] option
 width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他 formatting 字元。如果沒有特別設定，則以內容的長度為準
 
@@ -296,6 +298,8 @@ width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他
 {'{0:0=10_}.format(3000)'  # '00_003_000'
 {'{0:010_}.format(3000)'   # '00_003_000' 兩者相同，沒設 align，設定 [0][width] 等同 [fill=0][align='=']
 ```
+
+<br/>
 
 ### [precision] option
 顯示在小數點後要顯示幾位，需搭配 'f' 與 'F' 的 presentation type，或是 presentation type 'g'/'G' 的浮點述前後幾位。如果是 string presentation types，則表示'最大'欄位長度。數字 presentation type 不可使用 precision
@@ -315,6 +319,8 @@ width 定義'最小'欄位寬度，包含任何 prefixes、分隔符號與其他
 
 '{0:>8.3}'.format('leojang') # '*****leo' 最大長度3，補到寬度8
 ```
+
+<br/>
 
 ### [type] option
 type 決定資料如何呈現
