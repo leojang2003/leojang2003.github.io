@@ -277,7 +277,8 @@ xxapple@
 {'{0:*>5,}.format(3000000)' # '3,000,000'
 ```
 
-"_" 針對浮點數和整數("d" presentation type)使用_做千分位區隔。對於整數 presentation type "b"、"o"、"x"和"X"，將每隔 4 位插入_。對於其他 presentation type，指定此選項是錯誤的。
+'_' 針對浮點數和整數("d" presentation type)使用 _ 做千分位區隔。對於整數 presentation type "b"、"o"、"x"和"X"，將每隔 4 位插入 _。對於其他 presentation type，指定此選項是錯誤的。
+
 ```python
 {'{0:*>5_}.format(3000000.1314)' # '3_000_000.1314'
 {'{0:*>5_}.format(3000000)' # '3_000_000'
@@ -372,3 +373,7 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 '{0:%}'.format(0.3) # 30.000000%
 '{0:.0%}'.format(0.3) # 30%
 ```
+
+<br/>
+<br/>
+<br/>
