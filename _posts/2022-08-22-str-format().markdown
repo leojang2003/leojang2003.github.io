@@ -6,7 +6,7 @@ tags: []
 comments: true
 ---
 
-### str.format()
+str.format() 的語法如下
 
 ```python
 replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
@@ -19,9 +19,11 @@ conversion        ::=  "r" | "s" | "a"
 format_spec       ::=  <described in the next section>
 ```
 
+<br/>
+
 ### [field_name]
 
-field_name 是 optional 的，放的是要被格式化的值，可以是數字或是 keyword，如果是數字，表示為 positional argument，如果是 keyword，則是 keyword argument，解釋如下
+field_name 是 optional 的，放的是要被格式化的值，可以是數字或是 keyword，如果是數字就是 positional argument，如果是 keyword，則是 keyword argument，解釋如下
 ```python
 
 'first {} second {} third {}'.format(10, 20, 30) 
@@ -72,6 +74,8 @@ weapons = ['Shield', 'Sword', 'Dagger']
 # weapon Dagger
 ```
 
+<br/>
+
 ### ["!" conversion]
 
 ["!" conversion] 欄位會在 format 之前先做 type 目前共有3種 conversion flags '!s' 呼叫 str()， '!r' 會呼叫 repr()，'!a' 會呼叫 ascii()
@@ -82,17 +86,17 @@ weapons = ['Shield', 'Sword', 'Dagger']
 "More {!a}"                      # Calls ascii() on the argument first
 ```
 
-{:.note}
 repr() 會回傳物件的 printable representation，如果物件有定義 _ _ repr _ _ () 則回傳自訂內容。
-
-{:.note}
+<br/>
 ascii() 會回傳物件的 printable representation，並使用 \x, \u or \U 跳脫非 ASCII 字元
 
 ### format_spec
 
 如上所述，
+
 {: .box-note}
 **Note:** replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
+
 :冒號後面接的是 format_spec，規則如下
 
 ```python
