@@ -375,7 +375,7 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 
 - {: .arrow}'e' 科學符號\
 - {: .arrow}'E' 科學符號大寫
-- 
+
 <br/>
 
 ```python
