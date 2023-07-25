@@ -361,8 +361,9 @@ string presentation type 可使用's'，字串預設可以忽略不用寫's'
 '{0:#X}'.format(31)	# 0X1F # 都變成大寫
 ```
 
-'e' 科學符號
+'e' 科學符號\
 'E' 科學符號大寫
+
 ```python
 '{0:e}'.format(314151617)	# 3.141516e+08 沒有設定 precision，float則顯示6位
 '{0:E}'.format(3000)		# 3.000000E+03 大寫E
