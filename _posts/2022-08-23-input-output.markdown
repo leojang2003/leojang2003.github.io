@@ -1,18 +1,30 @@
-The str() 方法會回傳一個可讀的 reprensentation，repr() 會回傳 interpreter 可讀的 reprensentation。若是沒有特別的 representation，str() 與 repr() 回傳相同的東西，如 lists/dictionaries，而 Strings就有不同的 representations
+---
+layout: post
+title: Input Output
+subtitle: 
+tags: []
+comments: true
+---
+
+The str() 方法會回傳一個可讀的 reprensentation，repr() 會回傳 interpreter 可讀的 reprensentation。若是沒有特別的 representation，str() 與 repr() 回傳相同的東西，如 lists/dictionaries，而 Strings 就有不同的 representations
 
 ```python
 s = 'Hello, world.'
 str(s)
 'Hello, world.'
+
 repr(s)
 "'Hello, world.'"
+
 str(1/7)
 '0.14285714285714285'
+
 x = 10 * 3.25
 y = 200 * 200
 s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
 print(s)
 # The value of x is 32.5, and y is 40000...
+
 # str 的 repr() 會加上 '' 並顯示反斜線:
 ... hello = 'hello, world\n'
 print(repr(hello)) # 'hello, world\n'
@@ -23,10 +35,14 @@ print(str(hello))  # hello, world
 "(32.5, 40000, ('spam', 'eggs'))"
 ```
 
-## Formatted string literals 
+<br/>
+
+### Formatted string literals 
+
 簡稱 f-string，可以將 Python expression 包入 string 中
 
 小數點後三位，類似str.format()的語法
+
 ```python
 import math
 print(f'The value of pi is approximately {math.pi:.3f}.')
@@ -34,6 +50,7 @@ print(f'The value of pi is approximately {math.pi:.3f}.')
 ```
 
 設定最小數字寬
+
 ```python
 table = {'Sjoerd': 4127, 'Jack': 4098, 'Dcab': 7678}
 for name, phone in table.items():
@@ -43,8 +60,11 @@ for name, phone in table.items():
 # Dcab       ==>       7678
 ```
 
-## str.rjust()
-str.rjust(n) 在寬度n靠右左補空白。還有類似的方法 str.ljust() 和 str.center()。這些方法不寫任何東西，它們只是返回一個新的字串。如果輸入字串太長，他們不會截斷它，而是原樣返回
+{:.note} f-string 已不建議使用，改用 str.format() 取代
+
+### str.rjust()
+
+str.rjust(n) 在寬度 n 靠右左補空白。還有類似的方法 str.ljust() 和 str.center()。這些方法不寫任何東西，它們只是返回一個新的字串。如果輸入字串太長，他們不會截斷它，而是原樣回傳
 
 ```python
 for x in range(10):
@@ -85,7 +105,7 @@ for x in range(10):
 {:.note}
 string x 傳入 repr() 時，會在左右加上單引號，回傳 'x'
 
-## str.rfill()
+### str.zfill()
 
 靠右左補0
 
@@ -95,8 +115,10 @@ string x 傳入 repr() 時，會在左右加上單引號，回傳 'x'
 '-3.14'.zfill(7)            # '-003.14'
 '3.14159265359'.zfill(5)    # '3.14159265359'
 ```
+<br/>
 
-## 讀寫檔案
+### 讀寫檔案
+
 ```python
 f = open('workfile', 'w', encoding="utf-8")
 ```
@@ -107,26 +129,30 @@ f = open('workfile', 'w', encoding="utf-8")
 'r+' 讀寫
 
 建議加上 with，好處是會自動關閉檔案
+
 ```python
 with open('workfile', encoding="utf-8") as f:
     read_data = f.read()
 
-# We can check that the file has been automatically closed.
+# 我們可以檢查是否已關閉
 f.closed
 ```
 
 如果沒用 with，則需手動加上 f.close
 
-## 讀檔案 read()
+### 讀檔案 read()
+
 ```python
 f.read()
 # 'This is the entire file.\n'
 f.read()
 # '' 結束
-
 ```
 
-## 讀檔案 readline()
+<br/>
+
+### 讀檔案 readline()
+
 ```python
 f.readline()
 # 'This is the first line of the file.\n'
@@ -136,7 +162,10 @@ f.readline()
 # ''
 ```
 
-## 讀檔案使用 for
+<br/>
+
+### 讀檔案使用 for
+
 ```python
 for line in f:
     print(line, end='')
@@ -144,24 +173,33 @@ for line in f:
 # Second line of the file
 ```
 
-## 讀取所有行數並儲存到 list
+<br/>
+
+### 讀取所有行數並儲存到 list
+
 ```python
 list(f) 或是 f.readlines()
 ```
 
-## f.write()
+<br/>
+
+### f.write()
+
 ```python
 f.write('This is a test\n') # 回傳15 寫入的char數
 ```
 
 其他型別要寫入需要先轉型成 str
+
 ```python
 value = ('the answer', 42)
 s = str(value)  # convert the tuple to string
 f.write(s) # 18
 ```
 
-## json
+<br/>
+
+### json
 
 import json
 ```python
