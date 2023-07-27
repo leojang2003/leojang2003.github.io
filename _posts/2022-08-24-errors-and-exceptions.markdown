@@ -1,4 +1,10 @@
-{:.note}
+---
+layout: post
+title: Error And Exceptions
+subtitle: 
+tags: []
+comments: true
+---
 
 如果沒有 exception，則 except 區塊不會執行，若是有 exception 且 exception name 一致，則會執行 except 區塊，若是 exception 沒有處理，則會傳到外層的 try，如果外層也沒處理，則變成未處理的 exception
 
@@ -20,7 +26,11 @@ except (RuntimeError, TypeError, NameError):
     pass
 ```
 
-except 子句如果有吻合 exception 的話就會執行，如果 except 後的 exception 是丟出的 exception 的父類別時，則此 exception 子句會執行。反過來說，如果 except 後的 exception 是丟出的 exception 的子類別時，則不會執行 exception 子句
+except 子句如果有吻合 exception 的話就會執行，如果 except 後的 exception 是丟出的 exception 的父類別時，則此 exception 子句會執行。反過來說，如果 except 後的 exception 是丟出的 exception 的子類別時，則不會執行 exception 子句。
+
+{: .note}
+父可以接子，子不可以接父
+
 ```python
 class B(Exception):
     pass
@@ -31,6 +41,14 @@ class C(B):
 class D(C):
     pass
 
+# Exception 
+#    |
+#    B
+#    |
+#    C
+#    |
+#    D
+	
 for cls in [B, C, D]:
     try:
 		print(issubclass(cls, Exception)) # 是否為子類別
@@ -60,6 +78,10 @@ for cls in [B, C, D]:
 raise 後面可以接一個 exception 物件，或是一個 Exception 類別，如果是後者，則背後會建立該類別的物件
 
 如果 except 順序倒過來，因為 C D 皆為 B 的子類別，所以只會執行 except B:
+
+{: .note}
+因為父可以接子，所以 B 可以接 C D
+
 ```python
 class B(Exception):
     pass
@@ -81,8 +103,6 @@ for cls in [B, C, D]:
         print("C")
     except D:
         print("D")
-    
-    
 
 # True
 # <class '__main__.B'>
@@ -98,6 +118,7 @@ for cls in [B, C, D]:
 ```
 
 所有的 exception 都是繼承自 BaseException，所以可以使用該類別作為一個 wildcard。
+
 ```python
 import sys
 
@@ -114,7 +135,12 @@ except BaseException as err:
     raise
 ```
 
+<br/>
+
+### try ... except ... else
+
 try … except 可以接 else，當 try 沒有異常時會執行
+
 ```python
 py sample.py myfile.txt
 
@@ -127,9 +153,12 @@ for arg in sys.argv[1:]:
         print(arg, 'has', len(f.readlines()), 'lines')
         f.close()
 		
-# myfile.txt has 1 lines
-		
+# myfile.txt has 1 lines		
 ```
+
+<br/>
+
+### except ... as ...
 
 ```python
 try:
@@ -150,7 +179,10 @@ x = spam
 y = eggs
 ```
 
-繼承 Exception 並覆寫 __str__() 方法
+<br/>
+
+### 繼承 Exception 並覆寫 __str__() 方法
+
 ```python
 class SubException(Exception):
 		
@@ -171,6 +203,7 @@ except Exception as inst:
 ```	
 
 如果要知道是否有特定的 exception 但不想處理，則可以直接 raise
+
 ```python
 try:
     raise NameError('HiThere')
@@ -179,7 +212,8 @@ except NameError:
     raise
 ```
 
-## Exception Chaining
+### Exception Chaining
+
 ```python
 # exc must be exception instance or None.
 raise RuntimeError from exc
