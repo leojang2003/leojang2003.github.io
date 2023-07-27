@@ -241,6 +241,7 @@ RuntimeError: Failed to open database
 ```
 
 在 except 和 finally 出現的 exception 會自動 exception chaining，若要關閉這樣的行為可以使用
+
 ```python
 try:
     open('database.sqlite')
@@ -252,7 +253,10 @@ Traceback (most recent call last):
 RuntimeError
 ```
 
-## finally
+<br/>
+
+### finally
+
 如果有 finally 子句，則 finally 子句將作為 try 語句完成之前的最後一個任務執行。無論 try 語句是否產生e exception，finally 子句都會運行。以下幾點討論了發生異常時更複雜的情況：
 
 如果在 try 子句執行期間發生異常，則該異常可以由 except 子句處理。如果異常未由 except 子句處理，則在 finally 子句執行後重新引發異常。
