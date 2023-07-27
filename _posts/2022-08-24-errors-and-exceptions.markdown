@@ -219,6 +219,8 @@ except NameError:
 raise RuntimeError from exc
 ```
 
+<br/>
+
 ```python
 def func():
     raise ConnectionError
@@ -257,7 +259,7 @@ RuntimeError
 
 ### finally
 
-如果有 finally 子句，則 finally 子句將作為 try 語句完成之前的最後一個任務執行。無論 try 語句是否產生e exception，finally 子句都會運行。以下幾點討論了發生異常時更複雜的情況：
+如果有 finally 子句，則 finally 子句將作為 try 語句完成之前的最後一個任務執行。無論 try 語句是否產生 exception，finally 子句都會運行。以下幾點討論了發生異常時更複雜的情況：
 
 如果在 try 子句執行期間發生異常，則該異常可以由 except 子句處理。如果異常未由 except 子句處理，則在 finally 子句執行後重新引發異常。
 
@@ -284,7 +286,9 @@ def bool_return():
         return 'finally'
 bool_return() # 'finally'
 ```
-	
+
+<br/>
+ 
 ```python
 def raise_exception():
 	for i in range(5):
