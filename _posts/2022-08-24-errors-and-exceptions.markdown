@@ -80,7 +80,7 @@ raise 後面可以接一個 exception 物件，或是一個 Exception 類別，�
 如果 except 順序倒過來，因為 C D 皆為 B 的子類別，所以只會執行 except B:
 
 {: .note}
-因為父可以接子，所以 B 可以接 C D
+因為父可以接子的異常，所以 B 可以接 C D
 
 ```python
 class B(Exception):
