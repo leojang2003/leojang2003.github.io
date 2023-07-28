@@ -29,7 +29,7 @@ except (RuntimeError, TypeError, NameError):
 except 子句如果有吻合 exception 的話就會執行，如果 except 後的 exception 是丟出的 exception 的父類別時，則此 exception 子句會執行。反過來說，如果 except 後的 exception 是丟出的 exception 的子類別時，則不會執行 exception 子句。
 
 {: .note}
-父可以接子，子不可以接父
+父可以接子的異常，子不可以接父的異常
 
 ```python
 class B(Exception):
