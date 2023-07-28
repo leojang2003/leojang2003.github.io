@@ -6,7 +6,7 @@ tags: []
 comments: true
 ---
 
-如果沒有 exception，則 except 區塊不會執行，若是有 exception 且 exception name 一致，則會執行 except 區塊，若是 exception 沒有處理，則會傳到外層的 try，如果外層也沒處理，則變成未處理的 exception
+如果沒有 exception，則 except 區塊不會執行，若是有 exception 且 exception name 一致，則會執行 except 區塊，若是 exception 沒有處理，則會傳到外層的 try，如果外層也沒處理，則變成未處理的 exception。
 
 ```python
 while True:
@@ -139,7 +139,7 @@ except BaseException as err:
 
 ### try ... except ... else
 
-try … except 可以接 else，當 try 沒有異常時會執行
+try … except 可以接 else，當 try 沒有異常時會執行。
 
 ```python
 py sample.py myfile.txt
@@ -202,7 +202,7 @@ except Exception as inst:
 	# ***['spam', 'eggs']***
 ```	
 
-如果要知道是否有特定的 exception 但不想處理，則可以直接 raise
+如果要知道是否有特定的 exception 但不想處理，則可以直接 raise。
 
 ```python
 try:
@@ -211,6 +211,8 @@ except NameError:
     print('An exception flew by!')
     raise
 ```
+
+<br/>
 
 ### Exception Chaining
 
@@ -242,7 +244,7 @@ Traceback (most recent call last):
 RuntimeError: Failed to open database
 ```
 
-在 except 和 finally 出現的 exception 會自動 exception chaining，若要關閉這樣的行為可以使用
+在 except 和 finally 出現的 exception 會自動 exception chaining，若要關閉這樣的行為可以使用。
 
 ```python
 try:
@@ -259,11 +261,88 @@ RuntimeError
 
 ### finally
 
-如果有 finally 子句，則 finally 子句將作為 try 語句完成之前的最後一個任務執行。無論 try 語句是否產生 exception，finally 子句都會運行。以下幾點討論了發生異常時更複雜的情況：
+{:.note}
+else 是 try 沒有異常才會執行，finally 是不管 try 有無異常都會執行。
+
+如果有 finally 子句，則 finally 子句將作為 try 語句完成之前的最後一個任務執行。無論 try 語句是否產生 exception，finally 子句都會運行。
+
+### 其他異常情況：
 
 如果在 try 子句執行期間發生異常，則該異常可以由 except 子句處理。如果異常未由 except 子句處理，則在 finally 子句執行後重新引發異常。
 
+這裡 try 如果是接 except，則不會將錯誤再拋出如下
+
+```python
+try:
+    raise AttributeError()
+except:
+	pass
+	
+# 什麼事都沒有，except 吃掉了 exception
+```
+
+這裡 try 如果是接 finally，會執行 finally 子句後重新引發異常。
+
+```python
+try:
+    raise AttributeError()
+finally:
+	pass
+
+#finally...
+#Traceback (most recent call last):
+#  File "D:\t.py", line 104, in <module>
+#    raise AttributeError()
+AttributeError
+```
+
 在執行 except 或 else 子句期間可能會發生異常。同樣，在 finally 子句執行後重新引發異常。
+
+```python
+try:
+    raise AttributeError()
+except:
+	raise AssertionError()
+finally:
+    print('finally ...')
+```
+
+我們看到 except 引發一個 AssertionError，但在引發異常前，finally 會先執行如下。
+
+```python
+#finallly .....
+#Traceback (most recent call last):
+#  File "D:\t.py", line 101, in <module>
+#    raise AttributeError()
+AttributeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\t.py", line 103, in <module>
+    raise AssertionError()
+AssertionError	
+```
+
+我們看到 else 引發一個 AttribureError，但同樣的在引發異常前，finally 會先執行如下。
+
+```python
+try:
+    pass
+except:
+	pass
+else:
+	raise AttributeError()
+finally:
+    print('finally ...')
+	
+finallly .....
+Traceback (most recent call last):
+  File "D:\t.py", line 104, in <module>
+    raise AttributeError()
+AttributeError
+	
+```
 
 如果 finally 子句包含 return 語句，則返回值將是 finally 子句的 return 語句中的值，而不是 try 子句的 return 語句中的值。
 
@@ -276,7 +355,7 @@ def bool_return():
 bool_return() # False
 ```
 
-如果 finally 子句執行 break、continue 或 return 語句，則不會重新引發異常。如果 try 語句到達 break、continue 或 return 語句，finally 子句將在 break、continue 或 return 語句執行之前執行。
+如果 finally 子句執行 break、continue 或 return 語句，則不會重新引發異常。
 
 ```python
 def bool_return():
@@ -287,7 +366,35 @@ def bool_return():
 bool_return() # 'finally'
 ```
 
-<br/>
+如果 try 語句到達 break、continue 或 return 語句，finally 子句將在 break、continue 或 return 語句執行之前執行。
+
+我們可以看到在 try return 之前，finally 被執行了。
+
+```python
+def func():
+    try:
+        return 'test'
+    finally:
+        print 'finally'
+
+print(func()) 
+# finally
+# try
+```
+
+我們可以看到在 try return 之前，finally 的 return 被先執行了，try 的 return 就沒有執行了。
+
+```python
+def func():
+    try:
+        return 'test'
+    finally:
+        return 'finally'
+
+func() # 'finally'
+```
+
+再一個例子說明
  
 ```python
 def raise_exception():
@@ -307,3 +414,9 @@ raise_exception()
 # finally
 # 因為 finally 有 break 所以不會出現 exception
 ```		
+
+<br/>
+<br/>
+<br/>
+
+
