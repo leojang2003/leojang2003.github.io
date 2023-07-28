@@ -276,7 +276,7 @@ else 是 try 沒有異常才會執行，finally 是不管 try 有無異常都會
 try:
     raise AttributeError()
 except:
-	pass
+    pass
 	
 # 什麼事都沒有，except 吃掉了 exception
 ```
@@ -287,7 +287,7 @@ except:
 try:
     raise AttributeError()
 finally:
-	pass
+    pass
 
 #finally...
 #Traceback (most recent call last):
@@ -302,7 +302,7 @@ AttributeError
 try:
     raise AttributeError()
 except:
-	raise AssertionError()
+    raise AssertionError()
 finally:
     print('finally ...')
 ```
@@ -330,9 +330,9 @@ AssertionError
 try:
     pass
 except:
-	pass
+    pass
 else:
-	raise AttributeError()
+    raise AttributeError()
 finally:
     print('finally ...')
 	
@@ -398,22 +398,22 @@ func() # 'finally'
  
 ```python
 def raise_exception():
-	for i in range(5):
-		if i == 3:
-			try:
-				raise Exception('i=3 exception')
-			except ZeroDivisionError:
-				print('except')
-			else:
-				print('else')
-			finally:
-				print('finally')
-				break
+    for i in range(5):
+	if i == 3:
+	    try:
+		raise Exception('i=3 exception')
+	    except ZeroDivisionError:
+		print('except')
+	    else:
+	        print('else')
+	    finally:
+                print('finally')
+		break
 
 raise_exception()
 # finally
 # 因為 finally 有 break 所以不會出現 exception
-```		
+```			
 
 <br/>
 <br/>
