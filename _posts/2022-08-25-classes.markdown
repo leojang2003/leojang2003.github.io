@@ -1,8 +1,18 @@
-{:.note}
-本文所說的 name 這個字，泛指的是所有可以指派名稱的程式物件，包含 variable、constant、function、class、或其他任何可以指派(assign) name 的物件
+---
+layout: post
+title: Class
+subtitle: 
+tags: []
+comments: true
+---
 
 {:.note}
-dot notation 後面接的東西，通稱為 attribute，如 z.real() 表示 real 是 z 物件的 attribute
+本文所說的 name 這個字，泛指的是所有可以指派(assign) name 的物件，包含 variable、constant、function、class、或其他任何可以指派 name 的物件。
+
+{:.note}
+點記法(dot notation)後面接的東西，通稱為 attribute，如 z.real() 表示 real 是 z 物件的 attribute。
+
+### aliasing
 
 物件是執行時(runtime)才會建立，建立之後是可以修改的，另外
 同個物件可以綁定多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更
@@ -23,23 +33,25 @@ print(dupe_2) 	# [1, 2, 'x', 4, 5]
 print(l) 		# [1, 2, 'x', 4, 5]
 ```
 
-## 命名空間 Namespace
+### 命名空間 Namespace
 
-顧名思義 namespace 為 name-space，name 指的是 variable 的 name，space 指的是可以存取這些 variable 的 space。namespace 目前是由 dict 構成，舉例來說，以下都是 namespaces (或稱 scope)
+顧名思義 namespace 為 name 的 space，name 指的是 variable 的 name，space 指的是可以存取這些 variable 的 space。namespace 目前是由 dict 構成，舉例來說，以下都是 namespaces (或稱 scope)
+
 1. built-in names 的集合，像是 abs() 或是 exception names
 2. module 的 global names
 3. function 中的 local names
-4. nesting function 中的 nonlocal names
+4. nesting function 中的 nonlocal names\
+
 從某種意義上來說，物件的 attributes 也形成了一個 namespace，這是所謂的 class local scope 
 
 
-## 命名空間 Namespace 何時被建立?
+### 命名空間 Namespace 何時被建立?
 
 namespace 是在不同的時間被建立，且有不同的生命週期。包含 built-in names 的 namespace 是在 interperter 啟動時建立且不會被刪除。
 
 在 module 定義被載入時 (使用 import 語法)，module 的 global namespace 會建立，module 的 namespace 同樣也存在到 interperter 結束為止，如同 built-in 的 namespace。
 
-當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception發生時，namespace 則會刪除(遺忘)
+當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception 發生時，namespace 則會刪除(遺忘)
 
 關於 namespaces 重要的是，不同 namespace 的 names 之間是沒有關聯的，不同 modules 可以定義相同的 function name，只要使用時加上 module 名稱的 prefix 即可
 
