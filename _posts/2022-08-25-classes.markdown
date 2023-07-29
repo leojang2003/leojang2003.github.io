@@ -114,7 +114,7 @@ raise_exception()
 Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執行當下才會去從內層到外層 scope，找出該 name
 
 {:.note}
-注意 : assignment 不會複製資料，它們只是將 name 綁定 (bind) 到 object。 刪除也是如此：語法 del x 是從 local scope 的 namespace 中刪除 x 的 binding。 事實上，所有引入新名稱的操作都使用本地範圍：特別是 import 語句和函數定義將模塊或函數名稱綁定在本地範圍內。
+注意 : assignment 不會複製資料，它們只是將 name 綁定 (bind) 到 object。 刪除也是如此：語法 del x 是從 local scope 的 namespace 中刪除 x 的 binding。 事實上，所有引入新名稱的操作都使用 local scope：特別是 import 語法和函數定義將模塊或函數名稱綁定在 local scope 內。
 
 {:.note}
 locals():
