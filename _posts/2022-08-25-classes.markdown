@@ -82,8 +82,10 @@ from mod2 import run
 run() # 'mod2'
 ```
 
+<br/>
+
 ## 何謂 Attribute Reference
-嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module名稱，而 funcname 是物件的 attribute，attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下
+嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module 名稱，而 funcname 是物件的 attribute，attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下
 
 ```python
 # my_module.py
@@ -101,10 +103,11 @@ del raise_exception
 raise_exception()
 ```
 
+<br/>
 
 ## Scope
 
-在程式中，一個 name 的 scope 定義了哪一個區塊的程式可以明白的存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。
+在程式中，一個 name 的 scope 定義了哪一個區塊的程式可以存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。
 
 在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可存取，這 4 個 scope 稍後介紹
 
