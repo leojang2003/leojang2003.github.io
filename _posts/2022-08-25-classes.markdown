@@ -90,7 +90,53 @@ run() # 'mod2'
 
 ### 什麼是 Attribute Reference
 
-嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module 名稱，而 funcname 是物件的 attribute，attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下
+嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module 名稱，而 funcname 是物件的 attribute， 這裡剛好 module 的 attribute 跟 module 中定義的 global names 剛好分享同一個 namespace! 
+除了一件事外，Module 物件有一個祕密的 read-only attribute 叫 __dict__，會回傳實作 module’s namespace 的 dict; name __dict__ 是一個 attribute 不是一個 global name。
+
+現在有一個 module 如下
+
+```python
+# 檔案 mod1.py
+print(globals().keys())
+# dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', '__file__', '__cached__', '__builtins__'])
+
+class Temp():
+
+    a = 10
+    b = 20
+    
+    def __getattribute__(self,name):        
+        if name =='b':
+            return 'something extra'
+        else:
+            return object.__getattribute__(self, name)
+
+```
+
+一個呼叫 module 的檔案如下
+
+```python
+# 檔案 caller.py
+import temp
+from pprint import pprint
+
+pprint(dir(temp))
+# ['Temp',
+#  '__builtins__',
+#  '__cached__',
+#  '__doc__',
+#  '__file__',
+#  '__loader__',
+#  '__name__',
+#  '__package__',
+#  '__spec__']
+
+print(temp.__dict__.keys())
+#dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', '__file__', '__cached__', '__builtins__', 'Temp'])
+```
+
+
+attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下
 
 ```python
 # my_module.py
