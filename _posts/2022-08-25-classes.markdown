@@ -238,20 +238,21 @@ sys.__dict__['__name__']
 
 ### LEGB 規則
 
-依序從內向外尋找 namespace
-1. Local (or Function) scope
+依序從內向外尋找 
+
+Local (or Function) scope\
 
 此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
 	
-2. Enclosing(or nonlocal) scope
+Enclosing(or nonlocal) scope\
  
 只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)
 	
-3. Global (or module) scope
+Global (or module) scope\
 
 global scope 是 Python 程式、script與模組中最外層的 scope，此 scope 包含所有我們在程式或模組最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
 	
-4. Built-in Scope
+Built-in Scope\
 
 此特殊的 scope 是在執行 script 或是在 interactive session 開啟時，會建立並載入。此 scope 包含內建在 Python 的 keywords、functions、exceptions 與其他 attributes，此我們程式的任何地方也都可以存取此 scope 
 
