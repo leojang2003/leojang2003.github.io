@@ -240,28 +240,28 @@ sys.__dict__['__name__']
 
 依序從內向外尋找 
 
-__Local (or Function) scope__\ 
+__Local (or Function) scope__\
 
 此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
 	
-Enclosing(or nonlocal) scope\
+__Enclosing(or nonlocal) scope__\
  
 只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)
 	
-Global (or module) scope\
+__Global (or module) scope__\
 
-global scope 是 Python 程式、script與模組中最外層的 scope，此 scope 包含所有我們在程式或模組最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
+global scope 是 Python 程式、script與 module 中最外層的 scope，此 scope 包含所有我們在程式或 module 最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
 	
-Built-in Scope\
+__Built-in Scope__\
 
-此特殊的 scope 是在執行 script 或是在 interactive session 開啟時，會建立並載入。此 scope 包含內建在 Python 的 keywords、functions、exceptions 與其他 attributes，此我們程式的任何地方也都可以存取此 scope 
+此特殊的 scope 是在執行 script 或是在 interactive session 開啟時，會建立並載入。此 scope 包含內建在 Python 的 keywords、functions、exceptions 與其他 attributes，此我們程式的任何地方也都可以存取此 scope。 
 
 當參考一個 name 時，則由內而外依序搜尋 scope。程式執行時，最多可以有 4 個 active 的 scope，任何時候可以保證至少有2個 active scope，global 與 built-in
 
 {:.note}
 唯有在 function 使用 name，才會存取 local scope。唯有在 nested function 中使用 name，才會存取 enclosing scope
 
-## Local Scope
+### Local Scope
 
 Local Scope 或稱 function scope，是 Python 在呼叫 function 時建立的 scope。每次呼叫 function 時，同時也建立一個新的 local scope。另一方面，我們可以將每個 def 語法和 lambda 表達式視為新的 local scope 的藍圖。每當我們呼叫 function 時，這些 local scope 就會存在。
 
@@ -279,9 +279,10 @@ print(result) # Isn't accessible from outside square()
 {:.note}
 當我們在呼叫 function 後試著存取 result 或是 base，Python 會傳回 NameError，因為 result 和 base 只存在呼叫 square() 時所建立的 local scope，當我們試著存取不在任何 scope 中的 name，我們會得到一個 NameError 錯誤訊息顯示 name 找不到
 
-## __code__ 關鍵字
+### _ _ code _ _ 關鍵字
 
-我們可以呼叫 function 的 __code__ 來檢視 function 的參數與 name，
+我們可以呼叫 function 的 _ _ code _ _ 來檢視 function 的參數與 name
+
 ```python
 square.__code__.co_varnames
 ('base', 'result')
@@ -293,16 +294,19 @@ square.__code__.co_name
 'square'
 ```
 
-## Nested Functions: The Enclosing Scope
+### Nested Functions: The Enclosing Scope
 
 Enclosing (nonlocal) scope 是當我們在 function 內加入 function。我們在 enclosing scope 定義的 name  通常被稱為 nonlocal names
 
 ```python
 def outer_func():
+
     # 此區塊是 outer_func() 的 local scope
-    var = 100  # A nonlocal var
-    # 同時也是 inner_func() 的 enclosin scope
+	# 同時也是 inner_func() 的 enclosin scope
+    var = 100  # A nonlocal var    
+	
     def inner_func():
+	
         # 此區塊是 inner_func() 的 local scope
         print(f"Printing var from inner_func(): {var}")
 
@@ -326,13 +330,16 @@ inner_func() 內可以看到我們在 enclosing scope 建立的所有 name，有
 
 ```python
 def outer_func():
+
     var = 100
+	
     def inner_func():
+	
         print(f"Printing var from inner_func(): {var}")
         print(f"Printing another_var from inner_func(): {another_var}")
 
     inner_func()
-    another_var = 200  # This is defined after calling inner_func()
+    another_var = 200  # 呼叫 inner_func() 後才定義
     print(f"Printing var from outer_func(): {var}")
 
 outer_func()
@@ -340,45 +347,50 @@ outer_func()
 # NameError: free variable 'another_var' referenced before assignment in enclosing scope
 ```
  
-## Modules: The Global Scope
-從程式執行之際，我們就已經在 Python 的 global scope 中，Python 會將程式的 main script 轉成 __main__ 的模組，此模組的 namespace 即是我們程式的主要 global scope
+### Modules: The Global Scope
+
+從程式執行時，我們就已經在 Python 的 global scope 中，Python 會將程式的 main script 轉成 _ _ main _ _ 的 module，此 module 的 namespace 就是我們程式的主要 global scope
  
 {:.note}
-在 Python，global scope 與 global names 的概念是與模組的檔案緊密相關，舉例來說，如果我們在模組的 top-level 定義一個 name，則對此模組來說，此 name 為 global 的，這也是為什麼這種 scope 也被稱為 module scope
+在 Python，global scope 與 global names 的概念是與 module 的檔案緊密相關，舉例來說，如果我們在 module 的 top-level 定義一個 name，則對此 module 來說，此 name 為 global 的，這也是為什麼這種 scope 也被稱為 module scope
 
-如果我們是在 interactive session，我們會看到 __main__ 也是主模組的名稱
+如果我們是在 interactive session，我們會看到 _ _ main _ _ 也是 main module 的名稱
 
 ```python
+# 以下是 interactive session
 >>> __name__
 '__main__'
 ```
 
-每當我們執行 Python 程式或是執行 interactive session 如上，編譯器會執行該模組或 script 裡的程式碼，當作我們程式的進入點，此模組或 script 會以一個特殊的名稱__main__載入，從此在之後，我們的 main global scope 就是 __main__ 的 scope
+每當我們執行 Python 程式或是執行 interactive session 如上，編譯器會執行該 module 或 script 裡的程式碼，當作我們程式的進入點，此 module 或 script 會以一個特殊的名稱 _ _ main _ _載入，從此在之後，我們的 main global scope 就是 _ _ main _ _ 的 scope
 
 想檢查 main global scope 裡有的 names，我們可以使用 dir()。如果呼叫 dir() 沒有給參數，則是回傳目前 global scope 的 names 
 
 ```python
 print(dir())
 ['__annotations__', '__builtins__',..., '__package__', '__spec__']
+
 var = 100  # 新增變數後，會加入 global scope 
+
 print(dir())
 ['__annotations__', '__builtins__',..., '__package__', '__spec__', 'var'] # 多了 var
 ```
 
 {:.note}
-程式執行時只會有一個 global scope，直到程式關閉時才會終止，name forgotten
+程式執行時只會有一個 global scope，直到程式關閉時才會終止，names 被遺忘。
 
-## global 變數
+### global 變數
+
 {:.note}
 使用 global 變數不是一個好的 practice，須盡量避免，請用改用別的方式改寫程式
 
 {:.note}
 好的程式習慣:
-function 內使用 local name
-物件 name 要獨特
-避免修改 global name
-避免跨模組修改 name
-把 global name 當成常數
+- {: .arrow}function 內使用 local name
+- {: .arrow}物件 name 要獨特
+- {: .arrow}避免修改 global name
+- {: .arrow}避免跨 module 修改 name
+- {: .arrow}把 global name 當成常數
 
 每當我們在 Python 中為 assign 值給 name 時，可能會發生以下兩種情況之一：
 
@@ -533,7 +545,7 @@ len(dir(__builtins__))
 # 152
 
 
-# 也可以明確 import builtins 模組，並使用 dot notation 呼叫
+# 也可以明確 import builtins module，並使用 dot notation 呼叫
 import builtins
 builtins.sum([1, 2, 3, 4, 5])
 # 15
@@ -806,4 +818,4 @@ Class: 使用 A.var 存取 class attribute.
 好的 OOP 準則不建議我們使用 instance attributes 蓋過 class attributes
 
 {:.note}
-注意 class 的 .__dict__  與 instance 的 .__dict__ 室兩者獨立不同的 dict，這也是為什麼 class attributes 在我們 run 或 import 模組內定義的 class 時就是 available 的，反之 instance attributes 只有在建立物件後才會 available
+注意 class 的 .__dict__  與 instance 的 .__dict__ 室兩者獨立不同的 dict，這也是為什麼 class attributes 在我們 run 或 import module 內定義的 class 時就是 available 的，反之 instance attributes 只有在建立物件後才會 available
