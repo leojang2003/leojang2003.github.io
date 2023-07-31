@@ -40,21 +40,40 @@ print(l) 		# [1, 2, 'x', 4, 5]
 {:.note}
 定義上 namespace 指的是 name 與 object 的對應 (mapping)
 
+Python 執行程式時，會建立所需的 namespace 並刪除不需要的 namespace\ 
+
 name 指的是 variable 的 name，space 指的是可以存取這些 variable 的 space。namespace 目前是由 dict 構成，舉例來說，以下都是 namespaces (或稱 scope)
 
-1. built-in names 的集合，像是 abs() 或是 exception names
-2. module 的 global names
-3. 呼叫 function 中的 local names
-4. nesting function 中的 nonlocal names\
+1. built-in namespace
+2. module namesapce (module 的 global names)
+3. local namespace (呼叫 function 中的 local names)
+4. enclosing namespace (nesting function 中的 nonlocal names)\
 
 從某種意義上來說，物件的 attributes 也形成了一個 namespace，這是所謂的 class local scope 
 
-
-### 命名空間 Namespace 何時被建立?
+### built-in namespace
 
 namespace 是在不同的時間被建立，且有不同的生命週期。包含 built-in names 的 namespace 是在 interperter 啟動時建立且不會被刪除。
 
+```python
+# 列出 built-in namespace 下的物件
+dir(__builtins__)
+
+```
+<br/>
+
+### global namespace
+
+{:.note}
+global namespace 有分兩種，第一個是 interperter 一開始呼叫的 script 產生的  _ _ main _ _ module 有一個 global namespace，另外 import 其他 module 時，interpreter 也會替該 module 建立一個 global namespace，import 兩個 module 就有額外 2 個 global namesapce。
+
+global namespace 包含 main program 層級定義的所有 name。Python 在 main program 啟動時建立，global namespace 會一直存在，直到 interperter 終止。
+
+嚴格來說，這可能不是唯一存在的 global namesapce。interperter 還為 program 使用 import 語法載入的各 module 建立 module 的 namespace。
+
 在 module 定義被載入時 (使用 import 語法)，module 的 global namespace 會建立，module 的 namespace 同樣也存在到 interperter 結束為止，如同 built-in 的 namespace。
+
+### local namespace
 
 當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception 發生時，namespace 則會刪除(遺忘)
 
@@ -91,7 +110,9 @@ run() # 'mod2'
 ### 什麼是 Attribute Reference
 
 嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module 名稱，而 funcname 是物件的 attribute， 這裡剛好 module 的 attribute 跟 module 中定義的 global names 剛好分享同一個 namespace! 
-除了一件事外，Module 物件有一個祕密的 read-only attribute 叫 __dict__，會回傳實作 module’s namespace 的 dict; name __dict__ 是一個 attribute 不是一個 global name。
+
+{:.note}
+除了一件事外，Module 物件有一個祕密的唯獨 attribute 叫 _ _ dict _ _，_ _ dict _ _ 會回傳實作 module’s namespace 的 dict; name _ _ dict _ _ 是一個 attribute 不是一個 global name。
 
 現在有一個 module 如下
 
@@ -120,6 +141,7 @@ class Temp():
 import temp
 from pprint import pprint
 
+# 根據定義 dir(module物件) 回傳 module's attribute 的 names
 pprint(dir(temp))
 # ['Temp',
 #  '__builtins__',
@@ -130,6 +152,8 @@ pprint(dir(temp))
 #  '__name__',
 #  '__package__',
 #  '__spec__']
+
+# 這裡剛好 module 的 attribute 跟 module 中定義的 global names 剛好分享同一個 namespace
 
 print(temp.__dict__.keys())
 #dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', '__file__', '__cached__', '__builtins__', 'Temp'])
@@ -160,19 +184,18 @@ raise_exception()
 
 ### Scope
 
-在程式中，一個 name 的 scope 定義了哪一個區塊的程式可以存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。
+在程式中，一個 name 的 scope 定義了哪一個區塊的程式 (textual region) 可以直接存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。\
 
-在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可存取，這 4 個 scope 稍後介紹
+在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可直接存取的，這 4 個 scope 稍後介紹\
 
 Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執行當下才會去從內層到外層 scope，找出該 name
 
 {:.note}
-注意 : assignment 不會複製資料，它們只是將 name 綁定 (bind) 到 object。 刪除也是如此：語法 del x 是從 local scope 的 namespace 中刪除 x 的 binding。 事實上，所有引入新名稱的操作都使用 local scope：特別是 import 語法和函數定義將模塊或函數名稱綁定在 local scope 內。
+注意 : assignment 不會複製資料，它們只是將 name 綁定 (bind) 到 object。刪除也是如此：語法 del x 是從 local scope 的 namespace 中刪除 x 的 binding。 事實上，所有引入新 name 的操作都使用 local scope：特別是 import 語法和 function definition 將 module 或 function name 綁定在 local scope 內。
 
 {:.note}
 locals():
 更新並回傳表示 current local symbol table 的 dictionary。在函式區塊而不是 class 區塊中呼叫 locals() 時會回傳自由變數 (Free variables)。請注意，在 module 階層中，locals() 和 globals() 是相同的 dictionary。
-
 
 因為 Python 是 dynamically-typed 語言，所以 variable 只有在指派值時才會存在，function 和 class 只有在使用 def 或 class 後才會存在，而 module 只有在 import 後才會存在，總結來說，Python 的 name 可以透過以下之一的方式建立
 
@@ -183,17 +206,19 @@ locals():
 5. class myClass: ....
 
 {:.note}
-注意: assignment operations 和 reference/access operations 有一個重大的差異，那就是當我們 reference 一個 name，我們是試著取得他的內容(content) 或是值(value)，當我們 assign 一個 name，我們是試著建立(create)一個 name 或是試著修改(modify)他 
+注意: assignment operations 和 reference/access operations 有一個重大的差異，那就是當我們 reference 一個 name 時，我們是試著取得他的內容(content) 或是值(value)，當我們 assign 一個 name，我們是試著建立(create)一個 name 或是試著修改(modify)它。 
 
-Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬於哪一個 scope，舉例來說，在方法內 assign 值給 name，則該 name 會有一個 local scope，如果在所有方法之外 assign 值給 name，則該 name 會有一個 global scope
+Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬於哪一個 scope，舉例來說，在方法內 assign 值給 name，則該 name 會有一個 local scope，如果在所有方法之外 assign 值給 name，則該 name 會有一個 global scope。\
 
 當我們可以存取某個 name，我們說這個 name 在 scope 內(in scope)，反之則是 name 在 scope 之外 (out of scope)
 
-# Scope VS Namespace
+<br/>
 
-在 Python 裡，scope 的概念與 namespace 的概念兩者緊密相關，Python 的 scope 決定程式中一個 name 的可見性(visiblity)，Python 的 scope 是用 dict 實作而來，將 name 對應(map) 到 objects，這些 dict 通常叫做 namespaces，這是 Python 實際用來儲存 name 的機制，這些特殊的屬性存在 __dict__ 中
+### Scope VS Namespace
 
-當我們 import sys，我們可以使用 .keys() 來檢視 sys.__dict__ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，__dict__ 抓住 sys 的 namespace，且是 module scope 的 concrete representation
+在 Python 裡，scope 的概念與 namespace 的概念兩者緊密相關，Python 的 scope 決定程式中一個 name 的可見性(visiblity)，Python 的 scope 是用 dict 實作而來，將 name 對應 (mapping) 到 objects，這些 dict 通常叫做 namespaces，這是 Python 實際用來儲存 name 的機制，這些特殊的屬性存在 _ _ dict _ _ 中
+
+當我們 import sys，我們可以使用 .keys() 來檢視 sys._ _ dict _ _ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，_ _ dict _ _ 抓住 sys 的 namespace，且是 module scope 的 concrete representation
 
 ```python
 import sys
@@ -202,13 +227,14 @@ print(sys.__dict__.keys())
 dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', ...])
 ```
 
-進一步說，假設我們要存取定義在 sys 中的 __name__，一共有兩種方式可以 reference 
+進一步說，假設我們要存取定義在 sys 中的 _ _ name _ _，一共有兩種方式可以 reference 
+
 ```python
 sys.__name__
 sys.__dict__['__name__']
 ```
 
-# LEGB 規則
+### LEGB 規則
 
 依序從內向外尋找 namespace
 1. Local (or Function) scope
