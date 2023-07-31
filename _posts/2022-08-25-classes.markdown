@@ -394,8 +394,8 @@ print(dir())
 
 每當我們在 Python 中為 assign 值給 name 時，可能會發生以下兩種情況之一：
 
-建立一個新 name 
-更新一個現有的 name
+- {: .arrow}建立一個新 name 
+- {: .arrow}更新一個現有的 name
 
 具體行為是哪種，取決於我們是在哪個 scope 做 assignment。如果我們嘗試在 function 內要給 global name 做 assignment，那麼我們將在函數的 local scope 內建立該 name，隱藏或覆蓋 global name。這表示著我們將無法從 function 內部變更在 function 外定義的大多數變數 (除非使用 global 關鍵字)
 
@@ -414,17 +414,21 @@ print(x)
 # 10 
 ```
 
-再一個例子
+再舉一個例子
+
 ```python
 var = 100  # A global variable
 def increment():
     # UnboundLocalError: local variable 'var' referenced before assignment
+	# 看起來 assignment 這個動作會建立一個 local variable
+	# 所以 assignment 右側的 var 會試著讀取 local variable 而錯誤
     var = var + 1  
 
 increment()
 ```
 
 以下 OK，讀取 global 變數後 print()
+
 ```python
 var = 100  # global 變數
 def increment():
@@ -434,6 +438,7 @@ increment()
 ```
 
 以下 OK，讀取 global 變數後 print()
+
 ```python
 var = 100  # global 變數
 def increment():
@@ -447,6 +452,7 @@ increment()
 Python 預設在 function 內的 assignment 都是 local variable
 
 在方法內變更全域變數
+
 ```python
 x = 10
 
@@ -460,6 +466,7 @@ my_func()
 ```
 
 使用 global 變數，在方法內變更全域變數
+
 ```python
 x = 10
 
@@ -474,6 +481,7 @@ print(x) # 20 外面也被改變
 ```
 
 如何分享全域變數
+
 ```python
 # mod1.py
 name = 'John'
@@ -493,9 +501,12 @@ import mod2
 print(mod1.name, mod1.age) # 'Queen 60'
 ```
 
-## nonlocal 關鍵字
+<br/>
+
+### nonlocal 關鍵字
 
 用於 nested 方法，使用 nonlocal 來存取，nonlocal 只能存在於 nested function 的 enclosing scope，不能存在 local scope 或是 global scope
+
 ```python
 x = 'global'
 
@@ -506,6 +517,7 @@ def outer():
 	x = 'outer'
 	
 	def inner():
+	
 		# 對inner()來說，outer()內的x，既非 local 也不是 global 變數
 		nonlocal x 
 		x = 'inner'
@@ -524,14 +536,14 @@ print('global:', x)
 ```
 
 {:.note}
-這裡說一個 Python 奇特的地方，當沒有使用 global 或是 nonlocal 關鍵字時，對 name 做指派 (assignment) 值時，永遠都是在指派給該 scope 中的變數，也就是若是該 scope 中沒有此 name，則會建立一個 name 做 assignment。就算外層有相同名稱的 name，也是在該 scope 建立一個相同名稱的 name
+這裡說一個 Python 奇特的地方，當沒有使用 global 或是 nonlocal 關鍵字時，對 name 做指派 (assignment) 值時，永遠都是在指派給該 scope 中的變數，也就是若是該 scope 中沒有此 name，則會建立一個 name 做 assignment。就算外層有相同名稱的 name，也是在該 scope 建立一個相同名稱的 name。
 
+### builtins: The Built-In Scope
 
-## builtins: The Built-In Scope
-
-built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python 編譯器時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以免費獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。
+built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python interperter 時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以自動獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。\
 
 注意 builtins 的 names 會總是載入到一個名為 __builtins__ 的 global Python scope
+
 ```python
 dir()
 # ['__annotations__', '__builtins__',..., '__package__', '__spec__']
@@ -556,9 +568,10 @@ __builtins__.sum([1, 2, 3, 4, 5])
 # 15
 ```
 
-上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數
+上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數\
 
 built-in names 可以被覆寫，如下
+
 ```python
 abs(-15)  # Standard use of a built-in function
 # 15
@@ -569,15 +582,15 @@ abs(-15)
 ```
 
 {:.note}
-改寫 built-in names 最好步要做
+改寫 built-in names 最好不要做
 
 總結，global name 與 local name 需用不同的名稱
 
-## 使用 enclosing scope 當成 closure
+### 使用 enclosing scope 當成 closure
 
-Closures 是 enclosing Python scope 的一個特例，nested function 的內層 function 會被當成 data 傳出去，在此同時會記錄當下的外層 nested function 的環境，像是變數的值，這回傳的東西就稱為 closure，closure 是 inner 或 nested function 會傳遞 enclosing scope 的資訊，即使該 scope 已執行完畢
+Closures 是 enclosing Python scope 的一個特例，nested function 的內層 function 會被當成 data 傳出去，在此同時會記錄當下的外層 nested function 的環境，像是變數的值，這回傳的東西就稱為 closure，closure 是 inner 或 nested function 會傳遞 enclosing scope 的資訊，即使該 scope 已執行完畢。\
 
-我們還可以將這種函數稱為 factory、function factory，或者更準確地說是 closure factory，以指定函數構建和返回 closure(inner function)，而不是 class 或 instance。
+我們還可以將這種函數稱為 factory、function factory，或者更準確地說是 closure factory，以指定函數構建和返回 closure(inner function)，而不是 class 或 instance。\
 
 closure 提供了一種在 function calls 之間保留狀態信息的方法。當我們想要基於 lazy 或 delayed evaluation的概念撰寫程式時，這可能很有用。
 
@@ -622,13 +635,15 @@ current_mean(13)
 12.2
 ```
 
-## 使用 import 將 name 加入 scope
+<br/>
 
-編寫 Python 程式時，通常會將程式組織成幾個 module。我們需要將這些單獨 module 中的 name 帶到我們的 __main__ module 中。為此，我們需要 import module_name 或是 from module_name import name。這是可以在 main global Python scope 中使用這些 name 的唯一方法。
+### 使用 import 將 name 加入 scope
 
-## 特殊的 scope 
+編寫 Python 程式時，通常會將程式組織成幾個 module。我們需要將這些單獨 module 中的 name 帶到我們的 _ _ main _ _ module 中。為此，我們需要 import module_name 或是 from module_name import name。這是可以在 main global Python scope 中使用這些 name 的唯一方法。
 
-## Comprehension Variables Scope
+### 特殊的 scope 
+
+### Comprehension Variables Scope
 
 ```python
 >>> [item for item in range(5)]
@@ -641,6 +656,7 @@ current_mean(13)
 ```
 
 但是一般的 for loop，在 loop 外是可以存取 loop variable 的
+
 ```python
 >>> for item in range(5):
     print(item)
@@ -654,7 +670,7 @@ current_mean(13)
 4
 ```
 
-## Exception Variables Scope
+### Exception Variables Scope
 
 另一個 Python scope 的特殊案例是 exception variables。exception variables 是一個變數，當 try 語法觸發一個 exception，該變數會指向該 exception。在 Python 3.x 中，此類變數僅存在 except 區塊的 local scope，並且在 except 區塊結束時被遺忘。
 
@@ -672,7 +688,7 @@ print(err) 	# NameError: name 'err' is not defined
 print(ex) 	# 這樣可以
 ```
 
-## Class and Instance Attributes Scope
+### Class and Instance Attributes Scope
 
 當我們定義一個 class 時，我們正在建立一個新的本地 Python scope。在 class 的 top-level assign 的 name 存在於這個 local scope 中。我們在 class 中 assign 的 name 不會與其他地方的 name 發生衝突。可以說這些 name 遵循 LEGB 規則，其中 class block 代表 L 級。
 
