@@ -240,7 +240,7 @@ sys.__dict__['__name__']
 
 依序從內向外尋找 
 
-Local (or Function) scope <br/>
+__Local (or Function) scope__\ 
 
 此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
 	
