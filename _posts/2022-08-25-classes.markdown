@@ -386,11 +386,11 @@ print(dir())
 
 {:.note}
 好的程式習慣:
-- {: .arrow}function 內使用 local name
-- {: .arrow}物件 name 要獨特
-- {: .arrow}避免修改 global name
-- {: .arrow}避免跨 module 修改 name
-- {: .arrow}把 global name 當成常數
+- {: .arrow}{:.note}function 內使用 local name
+- {: .arrow}{:.note}物件 name 要獨特
+- {: .arrow}{:.note}避免修改 global name
+- {: .arrow}{:.note}避免跨 module 修改 name
+- {: .arrow}{:.note}把 global name 當成常數
 
 每當我們在 Python 中為 assign 值給 name 時，可能會發生以下兩種情況之一：
 
