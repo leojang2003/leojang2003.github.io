@@ -12,7 +12,7 @@ comments: true
 {:.note}
 點記法(dot notation)後面接的東西，通稱為 attribute，如 z.real() 表示 real 是 z 物件的 attribute。
 
-### aliasing
+### Aliasing
 
 物件是執行時(runtime)才會建立，建立之後是可以修改的，另外
 同個物件可以綁定多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing 是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更
@@ -234,20 +234,26 @@ sys.__name__
 sys.__dict__['__name__']
 ```
 
+<br/>
+
 ### LEGB 規則
 
 依序從內向外尋找 namespace
 1. Local (or Function) scope
-	此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
+
+此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
 	
-2. Enclosing(or nonlocal) scope 
-	只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)
+2. Enclosing(or nonlocal) scope
+ 
+只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)
 	
 3. Global (or module) scope
-	global scope 是 Python 程式、script與模組中最外層的 scope，此 scope 包含所有我們在程式或模組最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
+
+global scope 是 Python 程式、script與模組中最外層的 scope，此 scope 包含所有我們在程式或模組最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
 	
 4. Built-in Scope
-	此特殊的 scope 是在執行 script 或是在 interactive session 開啟時，會建立並載入。此 scope 包含內建在 Python 的 keywords、functions、exceptions 與其他 attributes，此我們程式的任何地方也都可以存取此 scope 
+
+此特殊的 scope 是在執行 script 或是在 interactive session 開啟時，會建立並載入。此 scope 包含內建在 Python 的 keywords、functions、exceptions 與其他 attributes，此我們程式的任何地方也都可以存取此 scope 
 
 當參考一個 name 時，則由內而外依序搜尋 scope。程式執行時，最多可以有 4 個 active 的 scope，任何時候可以保證至少有2個 active scope，global 與 built-in
 
