@@ -47,7 +47,7 @@ name 指的是 variable 的 name，space 指的是可以存取這些 variable �
 1. built-in namespace
 2. module namesapce (module 的 global names)
 3. local namespace (呼叫 function 中的 local names)
-4. enclosing namespace (nesting function 中的 nonlocal names)\
+4. enclosing namespace (nesting function 中的 nonlocal names)  
 
 從某種意義上來說，物件的 attributes 也形成了一個 namespace，這是所謂的 class local scope 
 
@@ -184,9 +184,9 @@ raise_exception()
 
 ### Scope
 
-在程式中，一個 name 的 scope 定義了哪一個區塊的程式 (textual region) 可以直接存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。\
+在程式中，一個 name 的 scope 定義了哪一個區塊的程式 (textual region) 可以直接存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。  
 
-在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可直接存取的，這 4 個 scope 稍後介紹\
+在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可直接存取的，這 4 個 scope 稍後介紹  
 
 Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執行當下才會去從內層到外層 scope，找出該 name
 
@@ -208,7 +208,7 @@ locals():
 {:.note}
 注意: assignment operations 和 reference/access operations 有一個重大的差異，那就是當我們 reference 一個 name 時，我們是試著取得他的內容(content) 或是值(value)，當我們 assign 一個 name，我們是試著建立(create)一個 name 或是試著修改(modify)它。 
 
-Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬於哪一個 scope，舉例來說，在方法內 assign 值給 name，則該 name 會有一個 local scope，如果在所有方法之外 assign 值給 name，則該 name 會有一個 global scope。\
+Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬於哪一個 scope，舉例來說，在方法內 assign 值給 name，則該 name 會有一個 local scope，如果在所有方法之外 assign 值給 name，則該 name 會有一個 global scope。  
 
 當我們可以存取某個 name，我們說這個 name 在 scope 內(in scope)，反之則是 name 在 scope 之外 (out of scope)
 
@@ -240,19 +240,19 @@ sys.__dict__['__name__']
 
 依序從內向外尋找 
 
-__Local (or Function) scope__\
+__Local (or Function) scope__  
 
 此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
 	
-__Enclosing(or nonlocal) scope__\
+__Enclosing(or nonlocal) scope__  
  
 只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)
 	
-__Global (or module) scope__\
+__Global (or module) scope__  
 
 global scope 是 Python 程式、script與 module 中最外層的 scope，此 scope 包含所有我們在程式或 module 最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
 	
-__Built-in Scope__\
+__Built-in Scope__  
 
 此特殊的 scope 是在執行 script 或是在 interactive session 開啟時，會建立並載入。此 scope 包含內建在 Python 的 keywords、functions、exceptions 與其他 attributes，此我們程式的任何地方也都可以存取此 scope。 
 
@@ -540,7 +540,7 @@ print('global:', x)
 
 ### builtins: The Built-In Scope
 
-built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python interperter 時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以自動獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。\
+built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python interperter 時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以自動獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。  
 
 注意 builtins 的 names 會總是載入到一個名為 _ _ builtins _ _ 的 global Python scope
 
@@ -568,7 +568,7 @@ __builtins__.sum([1, 2, 3, 4, 5])
 # 15
 ```
 
-上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數\
+上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數  
 
 built-in names 可以被覆寫，如下
 
@@ -588,9 +588,9 @@ abs(-15)
 
 ### 使用 enclosing scope 當成 closure
 
-Closures 是 enclosing Python scope 的一個特例，nested function 的內層 function 會被當成 data 傳出去，在此同時會記錄當下的外層 nested function 的環境，像是變數的值，這回傳的東西就稱為 closure，closure 是 inner 或 nested function 會傳遞 enclosing scope 的資訊，即使該 scope 已執行完畢。\
+Closures 是 enclosing Python scope 的一個特例，nested function 的內層 function 會被當成 data 傳出去，在此同時會記錄當下的外層 nested function 的環境，像是變數的值，這回傳的東西就稱為 closure，closure 是 inner 或 nested function 會傳遞 enclosing scope 的資訊，即使該 scope 已執行完畢。  
 
-我們還可以將這種函數稱為 factory、function factory，或者更準確地說是 closure factory，以指定函數構建和返回 closure(inner function)，而不是 class 或 instance。\
+我們還可以將這種函數稱為 factory、function factory，或者更準確地說是 closure factory，以指定函數構建和返回 closure(inner function)，而不是 class 或 instance。  
 
 closure 提供了一種在 function calls 之間保留狀態信息的方法。當我們想要基於 lazy 或 delayed evaluation的概念撰寫程式時，這可能很有用。
 
@@ -697,7 +697,7 @@ print(ex) 	# 這樣可以
 
 ### Class and Instance Attributes Scope
 
-當我們定義一個 class 時，我們正在建立一個新的 local Python scope。在 class 的 top-level 指派的 name 存在於這個 local scope 中。我們在 class 中 assign 的 name 不會與其他地方的 name 發生衝突。可以說這些 name 遵循 LEGB 規則，其中 class block 代表 L 級。\
+當我們定義一個 class 時，我們正在建立一個新的 local Python scope。在 class 的 top-level 指派的 name 存在於這個 local scope 中。我們在 class 中 assign 的 name 不會與其他地方的 name 發生衝突。可以說這些 name 遵循 LEGB 規則，其中 class block 代表 L 級。  
 
 與 function 不同，class 的 local scope 不是在呼叫時建立的，而是在執行時建立的。每個 class 物件都有自己的 .__dict__ 屬性，該屬性包含所有 class attribute 所在的 class scope 或 namespace。看看這段程式：
 
@@ -737,7 +737,7 @@ A.attr2
 100
 ```
 
-在建立 instance 後，我們可以使用 dot notation 存取 class 的 attribute，就像我們在此處使用 obj.attr 所做的那樣。class attribute 是特定於 class object，但我們可以從 class 的任何 instance 存取它們。值得注意的是，class attribute 對 class 的所有 instance都是通用的。如果我們修改 class attribute，則更改將在該 class 的所有 instance 中可見。\
+在建立 instance 後，我們可以使用 dot notation 存取 class 的 attribute，就像我們在此處使用 obj.attr 所做的那樣。class attribute 是特定於 class object，但我們可以從 class 的任何 instance 存取它們。值得注意的是，class attribute 對 class 的所有 instance都是通用的。如果我們修改 class attribute，則更改將在該 class 的所有 instance 中可見。  
 
 注意：把點表示法想像成我們在告訴 Python：“在 obj 中查找名為 attr 的屬性。如果我們找到了，就把它還給我。”
 
@@ -756,7 +756,7 @@ print(obj.__dict__) # {'var': 200}
 print(obj.var) # 200
 ```
 
-class A 接受一個名為 var 的參數，在 ._ _ init _ _() 使用 self.var *= 2 內自動加倍。請注意，當您檢查 obj 上的 ._ _ dict _ _ 時，您會得到一個包含所有 instance attribute 的字典。在這種情況下，字典僅包含名稱 var，其值現在為 200。\
+class A 接受一個名為 var 的參數，在 ._ _ init _ _() 使用 self.var *= 2 內自動加倍。請注意，當您檢查 obj 上的 ._ _ dict _ _ 時，您會得到一個包含所有 instance attribute 的字典。在這種情況下，字典僅包含名稱 var，其值現在為 200。  
 
 instance attribute 最好在 _ _ init _ _ 內初始化
 
@@ -803,7 +803,7 @@ import mod2
 print(mod1.C.age) # 20
 ```
 
-總結來說，每當需要存取 attribute 時，Python 程式第一個會看 instance local scope 或 namespace，若沒有的話再來看 class local scope 或 namespace，如果也不存在 class namespace，則拋出 AttributeError。\
+總結來說，每當需要存取 attribute 時，Python 程式第一個會看 instance local scope 或 namespace，若沒有的話再來看 class local scope 或 namespace，如果也不存在 class namespace，則拋出 AttributeError。  
 
 雖然 class 會定義一個 class local scope 或 namespace，但他們不會建立 methods 的 enclosing scope。因此，當我們實作一個 class 時，參考 attributes 與 methods 時都必須使用 dot notation
 
@@ -874,10 +874,10 @@ print(A().__dict__.keys())
 # dict_keys(['var'])
 ```
 
-上述 class 有同名的 instance attribute 與 class attribute 名為 var。\ 
+上述 class 有同名的 instance attribute 與 class attribute 名為 var。   
 
-Instance: 使用 self.var 存取 instance attribute.\
-Class: 使用 A.var 存取 class attribute.\
+Instance: 使用 self.var 存取 instance attribute.  
+Class: 使用 A.var 存取 class attribute.  
 
 {:.note}
 好的 OOP 準則不建議我們使用 instance attributes 蓋過 class attributes
