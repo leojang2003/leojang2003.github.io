@@ -2,7 +2,7 @@
 layout: post
 title: Class
 subtitle: 
-tags: []
+tags: [aliasing,namespace,scope,free variable,closure,global scope,builtin scope,enclosing scope,local scope]
 comments: true
 ---
 
@@ -218,7 +218,7 @@ Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬
 
 在 Python 裡，scope 的概念與 namespace 的概念兩者緊密相關，Python 的 scope 決定程式中一個 name 的可見性(visiblity)，Python 的 scope 是用 dict 實作而來，將 name 對應 (mapping) 到 objects，這些 dict 通常叫做 namespaces，這是 Python 實際用來儲存 name 的機制，這些特殊的屬性存在 _ _ dict _ _ 中
 
-當我們 import sys，我們可以使用 .keys() 來檢視 sys._ _ dict _ _ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，_ _ dict _ _ 抓住 sys 的 namespace，且是 module scope 的 concrete representation
+當我們 import sys，我們可以使用 .keys() 來檢視 sys._ _ dict _ _ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，_ _ dict _ _ 捕捉 sys 的 namespace，且是 module scope 的實體表示 concrete representation。
 
 ```python
 import sys
@@ -386,11 +386,11 @@ print(dir())
 
 {:.note}
 好的程式習慣:
-- {: .arrow}{:.note}function 內使用 local name
-- {: .arrow}{:.note}物件 name 要獨特
-- {: .arrow}{:.note}避免修改 global name
-- {: .arrow}{:.note}避免跨 module 修改 name
-- {: .arrow}{:.note}把 global name 當成常數
+- {: .arrow}function 內使用 local name
+- {: .arrow}物件 name 要獨特
+- {: .arrow}避免修改 global name
+- {: .arrow}避免跨 module 修改 name
+- {: .arrow}把 global name 當成常數
 
 每當我們在 Python 中為 assign 值給 name 時，可能會發生以下兩種情況之一：
 
@@ -542,7 +542,7 @@ print('global:', x)
 
 built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python interperter 時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以自動獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。\
 
-注意 builtins 的 names 會總是載入到一個名為 __builtins__ 的 global Python scope
+注意 builtins 的 names 會總是載入到一個名為 _ _ builtins _ _ 的 global Python scope
 
 ```python
 dir()
@@ -670,6 +670,8 @@ current_mean(13)
 4
 ```
 
+<br/>
+
 ### Exception Variables Scope
 
 另一個 Python scope 的特殊案例是 exception variables。exception variables 是一個變數，當 try 語法觸發一個 exception，該變數會指向該 exception。在 Python 3.x 中，此類變數僅存在 except 區塊的 local scope，並且在 except 區塊結束時被遺忘。
@@ -688,11 +690,16 @@ print(err) 	# NameError: name 'err' is not defined
 print(ex) 	# 這樣可以
 ```
 
+{:.note}
+如上所示，我們可以透過將 exception 物件指派給其他變數，這樣在 except 之外就可以讀到了。
+
+<br/>
+
 ### Class and Instance Attributes Scope
 
-當我們定義一個 class 時，我們正在建立一個新的本地 Python scope。在 class 的 top-level assign 的 name 存在於這個 local scope 中。我們在 class 中 assign 的 name 不會與其他地方的 name 發生衝突。可以說這些 name 遵循 LEGB 規則，其中 class block 代表 L 級。
+當我們定義一個 class 時，我們正在建立一個新的 local Python scope。在 class 的 top-level 指派的 name 存在於這個 local scope 中。我們在 class 中 assign 的 name 不會與其他地方的 name 發生衝突。可以說這些 name 遵循 LEGB 規則，其中 class block 代表 L 級。\
 
-與函數不同，class 的 local scope 不是在呼叫時建立的，而是在執行時建立的。每個 class 物件都有自己的 .__dict__ 屬性，該屬性包含所有 class attribute 所在的 class scope 或 namespace。看看這段程式：
+與 function 不同，class 的 local scope 不是在呼叫時建立的，而是在執行時建立的。每個 class 物件都有自己的 .__dict__ 屬性，該屬性包含所有 class attribute 所在的 class scope 或 namespace。看看這段程式：
 
 ```python
 class A:
@@ -723,17 +730,18 @@ A.attr2
 ```
 
 可以使用物件透過 dot notation 存取 class attribute
+
 ```python
 >>> obj = A()
 >>> obj.attr
 100
 ```
 
-在建立 instance 後，我們可以使用 dot notation 存取 class 的 attribute，就像我們在此處使用 obj.attr 所做的那樣。class attribute 是特定於 class object，但我們可以從 class 的任何 instance 存取它們。值得注意的是，class attribute 對 class 的所有 instance都是通用的。如果我們修改 class attribute，則更改將在該 class 的所有 instance 中可見。
+在建立 instance 後，我們可以使用 dot notation 存取 class 的 attribute，就像我們在此處使用 obj.attr 所做的那樣。class attribute 是特定於 class object，但我們可以從 class 的任何 instance 存取它們。值得注意的是，class attribute 對 class 的所有 instance都是通用的。如果我們修改 class attribute，則更改將在該 class 的所有 instance 中可見。\
 
 注意：把點表示法想像成我們在告訴 Python：“在 obj 中查找名為 attr 的屬性。如果我們找到了，就把它還給我。”
 
-每當我們呼叫用一個 class 時，我們就是在建立該 class 的一個新的 instance。 instance 有自己的 .__dict__ 屬性，該屬性保存 instance 的 local scope 或 namespace 中的 name。這些 names 通常稱為 instance attributes，每個 instance 有自己的 instance attributes。這表示著如果我們修改 instance attribute，則更改將只對該 instance 有效。
+每當我們呼叫用一個 class 時，我們就是在建立該 class 的一個新的 instance。 instance 有自己的 ._ _ dict _ _ 屬性，該屬性保存 instance 的 local scope 或 namespace 中的 name。這些 names 通常稱為 instance attributes，每個 instance 有自己的 instance attributes。這表示著如果我們修改 instance attribute，則更改將只對該 instance 有效。
 
 要從 class 內部建立、更新或存取任何 instance attribute，我們需要使用 self 和 dot notation。這裡，self 是一個特殊的 attribute，表示當前 instance。另一方面，要從 class 外部更新或存取任何 instance attribute，我們需要建立一個 instance，然後使用點表示法。這是它的工作原理：
 
@@ -741,16 +749,16 @@ A.attr2
 class A:
     def __init__(self, var):
         self.var = var  # 建立新的 instance attribute
-        self.var *= 2  # 更新 instance attribute
+        self.var *= 2   # 更新 instance attribute
 
 obj = A(100)
 print(obj.__dict__) # {'var': 200}
 print(obj.var) # 200
 ```
 
-class A 接受一個名為 var 的參數，它使用賦值操作 self.var *= 2 在 .__init__() 內自動加倍。請注意，當您檢查 obj 上的 .__dict__ 時，您會得到一個包含所有 instance attribute 的字典。在這種情況下，字典僅包含名稱 var，其值現在為 200。
+class A 接受一個名為 var 的參數，在 ._ _ init _ _() 使用 self.var *= 2 內自動加倍。請注意，當您檢查 obj 上的 ._ _ dict _ _ 時，您會得到一個包含所有 instance attribute 的字典。在這種情況下，字典僅包含名稱 var，其值現在為 200。\
 
-instance attribute 最好在 __init__ 內初始化
+instance attribute 最好在 _ _ init _ _ 內初始化
 
 ```python
 class A:
@@ -774,18 +782,48 @@ A.var
 {:.note}
 class object 無法存取 instance attribute
 
-總結來說，每當需要存取 attribute 時，Python 程式第一個會看 instance local scope 或 namespace，若沒有的話再來看 class local scope 或 namespace，如果也不存在 class namespace，則丟出 AttributeError
+### class attribute 是共用的
+
+```python
+# 檔案 mod1.py
+
+class C:
+	age = 20
+	
+# 檔案 mod2.py
+import mod1
+mod1.C.age = 60 # mod2 變更 mod1 的 attribute class C 的 age 值
+
+
+# 檔案 main.py
+
+import mod1
+import mod2
+
+print(mod1.C.age) # 20
+```
+
+總結來說，每當需要存取 attribute 時，Python 程式第一個會看 instance local scope 或 namespace，若沒有的話再來看 class local scope 或 namespace，如果也不存在 class namespace，則拋出 AttributeError。\
 
 雖然 class 會定義一個 class local scope 或 namespace，但他們不會建立 methods 的 enclosing scope。因此，當我們實作一個 class 時，參考 attributes 與 methods 時都必須使用 dot notation
 
 ```python
 class A:
 	var = 100
+	
     def print_var(self):
         print(var)
+		# 如果我們把 class 想像成一個外層的 function
+		# 如果 class 有幫 method 建立 enclosing scope 的話
+		# var 就是在 print_var 的 enclosing scope
+		# 但事實是 class 並沒有幫 method 建立 enclosing scope
+		
 
 A().print_var() # NameError: name 'var' is not defined
 ```
+
+
+
 
 因為 classes 不會幫 method 建立 enclosing scope，所以我們不能從 print_var() 直接存取 var。要從任意 method 中存取 class attributes 我們必須使用 dot notation。
 
@@ -800,38 +838,49 @@ class A:
 A().print_var() # NameError: name 'var' is not defined
 ```
 
+{:.note}
+class 的 method 如果要讀取 class attribute 時，必須要用 A.attribute 的方式讀取。method 如果要讀取 class 外層 module scope 的變數的話，則可以直接讀取。
+
 我們可以以 instance attribute 覆寫 class attribute，這樣會變更我們 class 的 general behavior，但是，我們可以同時存取兩種 attribute 使用 dot notation 如下所示：
 
 ```python
 class A:
     var = 100
-    def __init__(self):
+    
+	def __init__(self):
         self.var = 200
+		
     def access_attr(self):
-        # Use dot notation to access class and instance attributes
+        
+		# 使用 dot notation 存取 class 與 instance attributes
         print(f'The instance attribute is: {self.var}')
         print(f'The class attribute is: {A.var}')
+		
 obj = A()
 obj.access_attr()
-The instance attribute is: 200
-The class attribute is: 100
-print(A.var)  # Access class attributes
+# The instance attribute is: 200
+# The class attribute is: 100
+
+print(A.var)  # 存取 class attribute
 # 100
-print(A().var) # Access instance attributes
+
+print(A().var) # 存取 instance attribute
 # 200
+
 print(A.__dict__.keys())
 # dict_keys(['__module__', 'var', '__init__',..., '__getattribute__'])
+
 print(A().__dict__.keys())
 # dict_keys(['var'])
 ```
 
-上述 class 有同名的 instance attribute 與 class attribute 名為 var. 
+上述 class 有同名的 instance attribute 與 class attribute 名為 var。\ 
 
-Instance: 使用 self.var 存取 instance attribute.
-Class: 使用 A.var 存取 class attribute.
+Instance: 使用 self.var 存取 instance attribute.\
+Class: 使用 A.var 存取 class attribute.\
 
 {:.note}
 好的 OOP 準則不建議我們使用 instance attributes 蓋過 class attributes
 
 {:.note}
-注意 class 的 .__dict__  與 instance 的 .__dict__ 室兩者獨立不同的 dict，這也是為什麼 class attributes 在我們 run 或 import module 內定義的 class 時就是 available 的，反之 instance attributes 只有在建立物件後才會 available
+注意 class 的 ._ _ dict _ _  與 instance 的 ._ _ dict _ _ 是兩者獨立不同的 dict，這也是為什麼 class attributes 在我們 run 或 import module 內定義的 class 時就是 available 的，反之 instance attributes 只有在建立物件後才會 available。
