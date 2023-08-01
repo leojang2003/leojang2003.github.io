@@ -243,15 +243,15 @@ sys.__dict__['__name__']
 
 __Local (or Function) scope__  
 
-此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope
+此 scope 的建立是在 function call 不是 function def 時，所以每一個 function call 都會有自己的 local scope，就算同一個方法多次呼叫也是會產生多個 local scope。
 	
 __Enclosing(or nonlocal) scope__  
  
-只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)
+只存在巢狀 function 中，從最近的 enclosing scope 找起，包含非 local 且非 global 的 names(nonlocal 關鍵字的變數)。
 	
 __Global (or module) scope__  
 
-global scope 是 Python 程式、script與 module 中最外層的 scope，此 scope 包含所有我們在程式或 module 最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope 
+global scope 是 Python 程式、script與 module 中最外層的 scope，此 scope 包含所有我們在程式或 module 最上層定義的所有 name，此我們程式的任何地方也都可以存取此 scope。
 	
 __Built-in Scope__  
 
@@ -266,7 +266,7 @@ __Built-in Scope__
 
 Local Scope 或稱 function scope，是 Python 在呼叫 function 時建立的 scope。每次呼叫 function 時，同時也建立一個新的 local scope。另一方面，我們可以將每個 def 語法和 lambda 表達式視為新的 local scope 的藍圖。每當我們呼叫 function 時，這些 local scope 就會存在。
 
-預設下，方法內指派的參數與 name 只存在呼叫 function 所建立的 local scope 中。當 function return 時，local scope 會摧毀且 name 會被遺忘
+預設下，方法內指派的參數與 name 只存在呼叫 function 所建立的 local scope 中。當 function return 時，local scope 會摧毀且 name 會被遺忘。
 
 ```python
 def square(base):
@@ -278,7 +278,7 @@ print(result) # Isn't accessible from outside square()
 ```
 
 {:.note}
-當我們在呼叫 function 後試著存取 result 或是 base，Python 會傳回 NameError，因為 result 和 base 只存在呼叫 square() 時所建立的 local scope，當我們試著存取不在任何 scope 中的 name，我們會得到一個 NameError 錯誤訊息顯示 name 找不到
+當我們在呼叫 function 後試著存取 result 或是 base，Python 會傳回 NameError，因為 result 和 base 只存在呼叫 square() 時所建立的 local scope，當我們試著存取不在任何 scope 中的 name，我們會得到一個 NameError 錯誤訊息顯示 name 找不到。
 
 ### _ _ code _ _ 關鍵字
 
@@ -295,9 +295,11 @@ square.__code__.co_name
 'square'
 ```
 
+<br/>
+
 ### Nested Functions: The Enclosing Scope
 
-Enclosing (nonlocal) scope 是當我們在 function 內加入 function。我們在 enclosing scope 定義的 name  通常被稱為 nonlocal names
+Enclosing (nonlocal) scope 是當我們在 function 內加入 function。我們在 enclosing scope 定義的 name  通常被稱為 nonlocal names。
 
 ```python
 def outer_func():
@@ -325,9 +327,9 @@ inner_func()
 當我呼叫 outer_func() 時，我們會建立一個 local scope，而 outer_func() 的 local scope，同時也是 inner_func() 的 enclosing scope。從 inner_func() 看，此 scope 既不是 global scope 也不是 local scope，這是一個介於 local 與 global 之間的特殊 scope，叫做 enclosing scope。
 
 {:.note}
-某種意義上來說， inner_func() 是個 temporary function，只有在執行 enclosing function (outer_func())時才會建立。注意只有在 outer_func() 內才看的到 inner_func()
+某種意義上來說， inner_func() 是個 temporary function，只有在執行 enclosing function (outer_func())時才會建立。注意只有在 outer_func() 內才看的到 inner_func()。
 
-inner_func() 內可以看到我們在 enclosing scope 建立的所有 name，有一例外，就是在呼叫 inner_func() 後建立的 name，inner_func() 是看不的
+inner_func() 內可以看到我們在 enclosing scope 建立的所有 name，有一例外，就是在呼叫 inner_func() 後建立的 name，inner_func() 是看不的。
 
 ```python
 def outer_func():
@@ -348,14 +350,16 @@ outer_func()
 # NameError: free variable 'another_var' referenced before assignment in enclosing scope
 ```
  
+ <br/>
+ 
 ### Modules: The Global Scope
 
-從程式執行時，我們就已經在 Python 的 global scope 中，Python 會將程式的 main script 轉成 _ _ main _ _ 的 module，此 module 的 namespace 就是我們程式的主要 global scope
+從程式執行時，我們就已經在 Python 的 global scope 中，Python 會將程式的 main script 轉成 _ _ main _ _ 的 module，此 module 的 namespace 就是我們程式的主要 global scope。
  
 {:.note}
-在 Python，global scope 與 global names 的概念是與 module 的檔案緊密相關，舉例來說，如果我們在 module 的 top-level 定義一個 name，則對此 module 來說，此 name 為 global 的，這也是為什麼這種 scope 也被稱為 module scope
+在 Python，global scope 與 global names 的概念是與 module 的檔案緊密相關，舉例來說，如果我們在 module 的 top-level 定義一個 name，則對此 module 來說，此 name 為 global 的，這也是為什麼這種 scope 也被稱為 module scope。
 
-如果我們是在 interactive session，我們會看到 _ _ main _ _ 也是 main module 的名稱
+如果我們是在 interactive session，我們會看到 _ _ main _ _ 也是 main module 的名稱。
 
 ```python
 # 以下是 interactive session
@@ -363,9 +367,9 @@ outer_func()
 '__main__'
 ```
 
-每當我們執行 Python 程式或是執行 interactive session 如上，編譯器會執行該 module 或 script 裡的程式碼，當作我們程式的進入點，此 module 或 script 會以一個特殊的名稱 _ _ main _ _載入，從此在之後，我們的 main global scope 就是 _ _ main _ _ 的 scope
+每當我們執行 Python 程式或是執行 interactive session 如上，編譯器會執行該 module 或 script 裡的程式碼，當作我們程式的進入點，此 module 或 script 會以一個特殊的名稱 _ _ main _ _載入，從此在之後，我們的 main global scope 就是 _ _ main _ _ 的 scope。  
 
-想檢查 main global scope 裡有的 names，我們可以使用 dir()。如果呼叫 dir() 沒有給參數，則是回傳目前 global scope 的 names 
+想檢查 main global scope 裡有的 names，我們可以使用 dir()。如果呼叫 dir() 沒有給參數，則是回傳目前 global scope 的 names。 
 
 ```python
 print(dir())
@@ -385,7 +389,6 @@ print(dir())
 {:.note}
 使用 global 變數不是一個好的 practice，須盡量避免，請用改用別的方式改寫程式
 
-{:.note}
 好的程式習慣:
 - {: .arrow}function 內使用 local name
 - {: .arrow}物件 name 要獨特
@@ -398,7 +401,7 @@ print(dir())
 - {: .arrow}建立一個新 name 
 - {: .arrow}更新一個現有的 name
 
-具體行為是哪種，取決於我們是在哪個 scope 做 assignment。如果我們嘗試在 function 內要給 global name 做 assignment，那麼我們將在函數的 local scope 內建立該 name，隱藏或覆蓋 global name。這表示著我們將無法從 function 內部變更在 function 外定義的大多數變數 (除非使用 global 關鍵字)
+具體行為是哪種，取決於我們是在哪個 scope 做 assignment。如果我們嘗試在 function 內要給 global name 做 assignment，那麼我們將在函數的 local scope 內建立該 name，隱藏或覆蓋 global name。這表示著我們將無法從 function 內部變更在 function 外定義的大多數變數 (除非使用 global 關鍵字)。
 
 ```python
 x = 10 # global 變數
@@ -450,7 +453,7 @@ increment()
 ```
 
 {:.note}
-Python 預設在 function 內的 assignment 都是 local variable
+Python 預設在 function 內的 assignment 都是 local variable。
 
 在方法內變更全域變數
 
@@ -506,7 +509,7 @@ print(mod1.name, mod1.age) # 'Queen 60'
 
 ### nonlocal 關鍵字
 
-用於 nested 方法，使用 nonlocal 來存取，nonlocal 只能存在於 nested function 的 enclosing scope，不能存在 local scope 或是 global scope
+用於 nested 方法，使用 nonlocal 來存取，nonlocal 只能存在於 nested function 的 enclosing scope，不能存在 local scope 或是 global scope。
 
 ```python
 x = 'global'
@@ -543,7 +546,7 @@ print('global:', x)
 
 built-in scope 是一個特殊的 Python scope，它在 Python 3.x 中實做為名為 builtins 的 standard library module。 Python 的所有 built-in 物件都存在於這個 scope 中。當執行 Python interperter 時，它們會自動載入到 built-in scope 中。 Python 依照 LEGB 規則最後才搜尋 built-in scope，因此我們可以自動獲得它定義的所有 name。這表示我們可以在不導入任何 module 的情況下使用它們。  
 
-注意 builtins 的 names 會總是載入到一個名為 _ _ builtins _ _ 的 global Python scope
+注意 builtins 的 names 會總是載入到一個名為 _ _ builtins _ _ 的 global Python scope。
 
 ```python
 dir()
@@ -569,7 +572,7 @@ __builtins__.sum([1, 2, 3, 4, 5])
 # 15
 ```
 
-上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數  
+上述使用明確 import builtins 去使用內建方法，可以明確避免 collision 發生，因為我們明確知道我們要呼叫的函數為內建函數，而不是其他同名的自訂函數。    
 
 built-in names 可以被覆寫，如下
 
@@ -583,9 +586,9 @@ abs(-15)
 ```
 
 {:.note}
-改寫 built-in names 最好不要做
+改寫 built-in names 最好不要做。
 
-總結，global name 與 local name 需用不同的名稱
+總結，global name 與 local name 需用不同的名稱。
 
 ### 使用 enclosing scope 當成 closure
 
@@ -613,7 +616,7 @@ square(15)
 ```
 
 {:.note}
-注意 : 像 exp 這樣的變數叫做 free variables。他們是在 code block 使用中但沒有在那定義，free variables 是 closure 可以在不同 function call 中保留狀態的原因
+注意 : 像 exp 這樣的變數叫做 free variables。他們是在 code block 使用中但沒有在那定義，free variables 是 closure 可以在不同 function call 中保留狀態的原因。
 
 ```python
 def mean():
@@ -656,7 +659,7 @@ current_mean(13)
 # NameError: name 'item' is not defined
 ```
 
-但是一般的 for loop，在 loop 外是可以存取 loop variable 的
+但是一般的 for loop，在 loop 外是可以存取 loop variable 的。
 
 ```python
 >>> for item in range(5):
@@ -730,7 +733,7 @@ A.attr2
 # type object 'A' has no attribute 'attr2'
 ```
 
-可以使用物件透過 dot notation 存取 class attribute
+可以使用物件透過 dot notation 存取 class attribute。
 
 ```python
 >>> obj = A()
@@ -759,7 +762,7 @@ print(obj.var) # 200
 
 class A 接受一個名為 var 的參數，在 ._ _ init _ _() 使用 self.var *= 2 內自動加倍。請注意，當您檢查 obj 上的 ._ _ dict _ _ 時，您會得到一個包含所有 instance attribute 的字典。在這種情況下，字典僅包含名稱 var，其值現在為 200。  
 
-instance attribute 最好在 _ _ init _ _ 內初始化
+instance attribute 最好在 _ _ init _ _ 內初始化。
 
 ```python
 class A:
@@ -781,7 +784,7 @@ A.var
 如果我們嘗試使用 class object 而不是 instance 來存取 var，那麼我們將收到 AttributeError，因為無法使用 class object 存取 instance attribute。
 
 {:.note}
-class object 無法存取 instance attribute
+class object 無法存取 instance attribute。
 
 ### class attribute 是共用的
 
@@ -806,7 +809,7 @@ print(mod1.C.age) # 20
 
 總結來說，每當需要存取 attribute 時，Python 程式第一個會看 instance local scope 或 namespace，若沒有的話再來看 class local scope 或 namespace，如果也不存在 class namespace，則拋出 AttributeError。  
 
-雖然 class 會定義一個 class local scope 或 namespace，但他們不會建立 methods 的 enclosing scope。因此，當我們實作一個 class 時，參考 attributes 與 methods 時都必須使用 dot notation
+雖然 class 會定義一個 class local scope 或 namespace，但他們不會建立 methods 的 enclosing scope。因此，當我們實作一個 class 時，參考 attributes 與 methods 時都必須使用 dot notation。
 
 ```python
 class A:
@@ -822,9 +825,6 @@ class A:
 
 A().print_var() # NameError: name 'var' is not defined
 ```
-
-
-
 
 因為 classes 不會幫 method 建立 enclosing scope，所以我們不能從 print_var() 直接存取 var。要從任意 method 中存取 class attributes 我們必須使用 dot notation。
 
