@@ -14,8 +14,8 @@ comments: true
 
 ### Aliasing
 
-物件是執行時(runtime)才會建立，建立之後是可以修改的，另外
-同個物件可以綁定多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing 是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更
+物件是執行時(runtime)才會建立，建立之後是可以修改的。另外
+同個物件可以綁定(bind)多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing 是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更
 
 ```python
 l = [1, 2, 3, 4, 5]
@@ -40,16 +40,16 @@ print(l)        # [1, 2, 'x', 4, 5]
 {:.note}
 定義上 namespace 指的是 name 與 object 的對應 (mapping)
 
-Python 執行程式時，會建立所需的 namespace 並刪除不需要的 namespace   
+Python 執行程式時，會建立所需的 namespace 並刪除不需要的 namespace。   
 
-name 指的是 variable 的 name，space 指的是可以存取這些 variable 的 space。namespace 目前是由 dict 構成，舉例來說，以下都是 namespaces (或稱 scope)
+name 指的是 variable 的 name，space 指的是可以存取這些 variable 的 space。namespace 目前是由 dict 構成，舉例來說，以下都是 namespaces (或稱 scope)。
 
 1. built-in namespace
 2. module namesapce (module 的 global names)
 3. local namespace (呼叫 function 中的 local names)
 4. enclosing namespace (nesting function 中的 nonlocal names)  
 
-從某種意義上來說，物件的 attributes 也形成了一個 namespace，這是所謂的 class local scope 
+從某種意義上來說，物件的 attributes 也形成了一個 namespace，這是所謂的 class local scope。 
 
 ### built-in namespace
 
@@ -57,28 +57,31 @@ namespace 是在不同的時間被建立，且有不同的生命週期。包含 
 
 ```python
 # 列出 built-in namespace 下的物件
-dir(__builtins__)
+dir(__builtins__) 
+
+type(__builtins__) # dict
 
 ```
+
 <br/>
 
 ### global namespace
 
+global namespace 包含 main program 層級定義的所有 name。Python 在 main program 啟動時建立，global namespace 會一直存在，一直到 interperter 結束。  
+
+嚴格來說，這可能不是唯一存在的 global namesapce。interperter 還為 program 使用 import 語法載入的各 module 建立 module 的 namespace。  
+
+在 module 定義被載入時 (使用 import 語法)，module 的 global namespace 會建立，module 的 namespace 同樣也存在到 interperter 結束為止，如同 built-in 的 namespace。  
+
 {:.note}
-global namespace 有分兩種，第一個是 interperter 一開始呼叫的 script 產生的  _ _ main _ _ module 有一個 global namespace，另外 import 其他 module 時，interpreter 也會替該 module 建立一個 global namespace，import 兩個 module 就有額外 2 個 global namesapce。
-
-global namespace 包含 main program 層級定義的所有 name。Python 在 main program 啟動時建立，global namespace 會一直存在，直到 interperter 終止。
-
-嚴格來說，這可能不是唯一存在的 global namesapce。interperter 還為 program 使用 import 語法載入的各 module 建立 module 的 namespace。
-
-在 module 定義被載入時 (使用 import 語法)，module 的 global namespace 會建立，module 的 namespace 同樣也存在到 interperter 結束為止，如同 built-in 的 namespace。
+總結，global namespace 有分兩種，第一個是 interperter 一開始呼叫的 script 或 interactive session 產生的  _ _ main _ _ module 有一個 global namespace，另外 import 其他 modules 時，interpreter 也會替其他 modules 各自建立一個 global namespace。
 
 ### local namespace
 
-當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception 發生時，namespace 則會刪除(遺忘)
+當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception 發生時，namespace 則會刪除(遺忘)。
 
 {:.note}
-關於 namespaces 重要的是，不同 namespace 的 names 之間是沒有關聯的，不同 modules 可以定義相同的 function name，只要使用時加上 module 名稱的 prefix 即可
+關於 namespaces 重要的是，不同 namespace 的 names 之間是沒有關聯的，不同 modules 可以定義相同的 function name，只要使用時加上 module 名稱的 prefix 即可。
 
 ```python
 # 如果兩個 module 都有同樣的名稱
@@ -109,7 +112,7 @@ run() # 'mod2'
 
 ### 什麼是 Attribute Reference
 
-嚴格說起，參考 module 中的 names ，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module 名稱，而 funcname 是物件的 attribute， 這裡剛好 module 的 attribute 跟 module 中定義的 global names 剛好分享同一個 namespace! 
+嚴格說起，參考 module 中的 name，這行為叫做 attribute reference，舉例來說 modname.funcname，modname 是 module 名稱，而 funcname 是物件的 attribute，這裡剛好 module 的 attribute 跟 module 中定義的 global names 剛好分享同一個 namespace。 
 
 {:.note}
 除了一件事外，Module 物件有一個祕密的唯獨 attribute 叫 _ _ dict _ _，_ _ dict _ _ 會回傳實作 module’s namespace 的 dict; name _ _ dict _ _ 是一個 attribute 不是一個 global name。
@@ -884,3 +887,8 @@ Class: 使用 A.var 存取 class attribute.
 
 {:.note}
 注意 class 的 ._ _ dict _ _  與 instance 的 ._ _ dict _ _ 是兩者獨立不同的 dict，這也是為什麼 class attributes 在我們 run 或 import module 內定義的 class 時就是 available 的，反之 instance attributes 只有在建立物件後才會 available。
+
+<br/>
+<br/>
+<br/>
+
