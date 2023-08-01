@@ -29,8 +29,8 @@ print(l) # [1, 2, 3, 4, 5] 不受影響，因為 dupe[:2] 是回傳一個新的 
 dupe2 = l
 dupe2[2] = 'x' # 修改也會動到
 
-print(dupe_2) 	# [1, 2, 'x', 4, 5] 
-print(l) 		# [1, 2, 'x', 4, 5]
+print(dupe_2)   # [1, 2, 'x', 4, 5] 
+print(l)        # [1, 2, 'x', 4, 5]
 ```
 
 <br/>
@@ -40,7 +40,7 @@ print(l) 		# [1, 2, 'x', 4, 5]
 {:.note}
 定義上 namespace 指的是 name 與 object 的對應 (mapping)
 
-Python 執行程式時，會建立所需的 namespace 並刪除不需要的 namespace\ 
+Python 執行程式時，會建立所需的 namespace 並刪除不需要的 namespace   
 
 name 指的是 variable 的 name，space 指的是可以存取這些 variable 的 space。namespace 目前是由 dict 構成，舉例來說，以下都是 namespaces (或稱 scope)
 
