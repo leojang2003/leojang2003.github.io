@@ -15,7 +15,7 @@ comments: true
 ### Aliasing
 
 物件是執行時(runtime)才會建立，建立之後是可以修改的。另外
-同個物件可以綁定(bind)多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing 是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更
+同個物件可以綁定(bind)多個名稱，這在其他語言中叫別名(aliasing)。對 immutable 物件來說，aliasing 是可以忽略的，但對 mutable 來說，就像是傳遞 pointer 一樣，修改新 pointer 指向的內容，原本 pointer 指向的內容也會變更。
 
 ```python
 l = [1, 2, 3, 4, 5]
@@ -38,7 +38,7 @@ print(l)        # [1, 2, 'x', 4, 5]
 ### 命名空間 Namespace
 
 {:.note}
-定義上 namespace 指的是 name 與 object 的對應 (mapping)
+定義上 namespace 指的是 name 與 object 的對應 (mapping)。
 
 Python 執行程式時，會建立所需的 namespace 並刪除不需要的 namespace。   
 
@@ -78,7 +78,7 @@ global namespace 包含 main program 層級定義的所有 name。Python 在 mai
 
 ### local namespace
 
-當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception 發生時，namespace 則會刪除(遺忘)。
+當一個方法呼叫時，會建立一個 local 的 namespace，當方法 return 或是 exception 發生時，namespace 則會刪除/遺忘。
 
 {:.note}
 關於 namespaces 重要的是，不同 namespace 的 names 之間是沒有關聯的，不同 modules 可以定義相同的 function name，只要使用時加上 module 名稱的 prefix 即可。
@@ -162,8 +162,7 @@ print(temp.__dict__.keys())
 #dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', '__file__', '__cached__', '__builtins__', 'Temp'])
 ```
 
-
-attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下
+attribute 可以是唯獨的或是可寫入的，可寫入的 attribute 同樣也是可刪除的，刪除 module 或 class 的 attribute 可以使用 del 如下。
 
 ```python
 # my_module.py
@@ -174,7 +173,6 @@ def raise_exception():
 from my_module import raise_exception
 
 raise_exception() # 'raise_exception'
-
 
 del raise_exception
 
@@ -189,9 +187,9 @@ raise_exception()
 
 在程式中，一個 name 的 scope 定義了哪一個區塊的程式 (textual region) 可以直接存取該 name，name 指的是是 variable、function、object 等。只有在該 name 的 scope 中的程式可以看見並存取該 name。應用 Scope 可以避免 name collision 和其他不可預測的行為。  
 
-在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可直接存取的，這 4 個 scope 稍後介紹  
+在執行時的任意時間點，最多同時會有 3~4 個 scope 的 namespace 是可直接存取的，這 4 個 scope 稍後介紹。  
 
-Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執行當下才會去從內層到外層 scope，找出該 name
+Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執行當下才會去從內層到外層 scope，找出該 name。
 
 {:.note}
 注意 : assignment 不會複製資料，它們只是將 name 綁定 (bind) 到 object。刪除也是如此：語法 del x 是從 local scope 的 namespace 中刪除 x 的 binding。 事實上，所有引入新 name 的操作都使用 local scope：特別是 import 語法和 function definition 將 module 或 function name 綁定在 local scope 內。
@@ -200,7 +198,7 @@ Scope 是靜態決定的，而找尋 name 這件事情是動態的，是在執�
 locals():
 更新並回傳表示 current local symbol table 的 dictionary。在函式區塊而不是 class 區塊中呼叫 locals() 時會回傳自由變數 (Free variables)。請注意，在 module 階層中，locals() 和 globals() 是相同的 dictionary。
 
-因為 Python 是 dynamically-typed 語言，所以 variable 只有在指派值時才會存在，function 和 class 只有在使用 def 或 class 後才會存在，而 module 只有在 import 後才會存在，總結來說，Python 的 name 可以透過以下之一的方式建立
+因為 Python 是 dynamically-typed 語言，所以 variable 只有在指派值時才會存在，function 和 class 只有在使用 def 或 class 後才會存在，而 module 只有在 import 後才會存在，總結來說，Python 的 name 可以透過以下之一的方式建立。
 
 1. x = value
 2. import ...
@@ -213,15 +211,15 @@ locals():
 
 Python 使用 name assignment 或是 defininition 的位子來決定該 name 屬於哪一個 scope，舉例來說，在方法內 assign 值給 name，則該 name 會有一個 local scope，如果在所有方法之外 assign 值給 name，則該 name 會有一個 global scope。  
 
-當我們可以存取某個 name，我們說這個 name 在 scope 內(in scope)，反之則是 name 在 scope 之外 (out of scope)
+當我們可以存取某個 name，我們說這個 name 在 scope 內(in scope)，反之則是 name 在 scope 之外 (out of scope)。
 
 <br/>
 
 ### Scope VS Namespace
 
-在 Python 裡，scope 的概念與 namespace 的概念兩者緊密相關，Python 的 scope 決定程式中一個 name 的可見性(visiblity)，Python 的 scope 是用 dict 實作而來，將 name 對應 (mapping) 到 objects，這些 dict 通常叫做 namespaces，這是 Python 實際用來儲存 name 的機制，這些特殊的屬性存在 _ _ dict _ _ 中
+在 Python 裡，scope 的概念與 namespace 的概念兩者緊密相關，Python 的 scope 決定程式中一個 name 的可見性(visiblity)，Python 的 scope 是用 dict 實作而來，將 name 對應 (mapping) 到 objects，這些 dict 通常叫做 namespaces，這是 Python 實際用來儲存 name 的機制，這些特殊的屬性存在 _ _ dict _ _ 中。  
 
-當我們 import sys，我們可以使用 .keys() 來檢視 sys._ _ dict _ _ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，_ _ dict _ _ 捕捉 sys 的 namespace，且是 module scope 的實體表示 concrete representation。
+當我們 import sys，我們可以使用 .keys() 來檢視 sys._ _ dict _ _ 的 keys，這會回傳一個 list 包含所有定義 module 中 top level 的所有 names，我們可以說，_ _ dict _ _ 捕捉 sys 的 namespace，且是 module scope 的實體表示(concrete representation)。
 
 ```python
 import sys
@@ -230,7 +228,7 @@ print(sys.__dict__.keys())
 dict_keys(['__name__', '__doc__', '__package__', '__loader__', '__spec__', ...])
 ```
 
-進一步說，假設我們要存取定義在 sys 中的 _ _ name _ _，一共有兩種方式可以 reference 
+進一步說，假設我們要存取定義在 sys 中的 _ _ name _ _，一共有兩種方式可以 reference。 
 
 ```python
 sys.__name__
