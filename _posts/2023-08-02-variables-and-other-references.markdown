@@ -20,7 +20,7 @@ var = 1
 l = [1,2,3]
 
 class A
-	var2 = 20
+    var2 = 20
 
 # 以下都是 reference 
 var    # variable 
