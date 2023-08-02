@@ -31,7 +31,7 @@ A.var2 # attribute
 
 ### Variables
 
-在 Python 中是沒有 variable declarations 的。在綁定該 variable 的 statement 執行 後，variable 才會存在，或者可以說，建立一個 name 來持有某個 object 的 reference。我們還可以通過重置 name 來 unbind variable，使該變數不再持有 reference。Assignment statements 是 bind variable 和其他 reference 的最常見方法。del 語法可以 unbind reference。
+在 Python 中是沒有變數宣告的。在綁定變數的 statement 執行後，變數才會存在，或者可以說，建立一個 name 來持有某個 object 的 reference。我們還可以通過重置 name 來 unbind variable，使該變數不再持有 reference。Assignment statements 是 bind variable 和其他 reference 的最常見方法。del 語法可以 unbind reference。
 
 > In Python, there are no declarations. The existence of a variable depends on a statement that binds the variable, or, in other words, that sets a name to hold a reference to some object. You can also unbind a variable by resetting the name so it no longer holds a reference. Assignment statements are the most common way to bind variables and other references. The del statement unbinds references. 
 
