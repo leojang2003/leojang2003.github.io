@@ -45,7 +45,7 @@ d = {'John':28, 'Bill':32}
 del l
 ```
 
-綁定一個已綁定的 reference 也稱為 rebinding。rebinding 或 unbinding 一個 reference 對被 reference 的物件沒有影響，除非當沒有任何 reference 到該 object 時該 object 會消失。自動清理沒有 reference 的 object 稱為 garbage collection。  
+綁定一個已綁定的 reference 也稱為再次綁定。重新綁定或再次綁定一個 reference 對被 reference 的物件沒有影響，除非當沒有任何 reference 到該 object 時該 object 才會消失。自動清理沒有 reference 的 object 稱為 garbage collection。  
 
 > Binding a reference that was already bound is also known as rebinding it. Whenever binding is mentioned in this book, rebinding is implicitly included except where it is explicitly excluded. Rebinding or unbinding a reference has no effect on the object to which the reference was bound, except that an object disappears when nothing refers to it. The automatic cleanup of objects to which there are no references is known as garbage collection.  
 
