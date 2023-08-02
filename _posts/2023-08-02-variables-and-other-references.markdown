@@ -16,37 +16,39 @@ Python 程式透過__參考__來存取資料。參考是一個名稱參照到記
 
 ### Variables
 
-In Python, there are no declarations. The existence of a variable depends on a statement that binds the variable, or, in other words, that sets a name to hold a reference to some object. You can also unbind a variable by resetting the name so it no longer holds a reference. Assignment statements are the most common way to bind variables and other references. The del statement unbinds references.  
+在 Python 中是沒有變數宣告的。變數只有在綁定該變數的 statement 後才會存在，或者可以說，建立一個 name  來持有某個 object 的 reference。我們還可以通過重置 name 來取消綁定變數，使該變數不再持有 reference。Assignment statements 是綁定變數和其他 reference 的最常見方法。 del 語法可以取消綁定 reference。
 
-在 Python 中是沒有變數宣告的。變數只有在綁定該變數的 statement 後才會存在，或者可以說，建立一個 name  來持有某個 object 的 reference。我們還可以通過重置 name 來取消綁定變數，使該變數不再持有 reference。Assignment statements 是綁定變數和其他 reference 的最常見方法。 del 語法可以取消綁定 reference。  
-
-Binding a reference that was already bound is also known as rebinding it. Whenever binding is mentioned in this book, rebinding is implicitly included except where it is explicitly excluded. Rebinding or unbinding a reference has no effect on the object to which the reference was bound, except that an object disappears when nothing refers to it. The automatic cleanup of objects to which there are no references is known as garbage collection.  
+> In Python, there are no declarations. The existence of a variable depends on a statement that binds the variable, or, in other words, that sets a name to hold a reference to some object. You can also unbind a variable by resetting the name so it no longer holds a reference. Assignment statements are the most common way to bind variables and other references. The del statement unbinds references.  
 
 綁定一個已綁定的 reference 也稱為 rebinding。rebinding 或 unbinding 一個 reference 對被 reference 的物件沒有影響，除非當沒有任何 reference 到該 object 時該 object 會消失。自動清理沒有 reference 的 object 稱為 garbage collection。  
 
-You can name a variable with any identifier except the 29 that are reserved as Python’s keywords (see Section 4.1.2.2 earlier in this chapter). A variable can be global or local. A global variable is an attribute of a module object (Chapter 7 covers modules). A local variable lives in a function’s local namespace (see Section 4.10 later in this chapter).  
+> Binding a reference that was already bound is also known as rebinding it. Whenever binding is mentioned in this book, rebinding is implicitly included except where it is explicitly excluded. Rebinding or unbinding a reference has no effect on the object to which the reference was bound, except that an object disappears when nothing refers to it. The automatic cleanup of objects to which there are no references is known as garbage collection.  
 
 我們可以使用 python 保留的 29 個 keyword 以外的任何 identifier 來命名變數。變數可以是 global variable 或 local variable。global varible 是 module object 的一個 attribute。local variable 存在於 function 的 local namespace 中。
 
-### Object attributes and items
+> You can name a variable with any identifier except the 29 that are reserved as Python’s keywords (see Section 4.1.2.2 earlier in this chapter). A variable can be global or local. A global variable is an attribute of a module object (Chapter 7 covers modules). A local variable lives in a function’s local namespace (see Section 4.10 later in this chapter).  
 
-The distinction between attributes and items of an object is in the syntax you use to access them. An attribute of an object is denoted by a reference to the object, followed by a period (.), followed by an identifier called the attribute name (i.e., x.y refers to the attribute of object x that is named y).  
+### Object attributes and items
 
 object 的 attribute 和 item 之間的差別在於用於存取它們的語法。object 的 attibute 表示如下， {object 的 reference}.{attribute name}（即，x.y 指 object x 的名為 y 的 attribute）。  
 
-An item of an object is denoted by a reference to the object, followed by an expression within brackets ([ ]). The expression in brackets is called the index or key to the item, and the object is called the container of the item (i.e., x [ y ] refers to the item at key or index y in container object x).  
+> The distinction between attributes and items of an object is in the syntax you use to access them. An attribute of an object is denoted by a reference to the object, followed by a period (.), followed by an identifier called the attribute name (i.e., x.y refers to the attribute of object x that is named y).  
 
-object 的 item 表示如下，{object 的 reference}[{expression}]。括號中的表達式稱為該 item 的 index 或 key，該 object 稱為該 item 的 container（即，x [ y ] 指 container object x 中位於 key 或 index y 的 item）。    
+object 的 item 表示如下，{object 的 reference}[{expression}]。括號中的表達式稱為該 item 的 index 或 key，該 object 稱為該 item 的 container（即，x [ y ] 指 container object x 中位於 key 或 index y 的 item）。
 
-Attributes that are callable are also known as methods. Python draws no strong distinction between callable and non-callable attributes, as other languages do. General rules about attributes also apply to callable attributes (methods).  
+> An item of an object is denoted by a reference to the object, followed by an expression within brackets ([ ]). The expression in brackets is called the index or key to the item, and the object is called the container of the item (i.e., x [ y ] refers to the item at key or index y in container object x).  
 
 可呼叫的 attribute 也稱為 method。與其他語言不同，Python 在 callable 和 non-callable attribute 之間沒有嚴格區分。有關 attribute 的一般規則也適用於 callable attribute (method)。
 
+> Attributes that are callable are also known as methods. Python draws no strong distinction between callable and non-callable attributes, as other languages do. General rules about attributes also apply to callable attributes (methods).  
+
 ### Accessing nonexistent references
 
-A common programming error is trying to access a reference that does not exist. For example, a variable may be unbound, or an attribute name or item index may not be valid for the object to which you apply it. The Python compiler, when it analyzes and compiles source code, diagnoses only syntax errors. Compilation does not diagnose semantic errors such as trying to access an unbound attribute, item, or variable. Python diagnoses semantic errors only when the errant code executes, i.e., at runtime. When an operation is a Python semantic error, attempting it raises an exception (see Chapter 6). Accessing a nonexistent variable, attribute, or item, just like any other semantic error, raises an exception.  
+一個常見的錯誤是試著存取不存在的 reference。例如，variable 可能 unbound，或者 object 的 attribute name 或 item index 可能無效。Python 編譯器在分析和編譯原始碼時僅偵測 syntax error。編譯不會偵測 semantic error，例如試著存取 unbound attribute、item 或 variable。 Python 僅在程式執行時才偵測 semantic error。當某個操作是 Python 語義錯誤時，嘗試執行該操作會 raise exception。存取不存在的 attribute、item 或 variable，就像任何其他 semantic error 一樣，會 raise exception 。
 
-一個常見的編程錯誤是嘗試訪問不存在的引用。例如，變量可能未綁定，或者屬性名稱或項目索引對於應用它的對象可能無效。 Python 編譯器在分析和編譯源代碼時僅診斷語法錯誤。編譯不會診斷語義錯誤，例如嘗試訪問未綁定的屬性、項目或變量。 Python 僅在錯誤代碼執行時（即運行時）診斷語義錯誤。當某個操作是 Python 語義錯誤時，嘗試執行該操作會引發異常（請參閱第 6 章）。訪問不存在的變量、屬性或項目，就像任何其他語義錯誤一樣，會引發異常。
+> A common programming error is trying to access a reference that does not exist. For example, a variable may be unbound, or an attribute name or item index may not be valid for the object to which you apply it. The Python compiler, when it analyzes and compiles source code, diagnoses only syntax errors. Compilation does not diagnose semantic errors such as trying to access an unbound attribute, item, or variable. Python diagnoses semantic errors only when the errant code executes, i.e., at runtime. When an operation is a Python semantic error, attempting it raises an exception (see Chapter 6). Accessing a nonexistent variable, attribute, or item, just like any other semantic error, raises an exception.  
+
+
 
 Assignment Statements
 Assignment statements can be plain or augmented. Plain assignment to a variable (e.g., name = value) is how you create a new variable or rebind an existing variable to a new value. Plain assignment to an object attribute (e.g., obj.attr = value) is a request to object obj to create or rebind attribute attr. Plain assignment to an item in a container (e.g., obj [ key ]= value) is a request to container obj to create or rebind the item with index key.
