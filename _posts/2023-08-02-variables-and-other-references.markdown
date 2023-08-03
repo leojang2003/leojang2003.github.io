@@ -34,7 +34,7 @@ A.var2 # attribute
 
 ### Variables
 
-在 Python 中是沒有變數宣告的。在綁定變數的語句執行後，變數才會存在，或者可以說，建立一個名稱來持有某個物件的參考。我們還可以通過重置名稱 來取消綁定變數，使變數不再持有參考。賦值語句是綁定變數和其他參考的最常見方法。del 語句可以取消綁定參考。
+在 Python 中是沒有變數宣告的。在綁定變數的語句執行後，變數才會存在，或者可以說，建立一個名稱來持有某個物件的參考。我們還可以通過重置名稱來取消綁定變數，使變數不再持有參考。賦值語句是綁定變數和其他參考的最常見方法。del 語句可以取消綁定參考。
 
 > In Python, there are no declarations. The existence of a variable depends on a statement that binds the variable, or, in other words, that sets a name to hold a reference to some object. You can also unbind a variable by resetting the name so it no longer holds a reference. Assignment statements are the most common way to bind variables and other references. The del statement unbinds references. 
 
@@ -58,11 +58,11 @@ del l
 
 ### Object attributes and items
 
-物件的屬性和項目之間的差別在於用於存取它們的語法。物件的屬性表示如下，{指向物件的屬性}.{屬性名稱}(即，x.y 指物件 x 的名為 y 的屬性)。  
+物件的屬性和項目之間的差別在於用於存取它們的語法。物件的屬性表示如下，{ 指向物件的屬性 }.{ 屬性名稱 } ( 即，x.y 指物件 x 的名為 y 的屬性 )。  
 
 > The distinction between attributes and items of an object is in the syntax you use to access them. An attribute of an object is denoted by a reference to the object, followed by a period (.), followed by an identifier called the attribute name (i.e., x.y refers to the attribute of object x that is named y).  
 
-物件的表示如下，{指向物件的參考}[{表達式}]。括號中的表達式稱為項目的索引或鍵值，物件是項目的容器 (即，x[y] 指容器物件 x 中位於索引或鍵值 y 的項目)。
+物件的表示如下，{ 指向物件的參考 }[ {表達式} ]。括號中的表達式稱為項目的索引或鍵值，物件是項目的容器 ( 即，x[y] 指容器物件 x 中位於索引或鍵值 y 的項目 )。
 
 > An item of an object is denoted by a reference to the object, followed by an expression within brackets ([ ]). The expression in brackets is called the index or key to the item, and the object is called the container of the item (i.e., x [ y ] refers to the item at key or index y in container object x).  
 
