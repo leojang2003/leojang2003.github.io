@@ -8,9 +8,12 @@ comments: true
 
 節錄自 Python in a Nutshell 
 
+{:.note}
+名詞解釋: 參考(reference)、變數(variable)、屬性(attribute)、項目item()、型態(type)、名稱(name) 
+
 ### References
 
-Python 程式透過參考(reference)來存取資料。參考(reference)是一個 name 參照到一個值(物件)的記憶體位置。參考可以是 variable、attribute 或 item。Python 的 參考是沒有固定的 type 的。參考在某個時間點綁定的物件是一個 type 的，但隨著程式的執行，任何既有的參考可能會綁定到不同的 type。
+Python 程式透過參考來存取資料。一個名稱參照到一個值(物件)的記憶體位置就是一個**參考**。參考可以是 variable、attribute 或 item 等型式。參考背後綁定的物件沒有固定的 type。在某個時間點，參考綁定的物件是一個 type 的，但隨著程式的執行，同一個參考可能會綁定到不同的 type。
 
 > A Python program accesses data values through references. A reference is a name that refers to the specific location in memory of a value (object). References take the form of variables, attributes, and items. In Python, a variable or other reference has no intrinsic type. The object to which a reference is bound at a given time does have a type, however. Any given reference may be bound to objects of different types during the execution of a program.
 
