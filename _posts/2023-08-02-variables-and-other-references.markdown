@@ -62,7 +62,7 @@ del l
 
 > The distinction between attributes and items of an object is in the syntax you use to access them. An attribute of an object is denoted by a reference to the object, followed by a period (.), followed by an identifier called the attribute name (i.e., x.y refers to the attribute of object x that is named y).  
 
-物件的表示如下，{ 指向物件的參考 }[ {表達式} ]。括號中的表達式稱為項目的索引或鍵值，物件是項目的容器 ( 即，x[y] 指容器物件 x 中位於索引或鍵值 y 的項目 )。
+物件的表示如下，{ 指向物件的參考 } [ {表達式} ]。括號中的表達式稱為項目的索引或鍵值，物件是項目的容器 ( 即，x[y] 指容器物件 x 中位於索引或鍵值 y 的項目 )。
 
 > An item of an object is denoted by a reference to the object, followed by an expression within brackets ([ ]). The expression in brackets is called the index or key to the item, and the object is called the container of the item (i.e., x [ y ] refers to the item at key or index y in container object x).  
 
@@ -80,11 +80,11 @@ Python 僅在程式執行時才偵測語義錯誤。當某行程式是語義錯�
 
 ### Assignment Statements
 
-賦值語句可以是一般的，也可以是增量的。對變數做一般的賦值 (例如，name = value) 是建立新變數，或將現有變數重新綁定到新值。對物件屬性 做一般的賦值（例如，obj.attr = value）是對物件 obj 建立屬性 attr 或重新綁定屬性 attr。對容器中項目的一般賦值 (例如，obj[key] = value) 是對容器 obj 建立或重新綁定具有索引鍵值的項目。
+賦值語句可以是一般的，也可以是增量的。對變數做一般的賦值 (例如，name = value) 是建立新變數，或將現有變數重新綁定到新值。對物件屬性做一般的賦值（例如，obj.attr = value）是對物件 obj 建立屬性 attr 或重新綁定屬性 attr。對容器中項目的一般賦值 (例如，obj[key] = value) 是對容器 obj 建立或重新綁定具有索引鍵值的項目。
 
 > Assignment statements can be plain or augmented. Plain assignment to a variable (e.g., name = value) is how you create a new variable or rebind an existing variable to a new value. Plain assignment to an object attribute (e.g., obj.attr = value) is a request to object obj to create or rebind attribute attr. Plain assignment to an item in a container (e.g., obj [ key ]= value) is a request to container obj to create or rebind the item with index key.
 
-增量賦值 (例如，name += value) 本身不能建立新的參考。增量賦值可以重新綁定變數，要求物件重新綁定其**現有**的屬性或項目，或者要求物件修改自身 (當然，物件可以在回應要求時建立任意新的參考)。當我們向物件發出要求時，由該物件決定是接受要求還是拋出例外。
+增量賦值 (例如，name += value) 本身不能建立新的參考。增量賦值可以重新綁定變數，要求物件重新綁定**現有**的屬性或項目，或者要求物件修改自身 (當然，物件可以在回應要求時建立任意新的參考)。當我們向物件發出要求時，由該物件決定是接受要求還是拋出例外。
 
 > Augmented assignment (e.g., name += value) cannot, per se, create new references. Augmented assignment can rebind a variable, ask an object to rebind one of its existing attributes or items, or request the target object to modify itself (an object may, of course, create arbitrary new references while responding to requests). When you make a request to an object, it is up to the object to decide whether to honor the request or raise an exception.
 
