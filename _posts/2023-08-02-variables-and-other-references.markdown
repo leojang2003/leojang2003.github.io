@@ -44,6 +44,8 @@ var = 1
 l = [1,2,3,4,5]
 d = {'John':28, 'Bill':32}
 
+# 名稱 var 持有參考到值為1的物件
+
 # 執行取消綁定
 del l
 ```
@@ -58,7 +60,7 @@ del l
 
 ### Object attributes and items
 
-物件的屬性和項目之間的差別在於用於存取它們的語法。物件的屬性表示如下，{ 指向物件的屬性 }.{ 屬性名稱 } ( 即，x.y 指物件 x 的名為 y 的屬性 )。  
+物件的屬性和項目之間的差別在於用於存取它們的語法。物件的屬性表示如下，{ 指向物件的參考 }.{ 屬性名稱 } ( 即，x.y 指物件 x 的名為 y 的屬性 )。  
 
 > The distinction between attributes and items of an object is in the syntax you use to access them. An attribute of an object is denoted by a reference to the object, followed by a period (.), followed by an identifier called the attribute name (i.e., x.y refers to the attribute of object x that is named y).  
 
