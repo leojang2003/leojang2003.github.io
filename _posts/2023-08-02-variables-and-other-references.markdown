@@ -9,7 +9,7 @@ comments: true
 節錄自 Python in a Nutshell 
 
 {:.note}
-名詞解釋 : 參考(reference)、變數(variable)、屬性(attribute)、項目(item)、類型(type)、名稱(name)、語句(statement)、賦值(assignment)、識別字(identifier)、模組(module)、函數(function)、方法(method)
+名詞解釋 : 參考(reference)、變數(variable)、屬性(attribute)、項目(item)、類型(type)、名稱(name)、語句(statement)、賦值(assignment)、識別字(identifier)、模組(module)、函數(function)、方法(method)、slicing (slice)
 
 ### 參考
 
@@ -133,7 +133,7 @@ var = A()
 # A is callable
 ```
 
-然而，綁定的細節確實取決於目標的類型。賦值中的目標可以是識別字、屬性參考、索引或切片：
+然而，綁定的細節確實取決於目標的類型。賦值中的目標可以是識別字、屬性參考、索引或slicing ：
 
 > Details of the binding do depend on the kind of target, however. The target in an assignment may be an identifier, an attribute reference, an indexing, or a slicing:
 
@@ -160,15 +160,18 @@ list[3] = func
 
 a = ['a','b','c','d','e','f','g']
 
-# 綁定到切片
+# 綁定到slicing 
 a[:-4] = ('w', 'x', 'y')
 a[:-4] = ['w', 'x', 'y']
 a[:-4] = 'w', 'x', 'y'
 
 # 以上三種都可以得到相同的結果
 # ['w','x','y','d','e','f','g']
-
 ```
+
+<br/>
+
+### 賦值給變數
 
 識別字是變數的名稱：對識別字的賦值會將變數與該名稱綁定。
 
@@ -178,11 +181,34 @@ a[:-4] = 'w', 'x', 'y'
 
 > An attribute reference has the syntax obj.name. obj is an expression denoting an object, and name is an identifier, called an attribute name of the object. Assignment to an attribute reference asks object obj to bind its attribute named name.
 
+### 賦值給索引
+
 索引的語法為 obj [ expr ]。obj 和 expr 是表示任何物件的表達式。對索引的賦值是要求容器 obj 綁定由 expr 的值（也稱為項目的索引或鍵）選擇的項目。
 
 > An indexing has the syntax obj [ expr ]. obj and expr are expressions denoting any objects. Assignment to an indexing asks container obj to bind its item selected by the value of expr, also known as the index or key of the item.
 
-切片的語法為 obj [ start:stop ] 或 obj [ start:stop:stride ]。obj、start、stop 和 stride 是表示任何物件的表達式。start、stop 和 stride 都是非強制的（即 obj [:stop :] 也是語法上正確的切片，相當於 obj [None:stop :None]）。對切片的賦值要求容器 obj 綁定或取消綁定它的一些項目。
+```python
+
+l = [1,2,3,4]
+
+def get_index():
+	return 2
+	
+def get_list():
+	return l
+	
+# obj [ expr ]，obj 和 expr 都可以是物件，所以以下也是 Ok 的。
+get_list()[get_index()] = 'Q'
+
+print(l)
+# [1,2,'Q',4]
+```
+
+<br/>
+
+### 賦值給 slicing
+
+slicing 的語法為 obj [ start:stop ] 或 obj [ start:stop:stride ]。obj、start、stop 和 stride 是表示任何物件的表達式。start、stop 和 stride 都是選填的 (即 obj [:stop :] 也是語法上正確的slicing ，相當於 obj [None:stop:None])。對 slicing 的賦值要求容器 obj 綁定或取消綁定它的一些項目。
 
 > A slicing has the syntax obj [ start:stop ] or obj [ start:stop:stride ]. obj, start, stop, and stride are expressions denoting any objects. start, stop, and stride are all optional (i.e., obj [:stop :] is also a syntactically correct slicing, equivalent to obj [None:stop :None]). Assignment to a slicing asks container obj to bind or unbind some of its items.
 
@@ -237,11 +263,11 @@ del 語句並不像字面的意思，並不會刪除 物件：相反，它會解
 
 > Despite its name, a del statement does not delete objects: rather, it unbinds references. Object deletion may follow as a consequence, by garbage collection, when no more references to an object exist.
 
-del 語句由關鍵字 del 和後跟一個或多個以逗號 (,) 分隔的目標參考組成。每個目標可以是變數、屬性參考、索引或切片，就像一樣賦值語句，並且必須在 del 執行時有綁定。當 del 目標是識別字時，del 語句指定變數的解除綁定。只要識別字已綁定，就永遠不會禁止取消綁定：當請求時，就會發生。
+del 語句由關鍵字 del 和後跟一個或多個以逗號 (,) 分隔的目標參考組成。每個目標可以是變數、屬性參考、索引或slicing ，就像一樣賦值語句，並且必須在 del 執行時有綁定。當 del 目標是識別字時，del 語句指定變數的解除綁定。只要識別字已綁定，就永遠不會禁止取消綁定：當請求時，就會發生。
 
 > A del statement consists of the keyword del, followed by one or more target references separated by commas (,). Each target can be a variable, attribute reference, indexing, or slicing, just like for assignment statements, and must be bound at the time del executes. When a del target is an identifier, the del statement specifies the unbinding of the variable. As long as the identifier is bound, unbinding it is never disallowed: when requested, it takes place.
 
-在所有其他情況下，del 語句指定對物件解除綁定其一個或多個屬性或項目 的請求。物件可能會拒絕解除綁定某些（或全部）屬性或項目，如果嘗試進行不允許的解除綁定，則會拋出例外。取消綁定切片通常與為該指派空的序列具有相同的效果，但 Python 交由容器物件來實現。
+在所有其他情況下，del 語句指定對物件解除綁定其一個或多個屬性或項目 的請求。物件可能會拒絕解除綁定某些（或全部）屬性或項目，如果嘗試進行不允許的解除綁定，則會拋出例外。取消綁定slicing 通常與為該指派空的序列具有相同的效果，但 Python 交由容器物件來實現。
 
 > In all other cases, the del statement specifies a request to an object to unbind one or more of its attributes or items. An object may refuse to unbind some (or all) attributes or items, raising an exception if a disallowed unbinding is attempted (see also __delattr__ in Chapter 5). Unbinding a slicing normally has the same effect as assigning an empty sequence to that slice, but it is up to the container object to implement this equivalence.
 
