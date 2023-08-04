@@ -2,16 +2,16 @@
 layout: post
 title: Variables and Other References
 subtitle: 
-tags: []
+tags: [reference,variable,attribute,item,type,name,statement,assigment,identifier,module,function,method,slice]
 comments: true
 ---
 
 節錄自 Python in a Nutshell 
 
 {:.note}
-名詞解釋 : 參考(reference)、變數(variable)、屬性(attribute)、項目item()、類型(type)、名稱(name)、語句(statement)、賦值(assignment)、識別字(identifier)、模組(module)、函數(function)、方法(method)
+名詞解釋 : 參考(reference)、變數(variable)、屬性(attribute)、項目(item)、類型(type)、名稱(name)、語句(statement)、賦值(assignment)、識別字(identifier)、模組(module)、函數(function)、方法(method)
 
-### References
+### 參考
 
 Python 程式透過參考來存取資料。一個名稱參照到一個值(物件)的記憶體位置就是一個**參考**。參考可以是變數、屬性或項目等型式。參考背後綁定的物件沒有固定的類型。在某個時間點，參考綁定的物件是一個類型的，但隨著程式的執行，同一個參考可能會綁定到不同的類型。
 
@@ -32,7 +32,7 @@ A.var2 # attribute
 ```
 <br/>
 
-### Variables
+### 變數
 
 在 Python 中是沒有變數宣告的。在綁定變數的語句執行後，變數才會存在，或者可以說，建立一個名稱來持有某個物件的參考。我們還可以通過重置名稱來取消綁定變數，使變數不再持有參考。賦值語句是綁定變數和其他參考的最常見方法。del 語句可以取消綁定參考。
 
@@ -52,13 +52,13 @@ del l
 
 綁定一個已綁定的參考也稱為重新綁定。重新綁定或取消綁定一個參考對被參考的物件沒有影響，除非當沒有任何參考到該物件時，該物件才會消失。自動清理沒有參考的物件稱為垃圾清理。  
 
-> Binding a reference that was already bound is also known as rebinding it. Whenever binding is mentioned in this book, rebinding is implicitly included except where it is explicitly excluded. Rebinding or unbinding a reference has no effect on the object to which the reference was bound, except that an object disappears when nothing refers to it. The automatic cleanup of objects to which there are no references is known as garbage collection.  
+> Binding a reference that was already bound is also known as rebinding it. Rebinding or unbinding a reference has no effect on the object to which the reference was bound, except that an object disappears when nothing refers to it. The automatic cleanup of objects to which there are no references is known as garbage collection.  
 
 我們可以使用 Python 保留的 29 個關鍵字以外的任何識別字來命名變數。變數可以是全域變數或區域變數。全域變數是模組物件的一個屬性。區域變數存在於函數的區域命名空間中。
 
 > You can name a variable with any identifier except the 29 that are reserved as Python’s keywords (see Section 4.1.2.2 earlier in this chapter). A variable can be global or local. A global variable is an attribute of a module object. A local variable lives in a function’s local namespace  
 
-### Object attributes and items
+### 物件的屬性/項目
 
 物件的屬性和項目之間的差別在於用於存取它們的語法。物件的屬性表示如下，{ 指向物件的參考 }.{ 屬性名稱 } ( 即，x.y 指物件 x 的名為 y 的屬性 )。  
 
@@ -68,21 +68,23 @@ del l
 
 > An item of an object is denoted by a reference to the object, followed by an expression within brackets ([ ]). The expression in brackets is called the index or key to the item, and the object is called the container of the item (i.e., x [ y ] refers to the item at key or index y in container object x).  
 
+### 方法
+
 可呼叫的屬性也稱為方法。與其他語言不同，Python 在可呼叫和不可呼叫屬性之間沒有嚴格分別。適用於屬性的一般規則同樣也適用於可呼叫屬性(方法)。
 
 > Attributes that are callable are also known as methods. Python draws no strong distinction between callable and non-callable attributes, as other languages do. General rules about attributes also apply to callable attributes (methods).  
 
-### 存取不存在的 reference
+### 存取不存在的參考
 
-一個常見的程式錯誤是試著存取不存在的參考。例如，變數可能是未綁定，或者物件的屬性名稱或項目索引可能無效。Python 編譯器在分析和編譯原始碼時僅偵測語法錯誤，編譯不會偵測語義錯誤，語意錯誤像是試著存取未綁定屬性、項目或變數。  
+一個常見的程式錯誤是試著存取不存在的參考。例如，變數可能是未綁定，或者物件的屬性名稱或項目索引可能無效。Python 編譯器在分析和編譯原始碼時僅偵測語法錯誤，不會偵測語義錯誤，所謂語義錯誤就像是試著存取未綁定屬性、項目或變數。  
 
-Python 僅在程式執行時才偵測語義錯誤。當某行程式是語義錯誤時，嘗試執行該程式會拋出例外。存取不存在的屬性、項目或變數，就像任何其他語義錯誤一樣，會拋出例外。
+Python 在程式執行時才偵測語義錯誤。當某行程式是語義錯誤時，嘗試執行該程式會拋出例外。存取不存在的屬性、項目或變數，就像任何其他語義錯誤一樣，會拋出例外。
 
 > A common programming error is trying to access a reference that does not exist. For example, a variable may be unbound, or an attribute name or item index may not be valid for the object to which you apply it. The Python compiler, when it analyzes and compiles source code, diagnoses only syntax errors. Compilation does not diagnose semantic errors such as trying to access an unbound attribute, item, or variable. Python diagnoses semantic errors only when the errant code executes, i.e., at runtime. When an operation is a Python semantic error, attempting it raises an exception (see Chapter 6). Accessing a nonexistent variable, attribute, or item, just like any other semantic error, raises an exception.  
 
-### Assignment Statements
+### 賦值語句
 
-賦值語句可以是一般的，也可以是增量的。對變數做一般的賦值 (例如，name = value) 是建立新變數，或將現有變數重新綁定到新值。對物件屬性做一般的賦值（例如，obj.attr = value）是對物件 obj 建立屬性 attr 或重新綁定屬性 attr。對容器中項目的一般賦值 (例如，obj[key] = value) 是對容器 obj 建立或重新綁定具有索引鍵值的項目。
+賦值語句可以是一般的，也可以是增量的。對變數做一般的賦值 (例如，name = value) 是建立新變數，或將現有變數重新綁定到新的值。對物件屬性做一般的賦值（例如，obj.attr = value）是對物件 obj 建立屬性 attr 或重新綁定屬性 attr。對容器中項目的一般賦值 (例如，obj[key] = value) 是對容器 obj 建立或重新綁定具有索引鍵值的項目。
 
 > Assignment statements can be plain or augmented. Plain assignment to a variable (e.g., name = value) is how you create a new variable or rebind an existing variable to a new value. Plain assignment to an object attribute (e.g., obj.attr = value) is a request to object obj to create or rebind attribute attr. Plain assignment to an item in a container (e.g., obj [ key ]= value) is a request to container obj to create or rebind the item with index key.
 
@@ -90,9 +92,11 @@ Python 僅在程式執行時才偵測語義錯誤。當某行程式是語義錯�
 
 > Augmented assignment (e.g., name += value) cannot, per se, create new references. Augmented assignment can rebind a variable, ask an object to rebind one of its existing attributes or items, or request the target object to modify itself (an object may, of course, create arbitrary new references while responding to requests). When you make a request to an object, it is up to the object to decide whether to honor the request or raise an exception.
 
-###  assignment
+{:.note} 增量賦值 var += value，name 必須要存在，不然會出現 NameError: name 'var' not defined
 
-最簡單形式的一般賦值語句的語法如下：    
+###  賦值
+
+一般賦值語句的語法如下：    
 
 target = expression  
 
@@ -101,15 +105,76 @@ target = expression
 > A plain assignment statement in the simplest form has the syntax: target = expression
 The target is also known as the left-hand side, and the expression as the right-hand side. When the assignment statement executes, Python evaluates the right-hand side expression, then binds the expression’s value to the left-hand side target. The binding does not depend on the type of the value. In particular, Python draws no strong distinction between callable and non-callable objects, as some other languages do, so you can bind functions, methods, types, and other callables to variables.
 
+```python
+class A:
+	
+	def __call__(self):
+		print('A is callable')
+	
+	def method(self):
+		pass
+
+def func():
+	pass
+
+# 綁定方法
+var = A.method
+
+# 綁定類型
+var = type(A.method)
+
+# 綁定函數
+var = func
+
+# 綁定 callable
+var = A()
+
+# 呼叫可以用 var()
+# A is callable
+```
+
 然而，綁定的細節確實取決於目標的類型。賦值中的目標可以是識別字、屬性參考、索引或切片：
 
 > Details of the binding do depend on the kind of target, however. The target in an assignment may be an identifier, an attribute reference, an indexing, or a slicing:
+
+```python
+class A:
+	
+	def __call__(self):
+		print('A is callable')
+	
+	def method(self):
+		pass
+
+def func():
+	pass
+
+# 綁定到識別字
+var = A.method
+
+# 綁定屬性參考
+something.a = type(A.method)
+
+# 綁定到索引
+list[3] = func
+
+a = ['a','b','c','d','e','f','g']
+
+# 綁定到切片
+a[:-4] = ('w', 'x', 'y')
+a[:-4] = ['w', 'x', 'y']
+a[:-4] = 'w', 'x', 'y'
+
+# 以上三種都可以得到相同的結果
+# ['w','x','y','d','e','f','g']
+
+```
 
 識別字是變數的名稱：對識別字的賦值會將變數與該名稱綁定。
 
 > An identifier is a variable’s name: assignment to an identifier binds the variable with this name.
 
-屬性參考的語法為 obj.name。obj 是表示物件的表達式，name 是識別字，稱為物件的屬性名稱。對屬性參考的賦值是要求物件 obj 綁定其名為 name 的屬性。
+屬性參考的語法為 obj.name。obj 是個物件，name 是識別字，稱為物件的屬性名稱。對屬性參考的賦值是要求物件 obj 綁定其名為 name 的屬性。
 
 > An attribute reference has the syntax obj.name. obj is an expression denoting an object, and name is an identifier, called an attribute name of the object. Assignment to an attribute reference asks object obj to bind its attribute named name.
 
