@@ -6,20 +6,24 @@ tags: []
 comments: true
 ---
 
-一個 slice 指的是一個 list 元素的子集合，以 list 來說，slice 會是連續的，slice 的語法如下，從 start 開始，到 stop 前一個( stop 沒有包含)，step 指的是一次走幾格，預設是 1，3個值都可以是選填的。
+一個 slice 指的是一個 list 元素的子集合，以 list 來說，slice 會是連續的，slice 的語法如下，從 start 開始，到 stop 前一個( stop 沒有包含)，step 指的是一次走幾格，預設是 1。start/stop/step 3 個值都可以是選填的。
 
 ```python
-some_list[start:stop:step=1]
+my_list[start:stop:step=1]
 ```
 
-值得注意的是，slice 的索引，也可是負值的。
+值得注意的是，slice 的索引，也可是負值的。一般的 slice 的方向是左到右的。
 
 ```python
+
+方向      → → → → → → → → → → → → → → → →
+
 正的索引   0    1    2    3    4    5    6 
           ↓    ↓    ↓    ↓    ↓    ↓    ↓  
         ['a', 'b', 'c', 'd', 'e', 'f', 'g']
           ↑    ↑    ↑    ↑    ↑    ↑    ↑
 負的索引  -7   -6   -5   -4   -3   -2   -1 
+
 ```
 
 <br/>
@@ -79,6 +83,16 @@ a[:]
 <br/>
 
 ### 索引是負數的 slice
+
+```python
+
+方向      → → → → → → → → → → → → → → → →
+
+        ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+          ↑    ↑    ↑    ↑    ↑    ↑    ↑
+負的索引  -7   -6   -5   -4   -3   -2   -1 
+
+```
 
 負數的索引，start/stop 都在範圍內，開始的索引必須比結束的索引小。
 
