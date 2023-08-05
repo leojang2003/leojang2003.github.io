@@ -6,7 +6,9 @@ tags: [numpy]
 comments: true
 ---
 
-numpy 的方法 array 可以建立一個一維陣列，我們傳入參數是一個 list，傳入的這個 list 有混和不同的形態，numpy.array() 會將這個 list 都轉成單一資料型態，也就是都轉成字串
+### numpy 一維陣列
+
+numpy 的方法 array 可以建立一個一維陣列，我們可以傳入參數是一個 list，傳入的這個 list 有混和不同的形態，numpy.array() 會將這個 list 都轉成單一資料型態，也就是都轉成字串，numpy 的陣列不像 list 可以允許不同型態的物件。
 
 ```python
 z = (1,2,'test')
@@ -29,5 +31,31 @@ print("A1.ndim=",A1.ndim)   #-- 維度數目/階數 --> A1.ndim= 1
 print("A1.shape=",A1.shape) #-- 各維個數      --> A1.shape= (6,)
 print("A1.size=",A1.size)   #-- 總個數        --> A1.size= 6
 ```
+### numpy 二維陣列
 
+```python
+A2 = np.array([(1.5,2,3), (4,5,6), (7,8,9), (10,11,12)]);
 
+print("A2 =",A2);    
+#-- A2 = [[ 1.5  2.  3. ]  
+#         [ 4.   5.  6. ] 
+#         [ 7.   8.  9. ] 
+#         [10.  11. 12. ]]
+
+print("A2.dtype=",A2.dtype)
+# A2.dtype= float64
+
+print("A2.ndim=",A2.ndim)   
+# 維度數目/階數
+# A2.ndim= 2
+
+print("A2.shape=",A2.shape) 
+# 各維個數
+# A2.shape= (4, 3)
+
+print("A2.size=",A2.size)   
+# 總個數        
+# A2.size= 12
+```python
+
+在 anaconda 的 console 執行完(shift-enter)，可以打 物件 + 點 + tab ，會出現物件的可用屬性。
