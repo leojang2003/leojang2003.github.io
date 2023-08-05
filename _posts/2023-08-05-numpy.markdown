@@ -1,0 +1,5 @@
+A1 = np.array([2,3,"test",5,6,7]);
+# A1 = ['2' '3' 'test' '5' '6' '7']
+# numpy 會將 A1 這個 list 轉為字串，雖然其他是數字，但因為有 'test' 所以全被轉為字串的 list 了
+
+Little Endian 是 Windows 
