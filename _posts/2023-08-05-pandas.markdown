@@ -175,5 +175,34 @@ print("Xdf.values[2][4]=",Xdf.values[2][4])   #-- [列][行] --> 3200
 ```python
 Xdf.loc[Xdf['amount']>3000]
 
+# OR
 Xdf.loc[(Xdf['amount']<1000)|(Xdf['quantity']>=2)]
+
+# AND
+Xdf.loc[(Xdf['amount']<1000)&(Xdf['quantity']<=1)]
+
+#AND
+Xdf.loc[(Xdf['amount']<1000)].loc[(Xdf['quantity']<=1)]
 ```
+
+<br/>
+
+### DataFrame 增減
+
+```python
+df4 = pd.DataFrame({"customer":["c4"], "channel":["s4"], "product":["p4"], "quantity":[3], "amount":[1500]})
+Xdf4 = pd.concat([Xdf,df4])   
+print("Xdf4 = ",Xdf4)
+
+Xdf4a = Xdf4.drop([0],axis=0);
+
+Xdf4b = Xdf4a.drop(["quantity"],axis=1);
+```
+<br/>
+
+### 讀取 csv
+
+```python
+pd.read_csv(wkDir+"XXX.csv")
+```
+
