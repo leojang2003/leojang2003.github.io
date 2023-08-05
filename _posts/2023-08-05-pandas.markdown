@@ -122,3 +122,58 @@ print(Xdf2)
 #-- Xdf2 和 Xdf 相同
 ```
 
+### 提取列
+
+```python
+print(Xdf1)
+#         channel product  quantity  amount
+#customer                                  
+#c1            s1      p1         1    1200
+#c2            s2      p2         1     800
+#c3            s3      p3         2    3200
+```
+提取 index = c2 的列
+
+```python
+print("Xdf1.loc['c2']=",Xdf1.loc['c2'])
+#-- (a1)提取指定索引的列 .loc['c2']
+```
+
+提取第 i 列
+
+```python
+print("Xdf1.iloc[2]=",Xdf1.iloc[2])
+#-- (a2)提取第 k(2)列: .iloc[2]
+```
+
+提取第 slice 列
+
+```python
+print("Xdf1[1:3]=",Xdf1[1:3])
+#-- (a3)提取第1:3(1-2)列
+```
+
+提取行
+
+```python
+print("Xdf1['product']=",Xdf1['product'])
+#-- (a)按照列名稱，提取指定的行
+```
+
+<br/>
+
+### 提取元素
+
+```python
+print("Xdf.values[2]=",Xdf.values[2])         #-- [列] --> ['c3' 's3' 'p3' 2 3200]
+print("Xdf.values[2][4]=",Xdf.values[2][4])   #-- [列][行] --> 3200
+print("Xdf.values[2][4]=",Xdf.values[2][4])   #-- [列][行] --> 3200
+```
+
+### 條件提取
+
+```python
+Xdf.loc[Xdf['amount']>3000]
+
+Xdf.loc[(Xdf['amount']<1000)|(Xdf['quantity']>=2)]
+```
