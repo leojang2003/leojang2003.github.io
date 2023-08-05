@@ -248,5 +248,15 @@ if st.sidebar.checkbox("(2) 產生交易週時模型"):       #-- (A) 由用戶�
     st.write("(2B) (KDD4) 交易週時模型-- ")  
     st.dataframe(TTT) 
 ```
-    
+ ### sklearn
+ 
+```pthon
+##== sklearn/datasets: 提供了一些數據生成器和數據加載工具, 共有24個數據集
+from sklearn import datasets
+iris = datasets.load_iris()
+print(iris.feature_names)   #-- ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+print(iris.target_names)    #-- ['setosa' 'versicolor' 'virginica']
+print(iris.data.shape)      #-- (150,4)
+print(iris.data[0:2,])      #-- [[5.1 3.5 1.4 0.2] [4.9 3.  1.4 0.2]]
+```
 
