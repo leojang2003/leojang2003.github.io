@@ -118,6 +118,16 @@ power = {x: x**2 for x in (2, 4, 6)}
 ```
 <br>
 
+### copy()
+
+dict 可以使用 copy 來做 deep copy，copy() 生出一個全新的 dict，修改 copy 出來的 dict 不會影響原本的 dict。
+
+### update()
+
+使用一個 dict 來更新另一個 dict 的內容，這裡就是更新 dict1，用 dict2 的內容去更新。 
+
+dict1.update(dict2)
+
 ### 總結
 - {: .arrow}使用 {}, dict() 可以建立一個空的 dict
 - {: .arrow}搭配 keyword argument 可以不用使用冒號初始化 dict
