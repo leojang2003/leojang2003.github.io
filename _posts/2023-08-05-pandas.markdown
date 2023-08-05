@@ -1,1 +1,52 @@
+---
+layout: post
+title: Pandas
+subtitle: 
+tags: [pandas]
+comments: true
+---
+
+```python
+Xd2 =  {'customer': 'c3', 'channel': 's2', 'product': ['p1', 'p2', 'p3']}
+Xd3 =  {'customer': ['c1', 'c2'], 'channel': 's1', 'product': ['p1', 'p2', 'p3']}
+```
+
+<br/>
+
+### 創建數據框
+
+```python
+import pandas as pd
+##== (1).
+df1 = pd.DataFrame([[1,2,3],[4,5,6]]);   print("df1=",df1)
+# df1=    0  1  2
+#      0  1  2  3
+#      1  4  5  6
+
+df2 = pd.DataFrame([[1,2,3],[4,5,6]],index=['row1','row2'],columns=['col1','col2','col3']);  print("df2=",df2)
+# df2=       col1  col2  col3
+#      row1     1     2     3
+#      row2     4     5     6
+```python
+
+<br/>
+
+### 由 dict 建立數據框
+
+用 1,1,3 個元素的 dict 可以建立數據框
+
+```python
+Xdf2 = pd.DataFrame(Xd2);   print("Xdf2=",Xdf2)
+# Xdf=   customer channel product
+#    0       c3      s2      p1
+#    1       c3      s2      p2
+#    2       c3      s2      p3
+```
+
+使用另一個 dict 去生成時發生錯誤，用 2,1,3 個元素的 dict 就不可以建立數據框，出現 ValueError 
+
+```python
+Xdf2 = pd.DataFrame(Xd2);
+# ValueError: All arrays must be of the same length
+```
 
