@@ -6,10 +6,6 @@ tags: [pandas, streamlit,beautifulsoup,sklearn,iris]
 comments: true
 ---
 
-
-
-<br/>
-
 ### 官方文件的 DataFrame 定義
 
 {: .box-note}
