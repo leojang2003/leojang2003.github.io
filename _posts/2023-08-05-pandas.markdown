@@ -149,9 +149,10 @@ df2
 #  c  3
 ```
 <br/>
- ### Python 基礎班....
 
- ```python
+### Python 基礎班....
+
+```python
 Xd2 =  {'customer': 'c3', 'channel': 's2', 'product': ['p1', 'p2', 'p3']}
 Xd3 =  {'customer': ['c1', 'c2'], 'channel': 's1', 'product': ['p1', 'p2', 'p3']}
 ```
@@ -172,7 +173,6 @@ print("df1=", df1)
 ```python
 df = pd.DataFrame([[1,2,3],[4,5,6]],index=['row1','row2'],columns=['col1','col2','col3'])
 print("df=", df)
-
 
 ```
 
