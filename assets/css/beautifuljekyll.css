@@ -61,6 +61,11 @@ br{
   margin-top: 0; /* change this to whatever height you want it */
   margin-bottom: 3rem; /* change this to whatever height you want it */
 }
+br.new{
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-top: 0; /* change this to whatever height you want it */  
+}
 li.arrow {
   padding-left:1ch;
 }
