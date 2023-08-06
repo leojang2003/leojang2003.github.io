@@ -14,7 +14,7 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
  
 二維、大小可變、可能異質的表格資料。  
 
-資料結構還包含有標記(labeled)的軸(axis)（行和列）。算術運算對齊於行和列標記。可以視為一個類似字典的容器，內含 Series 物件。這是 pandas 的主要資料結構。  
+資料結構還包含有標記 (labeled) 的軸 (axis)（行和列）。算術運算對齊於行和列標記。可以視為一個類似字典的容器，內含 Series 物件。這是 pandas 的主要資料結構。  
 
 參數說明  
 
