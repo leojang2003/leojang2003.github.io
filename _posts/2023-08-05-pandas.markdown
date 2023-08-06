@@ -45,11 +45,13 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 DataFrame.from_records：從 tuple s或 record arrays 建立的建構函式。<br class="new">
 DataFrame.from_dict：從 Series、陣列或字典的字典建立的函式。<br class="new">
 read_csv：將逗號分隔值（CSV）文件讀取為 DataFrame。<br class="new">
-read_table：將通用分隔文件讀取為 DataFrame。  
+read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
+
+<br/>
 
 ### 官方文件的 DataFrame 範例 
 
- Constructing DataFrame from a dictionary.
+從字典建構 DataFrame。
 
 ```python
  >>> d = {'col1': [1, 2], 'col2': [3, 4]}
@@ -60,7 +62,7 @@ read_table：將通用分隔文件讀取為 DataFrame。
  1     2     4
 ```
 
- Notice that the inferred dtype is int64.
+注意，推斷出的 dtype 是 int64。
 
 ```python
  >>> df.dtypes
@@ -68,7 +70,7 @@ read_table：將通用分隔文件讀取為 DataFrame。
  col2    int64
  dtype: object
 
- To enforce a single dtype:
+ 為了強制使用單一的 dtype：
 
  >>> df = pd.DataFrame(data=d, dtype=np.int8)
  >>> df.dtypes
