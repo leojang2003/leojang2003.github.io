@@ -38,9 +38,7 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 
 **copy** : bool 或 None，預設為 None  
 
-從輸入中複製資料。  
-對於字典資料，預設的 None 行為類似於 copy=True。對於 DataFrame 或 2D ndarray 輸入，預設的 None 行為類似於 copy=False。
-如果資料是一個包含一個或多個 Series（可能具有不同資料型別）的字典，copy=False 將確保這些輸入不被複製。  
+從輸入中複製資料。對於字典資料，預設的 None 行為類似於 copy=True。對於 DataFrame 或 2D ndarray 輸入，預設的 None 行為類似於 copy=False。如果資料是一個包含一個或多個 Series（可能具有不同資料型別）的字典，copy=False 將確保這些輸入不被複製。  
 
 **其他方法**
  
