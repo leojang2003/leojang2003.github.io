@@ -18,37 +18,36 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 
 參數說明  
 
-**data :**  
+**data** : ndarray（結構化或同質的）、可迭代物件、字典或 DataFrame。  
 
-ndarray（結構化或同質的）、可迭代物件、字典或 DataFrame。
 字典可以包含 Series、陣列、常數、資料類別 (datacalss) 或類似 list 的物件。如果資料是一個字典，則 column 的順序遵循插入順序。如果字典包含有定義索引的 Series，則會按照索引對齊。如果資料本身是 Series 或 DataFrame，也會進行這種對齊。對齊適用於 Series/ DataFrame 輸入。
 
 如果資料是 list 包含 dict，則 column 的順序遵循插入順序。    
 
-index : 索引或類似陣列的物件  
+**index** : 索引或類似陣列的物件  
 
 用於生成結果框架的索引。如果輸入資料中沒有索引資訊且未提供索引，則預設使用 RangeIndex。  
 
-columns : 索引或類似陣列的物件  
+**columns** : 索引或類似陣列的物件  
 
 當資料本身沒有欄標籤時，用於生成結果框架的欄標籤，預設為 RangeIndex（0、1、2、...、n）。如果資料包含欄標籤，則會執行欄選擇。
 
-dtype : 資料型別，預設為 None。  
+**dtype** : 資料型別，預設為 None。  
 
 要強制使用的資料型別。只允許一個單一的資料型別。如果為 None，則進行推斷。  
 
-copy : bool 或 None，預設為 None  
+**copy** : bool 或 None，預設為 None  
 
 從輸入中複製資料。  
 對於字典資料，預設的 None 行為類似於 copy=True。對於 DataFrame 或 2D ndarray 輸入，預設的 None 行為類似於 copy=False。
 如果資料是一個包含一個或多個 Series（可能具有不同資料型別）的字典，copy=False 將確保這些輸入不被複製。  
 
- 其他方法
+**其他方法**
  
- DataFrame.from_records : Constructor from tuples, also record arrays.
- DataFrame.from_dict : From dicts of Series, arrays, or dicts.
- read_csv : Read a comma-separated values (csv) file into DataFrame.
- read_table : Read general delimited file into DataFrame.
+DataFrame.from_records : Constructor from tuples, also record arrays.
+DataFrame.from_dict : From dicts of Series, arrays, or dicts.
+read_csv : Read a comma-separated values (csv) file into DataFrame.
+read_table : Read general delimited file into DataFrame.
  
 ### 官方文件的 DataFrame 範例 
 
