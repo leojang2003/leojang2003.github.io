@@ -32,13 +32,13 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 
 當資料本身沒有欄標籤時，用於生成結果框架的欄標籤，預設為 RangeIndex（0、1、2、...、n）。如果資料包含欄標籤，則會執行欄選擇。
 
-**dtype** : 資料型別，預設為 None。  
+**dtype** : dtype，預設為 None。  
 
-要強制使用的資料型別。只允許一個單一的資料型別。如果為 None，則進行推斷。  
+要強制使用的資料型別。只允許一個單一的 dtype。如果為 None，則進行推斷。  
 
 **copy** : bool 或 None，預設為 None  
 
-從輸入中複製資料。對於字典資料，預設的 None 行為類似於 copy=True。對於 DataFrame 或 2D ndarray 輸入，預設的 None 行為類似於 copy=False。如果資料是一個包含一個或多個 Series（可能具有不同資料型別）的字典，copy=False 將確保這些輸入不被複製。  
+從輸入中複製資料。對於字典資料，預設的 None 行為類似於 copy=True。對於 DataFrame 或 2D ndarray 輸入，預設的 None 行為類似於 copy=False。如果資料是一個包含一個或多個 Series（可能具有不同 dtype）的字典，copy=False 將確保這些輸入不被複製。  
 
 **其他方法**
  
