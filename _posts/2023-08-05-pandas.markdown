@@ -44,7 +44,7 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
  
 DataFrame.from_records：從 tuple s或 record arrays 建立的建構函式。<br class="new">
 DataFrame.from_dict：從 Series、陣列或字典的字典建立的函式。<br class="new">
-read_csv：將逗號分隔值（CSV）文件讀取為 DataFrame。<br class="new">
+read_csv：將逗號分隔值（csv）文件讀取為 DataFrame。<br class="new">
 read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
 
 <br/>
@@ -54,77 +54,77 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
 從字典建構 DataFrame。
 
 ```python
- >>> d = {'col1': [1, 2], 'col2': [3, 4]}
- >>> df = pd.DataFrame(data=d)
- >>> df
-    col1  col2
- 0     1     3
- 1     2     4
+d = {'col1': [1, 2], 'col2': [3, 4]}
+df = pd.DataFrame(data=d)
+df
+#     col1  col2
+#  0     1     3
+#  1     2     4
 ```
 
 注意，推斷出的 dtype 是 int64。
 
 ```python
- >>> df.dtypes
- col1    int64
- col2    int64
- dtype: object
+df.dtypes
+#  col1    int64
+#  col2    int64
+#  dtype: object
  ```
 
  為了強制使用單一的 dtype：
 
 ```python
- >>> df = pd.DataFrame(data=d, dtype=np.int8)
- >>> df.dtypes
- col1    int8
- col2    int8
- dtype: object
+df = pd.DataFrame(data=d, dtype=np.int8)
+df.dtypes
+#  col1    int8
+#  col2    int8
+#  dtype: object
 ```
 
 從包含 Series 的字典建構 DataFrame：
 
 ```python
- >>> d = {'col1': [0, 1, 2, 3], 'col2': pd.Series([2, 3], index=[2, 3])}
- >>> pd.DataFrame(data=d, index=[0, 1, 2, 3])
-    col1  col2
- 0     0   NaN
- 1     1   NaN
- 2     2   2.0
- 3     3   3.0
+d = {'col1': [0, 1, 2, 3], 'col2': pd.Series([2, 3], index=[2, 3])}
+pd.DataFrame(data=d, index=[0, 1, 2, 3])
+#     col1  col2
+#  0     0   NaN
+#  1     1   NaN
+#  2     2   2.0
+#  3     3   3.0
 ```
 
 從 numpy ndarray 建構 DataFrame：
 
 ```python
- >>> df2 = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
- ...                    columns=['a', 'b', 'c'])
- >>> df2
-    a  b  c
- 0  1  2  3
- 1  4  5  6
- 2  7  8  9
+df2 = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
+                    columns=['a', 'b', 'c'])
+df2
+#     a  b  c
+#  0  1  2  3
+#  1  4  5  6
+#  2  7  8  9
 ```
 
 從具有標籤欄位的 numpy ndarray 建構 DataFrame：
 
 ```python
- >>> data = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)],
- ...                 dtype=[("a", "i4"), ("b", "i4"), ("c", "i4")])
- >>> df3 = pd.DataFrame(data, columns=['c', 'a'])
- ...
- >>> df3
-    c  a
- 0  3  1
- 1  6  4
- 2  9  7
+data = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)],
+                 dtype=[("a", "i4"), ("b", "i4"), ("c", "i4")])
+df3 = pd.DataFrame(data, columns=['c', 'a'])
+
+df3
+#     c  a
+#  0  3  1
+#  1  6  4
+#  2  9  7
 ```
 
 從資料類別（dataclass）建構 DataFrame：
 
 ```python
- >>> from dataclasses import make_dataclass
- >>> Point = make_dataclass("Point", [("x", int), ("y", int)])
- >>> pd.DataFrame([Point(0, 0), Point(0, 3), Point(2, 3)])
+from dataclasses import make_dataclass
+Point = make_dataclass("Point", [("x", int), ("y", int)])
+pd.DataFrame([Point(0, 0), Point(0, 3), Point(2, 3)])
     x  y
  0  0  0
  1  0  3
@@ -134,19 +134,19 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
 從 Series 或 DataFrame 建構 DataFrame：
 
 ```python
- >>> ser = pd.Series([1, 2, 3], index=["a", "b", "c"])
- >>> df = pd.DataFrame(data=ser, index=["a", "c"])
- >>> df
-    0
- a  1
- c  3
+ser = pd.Series([1, 2, 3], index=["a", "b", "c"])
+df = pd.DataFrame(data=ser, index=["a", "c"])
+df
+#     0
+#  a  1
+#  c  3
 
- >>> df1 = pd.DataFrame([1, 2, 3], index=["a", "b", "c"], columns=["x"])
- >>> df2 = pd.DataFrame(data=df1, index=["a", "c"])
- >>> df2
-    x
- a  1
- c  3
+df1 = pd.DataFrame([1, 2, 3], index=["a", "b", "c"], columns=["x"])
+df2 = pd.DataFrame(data=df1, index=["a", "c"])
+df2
+#     x
+#  a  1
+#  c  3
 ```
 
  ### Python 基礎班....
