@@ -15,6 +15,7 @@ Xd3 =  {'customer': ['c1', 'c2'], 'channel': 's1', 'product': ['p1', 'p2', 'p3']
 
 ### 官方文件的 DataFrame 定義
 
+{: .box-note}
 class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
    DataFrame(data=None, index: 'Axes | None' = None, columns: 'Axes | None' = None, dtype: 'Dtype | None' = None, copy: 'bool | None' = None) -> 'None'   
  
