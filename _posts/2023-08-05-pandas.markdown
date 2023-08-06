@@ -19,8 +19,8 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 參數說明  
 
 data :<br class="new">
-ndarray（結構化或同質的）、可迭代物件、字典或 DataFrame。  
-字典可以包含 Series、陣列、常數、資料類別 (datacalss) 或類似 list 的物件。如果資料是一個字典，則 column 的順序遵循插入順序。如果字典包含有定義索引的 Series，則會按照索引對齊。如果資料本身是 Series 或 DataFrame，也會進行這種對齊。對齊適用於 Series/ DataFrame 輸入。  
+ndarray（結構化或同質的）、可迭代物件、字典或 DataFrame。
+字典可以包含 Series、陣列、常數、資料類別 (datacalss) 或類似 list 的物件。如果資料是一個字典，則 column 的順序遵循插入順序。如果字典包含有定義索引的 Series，則會按照索引對齊。如果資料本身是 Series 或 DataFrame，也會進行這種對齊。對齊適用於 Series/ DataFrame 輸入。
 
 如果資料是 list 包含 dict，則 column 的順序遵循插入順序。    
 
