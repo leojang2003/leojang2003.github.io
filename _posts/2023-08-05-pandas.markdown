@@ -6,10 +6,7 @@ tags: [pandas, streamlit,beautifulsoup,sklearn,iris]
 comments: true
 ---
 
-```python
-Xd2 =  {'customer': 'c3', 'channel': 's2', 'product': ['p1', 'p2', 'p3']}
-Xd3 =  {'customer': ['c1', 'c2'], 'channel': 's1', 'product': ['p1', 'p2', 'p3']}
-```
+
 
 <br/>
 
@@ -22,7 +19,7 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 二維、大小可變、可能異質的表格資料。  
 
 資料結構還包含有標記(labeled)的軸(axis)（行和列）。算術運算對齊於行和列標記。可以視為一個類似字典的容器，內含 Series 物件。這是 pandas 的主要資料結構。  
- 
+
 參數說明  
 
 data :   
@@ -143,6 +140,11 @@ copy : bool 或 None，預設為 None
  c  3
 
  ### Python 基礎班....
+
+ ```python
+Xd2 =  {'customer': 'c3', 'channel': 's2', 'product': ['p1', 'p2', 'p3']}
+Xd3 =  {'customer': ['c1', 'c2'], 'channel': 's1', 'product': ['p1', 'p2', 'p3']}
+```
 
 使用 list 來建立 DataFrame，預設的 row/column 都是數字
 
