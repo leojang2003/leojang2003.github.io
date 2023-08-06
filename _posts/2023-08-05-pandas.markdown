@@ -69,9 +69,11 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
  col1    int64
  col2    int64
  dtype: object
+ ```
 
  為了強制使用單一的 dtype：
 
+```python
  >>> df = pd.DataFrame(data=d, dtype=np.int8)
  >>> df.dtypes
  col1    int8
@@ -79,7 +81,7 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
  dtype: object
 ```
 
- Constructing DataFrame from a dictionary including Series:
+從包含 Series 的字典建構 DataFrame：
 
 ```python
  >>> d = {'col1': [0, 1, 2, 3], 'col2': pd.Series([2, 3], index=[2, 3])}
@@ -91,7 +93,7 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
  3     3   3.0
 ```
 
- Constructing DataFrame from numpy ndarray:
+從 numPy ndarray 建構 DataFrame：
 
 ```python
  >>> df2 = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
@@ -103,7 +105,7 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
  2  7  8  9
 ```
 
- Constructing DataFrame from a numpy ndarray that has labeled columns:
+從具有標籤欄位的 numPy ndarray 建構 DataFrame：
 
 ```python
  >>> data = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)],
@@ -117,7 +119,7 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
  2  9  7
 ```
 
- Constructing DataFrame from dataclass:
+從資料類別（dataclass）建構 DataFrame：
 
 ```python
  >>> from dataclasses import make_dataclass
@@ -129,7 +131,7 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
  2  2  3
 ```
 
- Constructing DataFrame from Series/DataFrame:
+從 Series 或 DataFrame 建構 DataFrame：
 
 ```python
  >>> ser = pd.Series([1, 2, 3], index=["a", "b", "c"])
