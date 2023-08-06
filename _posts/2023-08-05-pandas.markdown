@@ -45,7 +45,7 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 DataFrame.from_records：從 tuple s或 record arrays 建立的建構函式。<br class="new">
 DataFrame.from_dict：從 Series、陣列或字典的字典建立的函式。<br class="new">
 read_csv：將逗號分隔值（CSV）文件讀取為 DataFrame。<br class="new">
-read_table：將通用分隔文件讀取為 DataFrame。
+read_table：將通用分隔文件讀取為 DataFrame。  
 
 ### 官方文件的 DataFrame 範例 
 
