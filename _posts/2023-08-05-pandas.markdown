@@ -42,7 +42,7 @@ class DataFrame(pandas.core.generic.NDFrame, pandas.core.arraylike.OpsMixin)
 
 **其他方法**
  
-DataFrame.from_records : Constructor from tuples, also record arrays.
+DataFrame.from_records : Constructor from tuples, also record arrays.<br class="new">
 DataFrame.from_dict : From dicts of Series, arrays, or dicts.
 read_csv : Read a comma-separated values (csv) file into DataFrame.
 read_table : Read general delimited file into DataFrame.
