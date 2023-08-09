@@ -69,7 +69,15 @@ print(ser)
  ```
 <br/>
 
-### 建立 Series 使用參數 copy
+### 使用 list 建立 Series
+
+TBD
+
+### 使用 Series 建立 Series
+
+TBD
+
+### 使用參數 copy 建立 Series 
 
 **參數 copy 對 data=list 無效**
 
@@ -145,7 +153,9 @@ print(s1)
 
 {:.note} copy 只對 data=Series 或 data=ndarray 有用。
 
-### data = dict 的 Series 運算加法
+### Series 運算加法
+
+**data = dict 的 Series 運算加法**
 
 data 為 dict，值為 list 且有對應 key 的相加
 
