@@ -41,7 +41,7 @@ Labels 可以不用是唯一的，但必須是可雜湊的類型。Series 支援
 
 <br/>
 
-### 官方文件的 Series 範例 
+### 使用 dict 建立 Series
 
 資料來自 dict 且設定有 index，因為字典的 key 與 index 的值相同，因此 index 值沒有效果。
 
@@ -69,7 +69,9 @@ print(ser)
  ```
 <br/>
 
-### 參數 copy
+### 建立 Series 使用參數 copy
+
+**參數 copy 對 data=list 無效**
 
 從 list 建立 Series，copy 設定 False。因為輸入資料類型的關係，即使 copy=False，Series 使用的仍是原始資料的複製，因此原始資料沒有被變更。  
 
@@ -87,6 +89,8 @@ print(ser)
 # dtype: int64
 ```
 
+**參數 copy 對 data=ndarray 有效**  
+
 我們知道 copy 的選項只對 Series 與 ndarray 有效，現在我們從一維 ndarray 建立 Series，copy 設定 False。因為輸入資料類型的關係，使用 copy=False，表示 Series 使用的是原始資料非複製資料，因此原始資料被變更。
 
 ```python
@@ -102,6 +106,8 @@ print(ser)
 # 1      2
 # dtype: int64
 ```
+
+**參數 copy 對 data=Series 有效**  
 
 同樣的如果 Series 的 data 是 Series，copy = False 也會修改到原始的 Series
 
