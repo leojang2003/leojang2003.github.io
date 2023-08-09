@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [pandas] Series
+title: pandas - Series
 subtitle: 
 tags: [pandas, series]
 comments: true
