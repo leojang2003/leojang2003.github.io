@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [pandas] DataFrame
+title: pandas - DataFrame
 subtitle: 
 tags: [pandas, streamlit,beautifulsoup,sklearn,iris]
 comments: true
