@@ -109,7 +109,6 @@ print(ser)
 # dtype: int64
 
 # 因為字典的 key 與 index 的值相同，因此 index 值沒有效果。
-
 ```
 
 使用 data=dict 帶參數 index
@@ -125,7 +124,7 @@ print(ser)
 # dtype: float64
 
 # 一開始使用字典的 key 建立索引，接下來 Series 使用參數 index 的值重建索引(reindexing)，因為對應不到值，因此新索引的值都是 NaN。
- ```
+```
  
 **使用 data=list 帶參數 index**
  
