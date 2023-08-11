@@ -729,6 +729,9 @@ df.dtypes
 #  col2    int8
 #  dtype: object
 ```
+<br/>
+
+### DataFrame 的方法
 
 ```python
 dict = {'apple':['a1', 'a2', 'a3'], 'banana':['b1','b2','b3'], 'cherry':['c1','c2','c3'], 'dumplin':['d1','d2','d3']}
@@ -740,16 +743,14 @@ df = pd.DataFrame(data=dict)
 # 2    a3     b3     c3      d3
 ```
 
-**DataFrame 的方法**
-
-**DataFrame.shape()**
+**shape()**
 
 ```python
 df.shape # (3, 4)
 # 3 rows, 4 columns
 ```
 
-**DataFrame.head(i)**
+**head(i)**
 
 ```python
 df.head(1)
@@ -757,7 +758,7 @@ df.head(1)
 # 0    a1     b1     c1      d1
 ```
 
-**DataFrame.tail(i)**
+**tail(i)**
 
 ```python
 df.tail(1)
@@ -765,14 +766,14 @@ df.tail(1)
 # 2    a3     b3     c3      d3
 ```
 
-**DataFrame.copy()**
+**copy()**
 
 ```python
 # 複製一個 DataFrame
 df2 = df.copy()
 ```
 
-**DataFrame.set_index()**
+**set_index()**
 
 ```python
 df2.set_index('apple', inplace=True)
@@ -791,7 +792,7 @@ df2.head(1)
 # a1        b1     c1      d1
 ```
 
-**DataFrame.index()**
+**index()**
 
 ```python
 df2.index = pd.Index(['q1','q2','q3'], dtype='object', name='xxx')
@@ -814,7 +815,7 @@ df3 = df2.reset_index()
 # 2  q3     b3     c3      d3
 ```
 
-**DataFrame.loc()**
+**loc()**
 
 取得 index = 'XXX' 的列
 
@@ -834,7 +835,7 @@ df.loc['r2']
 # Name: r2, dtype: object
 ```
 
-**DataFrame.iloc 取得第 i 列**
+**iloc 取得第 i 列**
 
 ```python
 df.iloc[2]
@@ -853,7 +854,7 @@ df[2:]
 # r3    a3     b3     c3      d3
 ```
 
-**DataFrame.values[][] 取得某行某列的值**
+**values[] 或 values[][] 取得某行某列的值**
 
 取得第二行
 
