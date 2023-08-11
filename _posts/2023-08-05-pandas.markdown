@@ -898,7 +898,7 @@ df.loc[df['banana']<=60].loc[df['cherry']>30]
 # r2     30      60      60      240
 ```
 
-**DataFrame.concate()**
+**concate()**
 
 將 DataFrame 串接起來
 
@@ -928,7 +928,7 @@ df2 = pd.concat([df,df2])
 # r3    NaN    NaN  100.0    70.0    90.0
 ```
 
-**DataFrame.drop() 砍行/列**
+**drop() 砍行/列**
 
 {: .box-note}
 Definition : drop(labels: 'IndexLabel'=None, *, axis: 'Axis'=0, index: 'IndexLabel'=None, columns: 'IndexLabel'=None, level: 'Level'=None, inplace: 'bool'=False, errors: 'IgnoreRaise'='raise')
@@ -976,13 +976,13 @@ y = df.drop(['r2'], axis=0)
 
 <br/>
 
-### 讀取 csv
+**讀取 csv**
 
 ```python
 pd.read_csv(wkDir+"target.csv")
 ```
 
-### 寫入 csv
+**寫入 csv**
 
 ```pthon
 ds = pd.read_csv(wkDir+"data_source.csv")
