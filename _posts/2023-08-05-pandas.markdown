@@ -2,7 +2,7 @@
 layout: post
 title: pandas - DataFrame
 subtitle: 
-tags: [pandas, streamlit,beautifulsoup,sklearn,iris]
+tags: [pandas, DataFrame]
 comments: true
 ---
 
@@ -981,3 +981,8 @@ pd.read_csv(wkDir+"target.csv")
 ```pthon
 ds = pd.read_csv(wkDir+"data_source.csv")
 ds.to_excel("new.xlsx")
+
+<br/>
+<br/>
+<br/>
+
