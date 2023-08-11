@@ -125,11 +125,13 @@ df = pd.DataFrame(dict, index=['row1', 'row2'])
 # row2   b    d
 ```
 
-{:.note} 如果資料來源是 list，index 參數的用途像是重新命名 row 的標籤，不一定要與原本 list 的 RangeIndex 一樣。但長度必須與 row 數一致。
+{: .note}
+如果資料來源是 list，index 參數的用途像是重新命名 row 的標籤，不一定要與原本 list 的 RangeIndex 一樣。但長度必須與 row 數一致。
 
 就算我們設定 index=[1, 0]，原本猜想第0行跟第1行的內容會互換，但資料的內容還是維持一樣沒有互換。
 
-{:.note} 如果資料來源是 list，調動 index 的值無法變更 DataFrame 的內容。
+{: .note}
+如果資料來源是 list，調動 index 的值無法變更 DataFrame 的內容。
 
 ```python
 df = pd.DataFrame(dict, index=[1, 0])
