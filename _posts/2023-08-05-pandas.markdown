@@ -48,395 +48,15 @@ read_table：將通用分隔文件讀取為 DataFrame。<br class="new">
 
 <br/>
 
-### 建立 DataFrame
+### 使用字典建立 DataFrame
 
-**使用 dict 建立 DataFrame**
+**使用字典建立 DataFrame，字典的值是純量**
 
-```python
-d = {'col1': [1, 2], 'col2': [3, 4]}
-df = pd.DataFrame(data=d)
-df
-#     col1  col2
-#  0     1     3
-#  1     2     4
-```
-
-注意，推斷出的 dtype 是 int64。
+這沒意義，單純測試用
 
 ```python
-df.dtypes
-#  col1    int64
-#  col2    int64
-#  dtype: object
-```
-
- 為了強制使用單一的 dtype：
-
-```python
-df = pd.DataFrame(data=d, dtype=np.int8)
-df.dtypes
-#  col1    int8
-#  col2    int8
-#  dtype: object
-```
-
-從包含 Series 的字典建構 DataFrame：
-
-```python
-d = {'col1': [0, 1, 2, 3], 'col2': pd.Series([2, 3], index=[2, 3])}
-pd.DataFrame(data=d, index=[0, 1, 2, 3])
-#     col1  col2
-#  0     0   NaN
-#  1     1   NaN
-#  2     2   2.0
-#  3     3   3.0
-```
-
-從 numpy ndarray 建構 DataFrame：
-
-```python
-df2 = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
-                    columns=['a', 'b', 'c'])
-df2
-#     a  b  c
-#  0  1  2  3
-#  1  4  5  6
-#  2  7  8  9
-```
-
-從具有標籤欄位的 numpy ndarray 建構 DataFrame：
-
-```python
-data = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)],
-                 dtype=[("a", "i4"), ("b", "i4"), ("c", "i4")])
-df3 = pd.DataFrame(data, columns=['c', 'a'])
-
-df3
-#     c  a
-#  0  3  1
-#  1  6  4
-#  2  9  7
-```
-
-從資料類別（dataclass）建構 DataFrame：
-
-```python
-from dataclasses import make_dataclass
-Point = make_dataclass("Point", [("x", int), ("y", int)])
-pd.DataFrame([Point(0, 0), Point(0, 3), Point(2, 3)])
-    x  y
- 0  0  0
- 1  0  3
- 2  2  3
-```
-
-從 Series 或 DataFrame 建構 DataFrame：
-
-```python
-ser = pd.Series([1, 2, 3], index=["a", "b", "c"])
-df = pd.DataFrame(data=ser, index=["a", "c"])
-df
-#     0
-#  a  1
-#  c  3
-
-df1 = pd.DataFrame([1, 2, 3], index=["a", "b", "c"], columns=["x"])
-df2 = pd.DataFrame(data=df1, index=["a", "c"])
-df2
-#     x
-#  a  1
-#  c  3
-```
-<br/>
-
-### Python 基礎班....
-
-```python
-Xd2 =  {'customer': 'c3', 'channel': 's2', 'product': ['p1', 'p2', 'p3']}
-Xd3 =  {'customer': ['c1', 'c2'], 'channel': 's1', 'product': ['p1', 'p2', 'p3']}
-```
-
-使用 list 來建立 DataFrame，預設的 row/column 都是數字
-
-```python
-import pandas as pd
-##== (1).
-df1 = pd.DataFrame([[1,2,3],[4,5,6]])
-print("df1=", df1)
-#    0  1  2
-# 0  1  2  3
-# 1  4  5  6
-```
-
-
-```python
-df = pd.DataFrame([[1,2,3],[4,5,6]],index=['row1','row2'],columns=['col1','col2','col3'])
-print("df=", df)
-
-```
-
-<br/>
-
-### 由 dict 建立 DataFrame
-
-用 1,1,3 個元素的 dict 可以建立數據框
-
-```python
-Xdf2 = pd.DataFrame(Xd2)
-print("Xdf2=",Xdf2)
-# Xdf=   customer channel product
-#    0       c3      s2      p1
-#    1       c3      s2      p2
-#    2       c3      s2      p3
-```
-
-使用另一個 dict 去生成時發生錯誤，用 2,1,3 個元素的 dict 就不可以建立數據框，出現 ValueError 
-
-```python
-Xdf2 = pd.DataFrame(Xd2);
-# ValueError: All arrays must be of the same length
-```
-<br/>
-
-### 最常見的 DataFrame 建立方法
-
-```python
-Xdf = pd.DataFrame({"customer": ["c1","c2","c3"], "channel": ["s1","s2","s3"], 
-                    "product":["p1","p2","p3"], "quantity": [1,1,2], "amount": [1200,800,3200]});   
-print("Xdf = ",Xdf)
-
-# Xdf =    customer channel product  quantity  amount
-#        0       c1      s1      p1         1    1200
-#        1       c2      s2      p2         1     800
-#        2       c3      s3      p3         2    3200
-```
-
-<br/>
-
-###  DataFrame 樣貌(shape,head)
-
-```python
-print("Xdf.shape =",Xdf.shape)
-#-- Xdf.shape = (3, 5) -- (row列數,column行數)
-
-print("Xdf.head(2) =",Xdf.head(2))
-#-- 前數行(head)與後數行(tail)
-
-# Xdf.head(2) =   customer channel product  quantity  amount
-#               0       c1      s1      p1         1    1200
-#               1       c2      s2      p2         1     800
-```
-### 設定索引
-
-```python
-Xdf1 = Xdf.copy();            
-Xdf1.set_index("customer" , inplace=True);
-print(Xdf1)
-
-#          channel product  quantity  amount
-# customer                                  
-# c1            s1      p1         1    1200
-# c2            s2      p2         1     800
-# c3            s3      p3         2    3200
-```
-將 customer設定 index 後，行數會少 1，我們可以從 shape() 得知。
-
-```python
-print("Xdf1.shape =",Xdf1.shape)
-#-- Xdf1.shape = (3, 4) -- (row列數,column行數)
-
-print("Xdf1.head(2) =",Xdf1.head(2))
-#-- 前數行(head)與後數行(tail)
-# Xdf1.head(2) =          channel product  quantity  amount
-#               customer                                  
-#               c1            s1      p1         1    1200
-#               c2            s2      p2         1     800
-```
-### 重設設定索引
-
-```python
-print("Xdf1.index=",Xdf1.index)
-#-- Xdf1.index= Index(['c1', 'c2', 'c3'], dtype='object', name='customer')
-
-print("Xdf1.columns=",Xdf1.columns)
-#-- Xdf1.columns= Index(['channel', 'product', 'quantity', 'amount'], dtype='object')
-
-Xdf2 = Xdf1.reset_index();
-print(Xdf2)
-#-- Xdf2 和 Xdf 相同
-```
-
-### 提取列
-
-```python
-print(Xdf1)
-#         channel product  quantity  amount
-#customer                                  
-#c1            s1      p1         1    1200
-#c2            s2      p2         1     800
-#c3            s3      p3         2    3200
-```
-提取 index = c2 的列
-
-```python
-print("Xdf1.loc['c2']=",Xdf1.loc['c2'])
-#-- (a1)提取指定索引的列 .loc['c2']
-```
-
-提取第 i 列
-
-```python
-print("Xdf1.iloc[2]=",Xdf1.iloc[2])
-#-- (a2)提取第 k(2)列: .iloc[2]
-```
-
-提取第 slice 列
-
-```python
-print("Xdf1[1:3]=",Xdf1[1:3])
-#-- (a3)提取第1:3(1-2)列
-```
-
-提取行
-
-```python
-print("Xdf1['product']=",Xdf1['product'])
-#-- (a)按照列名稱，提取指定的行
-```
-
-<br/>
-
-### 提取元素
-
-```python
-print("Xdf.values[2]=",Xdf.values[2])         #-- [列] --> ['c3' 's3' 'p3' 2 3200]
-print("Xdf.values[2][4]=",Xdf.values[2][4])   #-- [列][行] --> 3200
-print("Xdf.values[2][4]=",Xdf.values[2][4])   #-- [列][行] --> 3200
-```
-
-### 條件提取
-
-```python
-Xdf.loc[Xdf['amount']>3000]
-
-# OR
-Xdf.loc[(Xdf['amount']<1000)|(Xdf['quantity']>=2)]
-
-# AND
-Xdf.loc[(Xdf['amount']<1000)&(Xdf['quantity']<=1)]
-
-#AND
-Xdf.loc[(Xdf['amount']<1000)].loc[(Xdf['quantity']<=1)]
-```
-
-<br/>
-
-### DataFrame 增減
-
-```python
-df4 = pd.DataFrame({"customer":["c4"], "channel":["s4"], "product":["p4"], "quantity":[3], "amount":[1500]})
-Xdf4 = pd.concat([Xdf,df4])   
-print("Xdf4 = ",Xdf4)
-
-Xdf4a = Xdf4.drop([0],axis=0);
-
-Xdf4b = Xdf4a.drop(["quantity"],axis=1);
-```
-<br/>
-
-### 讀取 csv
-
-```python
-pd.read_csv(wkDir+"target.csv")
-```
-
-### Streamlit
-
-執行 streamlit run main.py
-
-```python
-# 檔案 main.py
-
-import os
-#==> 任何數據分析編程的第一件事：設定工作目錄(Working Directory)
-wkDir = "c:/Users/Admin/Desktop/台新python/";   os.chdir(wkDir)
-print(os.getcwd())
-
-# Step1. 讀取 DataFrame
-import pandas as pd
-target = pd.read_csv(wkDir+"data.csv");
-
-import streamlit as st
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
-st.title("台新銀行: 大數據實務網站")      #-- canvas
-st.sidebar.title("控制盤")               #-- sidebar
-
-if st.sidebar.checkbox("(1) 擷取交易數據 (-->target)"):    #-- (3A) 由用戶於控制盤勾選後,再進行數據讀取
-    print("\n\n>>>>> (1) 擷取交易數據 (-->target) -----")  #-- 偵錯用
-    target = pd.read_csv(wkDir+"target.csv")                  ##== (D6) 讀取數據框
-    st.sidebar.write("* 交易數據檔 = target.csv")          #-- (3B) 以下為 控制盤(sidebar)設計
-    st.sidebar.write("* 交易記錄數 = ", target.shape[0])   
-    st.header("(1) 擷取交易數據檔(-->target)")             #-- (3B) 以下為 主畫面(content)設計
-    st.write("* 交易記錄數 = ", target.shape[0])  
-    st.dataframe(target.head(3))
-
-if st.sidebar.checkbox("(2) 產生交易週時模型"):       #-- (A) 由用戶於控制盤勾選後,再進行數據讀取
-    print("\n\n>>>>> (2) 產生交易週時模型 -----")     #-- 偵錯用 
-    XXX["hour"] = pd.to_datetime(XXX["datetime"]).dt.hour           ##== (G2-1).(KDD3) 產生週/時標籤 (hour,weekday)
-    XXX["weekday"] = pd.to_datetime(XXX["datetime"]).dt.weekday    
-    TTT = pd.crosstab( XXX["hour"], XXX["weekday"], margins=True ); print(TTT[0:3])  ##== (G2-2).(KDD4) 建立 交易週時模型 (TTT)
-    st.header("(2) 交易週時模型(XXX[hour,weekday])")  #-- (B) 以下為 主畫面(content)設計
-    st.write("(2A) (KDD3) 產生的數據標籤-- ")  
-    st.dataframe(XXX.head(3))
-    st.write("(2B) (KDD4) 交易週時模型-- ")  
-    st.dataframe(TTT) 
-```
- ### sklearn
- 
-```pthon
-##== sklearn/datasets: 提供了一些數據生成器和數據加載工具, 共有24個數據集
-from sklearn import datasets
-iris = datasets.load_iris()
-print(iris.feature_names)   #-- ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
-print(iris.target_names)    #-- ['setosa' 'versicolor' 'virginica']
-print(iris.data.shape)      #-- (150,4)
-print(iris.data[0:2,])      #-- [[5.1 3.5 1.4 0.2] [4.9 3.  1.4 0.2]]
-```
-
-### 寫入 csv
-
-```pthon
-ds = pd.read_csv(wkDir+"data_source.csv")
-ds.to_excel("new.xlsx")
-```
-
-### opensource 抓資料
-
-```pthon
-URL = 'https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.json'
-response = requests.get(URL)
-jsonData = response.json()
-data = list(jsonData["retVal"].values());
-```
-<br/>
-
-###　資料分析
-
-量值分析？
-
-
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Aug 10 14:26:24 2023
-
-@author: 1051448
-"""
-
 import pandas as pd
 import numpy as np
-#%%##
-# 使用字典建立 DataFrame，字典的值是純量
 dict = {"col":'a', "col2":'c'}
 
 s1 = pd.DataFrame(dict1)
@@ -447,67 +67,120 @@ s1 = pd.DataFrame(dict1)
 df = pd.DataFrame(dict, index=['row'])
 #     col col2
 # row   a    c
+```
 
-# 如果多設幾個 index，資料就會複製如下，看起來是指有一列資料才能自我增生
+如果多設幾個 index，資料就會複製如下，看起來是指有一列資料才能自我複製
 
-df = pd.DataFrame(dict, index=['row','row2','row3'])
+```python
+df = pd.DataFrame(dict, index=['row', 'row2', 'row3'])
 #      col col2
 # row    a    c
 # row2   a    c
 # row3   a    c
+```
 
-# q 不屬於原本的 col，所以選擇不到變成 NaN
+如果使用字典建立 DataFrame，預設的 column 會是字典的 keys，如果使用參數 columns 則它的值必須要對應到原本字典的 keys，不然會抓不到 columns，舉例如下。
 
-df = pd.DataFrame(dict, index=['row','row2','row3'], columns=['q'])
+```python
+df = pd.DataFrame(dict, index=['row', 'row2', 'row3'], columns=['q'])
 #         q
 # row   NaN
 # row2  NaN
 # row3  NaN
 
-df = pd.DataFrame(dict, index=['row','row2','row3'], columns=['col2'])
+df = pd.DataFrame(dict, index=['row', 'row2', 'row3'], columns=['col2'])
 #      col2
 # row     c
 # row2    c
 # row3    c
+```
 
-#%%##
-# 使用字典建立 DataFrame，字典的值是 list
-dict = {"col":['a','b'], "col2":['c','d']}
+**使用字典建立 DataFrame，字典的值是 list**
+
+```python
+dict = {"col":['a', 'b'], "col2":['c', 'd']}
 
 df = pd.DataFrame(dict)
 #   col col2
 # 0   a    c
 # 1   b    d
+```
 
-# 我們可以看到字典的建值變成了 DataFrame 的行了
+我們可以看到字典的 key 變成了 DataFrame 的行標籤了
 
-# 加入 index 參數時，長度必須相同
+**加入 index 參數時，長度必須相同**
 
+```python
 df = pd.DataFrame(dict, index=['row1', 'row2', 'row3'])
 
 # ValueError: Length of values (2) does not match length of index (3)
-
-df = pd.DataFrame(dict, index=['row1', 'row2'])
-#      col col2
-# row1   a    c
-# row2   b    d
 
 df = pd.DataFrame(dict, index=['row1'])
 
 # ValueError: Length of values (1) does not match length of index (3)
 
+df = pd.DataFrame(dict, index=['row1', 'row2'])
+#      col col2
+# row1   a    c
+# row2   b    d
+```
 
+{:.note} 如果資料來源是 list，index 參數的用途像是重新命名 row 的標籤，不一定要與原本 list 的 RangeIndex 一樣。但長度必須與 row 數一致。
+
+就算我們設定 index=[1, 0]，原本猜想第0行跟第1行的內容會互換，但資料的內容還是維持一樣沒有互換。
+
+{:.note} 如果資料來源是 list，調動 index 的值無法變更 DataFrame 的內容。
+
+```python
+df = pd.DataFrame(dict, index=[1, 0])
+#   col col2
+# 1   a    c
+# 0   b    d
+```
+
+下面同樣可以到，如果資料是字典，使用 columns 參數時值必須要等於 key 才能選擇
+
+```
 df = pd.DataFrame(dict, index=['row1', 'row2'], columns=['col'])
 #      col
 # row1   a
 # row2   b
 
-#%%##
+df = pd.DataFrame(dict, index=['row1', 'row2'], columns=['X'])
+#      	 X
+# row1 NaN
+# row2 NaN
+```
 
-# 使用字典建立 DataFrame，字典的值是 Series
+**使用字典建立 DataFrame，字典的值是 list 長度不同時**
 
-s1 = pd.Series([1,2,3])
-s2 = pd.Series([4,5,6])
+用 1,1,3 個元素的字典可以建立 DataFrame
+
+```python
+d =  {'a':'a1', 'b':'b1', 'c':['c1', 'c2', 'c3']}
+
+df = pd.DataFrame(d)
+#      		 a        b       c
+#    0       a1      b2      c1
+#    1       a1      b2      c2
+#    2       a1      b2      c3
+```
+
+長度不一會自動補齊，前提是只能同時有 1 或 N 個元素。  
+
+當我們用包含 2,1,3 個元素的字典時，就無法建立 DataFrame，出現 ValueError 
+
+```python
+d =  {'a':['a1', 'a2], 'b':'b1', 'c':['c1', 'c2', 'c3']}
+df = pd.DataFrame(d)
+# ValueError: All arrays must be of the same length
+```
+
+**使用字典建立 DataFrame，字典的值是 Series**
+
+```python
+s1 = pd.Series([1, 2, 3])
+s2 = pd.Series([4, 5, 6])
 
 dict = {"col":s1, "col2":s2}
 
@@ -516,58 +189,75 @@ df = pd.DataFrame(dict)
 # 0    1     4
 # 1    2     5
 # 2    3     6
+```
 
-# 如果使用 index，則 index 必須與 Series 的 index 吻合
+如果使用 index，則 index 必須與 Series 的 index 吻合
 
-df = pd.DataFrame(dict, index=['a','b','c'])
+```python
+df = pd.DataFrame(dict, index=['a', 'b', 'c'])
 #    col  col2
 # a  NaN   NaN
 # b  NaN   NaN
 # c  NaN   NaN
+```
 
-# index 必須與 Ser
+index 必須與 Series 的 index 吻合，才能取得資料
 
-df = pd.DataFrame(dict, index=[0,1,2])
+```python
+df = pd.DataFrame(dict, index=[0, 1, 2])
 #    col  col2
 # 0    1     4
 # 1    2     5
 # 2    3     6
+```
 
-# index 順序可以換
+index 順序可以換時，列的順序也隨 index 不同而改變了，與 list 不同，這裡的 index 變成一種 *selector* 了
 
-df = pd.DataFrame(dict, index=[0,2,1])
+```python
+df = pd.DataFrame(dict, index=[0, 2, 1])
 #    col  col2
 # 0    1     4
 # 2    3     6
 # 1    2     5
+```
 
-# index 可以重複
+因為變成類似 selector，所以 index 可以重複選取
 
-df = pd.DataFrame(dict, index=[2,2,2])
+```python
+df = pd.DataFrame(dict, index=[2, 2, 2])
 #    col  col2
 # 2    3     6
 # 2    3     6
 # 2    3     6
+```
 
-# 使用 columns
+搭配 columns
 
-df = pd.DataFrame(dict, index=[0,1,2], columns=['col'])
+```python
+df = pd.DataFrame(dict, index=[0, 1, 2], columns=['col'])
 #    col
 # 0    1
 # 1    2
 # 2    3
 
-df = pd.DataFrame(dict, index=[0,1,2], columns=['col', 'col', 'col'])
+df = pd.DataFrame(dict, index=[0, 1, 2], columns=['col', 'col', 'col'])
 #    col  col  col
 # 0    1    1    1
 # 1    2    2    2
 # 2    3    3    3
-#%%##
 
-# 使用字典建立 DataFrame，字典的值是 Series (有index)
+df = pd.DataFrame(dict, index=[0, 1, 2], columns=['X'])
+#      X
+# 0  NaN
+# 1  NaN
+# 2  NaN
+```
 
-s1 = pd.Series([1,2,3], index=['s1','s2','s3'])
-s2 = pd.Series([4,5,6])
+**使用字典建立 DataFrame，字典的值是 Series，部分 Series 有 index)**
+
+```python
+s1 = pd.Series([1, 2, 3], index=['s1', 's2', 's3'])
+s2 = pd.Series([4, 5, 6])
 
 dict = {"col":s1, "col2":s2}
 
@@ -579,45 +269,52 @@ df = pd.DataFrame(dict)
 # 0   NaN   4.0
 # 1   NaN   5.0
 # 2   NaN   6.0
+```
+
+可以看到因為 s1 與 s2 的 index 不同，所以被合成 6 列的 dataframe，其他補上 NaN。
+
 
 # 如果使用 index，則 index 必須與 Series 的 index 吻合
 
-df = pd.DataFrame(dict, index=['s1','s2','s3'])
+```python
+df = pd.DataFrame(dict, index=['s1', 's2', 's3'])
 #     col  col2
 # s1    1   NaN
 # s2    2   NaN
 # s3    3   NaN
 
-df = pd.DataFrame(dict, index=[0,1,2])
+df = pd.DataFrame(dict, index=[0, 1, 2])
 #    col  col2
 # 0  NaN     4
 # 1  NaN     5
 # 2  NaN     6
+```
 
 index 順序可以換
 
-df = pd.DataFrame(dict, index=[0,'s2',1])
+```python
+df = pd.DataFrame(dict, index=[0, 's2', 1])
 #     col  col2
 # 0   NaN   4.0
 # s2  2.0   NaN
 # 1   NaN   5.0
+```
 
-@index 可以重複
+index 可以重複
 
-df = pd.DataFrame(dict, index=['s3','s3','s3'])
+```python
+df = pd.DataFrame(dict, index=['s3', 's3', 's3'])
 #     col  col2
 # s3    3   NaN
 # s3    3   NaN
 # s3    3   NaN
+```
 
+**使用字典建立 DataFrame，字典的值是 Series (長度不一樣)**
 
-#%%##
-
-# 使用字典建立 DataFrame，字典的值是 Series
-# 如果長度不一樣，會自動補 NaN
-
-s1 = pd.Series([1,2])
-s2 = pd.Series([4,5,6])
+```python
+s1 = pd.Series([1, 2])
+s2 = pd.Series([4, 5, 6])
 
 dict = {"col":s1, "col2":s2}
 
@@ -626,161 +323,232 @@ df = pd.DataFrame(dict)
 # 0  1.0     4
 # 1  2.0     5
 # 2  NaN     6
+```
 
+Series 長度不一會自動補上 NaN
+
+```python
 # 加入 index
 
 df = pd.DataFrame(dict, index=[0])
 #    col  col2
 # 0    1     4
 
-df = pd.DataFrame(dict, index=[0,1])
+df = pd.DataFrame(dict, index=[0, 1])
 #    col  col2
 # 0    1     4
 # 1    2     5
 
-df = pd.DataFrame(dict, index=[0,1,2])
+df = pd.DataFrame(dict, index=[0, 1, 2])
 #    col  col2
 # 0  1.0     4
 # 1  2.0     5
 # 2  NaN     6
 
-df = pd.DataFrame(dict, index=[0,1,2,3])
+df = pd.DataFrame(dict, index=[0, 1, 2, 3])
 #    col  col2
 # 0  1.0   4.0
 # 1  2.0   5.0
 # 2  NaN   6.0
 # 3  NaN   NaN
+```
 
-觀察結果 : 看起來 index 的長度不需要與 Series 的長度一樣
+{:.note} 如果資料來源是 Series，index 參數的用途像是 row 的 selector，index 參數需要與原先 Series 定義的 index 一樣，才能選到該 row。不像 list，index 參數長度不須與 row 數一致。
 
-#%%##
+**使用字典建立 DataFrame，字典的值混合 Series 與 list**
 
-# 使用字典建立 DataFrame，字典的值混合 Series 與 list
-
-s = pd.Series([1,2,3])
+```python
+s = pd.Series([1, 2, 3], index=['a', 'b', 'c'] )
 l = [4,5,6]
 
 dict = {"col":s, "col2":l}
 
 df = pd.DataFrame(dict)
 #    col  col2
-# 0    1     4
-# 1    2     5
-# 2    3     6
+# a    1     4
+# b    2     5
+# c    3     6
+```
 
-# 使用 index
+如果有 Series 有定義 index 的話，row labels 都會是 Series 的 index，如下
 
+```python
+s = pd.Series([1, 2, 3], index=['a', 'b', 'c'] )
+l = [4,5,6]
+
+dict = {"col":l, "col2":s} # 顛倒過來
+
+df = pd.DataFrame(dict)
+#    col  col2
+# a    4     1
+# b    5     2
+# c    6     3
+```
+
+**使用 index**
+
+```python
 df = pd.DataFrame(dict, index=[0])
 
 # 錯誤
 # ValueError: Length of values (3) does not match length of index (1)
 
-df = pd.DataFrame(dict, index=[0,1,2])
+df = pd.DataFrame(dict, index=['a', 'b', 'c'])
 #    col  col2
-# 0    1     4
-# 1    2     5
-# 2    3     6
+# a    1     4
+# b    2     5
+# c    3     6
+```
 
-# index 長度要剛好才行，似乎跟 list 有關
+index 必須要是剛好長度 3 才行，應該與資料包含 list 有關。
 
-#%%##
 
-# 使用字典建立 DataFrame，字典的值是 DataFrame
+**無法建立 DataFrame，資料來源是包含 DataFrame 的字典**
 
-df1 = pd.DataFrame({"col":[1,2], "col2":[3,4]})
-df2 = pd.DataFrame({"col":[5,6], "col2":[7,8]})
+```python
+df1 = pd.DataFrame({"col":[1, 2], "col2":[3, 4]})
+df2 = pd.DataFrame({"col":[5, 6], "col2":[7, 8]})
 df3 = pd.DataFrame({"a":df1, "b":df2}, index=["X"])
 
 # 錯誤
 # ValueError: Data must be 1-dimensional
+```
 
-#%%##
+**使用字典建立 DataFrame，字典的值是 ndarray**
 
-# 使用字典建立 DataFrame，字典的值是 ndarray
-
+```python
 import numpy as np
 r1 = np.array([1,2])
-r2 = np.array([1,2])
+r2 = np.array([3,4])
 
 df = pd.DataFrame({"a":r1, "b":r2})
 #    a  b
-# 0  1  1
-# 1  2  2
+# 0  1  3
+# 1  2  4
 
 # 使用 index
 
 df = pd.DataFrame({"a":r1, "b":r2}, index=["X", "Y"])
 #    a  b
-# X  1  1
-# Y  2  2
+# X  1  3
+# Y  2  4
 
 df = pd.DataFrame({"a":r1, "b":r2}, index=[1, 0])
 #    a  b
-# 1  1  1
-# 0  2  2
+# 1  1  3
+# 0  2  4
+```
 
-#%%##
+{:.note} 如同 list，如果資料來源是 ndarray，index 參數的用途像是重新命名 row 的標籤，不一定要與原本 ndarray 的 RangeIndex 一樣。但長度必須與 row 數一致。
 
-# 使用 list 建立 DataFrame，list 的值是純量
+如同 list，就算我們設定 index=[1,  0]，原本猜想第0行跟第1行的內容會互換，但資料的內容還是維持一樣沒有互換。
 
-l = ['a','b','c']
+{:.note} 如果資料來源是 list\ndarray，改變 index 的值無法變更 DataFrame 的內容。
+
+
+**使用 list 建立 DataFrame，list 的值是純量**
+
+```python
+l = ['a', 'b', 'c']
 
 df = pd.DataFrame(l)
 #    0
 # 0  a
 # 1  b
 # 2  c
+```
 
-# 使用 index
+使用 index
 
-df = pd.DataFrame(l, index=['q','p','o'])
+```python
+df = pd.DataFrame(l, index=['q', 'p', 'o'])
 #    0
 # q  a
 # p  b
 # o  c
+```
 
-# 設定 index 沒有影響資料取得。還是有取得資料如上，index 長度需一致
+資料是 list，設定 index 只有重新命名列標籤用，index 長度需與資料一致
 
-#%%##
+使用 columns
 
-# 使用 list 建立 DataFrame，list 的值是 list
+```python
+df = pd.DataFrame(l, index=['q', 'p', 'o'], columns=['x'])
+#    x
+# q  a
+# p  b
+# o  c
+```
 
-l = [['a','b','c'],['d','e','f']]
+如果資料是 list/ndarray，columns 設定會變更 column label 的值，columns 的值也要剛好等於資料 column 數。
+
+**使用 list 建立 DataFrame，list 的值是 list**
+
+{:.note} 請注意! 不像字典，value 會變成行，如果是 list，list[0]、list[1] ... 資料是橫著放的
+
+```python
+l = [['a', 'b', 'c'], ['d', 'e', 'f']]
 
 df = pd.DataFrame(l)
 #    0  1  2
-# 0  a  b  c
-# 1  d  e  f
+# 0  a  b  c   l[0]
+# 1  d  e  f   l[1]
+```
 
-# 使用 index
+使用 index
 
-df = pd.DataFrame(l, index=['X','Y'])
+```python
+df = pd.DataFrame(l, index=['X', 'Y'])
 #    0  1  2
 # X  a  b  c
 # Y  d  e  f
+```
 
-#%%##
-# 使用 list 建立 DataFrame，list 的值是 list，list 的長度不一樣
+使用 columns
 
-l = [['a','b','c'],['d','e']]
+```python
+df = pd.DataFrame(l, index=['X', 'Y'], columns=['A', 'B', 'C'])
+#    A  B  C
+# X  a  b  c
+# Y  d  e  f
+```
+
+在 list 上使用 columns 效果等同重新命名欄標籤的值。
+
+**使用 list 建立 DataFrame，list 的值是 list，list 的長度不一樣**
+
+```python
+l = [['a', 'b', 'c'],['d', 'e']]
 
 df = pd.DataFrame(l)
 #    0  1     2
 # 0  a  b     c
 # 1  d  e  None
+```
 
-# 使用 index
+使用 index
 
-df = pd.DataFrame(l, index=['X','Y'])
+```python
+df = pd.DataFrame(l, index=['X', 'Y'])
 #    0  1     2
 # X  a  b     c
 # Y  d  e  None
+```
 
-#%%##
-# 使用 list 建立 DataFrame，list 的值是 Series
+使用 columns
 
-s1 = pd.Series(['a','b','c'])
-s2 = pd.Series(['d','e','f'])
+```python
+df = pd.DataFrame(l, index=['X', 'Y'], columns=['A', 'B', 'C'])
+#    A  B     C
+# X  a  b     c
+# Y  d  e  None
+```
+
+**使用 list 建立 DataFrame，list 的值是 Series**
+
+```python
+s1 = pd.Series(['a', 'b', 'c'])
+s2 = pd.Series(['d', 'e', 'f'])
 
 l = [s1, s2]
 
@@ -788,19 +556,74 @@ df = pd.DataFrame(l)
 #    0  1  2
 # 0  a  b  c
 # 1  d  e  f
+```
 
-# 使用 index
+使用 index
 
-df = pd.DataFrame(l, index=['X','Y'])
+```python
+df = pd.DataFrame(l, index=['X', 'Y'])
 #    0  1  2
 # X  a  b  c
 # Y  d  e  f
+```
 
-#%%##
-# 使用 list 建立 DataFrame，list 的值是 Series 的長度不一樣
+雖然 list 的值是 Series，但 index 變成同樣只是 rename 的功能而已。
 
-s1 = pd.Series(['a','b','c'])
-s2 = pd.Series(['d','e'])
+使用 columns
+
+```python
+df = pd.DataFrame(l, index=['X', 'Y'], columns=[0,1,2,2,'X'])
+#    0  1  2  2    X
+# X  a  b  c  c  NaN
+# Y  d  e  f  f  NaN
+```
+
+**使用 list 建立 DataFrame，list 的值是 Series(有定義index)**
+
+```python
+s1 = pd.Series(['a', 'b', 'c'], index=['A', 'B', 'C'])
+# A    a
+# B    b
+# C    c
+# dtype: object
+
+s2 = pd.Series(['d', 'e', 'f'])
+
+l = [s1, s2]
+
+df = pd.DataFrame(l)
+#      A    B    C    0    1    2
+# 0    a    b    c  NaN  NaN  NaN
+# 1  NaN  NaN  NaN    d    e    f
+```
+
+Series 的 index 變成 DataFrame 的 column 了
+
+<br/>
+
+使用 index
+
+```python
+df = pd.DataFrame(l, index=['Q', 'X'])
+#      A    B    C    0    1    2
+# Q    a    b    c  NaN  NaN  NaN
+# X  NaN  NaN  NaN    d    e    f
+```
+
+使用 columns
+
+```python
+df = pd.DataFrame(l, index=['Q', 'X'], columns=['A', 2])
+#      A     2
+# Q    a   NaN
+# X  NaN     f
+```
+
+**使用 list 建立 DataFrame，list 的值是 Series 的長度不一樣**
+
+```python
+s1 = pd.Series(['a', 'b', 'c'])
+s2 = pd.Series(['d', 'e'])
 
 l = [s1, s2]
 
@@ -808,64 +631,353 @@ df = pd.DataFrame(l)
 #    0  1    2
 # 0  a  b    c
 # 1  d  e  NaN
+```
 
-# 使用 index
+使用 index
 
-df = pd.DataFrame(l, index=[0,1])
+```python
+df = pd.DataFrame(l, index=[0, 1])
 #    0  1    2
 # 0  a  b    c
 # 1  d  e  NaN
 
-df = pd.DataFrame(l, index=['X','Y'])
+df = pd.DataFrame(l, index=['X', 'Y'])
 #    0  1    2
 # X  a  b    c
 # Y  d  e  NaN
+```
 
 如果值是 list\ndarray，那麼 index 的長度就一定要剛好，參數 index 在值是 list\ndarray 時不會改變 DataFrame 的內容
 
-#%%##
+**使用 list 建立 DataFrame，list 的值是 ndarray**
 
-# 使用 list 建立 DataFrame，list 的值是 ndarray
-
+```python
 import numpy as np
-r1 = np.array([1,2])
-r2 = np.array([3,4])
+r1 = np.array([1, 2])
+r2 = np.array([3, 4])
 
 df = pd.DataFrame([r1, r2])
 #    0  1
 # 0  1  2
 # 1  3  4
+```
 
-# 使用 index
+使用 index
 
+```python
 df = pd.DataFrame([r1, r2], index=['X', 'Y'])
 #    0  1
 # X  1  2
 # Y  3  4
+```
 
-#%%##
+**使用 DataFrame 建立 DataFrame**
 
-# 使用 DataFrame 建立 DataFrame
-
-df = pd.DataFrame([1,2,3])
+```python
+df = pd.DataFrame([[1, 2, 3], [4, 5, 6]])
 df2 = pd.DataFrame(df)
 
 print(df)
-#    0
-# 0  1
-# 1  2
-# 2  3
+#    0  1  2
+# 0  1  2  3
+# 1  4  5  6
+```
 
-### 使用參數 index
+使用參數 index
 
+```python
 df2 = pd.DataFrame(df, index=[0])
-#    0
-# 0  1
+#    0  1  2
+# 0  1  2  3
 
-df2 = pd.DataFrame(df, index=[2])
-#    0
-# 2  3
+df2 = pd.DataFrame(df, index=[1])
+#    0  1  2
+# 1  4  5  6
 
 df2 = pd.DataFrame(df, index=['x'])
-#     0
-# x NaN
+#     0	  1   2
+# x NaN NaN NaN
+```
+
+### 從資料類別（dataclass）建構 DataFrame：
+
+```python
+from dataclasses import make_dataclass
+Point = make_dataclass("Point", [("x", int), ("y", int)])
+pd.DataFrame([Point(0, 0), Point(0, 3), Point(2, 3)])
+    x  y
+ 0  0  0
+ 1  0  3
+ 2  2  3
+```
+
+<br/>
+
+### DataFrame 參數 dtype
+
+為了強制使用單一的 dtype：
+
+```python
+df = pd.DataFrame(data=d, dtype=np.int8)
+df.dtypes
+#  col1    int8
+#  col2    int8
+#  dtype: object
+```
+
+```python
+dict = {'apple':['a1', 'a2', 'a3'], 'banana':['b1','b2','b3'], 'cherry':['c1','c2','c3'], 'dumplin':['d1','d2','d3']}
+df = pd.DataFrame(data=dict)
+
+#   apple banana cherry dumplin
+# 0    a1     b1     c1      d1
+# 1    a2     b2     c2      d2
+# 2    a3     b3     c3      d3
+```
+
+**DataFrame 的方法**
+
+**DataFrame.shape()**
+
+```python
+df.shape # (3, 4)
+# 3 rows, 4 columns
+```
+
+**DataFrame.head(i)**
+
+```python
+df.head(1)
+#   apple banana cherry dumplin
+# 0    a1     b1     c1      d1
+```
+
+**DataFrame.tail(i)**
+
+```python
+df.tail(1)
+#   apple banana cherry dumplin
+# 2    a3     b3     c3      d3
+```
+
+**DataFrame.copy()**
+
+```python
+# 複製一個 DataFrame
+df2 = df.copy()
+```
+
+**DataFrame.set_index()**
+
+```python
+df2.set_index('apple', inplace=True)
+#       banana cherry dumplin
+# apple                      
+# a1        b1     c1      d1
+# a2        b2     c2      d2
+# a3        b3     c3      d3
+
+df2.shape # (3, 3)
+# 設完 index 後少了一行行
+
+df2.head(1)
+#       banana cherry dumplin
+# apple                      
+# a1        b1     c1      d1
+```
+
+**DataFrame.index()**
+
+```python
+df2.index = pd.Index(['q1','q2','q3'], dtype='object', name='xxx')
+#     banana cherry dumplin
+# xxx                      
+# q1      b1     c1      d1
+# q2      b2     c2      d2
+# q3      b3     c3      d3
+```
+
+**DataFrame.reset_index()**
+
+會將 index 再變成 RangeIndex
+
+```python
+df3 = df2.reset_index()
+#   xxx banana cherry dumplin
+# 0  q1     b1     c1      d1
+# 1  q2     b2     c2      d2
+# 2  q3     b3     c3      d3
+```
+
+**DataFrame.loc()**
+
+取得 index = 'XXX' 的列
+
+```python
+dict = {'apple':['a1', 'a2', 'a3'], 'banana':['b1','b2','b3'], 'cherry':['c1','c2','c3'], 'dumplin':['d1','d2','d3']}
+df = pd.DataFrame(data=dict, index=['r1', 'r2', 'r3'])
+#    apple banana cherry dumplin
+# r1    a1     b1     c1      d1
+# r2    a2     b2     c2      d2
+# r3    a3     b3     c3      d3
+
+df.loc['r2']
+# apple      a2
+# banana     b2
+# cherry     c2
+# dumplin    d2
+# Name: r2, dtype: object
+```
+
+**DataFrame.iloc 取得第 i 列**
+
+```python
+df.iloc[2]
+# apple      a3
+# banana     b3
+# cherry     c3
+# dumplin    d3
+# Name: r3, dtype: object
+```
+
+**使用 slicing 取得列**
+
+```python
+df[2:]
+#    apple banana cherry dumplin
+# r3    a3     b3     c3      d3
+```
+
+**DataFrame.values[][] 取得某行某列的值**
+
+取得第二行
+
+```python
+df.values[1]
+# ['a2' 'b2' 'c2' 'd2']
+
+df.values[1][1]
+# b2
+```
+
+**OR 條件**
+
+```python
+dict = {'apple':[60, 30, 100], 'banana':[50,60,70], 'cherry':[30,60,90], 'dumplin':[120,240,360]}
+df = pd.DataFrame(data=dict, index=['r1', 'r2', 'r3'])
+#     apple  banana  cherry  dumplin
+# r1     60      50      30      120
+# r2     30      60      60      240
+# r3    100      70      90      360
+
+df.loc[(df['apple']>30)|(df['dumplin']>360)]
+#     apple  banana  cherry  dumplin
+# r1     60      50      30      120
+# r3    100      70      90      360
+```
+
+**AND 條件**
+
+```python
+df.loc[(df['banana']<=60)&(df['cherry']>30)]
+#     apple  banana  cherry  dumplin
+# r2     30      60      60      240
+```
+
+**AND 條件的另一種寫法**
+
+```python
+df.loc[df['banana']<=60].loc[df['cherry']>30]
+#     apple  banana  cherry  dumplin
+# r2     30      60      60      240
+```
+
+**DataFrame.concate()**
+
+將 DataFrame 串接起來
+
+```python
+dict = {'coke':[60, 30, 100], 'pepsi':[50,60,70]}
+df = pd.DataFrame(data=dict)
+print(df)
+#    coke  pepsi
+# 0    60     50
+# 1    30     60
+# 2   100     70
+
+dict2 = {'apple':[60, 30, 100], 'banana':[50,60,70], 'cherry':[30,60,90]}
+df2 = pd.DataFrame(data=dict2, index=['r1', 'r2', 'r3'])
+#     apple  banana  cherry
+# r1     60      50      30
+# r2     30      60      60
+# r3    100      70      90
+
+df2 = pd.concat([df,df2])
+#      coke  pepsi  apple  banana  cherry
+# 0    60.0   50.0    NaN     NaN     NaN
+# 1    30.0   60.0    NaN     NaN     NaN
+# 2   100.0   70.0    NaN     NaN     NaN
+# r1    NaN    NaN   60.0    50.0    30.0
+# r2    NaN    NaN   30.0    60.0    60.0
+# r3    NaN    NaN  100.0    70.0    90.0
+```
+
+**DataFrame.drop() 砍行/列**
+
+{: .box-note}
+Definition : drop(labels: 'IndexLabel'=None, *, axis: 'Axis'=0, index: 'IndexLabel'=None, columns: 'IndexLabel'=None, level: 'Level'=None, inplace: 'bool'=False, errors: 'IgnoreRaise'='raise')
+
+**如何 drop 行**
+
+```python
+dict = {'apple':[60, 30, 100], 'banana':[50,60,70], 'cherry':[30,60,90]}
+df = pd.DataFrame(data=dict, index=['r1', 'r2', 'r3'])
+#     apple  banana  cherry
+# r1     60      50      30
+# r2     30      60      60
+# r3    100      70      90
+
+x = df.drop(['banana'], axis=1)
+```
+axis = 1 表示為行，可以看到 banana 行已經砍掉了，但原始的 DataFrame 不受影響。
+
+```python
+x 
+#     apple  cherry
+# r1     60      30
+# r2     30      60
+# r3    100      90
+
+# 原始 DataFrame 不受影響
+
+df
+#     apple  banana  cherry
+# r1     60      50      30
+# r2     30      60      60
+# r3    100      70      90
+```
+
+**如何 drop 列**
+
+axis = 0 表示為行，可以看到 r2 列已經砍掉了，但原始的 DataFrame 不受影響。
+
+```python
+y = df.drop(['r2'], axis=0)
+#     apple  banana  cherry
+# r1     60      50      30
+# r3    100      70      90
+```
+
+<br/>
+
+### 讀取 csv
+
+```python
+pd.read_csv(wkDir+"target.csv")
+```
+
+### 寫入 csv
+
+```pthon
+ds = pd.read_csv(wkDir+"data_source.csv")
+ds.to_excel("new.xlsx")
