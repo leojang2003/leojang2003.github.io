@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Python Virtual Environment
