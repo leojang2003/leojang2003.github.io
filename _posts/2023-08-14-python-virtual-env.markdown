@@ -30,4 +30,13 @@ C:\> \PythonVirtualEnvironment\Scripts\activate.bat
 PS C:\> \PythonVirtualEnvironment\Scripts\Activate.ps1
 ```
 
-可以不用特別啟動 virtual environment，
+### 如何結束 virtual environment
+
+```python
+# cmd.exe
+
+C:\> \PythonVirtualEnvironment\Scripts\deactivate.bat
+```
+
+### 可以不用特別啟動 virtual environment 
+TBD
