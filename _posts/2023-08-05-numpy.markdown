@@ -56,6 +56,29 @@ print("A2.shape=",A2.shape)
 print("A2.size=",A2.size)   
 # 總個數        
 # A2.size= 12
-```python
+```
 
 在 anaconda 的 console 執行完(shift-enter)，可以打 物件 + 點 + tab ，會出現物件的可用屬性。
+
+### 2維 ndarray 的 slicing
+
+語法是 ndarray[expression1, expression2]，expression 可以是 slicing 的語法，第一個參數決定要哪些列，第二個參數決定要哪幾行。
+
+```python
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+arr[0:2, 1]
+# [2 5]
+
+arr[0:2, 2:]
+# [[3]
+#  [6]]
+
+arr[:, 2]
+# [3 6 9]
+```
+
+2維的 ndarray 接受兩個參數，
+
+
+
