@@ -80,5 +80,22 @@ arr[:, 2]
 
 2維的 ndarray 接受兩個參數，
 
+```python
+# ndarray 的 shape
+             
+q = np.array([1, 2, 3])
+
+q.shape
+#(3,)    
+
+# 代表 1 維有3個元素
+
+q = np.array([[1, 2, 3],[4, 5, 6]])
+
+q.shape
+#(2, 3) 
+
+# 代表 2 維陣列，2列3行
+```
 
 
