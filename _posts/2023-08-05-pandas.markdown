@@ -846,6 +846,19 @@ df.iloc[2]
 # Name: r3, dtype: object
 ```
 
+**使用 slicing 取得行**
+
+```python
+# 單一欄位
+df[:, 'apple']
+
+# 多個欄位
+df[:, ['apple', 'cherry', 'banana']]
+
+# 多個欄位 by range
+df[:, 'apple':'cherry']
+```
+
 **使用 slicing 取得列**
 
 ```python
