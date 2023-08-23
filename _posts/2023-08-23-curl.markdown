@@ -1,0 +1,40 @@
+---
+layout: post
+title: curl
+subtitle: 
+tags: [curl]
+comments: true
+---
+
+紀錄工作上用的 curl 指令
+
+### FTPS
+
+curl 可以使用 implicit 或 explicit 的方式連到 ftps
+
+**Implicit FTPS**
+
+Implicit 的方式就是在 URL 使用 ftps://，如果沒有設定 port，curl 預設 990，這通常不是連線 FTPS 的方式。
+
+**Explicit FTPS**
+
+根據 https://everything.curl.dev/ftp/ftps
+
+{: .box-note}
+The explicit way of doing FTPS is to keep using an ftp:// URL, but instruct curl to upgrade the connection into a secure one using the AUTH TLS FTP command.
+
+Explicit 的方式就是在 URL 使用 ftp://，再加其他參數升級成 secure connection。
+
+{: .box-note}
+You can tell curl to either attempt an upgrade and continue as usual if the upgrade fails with --ssl, or you can force curl to either upgrade or fail the whole thing hard if the upgrade fails by using --ssl-reqd. We strongly recommend using the latter, so that you can be sure that a secure transfer is done - if any.
+
+文件建議使用參數 --ssl-reqd
+
+**實際上傳指令**
+
+```text
+curl -T D:\FileToUpload.txt -u yourusername:yourpassword ftp://10.13.114.136/ --ssl-reqd --tlsv1.2 --insecure --verbose
+```
+URL 是 ftp 搭配 --ssl-reqd 表示是 explicit FTPS，--tlsv1.2 表示使用 TLSv1.2 (SSL)，現在通常都使用 TLS 也就是 SSL 的 升級版，--insecure 表示不使用 cert 連線到 SSL 網站，關於 cert 可以參考 https://curl.se/docs/sslcerts.html，如果沒有安裝 remote site 的 cert 話，使用 --insecure 即可，--verbose 是將結果詳細顯示。
+
+
