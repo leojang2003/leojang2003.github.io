@@ -37,4 +37,6 @@ curl -T D:\FileToUpload.txt -u yourusername:yourpassword ftp://10.13.114.136/ --
 ```
 URL 是 ftp 搭配 --ssl-reqd 表示是 explicit FTPS，--tlsv1.2 表示使用 TLSv1.2 (SSL)，現在通常都使用 TLS 也就是 SSL 的 升級版，--insecure 表示不使用 cert 連線到 SSL 網站，關於 cert 可以參考 https://curl.se/docs/sslcerts.html，如果沒有安裝 remote site 的 cert 話，使用 --insecure 即可，--verbose 是將結果詳細顯示。
 
-
+<br/>
+<br/>
+<br/>
