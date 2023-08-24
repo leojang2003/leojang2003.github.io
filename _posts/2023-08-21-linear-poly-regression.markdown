@@ -2,7 +2,7 @@
 layout: post
 title: Linear Regression & Polynomial Regression
 subtitle: 
-tags: ['DatetimeIndex', 'explanatory variable', 'dependent variable', 'slope', 'intercept', Correlation Coefficient', 'coefficient of determination'']
+tags: ['DatetimeIndex', 'explanatory variable', 'dependent variable', 'slope', 'intercept', Correlation Coefficient', 'coefficient of determination']
 comments: true
 ---
 
