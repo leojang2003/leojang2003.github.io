@@ -6,23 +6,130 @@ tags: [regression]
 comments: true
 ---
 
+這裡使用糖尿病的資料
+
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model, model_selection
 
 X, Y = datasets.load_diabetes(return_X_y=True)
+```
 
+這裡的 X 是一個 ndarray，這裡複習一下 ndarray 取行的方式。
 
+**ndarray 取 column**
+
+```python
 X = X[:,2]
 # 取所有列，第2行
+```
 
+**ndarray 的 shape()**
+
+使用 shape() 可以回傳 array 的 shape (l1,l2,l3)，l1, l2, l3, ... 分別代表第 N 個維度的長度，範例如下
+
+```python
+arr = np.array(1)
+print(arr.shape)
+# ()
+# 第一個維度跟第二個維度都沒有
+
+arr = np.array([1])
+print(arr.shape)
+# (1,)
+# 第一個維度長度1，沒有第二個維度
+
+arr = np.array([[1]])
+print(arr.shape)
+# (1, 1)
+# 第一個維度長度1，第二個維度長度1
+
+arr = np.array([1, 2])
+print(arr.shape)
+# (2,)
+# 第一個維度長度2，沒有第二個維度
+
+arr = np.array([[1, 2]])
+print(arr.shape)
+# (1, 2)
+# 第一個維度長度1，第二個維度長度2
+
+arr = np.array([[1, 2], [3, 4]])
+print(arr.shape)
+# (2, 2)
+# 第一個維度長度1，第二個維度長度2
+```
+
+回到我們的 X，可以看到 X 是的 shape 回傳的(422,) 表示是一個第一個維度長度 422 的 ndarray
+
+```python
 X.shape
 # (442,)
-# 變成一維陣列，有422個元素
+```
 
+**reshape()**
+
+{: .box-note}
+ndarray.reshape(shape, order='C')
+
+shape 如果是數字 n 的話，就是變成一維陣列長度為 n，或者是 tuple。
+
+```python
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+arr.shape
+# (2, 3)
+
+arr.reshape(1)
+# ValueError: cannot reshape array of size 6 into shape (1,)
+# reshape 成一維陣列至少要同原陣列的長度
+
+new = arr.reshape(6)
+# array([1, 2, 3, 4, 5, 6])
+```
+
+原陣列不受影響
+
+```python
+arr.shape
+# (2, 3)
+# reshape 不會影響原本的陣列
+
+new.shape
+# (6,)
+```
+
+reshape 使用 tuple
+
+```python
+new = arr.reshape(-1, 1)
+# array([[1],
+#        [2],
+#        [3],
+#        [4],
+#        [5],
+#        [6]])
+
+new.shape
+# (6, 1)
+
+new = arr.reshape(-1, 6)
+# array([[1, 2, 3, 4, 5, 6]])
+
+new.shape
+# (1, 6)
+
+new = arr.reshape(3, 2)
+# array([[1, 2],
+#        [3, 4],
+#        [5, 6]])
+```
+
+回到 X ，我們要使用 reshape() 將它變成一個二維 ndarray
+
+```python
 X = X.reshape((-1,1))
-# 第二個參數選擇要包含幾個元素
+# 第二個參數選擇第二個維度的長度
 
 # array([[ 0.06169621],
 #        [-0.05147406],
@@ -36,16 +143,21 @@ print(X.shape)
 
 # 試著改變第二個參數
 
-# X = X.reshape((-1,2))
+X = X.reshape((-1,2))
 # array([[ 0.06169621, -0.05147406],
 #        [ 0.04445121, -0.01159501],
 #        ...
 #        [-0.01590626, -0.01590626],
 #        [ 0.03906215, -0.0730303 ]])
 
-# X.shape
+X.shape
 # (221, 2)
+```
 
+**train_test_split**
+
+
+```python
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.33)
 model = linear_model.LinearRegression()
 model.fit(X_train, y_train)
