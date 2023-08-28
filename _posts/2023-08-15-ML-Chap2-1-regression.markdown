@@ -6,6 +6,8 @@ tags: [regression]
 comments: true
 ---
 
+### 使用內建糖尿病資料做線性回歸
+
 這裡使用糖尿病的資料
 
 ```python
@@ -160,6 +162,7 @@ X.shape
 
 **train_test_split**
 
+將資料分成訓練與測試用的。
 
 ```python
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.33)
@@ -176,21 +179,24 @@ plt.xlabel('Scaled BMIs')
 plt.ylabel('Diease Progression')
 plt.title('A Graph Plot Showing Diabetes Progression Against BMI')
 plt.show()
+```
 
-# Hold-Out Validation 
-# 將資料轉成 training/testing set 的過程就做 Hold-Out Validation
+**Hold-Out Validation**
 
-#%%##   
+將資料轉成 training/testing set 的過程就做 Hold-Out Validation
 
-# Assignment
+### 使用內建健身資料做線性回歸
 
+```python
 X, y = datasets.load_linnerud(return_X_y=True)
 
 # X 是 data，exercise 資料 chins/Situps/Jumps
 # y 是 target，生理資訊 Weight/Waist/Pulse
+```
 
-# 要怎麼描述腰圍與可以做幾個 Situp 的關係?
+目標 : 要怎麼描述腰圍與可以做幾個 Situp 的關係?
 
+```python
 X = X[:, 1]
 y = y[:, 1]
 
@@ -210,9 +216,11 @@ plt.xlabel('situps')
 plt.ylabel('waist')
 plt.title('A Graph Plot Showing Waist Against Situps')
 plt.show()
+```
 
-#%%## 
+## 回到南瓜的案例分析
 
+```python
 import pandas as pd
 pumpkins = pd.read_csv('D:/DataAnalysis/US-pumpkins.csv')
 
