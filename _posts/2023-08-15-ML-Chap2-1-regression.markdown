@@ -38,12 +38,12 @@ print(arr.shape)
 arr = np.array([1])
 print(arr.shape)
 # (1,)
-# 第一個維度長度1，沒有第二個維度
+# 第一個維度長度 1，沒有第二個維度
 
 arr = np.array([[1]])
 print(arr.shape)
 # (1, 1)
-# 第一個維度長度1，第二個維度長度1
+# 第一個維度長度 1，第二個維度長度 1
 
 arr = np.array([1, 2])
 print(arr.shape)
@@ -53,12 +53,12 @@ print(arr.shape)
 arr = np.array([[1, 2]])
 print(arr.shape)
 # (1, 2)
-# 第一個維度長度1，第二個維度長度2
+# 第一個維度長度 1，第二個維度長度 2
 
 arr = np.array([[1, 2], [3, 4]])
 print(arr.shape)
 # (2, 2)
-# 第一個維度長度1，第二個維度長度2
+# 第一個維度長度 1，第二個維度長度 2
 ```
 
 回到我們的 X，可以看到 X 是的 shape 回傳的(422,) 表示是一個第一個維度長度 422 的 ndarray
