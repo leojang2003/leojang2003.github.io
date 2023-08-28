@@ -25,7 +25,7 @@ X = X[:,2]
 # 取所有列，第2行
 ```
 
-**ndarray 的 shape()**
+**ndarray.shape()**
 
 使用 shape() 可以回傳 array 的 shape (a, b, ...)，a 是第一個維度的長度，b 是第二個維度的長度，以此類推，範例如下
 
@@ -61,7 +61,7 @@ print(arr.shape)
 # 第一個維度長度 1，第二個維度長度 2
 ```
 
-回到我們的 X，可以看到 X 是的 shape 回傳的(422,) 表示是一個第一個維度長度 422 的 ndarray
+回到我們的 X，可以看到 X 是的 shape 回傳的(422,) 表示是一個第一個維度長度 422 的 ndarray。
 
 ```python
 X.shape
