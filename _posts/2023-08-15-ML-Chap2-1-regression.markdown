@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ML Chapter Regression 2-1 notes
+title: Linear Regression 
 subtitle: 
 tags: [regression]
 comments: true
