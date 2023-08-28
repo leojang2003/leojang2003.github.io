@@ -27,7 +27,7 @@ X = X[:,2]
 
 **ndarray 的 shape()**
 
-使用 shape() 可以回傳 array 的 shape (l1,l2,l3)，l1, l2, l3, ... 分別代表第 N 個維度的長度，範例如下
+使用 shape() 可以回傳 array 的 shape (a, b, ...)，a 是第一個維度的長度，b 是第二個維度的長度，以此類推，範例如下
 
 ```python
 arr = np.array(1)
