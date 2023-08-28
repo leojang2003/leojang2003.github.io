@@ -73,7 +73,7 @@ X.shape
 {: .box-note}
 ndarray.reshape(shape, order='C')
 
-shape 如果是數字 n 的話，就是變成一維陣列長度為 n，或者是 tuple。
+shape 如果是數字 n 的話，就是變成一維陣列長度為 n，shape 也可以是 tuple。
 
 ```python
 arr = np.array([[1, 2, 3], [4, 5, 6]])
