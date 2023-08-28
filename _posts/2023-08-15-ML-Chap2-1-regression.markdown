@@ -103,6 +103,8 @@ new.shape
 
 **shape 使用 tuple**
 
+參數 -1 表示
+
 ```python
 new = arr.reshape(-1, 1)
 # array([[1],
