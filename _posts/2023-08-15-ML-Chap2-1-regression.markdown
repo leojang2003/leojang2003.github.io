@@ -75,6 +75,8 @@ ndarray.reshape(shape, order='C')
 
 shape 如果是數字 n 的話，就是變成一維陣列長度為 n，shape 也可以是 tuple。
 
+**shape 使用數字**
+
 ```python
 arr = np.array([[1, 2, 3], [4, 5, 6]])
 arr.shape
@@ -99,7 +101,7 @@ new.shape
 # (6,)
 ```
 
-reshape 使用 tuple
+**shape 使用 tuple**
 
 ```python
 new = arr.reshape(-1, 1)
