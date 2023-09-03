@@ -102,6 +102,8 @@ limit 有許多可能的行為：<br class="new">
 Limit Law for Addition:<img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" />
 Limit Law for Subtraction:<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" />
 Limit Law for Multiplication:<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" />
+Limit Law for Division, Part 1:<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" />
+我們將在後面的部分討論當M=0時會發生什麼
 
 <img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-21.png' | relative_url }}" alt="" />
