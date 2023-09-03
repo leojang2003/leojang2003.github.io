@@ -120,12 +120,6 @@ f(x)g(x) = LM + ε1M + ε2L + ε1ε2。
 
 <img src="{{ 'assets/img/limit/limit-20-2.png' | relative_url }}" alt="" />
 
-<img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/limit/limit-21.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/limit/limit-22.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/limit/limit-23.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/limit/limit-24.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/limit/limit-25.png' | relative_url }}" alt="" />
 
 <br/>
 <br/>
