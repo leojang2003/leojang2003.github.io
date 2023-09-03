@@ -6,6 +6,8 @@ tags: []
 comments: true
 ---
 
+要計算當 x -> a 時 limit f(x) 的值時，考慮的是 x 趨近於 a 時，f(x) 的值。不需要考慮 x = a 
+
 ### right-hand limit 與 left-hand limit
 
 <img src="{{ 'assets/img/limit/limit-1.png' | relative_url }}" alt="" />
