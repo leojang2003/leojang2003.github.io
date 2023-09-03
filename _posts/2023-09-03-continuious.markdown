@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unit-0 Continuous
+title: Unit-0 Continuity
 subtitle: 
 tags: []
 comments: true
