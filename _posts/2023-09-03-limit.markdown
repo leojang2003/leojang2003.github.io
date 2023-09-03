@@ -17,6 +17,18 @@ comments: true
 假設對於那些從左邊接近（但不等於）a 的 x 值，函數 f(x) 越來越接近 R。那麼我們稱 R 是函數 f(x) 在 x 從右邊接近 a 時的 **right-hand limit**，可以寫成以下。
 
 <img src="{{ 'assets/img/limit/limit-3.png' | relative_url }}" alt="" />
+
+limit 有許多可能的行為：
+
+- right-hand limit 和 left-hand limit 可能都存在且相等。
+
+- right-hand limit 和 left-hand limit 可能都存在，但可能不相等。
+
+- 由於趨近於 ±∞，right-hand limit 和/或 left-hand limit 可能不存在。（例如：考慮在 x=0 附近的函數 1/x。）在這種情況下，我們會說 limit 趨近於無窮大。我們還會說極限不存在，因為 ∞ 不是實數！
+
+- right-hand limit 和/或 left-hand limit 可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說 limit 不存在。
+
+
 <img src="{{ 'assets/img/limit/limit-4.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-5.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-6.png' | relative_url }}" alt="" />
