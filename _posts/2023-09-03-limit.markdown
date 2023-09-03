@@ -71,8 +71,14 @@ limit 有許多可能的行為：<br class="new">
 
 <img src="{{ 'assets/img/limit/limit-9.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-10.png' | relative_url }}" alt="" />
+
+### Estimate limits 2
+
 <img src="{{ 'assets/img/limit/limit-11.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-12.png' | relative_url }}" alt="" />
+
+### Estimate limits 3
+
 <img src="{{ 'assets/img/limit/limit-13.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-14.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-15.png' | relative_url }}" alt="" />
