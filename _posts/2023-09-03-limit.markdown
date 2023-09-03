@@ -56,11 +56,11 @@ limit 有許多可能的行為：<br class="new">
 
 ### Formal Limit Definition  
 
-通常情況下，語句 <img src="{{ 'assets/img/limit/limit-7-1.png' | relative_url }}" alt="" /> 被定義為：<br class="new">
+通常情況下，語句 <img src="{{ 'assets/img/limit/limit-8-0.png' | relative_url }}" alt="" /> 被定義為：
 
-對於所有 ε > 0，存在某個 δ > 0，使得如果 <img src="{{ 'assets/img/limit/limit-8-1.png' | relative_url }}" alt="" />，則<img src="{{ 'assets/img/limit/limit-8-2.png' | relative_url }}" alt="" />。<br class="new">
+對於所有 ε > 0，存在某個 δ > 0，使得如果 <img src="{{ 'assets/img/limit/limit-8-1.png' | relative_url }}" alt="" />，則<img src="{{ 'assets/img/limit/limit-8-2.png' | relative_url }}" alt="" />。
 
-根據傳統，我們使用希臘字母 ε 和 δ。<br class="new">
+根據傳統，我們使用希臘字母 ε 和 δ。
 
 以下是如何理解這種說法。兩個數字 y 和 z 之間的距離由 <img src="{{ 'assets/img/limit/limit-8-3.png' | relative_url }}" alt="" /> 給出。因此，定義的最後一部分是說，從 f(x) 到 L 的距離小於 ε；應該將 ε 代表小距離。這個近距離發生在 <img src="{{ 'assets/img/limit/limit-8-1.png' | relative_url }}" alt="" /> 的情況下；因此，如果 x 距離 a 一定有距離 δ，但不一定是 0（我們不介意） x=a本身）。<br class="new">
 
