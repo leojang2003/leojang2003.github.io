@@ -105,6 +105,21 @@ Limit Law for Multiplication:<img src="{{ 'assets/img/limit/limit-19-3.png' | re
 Limit Law for Division, Part 1:<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" />
 我們將在後面的部分討論當M=0時會發生什麼
 
+### Justifying the Limit Law for Multiplication
+
+如果和<img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />和<img src="{{ 'assets/img/limit/limit-20-1.png' | relative_url }}" alt="" />，那麼我們可以寫成：
+
+f(x) = L + ε1
+g(x) = M + ε2
+
+其中 ε1、ε2 在 x→a 時趨近於 0。然後
+
+f(x)g(x) = LM + ε1M + ε2L + ε1ε2。
+
+由於 L 和 M 是常數，ε1 和 ε2 趨近於零，三個誤差項 ε1M、ε2L 和 ε1ε2 在 x 接近 a 時都會趨向於零。因此，
+
+<img src="{{ 'assets/img/limit/limit-20-2.png' | relative_url }}" alt="" />
+
 <img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-21.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-22.png' | relative_url }}" alt="" />
