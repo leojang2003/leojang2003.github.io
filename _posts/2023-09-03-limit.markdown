@@ -6,7 +6,8 @@ tags: []
 comments: true
 ---
 
-要計算當 x -> a 時 limit f(x) 的值時，考慮的是 x 趨近於 a 時，f(x) 的值。不需要考慮 x = a 
+{: .box-note}
+要計算當 x -> a 時 limit f(x) 的值時，考慮的是 x 無限趨近於 a 時，f(x) 的值。不需要考慮 x = a 
 
 ### right-hand limit 與 left-hand limit
 
