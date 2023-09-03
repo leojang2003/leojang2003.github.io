@@ -20,6 +20,8 @@ comments: true
 
 <img src="{{ 'assets/img/limit/limit-3.png' | relative_url }}" alt="" />
 
+### Possible limit behaviors
+
 limit 有許多可能的行為：<br class="new">
 
 - {: .arrow} right-hand limit 和 left-hand limit 可能都存在且相等。
@@ -30,11 +32,28 @@ limit 有許多可能的行為：<br class="new">
 
 - {: .arrow} right-hand limit 和/或 left-hand limit 可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說 limit 不存在。
 
+**Practice**
 
 <img src="{{ 'assets/img/limit/limit-4.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-5.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-6.png' | relative_url }}" alt="" />
+
+### Limit Definition  
+
+如果一個函数 f(x) 在 x 從右邊和左邊都接近某個值 L，那麼 f(x) 的 limit 存在，並且等於 L。
+
+如果
+
 <img src="{{ 'assets/img/limit/limit-7.png' | relative_url }}" alt="" />
+
+那麼
+
+<img src="{{ 'assets/img/limit/limit-7-1.png' | relative_url }}" alt="" />
+
+也可以表示成
+
+<img src="{{ 'assets/img/limit/limit-7-2.png' | relative_url }}" alt="" />
+
 <img src="{{ 'assets/img/limit/limit-8.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-9.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-10.png' | relative_url }}" alt="" />
