@@ -62,8 +62,8 @@ limit 有許多可能的行為：<br class="new">
 
 我們可以用以下方式理解。兩個數字 y 和 z 之間的距離由 <img src="{{ 'assets/img/limit/limit-8-3.png' | relative_url }}" alt="" /> 算出。因此，定義的最後一部分是說，從 f(x) 到 L 的距離小於 ε；我們要將 ε 想成一個小距離。這個近距離發生在**如果** <img src="{{ 'assets/img/limit/limit-8-1.png' | relative_url }}" alt="" /> 的情況下；因此，如果 x 距離 a 在 δ 內，但不一定是 0（我們不介意 x = a 的情況）。<br class="new">
 
-定義了“對於所有”和“存在”這兩個子句，讓我們可以讓這兩個距離可以無窮小。我們希望 f(x) 最終接近於 L，因此無論 ε 多小，都需要滿足這個陳述式。給定任何 ε 下，只要 x 足夠接近 a (接近程度 < δ )，我們就可以滿足條件 <img src="{{ 'assets/img/limit/limit-8-2.png' | relative_url }}" alt="" /><br class="new">
-<br class="new">
+定義了“對於所有”和“存在”這兩個子句，讓我們可以讓這兩個距離可以無窮小。我們希望 f(x) 最終接近於 L，因此無論 ε 多小，都需要滿足這個陳述式。給定任何 ε 下，只要 x 足夠接近 a (接近程度 < δ )，我們就可以滿足條件 <img src="{{ 'assets/img/limit/limit-8-2.png' | relative_url }}" alt="" />
+<br/>
 **預測極限範例 1**
 
 <img src="{{ 'assets/img/limit/limit-9.png' | relative_url }}" alt="" />
