@@ -46,7 +46,7 @@ comments: true
 
 在 x = -2, 1，是可移除不連續性。<br class="new">
 在 x = 3，是跳躍不連續。<br class="new">
-
+<br/>
 ### 整體連續性 Overall Continuity
 
 我們說一個函數 f(x) 是連續的，是說在 f(x) domain 中的每個點 c ，函數 f 在點 x = c 是連續的。
@@ -58,7 +58,7 @@ Q : 如果函數 f 在 x = 3 是不連續的，而函數 g 在 x = 3 也是不�
 
 {: .box-note}
 A : 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在 x = 3 也是跳躍不連續，但是當將兩個函數相加時，跳躍點會互相抵消，從而得到一個連續的和函數。例如，如果 f(x) = ⌊x⌋ 且 g(x) = −⌊x⌋，那麼這兩個函數在 x = 3 都是跳躍不連續，但它們的和函數是常數函數 0，h(x) = 0 在任何點都是連續的。
-
+<br/>
 ### 連續函數的分類
 
 以下函數在所有實數上都連續：
@@ -81,7 +81,7 @@ A : 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在
 - {: .arrow} tanx ，在所有定義域內的 x 上連續
 
 - {: .arrow} 對數函數 <img src="{{ 'assets/img/continuous/continuous-19-4.png' | relative_url }}" alt="" /> ，其中底數 a > 0，x > 0
-
+<br/>
 ### Intermediate Value Theorem (IVT)
 
 如果函數 f 在閉區間 [a,b] 上是**連續**，並且 M 位於 f(a) 和 f(b) 的值之間，那麼至少存在一個點 c，它在 a 和 b 之間，滿足 f(c) = M。
