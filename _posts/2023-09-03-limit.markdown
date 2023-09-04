@@ -96,7 +96,9 @@ comments: true
 <br/>
 ### 極限定律 Limit Laws
 
-假設 <img src="{{ 'assets/img/limit/limit-19.png' | relative_url }}" alt="" /><br class="new">
+假設<br class="new"> 
+<img src="{{ 'assets/img/limit/limit-19.png' | relative_url }}" alt="" />
+<br class="new">
 我們可以得到以下的 Limit Laws<br class="new">
 
 極限加法定律:<br class="new">
