@@ -101,14 +101,16 @@ comments: true
 
 極限加法定律:<br class="new">
 <img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" />
-<br class="new">
-<br class="new">
+<br/>
 極限減法定律:<br class="new">
-<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" />
+<br/>
 極限乘法定律:<br class="new">
-<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" />
+<br/>
 極限除法定律(第一部分):<br class="new">
-<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" />
+<br/>
 
 我們將在後面的部分討論當M=0時會發生什麼
 <br/>
