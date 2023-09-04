@@ -54,10 +54,10 @@ comments: true
 **問題3**
 
 {: .box-note}
-Q: 如果函數 f 在 x = 3 是不連續的，而函數 g 在 x = 3 也是不連續的，那麼函數 h(x) = f(x) + g(x) 在 x = 3 也必定是不連續的?
+Q : 如果函數 f 在 x = 3 是不連續的，而函數 g 在 x = 3 也是不連續的，那麼函數 h(x) = f(x) + g(x) 在 x = 3 也必定是不連續的?
 
 {: .box-note}
-A: 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在 x = 3 也是跳躍不連續，但是當將兩個函數相加時，跳躍點會互相抵消，從而得到一個連續的和函數。例如，如果 f(x) = ⌊x⌋ 且 g(x) = −⌊x⌋，那麼這兩個函數在 x = 3 都是跳躍不連續，但它們的和函數是常數函數 0，h(x) = 0 在任何點都是連續的。
+A : 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在 x = 3 也是跳躍不連續，但是當將兩個函數相加時，跳躍點會互相抵消，從而得到一個連續的和函數。例如，如果 f(x) = ⌊x⌋ 且 g(x) = −⌊x⌋，那麼這兩個函數在 x = 3 都是跳躍不連續，但它們的和函數是常數函數 0，h(x) = 0 在任何點都是連續的。
 
 ### 連續函數的分類
 
@@ -89,21 +89,19 @@ A: 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在 
 {: .box-note}
 當一個函數 f 在閉區間 [a,b] 上，在點 x = a 是右連續，在點 x = b 是左連續，並且在 a 和 b 之間的所有點上連續，則我們稱函數 f 在閉區間 [a,b] 上連續(**continuous on a closed interval**)。
 
-This is intimately tied in with the properties of the real number system. We could have the same definition of continuity for functions if we only worked with, say, the rational numbers (numbers which can be written as a fraction of integers), but the Intermediate Value Theorem would not work if that were the case. It is only when we move to the real numbers that the Intermediate Value Theorem holds true.
+IVT 之所以影響深遠，是因為它從局部的資訊，得出一個全域的結論。一個點上的連續性是局部資訊，因為它只需要瞭解函數在該點附近的行為。但是，如果我們知道區間上的每個點都是**連續**的，那麼 IVT 告訴我們一些關於整體或全域行為的資訊，即它的圖形必須穿過某條線。
 
-IVT 之所以影響深遠，是因為它從局部的資訊，得出一個全域的結論。一個點上的連續性是局部資訊，因為它只需要瞭解函數在該點附近的行為。但是，如果我們知道區間上的每個點都是**連續**的，那麼 IVT 告訴我們一些關於整體或全域行為的資訊，即函數必須取特定的值，或者它的圖形必須穿過某條線。
-
-這與實數系統的性質密切相關。如果我們只使用有理數(可以表示為整數的分數)進行工作，我們可以為函數使用相同的連續性定義，但是 IVT 在這種情況下不起作用。只有當我們轉向實數時，中值定理才成立。
+這與實數 (real number) 系統的性質密切相關。有理數(可以表示為整數的分數)也是連續的，但是 IVT 不適用有理數。只有當我們使用實數時，IVT 才成立。
 
 **問題1**
 
-Q: 如果 g(x)=4x^(−3)−x−sin(πx)。IVT 是否表示著在 x = −1 和 x = 1 之間必然存在某個 c，使得 g(c)=0？
+Q : 如果 g(x) = 4x^(−3) − x − sin(πx)。IVT 是否表示著在 x = −1 和 x = 1 之間必然存在某個 c，使得 g(c) = 0？
 
-A: 不正確。請注意，g(x)在區間[−1,1]上不連續，因為它在 x = 0 未定義。因此，IVT 在這種情況下不適用。
+A: 不正確。請注意，g(x)在區間 [−1,1] 上不連續，因為它在 x = 0 未定義。因此，IVT 在這種情況下不適用。
 
 **問題2**
 
-Q: 一個多項式 p(x) 有以下的值<br class="new">
+Q : 一個多項式 p(x) 有以下的值<br class="new">
 
 p(−2) 	 = 	 6 <br class="new">
 p(−1) 	 = 	 −2 <br class="new">
@@ -113,7 +111,7 @@ p(2) 	 = 	 6 <br class="new">
 
 我們也知道 p(x) > 6 當 x > 2 或 x < −2 時，我們最多可以推論出什麼?<br class="new">
 
-A: 注意，任何多項式在所有點上都是連續的，因此 IVT 適用於任何區間。
+A : 注意，任何多項式在所有點上都是連續的，因此 IVT 適用於任何區間。
 我們知道 p(−2) 是正數，p(−1) 是負數，因此在 x = −2 和 x = −1 之間至少存在一個使得 p 為 0 的點。同樣的，在 x = 0 和 x = 1 之間至少存在一個使得 p 為 0 的點。總而言之，我們知道至少有 2 個根(root)。<br class="new">
 
 
