@@ -99,11 +99,11 @@ comments: true
 我們可以得到以下的 Limit Laws<br class="new">
 
 極限加法定律:<br class="new">
-<img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" />
+<img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" /><br class="new">
 極限減法定律:<br class="new">
-<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" />
+<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" /><br class="new">
 極限乘法定律:<br class="new">
-<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" />
+<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" /><br class="new">
 極限除法定律(第一部分):<br class="new">
 <img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
 
