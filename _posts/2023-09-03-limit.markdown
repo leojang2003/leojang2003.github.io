@@ -64,30 +64,29 @@ limit 有許多可能的行為：<br class="new">
 定義了“對於所有”和“存在”這兩個子句，讓我們可以讓這兩個距離可以無窮小。我們希望 f(x) 最終接近於 L，因此無論 ε 多小，都需要滿足這個陳述式。給定任何 ε 下，只要 x 足夠接近 a (接近程度 < δ )，我們就可以滿足條件 <img src="{{ 'assets/img/limit/limit-8-2.png' | relative_url }}" alt="" />
 <br/>
 **預測極限範例 1**
-
 <img src="{{ 'assets/img/limit/limit-9.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-10.png' | relative_url }}" alt="" />
 <br class="new">
-**預測極限範例 2**
 
+**預測極限範例 2**
 <img src="{{ 'assets/img/limit/limit-11.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-12.png' | relative_url }}" alt="" />
 <br class="new">
-**預測極限範例 3**
 
+**預測極限範例 3**
 <img src="{{ 'assets/img/limit/limit-13.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-14.png' | relative_url }}" alt="" />
 <br class="new">
-**函數 vs 極限 2**
 
+**函數 vs 極限 2**
 <img src="{{ 'assets/img/limit/limit-15.png' | relative_url }}" alt="" />
 <br class="new">
-**雙側極限**
 
+**雙側極限**
 <img src="{{ 'assets/img/limit/limit-16.png' | relative_url }}" alt="" />
 <br class="new">
-**取整函數 Floor function**
 
+**取整函數 Floor function**
 <img src="{{ 'assets/img/limit/limit-17.png' | relative_url }}" alt="" /><br class="new">
 
 ### 極限定理 Limit Laws
