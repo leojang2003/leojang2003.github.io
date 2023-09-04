@@ -22,13 +22,13 @@ comments: true
 
 有時候，知道不連續是哪種類型是很有用的。<br class="new">
 
-如果左極限 <img src="{{ 'assets/img/continuous/continuous-1-5.png' | relative_url }}" alt="" /> 和右極限 <img src="{{ 'assets/img/continuous/continuous-1-6.png' | relative_url }}" alt="" /> 在點 x = a 都存在，但它們不相等，那麼我們說 f 在 x = a 有跳躍不連續(jump discontinuity)。
+如果左極限 <img src="{{ 'assets/img/continuous/continuous-1-5.png' | relative_url }}" alt="" /> 和右極限 <img src="{{ 'assets/img/continuous/continuous-1-6.png' | relative_url }}" alt="" /> 在點 x = a 都存在，但它們不相等，那麼我們說 f 在 x = a 有跳躍不連續(jump discontinuity)
 
 <img src="{{ 'assets/img/continuous/continuous-1-7.png' | relative_url }}" alt="" />
 
 ### 可移除不連續性 Removable Discontinuity
 
-如果整體極限(overall limit) <img src="{{ 'assets/img/continuous/continuous-1-8.png' | relative_url }}" alt="" /> 存在(即左右極限相等)，但整體極限不等於 f(a) ，那麼我們說 f 在 x = a 是可移除不連續性(removable discontinuity)。
+如果整體極限(overall limit) <img src="{{ 'assets/img/continuous/continuous-1-8.png' | relative_url }}" alt="" /> 存在(即左右極限相等)，但整體極限不等於 f(a) ，那麼我們說 f 在 x = a 是可移除不連續性(removable discontinuity)
 
 <img src="{{ 'assets/img/continuous/continuous-1-9.png' | relative_url }}" alt="" />
 
