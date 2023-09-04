@@ -30,6 +30,8 @@ comments: true
 
 如果整體極限(overall limit) <img src="{{ 'assets/img/continuous/continuous-1-8.png' | relative_url }}" alt="" /> 存在(即左右極限相等)，但整體極限不等於 f(a) ，那麼我們說 f 在 x = a 是可移除不連續性(removable discontinuity)。
 
+<img src="{{ 'assets/img/continuous/continuous-1-9.png' | relative_url }}" alt="" />
+
 **問題1**
 
 <img src="{{ 'assets/img/continuous/continuous-4.png' | relative_url }}" alt="" />
