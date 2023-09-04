@@ -85,10 +85,10 @@ A : 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在
 - {: .arrow} tanx ，在所有定義域內的 x 上連續
 
 - {: .arrow} 對數函數 <img src="{{ 'assets/img/continuous/continuous-19-4.png' | relative_url }}" alt="" /> ，其中底數 a > 0，x > 0
-<br/>
+
 ### Intermediate Value Theorem (IVT)
 
-如果函數 f 在閉區間 [a,b] 上是**連續**，並且 M 位於 f(a) 和 f(b) 的值之間，那麼至少存在一個點 c，它在 a 和 b 之間，滿足 f(c) = M。
+如果函數 f 在閉區間 [a,b] 上是**連續**的，並且 M 位於 f(a) 和 f(b) 的值之間，那麼至少存在一個點 c，它在 a 和 b 之間，滿足 f(c) = M。
 
 {: .box-note}
 當一個函數 f 在閉區間 [a,b] 上，在點 x = a 是右連續，在點 x = b 是左連續，並且在 a 和 b 之間的所有點上連續，則我們稱函數 f 在閉區間 [a,b] 上連續(**continuous on a closed interval**)。
