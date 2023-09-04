@@ -50,8 +50,7 @@ limit 有許多可能的行為：<br class="new">
 也可以表示成
 
 <img src="{{ 'assets/img/limit/limit-7-2.png' | relative_url }}" alt="" />
-<br class="new">
-<br class="new">
+<br/>
 ### 正式極限定義  
 
 通常情況下，語句 <img src="{{ 'assets/img/limit/limit-8-0.png' | relative_url }}" alt="" /> 被定義為：
