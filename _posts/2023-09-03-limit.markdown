@@ -93,18 +93,23 @@ comments: true
 **取整函數 Floor function**
 <img src="{{ 'assets/img/limit/limit-17.png' | relative_url }}" alt="" />
 <br/>
-### 極限定理 Limit Laws
+### 極限定律 Limit Laws
 
 假設 <img src="{{ 'assets/img/limit/limit-19.png' | relative_url }}" alt="" /><br class="new">
 我們可以得到以下的 Limit Laws<br class="new">
 
-Limit Law for Addition:         <img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" /><br class="new">
-Limit Law for Subtraction:    <img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" /><br class="new">
-Limit Law for Multiplication:    <img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" /><br class="new">
-Limit Law for Division, Part 1:    <img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
+極限加法定律:      
+<img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" /><br class="new">
+極限減法定律:
+<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" /><br class="new">
+極限乘法定律:
+<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" /><br class="new">
+極限除法定律(第一部分):
+<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
+
 我們將在後面的部分討論當M=0時會發生什麼
 <br/>
-### 驗證極限乘法定理
+### 驗證極限乘法定律
 
 如果和<img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />和<img src="{{ 'assets/img/limit/limit-20-1.png' | relative_url }}" alt="" />，那麼我們可以寫成：
 
