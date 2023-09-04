@@ -33,14 +33,15 @@ limit 有許多可能的行為：<br class="new">
 
 - {: .arrow} 右極限和/或左極限可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說極限不存在。
 <br class="new">
+<br class="new">
 **極限行為範例1**
 
 <img src="{{ 'assets/img/limit/limit-4.png' | relative_url }}" alt="" />
-
+<br class="new">
 **極限行為範例2**
 
 <img src="{{ 'assets/img/limit/limit-5.png' | relative_url }}" alt="" />
-
+<br class="new">
 **極限行為範例3**
 
 <img src="{{ 'assets/img/limit/limit-6.png' | relative_url }}" alt="" />
@@ -73,35 +74,35 @@ limit 有許多可能的行為：<br class="new">
 我們可以用以下方式理解。兩個數字 y 和 z 之間的距離由 <img src="{{ 'assets/img/limit/limit-8-3.png' | relative_url }}" alt="" /> 算出。因此，定義的最後一部分是說，從 f(x) 到 L 的距離小於 ε；我們要將 ε 想成一個小距離。這個近距離發生在**如果** <img src="{{ 'assets/img/limit/limit-8-1.png' | relative_url }}" alt="" /> 的情況下；因此，如果 x 距離 a 在 δ 內，但不一定是 0（我們不介意 x = a 的情況）。<br class="new">
 
 定義了“對於所有”和“存在”這兩個子句，讓我們可以讓這兩個距離可以無窮小。我們希望 f(x) 最終接近於 L，因此無論 ε 多小，都需要滿足這個陳述式。給定任何 ε 下，只要 x 足夠接近 a (接近程度 < δ )，我們就可以滿足條件 <img src="{{ 'assets/img/limit/limit-8-2.png' | relative_url }}" alt="" /><br class="new">
-
-### Estimate limits
+<br class="new">
+**預測極限範例 1**
 
 <img src="{{ 'assets/img/limit/limit-9.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-10.png' | relative_url }}" alt="" />
-
-### Estimate limits 2
+<br class="new">
+**預測極限範例 2**
 
 <img src="{{ 'assets/img/limit/limit-11.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-12.png' | relative_url }}" alt="" />
-
-### Estimate limits 3
+<br class="new">
+**預測極限範例 3**
 
 <img src="{{ 'assets/img/limit/limit-13.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-14.png' | relative_url }}" alt="" />
-
-### Function vs. limit 2
+<br class="new">
+**函數 vs 極限 2**
 
 <img src="{{ 'assets/img/limit/limit-15.png' | relative_url }}" alt="" />
-
-### Double-sided limit
+<br class="new">
+**雙側極限**
 
 <img src="{{ 'assets/img/limit/limit-16.png' | relative_url }}" alt="" />
-
-### Floor function
+<br class="new">
+**取整函數 Floor function**
 
 <img src="{{ 'assets/img/limit/limit-17.png' | relative_url }}" alt="" /><br class="new">
 
-### Limit Laws
+### 極限定理 Limit Laws
 
 假設 <img src="{{ 'assets/img/limit/limit-19.png' | relative_url }}" alt="" /><br class="new">
 我們可以得到以下的 Limit Laws<br class="new">
@@ -112,7 +113,7 @@ Limit Law for Multiplication:<img src="{{ 'assets/img/limit/limit-19-3.png' | re
 Limit Law for Division, Part 1:<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
 我們將在後面的部分討論當M=0時會發生什麼<br class="new">
 
-### Justifying the Limit Law for Multiplication
+### 驗證極限乘法定理
 
 如果和<img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />和<img src="{{ 'assets/img/limit/limit-20-1.png' | relative_url }}" alt="" />，那麼我們可以寫成：
 
