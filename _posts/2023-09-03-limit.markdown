@@ -118,7 +118,7 @@ comments: true
 <br/>
 ### 驗證極限乘法定律
 
-如果和 <img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" /> 和<img src="{{ 'assets/img/limit/limit-20-1.png' | relative_url }}" alt="" />，那麼我們可以寫成：
+如果和 <img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" /> 和 <img src="{{ 'assets/img/limit/limit-20-1.png' | relative_url }}" alt="" />，那麼我們可以寫成：
 
 f(x) = L + ε1
 g(x) = M + ε2
