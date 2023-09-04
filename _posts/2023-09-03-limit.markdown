@@ -66,29 +66,29 @@ limit 有許多可能的行為：<br class="new">
 **預測極限範例 1**
 <img src="{{ 'assets/img/limit/limit-9.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-10.png' | relative_url }}" alt="" />
-<br class="new">
+<br/>
 
 **預測極限範例 2**
 <img src="{{ 'assets/img/limit/limit-11.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-12.png' | relative_url }}" alt="" />
-<br class="new">
+<br/>
 
 **預測極限範例 3**
 <img src="{{ 'assets/img/limit/limit-13.png' | relative_url }}" alt="" />
 <img src="{{ 'assets/img/limit/limit-14.png' | relative_url }}" alt="" />
-<br class="new">
+<br/>
 
 **函數 vs 極限 2**
 <img src="{{ 'assets/img/limit/limit-15.png' | relative_url }}" alt="" />
-<br class="new">
+<br/>
 
 **雙側極限**
 <img src="{{ 'assets/img/limit/limit-16.png' | relative_url }}" alt="" />
-<br class="new">
+<br/>
 
 **取整函數 Floor function**
-<img src="{{ 'assets/img/limit/limit-17.png' | relative_url }}" alt="" /><br class="new">
-
+<img src="{{ 'assets/img/limit/limit-17.png' | relative_url }}" alt="" />
+<br/>
 ### 極限定理 Limit Laws
 
 假設 <img src="{{ 'assets/img/limit/limit-19.png' | relative_url }}" alt="" /><br class="new">
@@ -99,7 +99,7 @@ Limit Law for Subtraction:<img src="{{ 'assets/img/limit/limit-19-2.png' | relat
 Limit Law for Multiplication:<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" /><br class="new">
 Limit Law for Division, Part 1:<img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
 我們將在後面的部分討論當M=0時會發生什麼
-  
+<br/>
 ### 驗證極限乘法定理
 
 如果和<img src="{{ 'assets/img/limit/limit-20.png' | relative_url }}" alt="" />和<img src="{{ 'assets/img/limit/limit-20-1.png' | relative_url }}" alt="" />，那麼我們可以寫成：
