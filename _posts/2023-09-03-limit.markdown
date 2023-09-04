@@ -9,15 +9,15 @@ comments: true
 {: .box-note}
 要計算當 x -> a 時 limit f(x) 的值時，考慮的是 x 無限趨近於 a 時，f(x) 的值。不需要考慮 x = a 
 
-### right-hand limit 與 left-hand limit
+### 右極限(right-hand limit)與左極限(left-hand limit)
 
 <img src="{{ 'assets/img/limit/limit-1.png' | relative_url }}" alt="" />
 
-假設對於那些從右邊接近（但不等於）a 的 x 值，函數 f(x) 越來越接近 R。那麼我們稱 R 是函數 f(x) 在 x 從右邊接近 a 時的 **right-hand limit**，可以寫成以下。
+假設對於那些從右邊接近（但不等於）a 的 x 值，函數 f(x) 越來越接近 R。那麼我們稱 R 是函數 f(x) 在 x 從右邊接近 a 時的 **右極限**，可以寫成以下。
 
 <img src="{{ 'assets/img/limit/limit-2.png' | relative_url }}" alt="" />
 
-假設對於那些從左邊接近（但不等於）a 的 x 值，函數 f(x) 越來越接近 R。那麼我們稱 R 是函數 f(x) 在 x 從左邊接近 a 時的 **left-hand limit**，可以寫成以下。
+假設對於那些從左邊接近（但不等於）a 的 x 值，函數 f(x) 越來越接近 R。那麼我們稱 R 是函數 f(x) 在 x 從左邊接近 a 時的 **左極限**，可以寫成以下。
 
 <img src="{{ 'assets/img/limit/limit-3.png' | relative_url }}" alt="" />
 
@@ -25,13 +25,13 @@ comments: true
 
 limit 有許多可能的行為：<br class="new">
 
-- {: .arrow} right-hand limit 和 left-hand limit 可能都存在且相等。
+- {: .arrow} 右極限與左極限可能都存在且相等。
 
-- {: .arrow} right-hand limit 和 left-hand limit 可能都存在，但可能不相等。
+- {: .arrow} 右極限與左極限可能都存在，但可能不相等。
 
-- {: .arrow} 由於趨近於 ±∞，right-hand limit 和/或 left-hand limit 可能不存在。（例如：考慮在 x=0 附近的函數 1/x。）在這種情況下，我們會說 limit 趨近於無窮大。我們還會說極限不存在(DNE)，因為 ∞ 不是實數！
+- {: .arrow} 由於趨近於 ±∞，右極限和/或左極限可能不存在。（例如：考慮在 x=0 附近的函數 1/x。）在這種情況下，我們會說極限趨近於無窮大。我們還會說極限不存在(DNE)，因為 ∞ 不是實數！
 
-- {: .arrow} right-hand limit 和/或 left-hand limit 可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說 limit 不存在。
+- {: .arrow} 右極限和/或左極限可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說極限不存在。
 <br class="new">
 ### Possible limit behaviors
 
