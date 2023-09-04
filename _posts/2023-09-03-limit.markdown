@@ -82,7 +82,7 @@ comments: true
 <img src="{{ 'assets/img/limit/limit-14.png' | relative_url }}" alt="" />
 <br/>
 
-**函數 vs 極限 2**
+**函數 vs 極限 2**<br class="new">
 <img src="{{ 'assets/img/limit/limit-15.png' | relative_url }}" alt="" />
 <br/>
 
