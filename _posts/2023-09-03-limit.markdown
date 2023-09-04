@@ -29,7 +29,7 @@ limit 有許多可能的行為：<br class="new">
 
 - {: .arrow} right-hand limit 和 left-hand limit 可能都存在，但可能不相等。
 
-- {: .arrow} 由於趨近於 ±∞，right-hand limit 和/或 left-hand limit 可能不存在。（例如：考慮在 x=0 附近的函數 1/x。）在這種情況下，我們會說 limit 趨近於無窮大。我們還會說極限不存在，因為 ∞ 不是實數！
+- {: .arrow} 由於趨近於 ±∞，right-hand limit 和/或 left-hand limit 可能不存在。（例如：考慮在 x=0 附近的函數 1/x。）在這種情況下，我們會說 limit 趨近於無窮大。我們還會說極限不存在(DNE)，因為 ∞ 不是實數！
 
 - {: .arrow} right-hand limit 和/或 left-hand limit 可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說 limit 不存在。
 <br class="new">
