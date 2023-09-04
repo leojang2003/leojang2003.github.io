@@ -14,9 +14,9 @@ comments: true
 
 尤其是，如果 f(a) 或 <img src="{{ 'assets/img/continuous/continuous-1-2.png' | relative_url }}" alt="" /> 不存在，那麼 f 在 a 是不連續的。<br class="new">
 
-我們說一個函數 f 在點 x = a 是右連續(right-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-3.png' | relative_url }}" alt="" /> 。<br/>
+我們說一個函數 f 在點 x = a 是右連續(right-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-3.png' | relative_url }}" alt="" /><br/>
 
-我們說一個函數 f 在點 x = a 是左連續(left-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-4.png' | relative_url }}" alt="" /> 。<br/>
+我們說一個函數 f 在點 x = a 是左連續(left-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-4.png' | relative_url }}" alt="" /><br/>
 
 ### 跳躍不連續 Jump Discontinuity
 
@@ -71,7 +71,7 @@ A : 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在
 
 - {: .arrow} <img src="{{ 'assets/img/continuous/continuous-19-1.png' | relative_url }}" alt="" />
 
-- {: .arrow} |x|
+- {: .arrow} <img src="{{ 'assets/img/continuous/continuous-19-5.png' | relative_url }}" alt="" />
 
 - {: .arrow} cosx 和 sinx
 
