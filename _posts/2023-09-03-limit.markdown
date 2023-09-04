@@ -98,13 +98,13 @@ comments: true
 假設 <img src="{{ 'assets/img/limit/limit-19.png' | relative_url }}" alt="" /><br class="new">
 我們可以得到以下的 Limit Laws<br class="new">
 
-極限加法定律:      
-<img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" /><br class="new">
-極限減法定律:
-<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" /><br class="new">
-極限乘法定律:
-<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" /><br class="new">
-極限除法定律(第一部分):
+極限加法定律:<br class="new">
+<img src="{{ 'assets/img/limit/limit-19-1.png' | relative_url }}" alt="" />
+極限減法定律:<br class="new">
+<img src="{{ 'assets/img/limit/limit-19-2.png' | relative_url }}" alt="" />
+極限乘法定律:<br class="new">
+<img src="{{ 'assets/img/limit/limit-19-3.png' | relative_url }}" alt="" />
+極限除法定律(第一部分):<br class="new">
 <img src="{{ 'assets/img/limit/limit-19-4.png' | relative_url }}" alt="" /><br class="new">
 
 我們將在後面的部分討論當M=0時會發生什麼
