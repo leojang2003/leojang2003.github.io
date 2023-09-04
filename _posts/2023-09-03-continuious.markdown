@@ -6,38 +6,119 @@ tags: []
 comments: true
 ---
 
-<img src="{{ 'assets/img/continuous/continuous-1.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-2.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-3.png' | relative_url }}" alt="" />
+### 連續性 Continuity
+
+我們說一個函數 f 在點 x=a 處是連續的，如果<br class="new">
+
+<img src="{{ 'assets/img/continuous/continuous-1-1.png' | relative_url }}" alt="" />
+
+特別地，如果 f(a) 或 <img src="{{ 'assets/img/continuous/continuous-1-2.png' | relative_url }}" alt="" /> 不存在，那麼 f 在 a 處是不連續的。<br class="new">
+
+我們說一個函數 f 在點 x = a 處是右連續(right-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-3.png' | relative_url }}" alt="" /> 。<br/>
+
+我們說一個函數 f 在點 x = a 處是左連續(left-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-4.png' | relative_url }}" alt="" /> 。<br/>
+
+### 跳躍不連續 Jump Discontinuity
+
+有時候，對於某些不連續的類型進行分類是很有用的。<br class="new">
+
+如果左極限 <img src="{{ 'assets/img/continuous/continuous-1-5.png' | relative_url }}" alt="" /> 和右極限 <img src="{{ 'assets/img/continuous/continuous-1-6.png' | relative_url }}" alt="" /> 在點 x = a 處都存在，但它們不相等，那麼我們說 f 在 x = a 處有跳躍不連續(jump discontinuity)。
+
+<img src="{{ 'assets/img/continuous/continuous-1-7.png' | relative_url }}" alt="" />
+
+### 可移除的不連續性 Removable Discontinuity
+
+如果整體極限(overall limit) <img src="{{ 'assets/img/continuous/continuous-1-8.png' | relative_url }}" alt="" /> 存在(即左側和右側極限相等)，但整體極限不等於 f(a) ，那麼我們說 f 在 x = a 處有可移除的不連續性(removable discontinuity)。
+
+**連續性範例**
+
 <img src="{{ 'assets/img/continuous/continuous-4.png' | relative_url }}" alt="" />
+
+在 x = -2，f 既不是右連續也不是左連續。<br class="new">
+在 x = -1，f 是連續的。<br class="new">
+在 x = 1，f 既不是右連續也不是左連續。<br class="new">
+在 x = 3，f 是右連續但不是左連續。<br class="new">
+在 x = 4，f 是連續的。<br class="new">
+
+**不連續範例**
+
 <img src="{{ 'assets/img/continuous/continuous-5.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-6.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-7.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-8.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-9.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-10.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-11.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-12.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-13.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-14.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-15.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-16.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-17.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-19.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-20.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-21.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-22.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-23.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-24.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-25.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-26.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-27.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-28.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-29.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-30.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-31.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-32.png' | relative_url }}" alt="" />
-<img src="{{ 'assets/img/continuous/continuous-33.png' | relative_url }}" alt="" />
+
+在 x = -2, 1，是可移除的不連續性。<br class="new">
+在 x = 3，是跳躍不連續。<br class="new">
+
+### 整體連續性 Overall Continuity
+
+我們說一個函數 f(x) 是連續的，是說在 f(x) domain 中的每個點 c ，函數 f 在點 x = c 是連續的。
+
+**問題*
+
+{: .box-note}
+Q: 如果函數 f 在 x = 3 是有不連續的，而函數 g 在 x = 3 處也是有不連續的，那麼函數 h(x)=f(x)+g(x) 在 x = 3 處也必定是有不連續的。
+
+{: .box-note}
+A: 錯的，函數 f 在 x = 3 是跳躍不連續的，函數 g 在 x = 3 也是跳躍不連續的，但是當將兩個函數相加時，跳躍點會互相抵消，從而得到一個連續的和函數。
+例如，如果 f(x)=⌊x⌋ 且 g(x)=−⌊x⌋，那麼這兩個函數在 x = 3 都是跳躍不連續，但它們的和函數是常數函數 0，它在任何地方都是連續的。
+
+### 連續函數的分類
+
+以下函數在所有實數上都連續：
+
+- {: .arrow} 所有多項式
+
+- {: .arrow} <img src="{{ 'assets/img/continuous/continuous-19-1.png' | relative_url }}" alt="" />
+
+- {: .arrow} |x|
+
+- {: .arrow} cosx 和 sinx
+
+- {: .arrow} 指數函數 <img src="{{ 'assets/img/continuous/continuous-19-2.png' | relative_url }}" alt="" /> ，其中底數 a > 0
+
+
+以下函數在指定的 x 值上連續(或右連續)：
+
+- {: .arrow} <img src="{{ 'assets/img/continuous/continuous-19-3.png' | relative_url }}" alt="" /> ，對於所有 x ≥ 0
+
+- {: .arrow} tanx ，在所有定義域內的 x 上連續
+
+- {: .arrow} 對數函數 <img src="{{ 'assets/img/continuous/continuous-19-4.png' | relative_url }}" alt="" /> ，其中底數 a > 0，x > 0
+
+### Intermediate Value Theorem(IVT)
+
+如果函數 f 在閉區間 [a,b] 上連續，並且 M 位於 f(a) 和 f(b) 的值之間，那麼至少存在一個點 c，它在 a 和 b 之間，滿足 f(c) = M。
+
+{: .box-note}
+當一個函數 f 在閉區間 [a,b] 上，在點 x = a 是右連續，在點 x = b 是左連續，並且在 a 和 b 之間的所有點上連續，則我們稱函數 f 在閉區間 [a,b] 上連續(**continuous on a closed interval**)。
+
+The Intermediate Value Theorem is profound because it takes information that is local by nature, and allows you to conclude a global result. Continuity at a point is local information, because it only requires knowledge of the function's behavior near that point. But somehow, if we know this fact at every point on an interval, then the Intermediate Value Theorem tells us something about the overall, or global behavior - namely, that the function has to take on a particular value, or its graph has to cross a certain line.
+
+This is intimately tied in with the properties of the real number system. We could have the same definition of continuity for functions if we only worked with, say, the rational numbers (numbers which can be written as a fraction of integers), but the Intermediate Value Theorem would not work if that were the case. It is only when we move to the real numbers that the Intermediate Value Theorem holds true.
+
+IVT 之所以深刻，是因為它將局部的資訊，做出一個全域的結論。在一個點上的連續性是局部資訊，因為它只需要瞭解函數在該點附近的行為。但是不知怎麼的，如果我們在區間上的每個點都知道這個事實，那麼 IVT 告訴我們一些關於整體或全域行為的資訊，即函數必須取特定的值，或者它的圖形必須穿過某條線。
+
+這與實數系統的性質密切相關。如果我們只使用有理數(可以表示為整數的分數)進行工作，我們可以為函數使用相同的連續性定義，但是 IVT 在這種情況下不起作用。只有當我們轉向實數時，中值定理才成立。
+
+**問題1**
+
+Q: 如果 g(x)=4x^(−3)−x−sin(πx)。IVT 是否表示著在 x = −1 和 x = 1 之間必然存在某個 c，使得 g(c)=0？
+
+A: 不正確。請注意，g(x)在區間[−1,1]上不連續，因為它在 x = 0 未定義。因此，IVT 在這種情況下不適用。
+
+**問題2**
+
+Q: 一個多項式 p(x) 有以下的值<br class="new">
+
+p(−2) 	 = 	 6 <br class="new">
+p(−1) 	 = 	 −2 <br class="new">
+p(0) 	 = 	 −3 <br class="new">
+p(1) 	 = 	 1 <br class="new">
+p(2) 	 = 	 6 <br class="new">
+
+我們也知道 p(x) > 6 當 x > 2 或 x < −2 時，我們最多可以推論出什麼?<br class="new">
+
+A: 注意，任何多項式在所有點上都是連續的，因此 IVT 適用於任何區間。
+我們知道 p(−2) 是正數，p(−1) 是負數，因此在 x = −2 和 x = −1 之間至少存在一個使得 p 為 0 的點。同樣的，在 x = 0 和 x = 1 之間至少存在一個使得 p 為 0 的點。總而言之，我們知道至少有 2 個根(root)。<br class="new">
+
 
 <br/>
 <br/>
