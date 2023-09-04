@@ -32,19 +32,8 @@ limit 有許多可能的行為：<br class="new">
 - {: .arrow} 由於趨近於 ±∞，右極限和/或左極限可能不存在。（例如：考慮在 x=0 附近的函數 1/x。）在這種情況下，我們會說極限趨近於無窮大。我們還會說極限不存在(DNE)，因為 ∞ 不是實數！
 
 - {: .arrow} 右極限和/或左極限可能不存在，因為在許多值之間擺動且不穩定。在這種情況下，我們會說極限不存在。
-<br class="new">
-<br class="new">
-**極限行為範例1**
 
-<img src="{{ 'assets/img/limit/limit-4.png' | relative_url }}" alt="" />
-<br class="new">
-**極限行為範例2**
-
-<img src="{{ 'assets/img/limit/limit-5.png' | relative_url }}" alt="" />
-<br class="new">
-**極限行為範例3**
-
-<img src="{{ 'assets/img/limit/limit-6.png' | relative_url }}" alt="" />
+- {: .arrow} 右極限、左極限、f(a)三者的值沒有一定的關係。
 
 ### 極限定義
 
