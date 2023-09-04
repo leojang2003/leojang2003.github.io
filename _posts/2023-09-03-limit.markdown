@@ -8,6 +8,7 @@ comments: true
 
 {: .note}
 極限考慮的是 x 無限趨近於 a 時，f(x) 的值。不需要考慮 x = a 本身。
+<br class="new">
 
 ### 右極限(right-hand limit)與左極限(left-hand limit)
 
