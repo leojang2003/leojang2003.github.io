@@ -8,29 +8,29 @@ comments: true
 
 ### 連續性 Continuity
 
-我們說一個函數 f 在點 x=a 處是連續的，如果<br class="new">
+我們說一個函數 f 在點 x = a 處是連續的，如果<br class="new">
 
 <img src="{{ 'assets/img/continuous/continuous-1-1.png' | relative_url }}" alt="" />
 
-特別地，如果 f(a) 或 <img src="{{ 'assets/img/continuous/continuous-1-2.png' | relative_url }}" alt="" /> 不存在，那麼 f 在 a 處是不連續的。<br class="new">
+尤其是，如果 f(a) 或 <img src="{{ 'assets/img/continuous/continuous-1-2.png' | relative_url }}" alt="" /> 不存在，那麼 f 在 a 是不連續的。<br class="new">
 
-我們說一個函數 f 在點 x = a 處是右連續(right-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-3.png' | relative_url }}" alt="" /> 。<br/>
+我們說一個函數 f 在點 x = a 是右連續(right-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-3.png' | relative_url }}" alt="" /> 。<br/>
 
-我們說一個函數 f 在點 x = a 處是左連續(left-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-4.png' | relative_url }}" alt="" /> 。<br/>
+我們說一個函數 f 在點 x = a 是左連續(left-continuous)的，如果 <img src="{{ 'assets/img/continuous/continuous-1-4.png' | relative_url }}" alt="" /> 。<br/>
 
 ### 跳躍不連續 Jump Discontinuity
 
-有時候，對於某些不連續的類型進行分類是很有用的。<br class="new">
+有時候，知道不連續是哪種類型是很有用的。<br class="new">
 
-如果左極限 <img src="{{ 'assets/img/continuous/continuous-1-5.png' | relative_url }}" alt="" /> 和右極限 <img src="{{ 'assets/img/continuous/continuous-1-6.png' | relative_url }}" alt="" /> 在點 x = a 處都存在，但它們不相等，那麼我們說 f 在 x = a 處有跳躍不連續(jump discontinuity)。
+如果左極限 <img src="{{ 'assets/img/continuous/continuous-1-5.png' | relative_url }}" alt="" /> 和右極限 <img src="{{ 'assets/img/continuous/continuous-1-6.png' | relative_url }}" alt="" /> 在點 x = a 都存在，但它們不相等，那麼我們說 f 在 x = a 有跳躍不連續(jump discontinuity)。
 
 <img src="{{ 'assets/img/continuous/continuous-1-7.png' | relative_url }}" alt="" />
 
-### 可移除的不連續性 Removable Discontinuity
+### 可移除不連續性 Removable Discontinuity
 
-如果整體極限(overall limit) <img src="{{ 'assets/img/continuous/continuous-1-8.png' | relative_url }}" alt="" /> 存在(即左側和右側極限相等)，但整體極限不等於 f(a) ，那麼我們說 f 在 x = a 處有可移除的不連續性(removable discontinuity)。
+如果整體極限(overall limit) <img src="{{ 'assets/img/continuous/continuous-1-8.png' | relative_url }}" alt="" /> 存在(即左右極限相等)，但整體極限不等於 f(a) ，那麼我們說 f 在 x = a 是可移除不連續性(removable discontinuity)。
 
-**連續性範例**
+**問題1**
 
 <img src="{{ 'assets/img/continuous/continuous-4.png' | relative_url }}" alt="" />
 
@@ -40,25 +40,24 @@ comments: true
 在 x = 3，f 是右連續但不是左連續。<br class="new">
 在 x = 4，f 是連續的。<br class="new">
 
-**不連續範例**
+**問題2**
 
 <img src="{{ 'assets/img/continuous/continuous-5.png' | relative_url }}" alt="" />
 
-在 x = -2, 1，是可移除的不連續性。<br class="new">
+在 x = -2, 1，是可移除不連續性。<br class="new">
 在 x = 3，是跳躍不連續。<br class="new">
 
 ### 整體連續性 Overall Continuity
 
 我們說一個函數 f(x) 是連續的，是說在 f(x) domain 中的每個點 c ，函數 f 在點 x = c 是連續的。
 
-**問題*
+**問題3**
 
 {: .box-note}
-Q: 如果函數 f 在 x = 3 是有不連續的，而函數 g 在 x = 3 處也是有不連續的，那麼函數 h(x)=f(x)+g(x) 在 x = 3 處也必定是有不連續的。
+Q: 如果函數 f 在 x = 3 是不連續的，而函數 g 在 x = 3 也是不連續的，那麼函數 h(x) = f(x) + g(x) 在 x = 3 也必定是不連續的?
 
 {: .box-note}
-A: 錯的，函數 f 在 x = 3 是跳躍不連續的，函數 g 在 x = 3 也是跳躍不連續的，但是當將兩個函數相加時，跳躍點會互相抵消，從而得到一個連續的和函數。
-例如，如果 f(x)=⌊x⌋ 且 g(x)=−⌊x⌋，那麼這兩個函數在 x = 3 都是跳躍不連續，但它們的和函數是常數函數 0，它在任何地方都是連續的。
+A: 答案是錯的，假設函數 f 在 x = 3 是跳躍不連續，函數 g 在 x = 3 也是跳躍不連續，但是當將兩個函數相加時，跳躍點會互相抵消，從而得到一個連續的和函數。例如，如果 f(x) = ⌊x⌋ 且 g(x) = −⌊x⌋，那麼這兩個函數在 x = 3 都是跳躍不連續，但它們的和函數是常數函數 0，h(x) = 0 在任何點都是連續的。
 
 ### 連續函數的分類
 
@@ -83,18 +82,16 @@ A: 錯的，函數 f 在 x = 3 是跳躍不連續的，函數 g 在 x = 3 也是
 
 - {: .arrow} 對數函數 <img src="{{ 'assets/img/continuous/continuous-19-4.png' | relative_url }}" alt="" /> ，其中底數 a > 0，x > 0
 
-### Intermediate Value Theorem(IVT)
+### Intermediate Value Theorem (IVT)
 
-如果函數 f 在閉區間 [a,b] 上連續，並且 M 位於 f(a) 和 f(b) 的值之間，那麼至少存在一個點 c，它在 a 和 b 之間，滿足 f(c) = M。
+如果函數 f 在閉區間 [a,b] 上是**連續**，並且 M 位於 f(a) 和 f(b) 的值之間，那麼至少存在一個點 c，它在 a 和 b 之間，滿足 f(c) = M。
 
 {: .box-note}
 當一個函數 f 在閉區間 [a,b] 上，在點 x = a 是右連續，在點 x = b 是左連續，並且在 a 和 b 之間的所有點上連續，則我們稱函數 f 在閉區間 [a,b] 上連續(**continuous on a closed interval**)。
 
-The Intermediate Value Theorem is profound because it takes information that is local by nature, and allows you to conclude a global result. Continuity at a point is local information, because it only requires knowledge of the function's behavior near that point. But somehow, if we know this fact at every point on an interval, then the Intermediate Value Theorem tells us something about the overall, or global behavior - namely, that the function has to take on a particular value, or its graph has to cross a certain line.
-
 This is intimately tied in with the properties of the real number system. We could have the same definition of continuity for functions if we only worked with, say, the rational numbers (numbers which can be written as a fraction of integers), but the Intermediate Value Theorem would not work if that were the case. It is only when we move to the real numbers that the Intermediate Value Theorem holds true.
 
-IVT 之所以深刻，是因為它將局部的資訊，做出一個全域的結論。在一個點上的連續性是局部資訊，因為它只需要瞭解函數在該點附近的行為。但是不知怎麼的，如果我們在區間上的每個點都知道這個事實，那麼 IVT 告訴我們一些關於整體或全域行為的資訊，即函數必須取特定的值，或者它的圖形必須穿過某條線。
+IVT 之所以影響深遠，是因為它從局部的資訊，得出一個全域的結論。一個點上的連續性是局部資訊，因為它只需要瞭解函數在該點附近的行為。但是，如果我們知道區間上的每個點都是**連續**的，那麼 IVT 告訴我們一些關於整體或全域行為的資訊，即函數必須取特定的值，或者它的圖形必須穿過某條線。
 
 這與實數系統的性質密切相關。如果我們只使用有理數(可以表示為整數的分數)進行工作，我們可以為函數使用相同的連續性定義，但是 IVT 在這種情況下不起作用。只有當我們轉向實數時，中值定理才成立。
 
