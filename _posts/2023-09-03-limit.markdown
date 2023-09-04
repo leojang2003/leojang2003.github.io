@@ -40,7 +40,7 @@ comments: true
 
 <br/>
 
-### 極限定義
+### 極限的定義
 
 如果一個函數 f(x) 在 x 從右邊和左邊都接近某個值 L，那麼 f(x) 的極限存在，並且等於 L。
 
@@ -56,7 +56,7 @@ comments: true
 
 <img src="{{ 'assets/img/limit/limit-7-2.png' | relative_url }}" alt="" />
 <br/>
-### 正式極限定義  
+### 正式的極限定義  
 
 通常情況下，語句 <img src="{{ 'assets/img/limit/limit-8-0.png' | relative_url }}" alt="" /> 被定義為：
 
