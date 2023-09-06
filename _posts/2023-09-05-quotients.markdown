@@ -22,15 +22,33 @@ comments: true
 
 如果 M = 0 但 L ≠ 0，則 <img src="{{ 'assets/img/quotients/6-4.png' | relative_url }}" alt="" /> 不存在。
 
-如果 M = 0 且 L = 0，則 <img src="{{ 'assets/img/quotients/6-1.png' | relative_url }}" alt="" /> 可能存在，也可能不存在。需要更多的工作来確定最後一種類型的極限是否存在，以及如果存在的話是什麼。
+如果 M = 0 且 L = 0，則 <img src="{{ 'assets/img/quotients/6-1.png' | relative_url }}" alt="" /> 可能存在，也可能不存在。需要更多的工作來確定最後一種類型的極限是否存在，以及如果存在的話是什麼。
 
 **練習**
 
-乘法的極限法則沒有例外，所以第一個極限將是 17⋅0，或者是0。
-同樣地，加法的極限法則告訴我們第三個極限將是 0+17+0，或者是17。
-對於 g(x)f(x) 的極限，分子趨近於17，而分母趨近於0。這意味著商的極限不存在。
-對於 f(x)+h(x)g(x) 的極限，分子趨近於 0+0，而分母趨近於17。這意味著商的極限為 0/17，或者是0。
-對於 f(x)h(x) 的極限，分子和分母都趨近於0。僅憑這個信息我們無法得出任何結論；我們需要做更多的工作來找出極限是什麼。
+假設 <img src="{{ 'assets/img/quotients/7-1.png' | relative_url }}" alt="" />  <br class="new">
+
+1. <img src="{{ 'assets/img/quotients/7-2.png' | relative_url }}" alt="" />  = 0 <br class="new">
+
+乘法的極限法則沒有例外，所以第一個極限將是 17 * 0 = 0。<br class="new">
+
+2. <img src="{{ 'assets/img/quotients/7-3.png' | relative_url }}" alt="" />  = 0 <br class="new">
+
+對於 g(x)/f(x) 的極限，分子趨近於17，而分母趨近於0。這表示著商的極限不存在。<br class="new">
+
+3. <img src="{{ 'assets/img/quotients/7-4.png' | relative_url }}" alt="" />  = 0 <br class="new">
+
+同樣地，加法的極限法則告訴我們第三個極限將是 0 + 17 + 0 = 17。<br class="new">
+
+4. <img src="{{ 'assets/img/quotients/7-5.png' | relative_url }}" alt="" />  = 0 <br class="new">
+
+分子和分母都趨近於0。僅憑這個訊息我們無法得出任何結論；我們需要做更多的工作來找出極限是什麼。
+
+5. <img src="{{ 'assets/img/quotients/7-6.png' | relative_url }}" alt="" />  = 0 <br class="new">
+
+分子趨近於 0+0，而分母趨近於17。這表示著商的極限為 0/17，或者是0。
+
+### 使用極限除法定律
 
 <br/>
 <br/>
