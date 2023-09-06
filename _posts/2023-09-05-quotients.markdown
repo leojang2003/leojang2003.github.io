@@ -28,23 +28,23 @@ comments: true
 
 假設 <img src="{{ 'assets/img/quotients/7-1.png' | relative_url }}" alt="" />  <br class="new">
 
-1. <img src="{{ 'assets/img/quotients/7-2.png' | relative_url }}" alt="" />  = 0 <br class="new">
+<img src="{{ 'assets/img/quotients/7-2.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 乘法的極限法則沒有例外，所以第一個極限將是 17 * 0 = 0。<br class="new">
-
-2. <img src="{{ 'assets/img/quotients/7-3.png' | relative_url }}" alt="" />  = 0 <br class="new">
+<br class="new">
+<img src="{{ 'assets/img/quotients/7-3.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 對於 g(x)/f(x) 的極限，分子趨近於17，而分母趨近於0。這表示著商的極限不存在。<br class="new">
-
-3. <img src="{{ 'assets/img/quotients/7-4.png' | relative_url }}" alt="" />  = 0 <br class="new">
+<br class="new">
+<img src="{{ 'assets/img/quotients/7-4.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 同樣地，加法的極限法則告訴我們第三個極限將是 0 + 17 + 0 = 17。<br class="new">
-
-4. <img src="{{ 'assets/img/quotients/7-5.png' | relative_url }}" alt="" />  = 0 <br class="new">
+<br class="new">
+<img src="{{ 'assets/img/quotients/7-5.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 分子和分母都趨近於0。僅憑這個訊息我們無法得出任何結論；我們需要做更多的工作來找出極限是什麼。
-
-5. <img src="{{ 'assets/img/quotients/7-6.png' | relative_url }}" alt="" />  = 0 <br class="new">
+<br class="new">
+<img src="{{ 'assets/img/quotients/7-6.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 分子趨近於 0+0，而分母趨近於17。這表示著商的極限為 0/17，或者是0。
 
