@@ -79,6 +79,7 @@ comments: true
 <img src="{{ 'assets/img/quotients/9-5.png' | relative_url }}" alt="" />  <br class="new">
 
 = (3x^2+x)/x^2+x+1 = 0/1 = 0
+<br/>
 
 ### 基本極限概念
 
@@ -116,7 +117,8 @@ comments: true
 
 在我們知道 <img src="{{ 'assets/img/quotients/11-3.png' | relative_url }}" alt="" /> 與 <img src="{{ 'assets/img/quotients/11-4.png' | relative_url }}" alt="" /> 後，<img src="{{ 'assets/img/quotients/11-5.png' | relative_url }}" alt="" /> 的值是多少? <br class="new">
 
-答案 : 極限不存在，不是 <img src="{{ 'assets/img/quotients/11-6.png' | relative_url }}" alt="" />  <br class="new"> 也不是 <img src="{{ 'assets/img/quotients/11-7.png' | relative_url }}" alt="" />  <br class="new">
+答案 : 極限不存在，不是 <img src="{{ 'assets/img/quotients/11-6.png' | relative_url }}" alt="" />  <br class="new"> 也不是 <img src="{{ 'assets/img/quotients/11-7.png' | relative_url }}" alt="" />
+<br/>
 
 ### 另一個函數
 
