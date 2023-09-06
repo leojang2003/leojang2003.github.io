@@ -31,13 +31,13 @@ comments: true
 <img src="{{ 'assets/img/quotients/7-2.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 乘法的極限法則沒有例外，所以第一個極限將是 17 * 0 = 0。
-
 <br/>
+
 <img src="{{ 'assets/img/quotients/7-3.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 分子趨近於 17，而分母趨近於 0。這表示著商的極限不存在。
-
 <br/>
+
 <img src="{{ 'assets/img/quotients/7-4.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
 同樣地，加法的極限法則告訴我們第三個極限將是 0 + 17 + 0 = 17。
