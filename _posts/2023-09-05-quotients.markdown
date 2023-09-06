@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Unit-0 Limit of Quotients
+title: Limit of Quotients
 subtitle: 
-tags: []
+tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Limits of quotients']
 comments: true
 ---
 
