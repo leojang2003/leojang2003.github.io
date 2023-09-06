@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Unit-0 Continuity
+title: Continuity
 subtitle: 
-tags: []
+tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Continuity']
 comments: true
 ---
 
