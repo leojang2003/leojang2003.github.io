@@ -26,7 +26,7 @@ comments: true
 
 **練習**
 
-假設 <img src="{{ 'assets/img/quotients/7-1.png' | relative_url }}" alt="" />  <br class="new">
+假設 <img src="{{ 'assets/img/quotients/7-1.png' | relative_url }}" alt="" />  <br/>
 
 <img src="{{ 'assets/img/quotients/7-2.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
