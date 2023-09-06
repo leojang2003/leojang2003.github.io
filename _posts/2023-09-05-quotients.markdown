@@ -35,7 +35,7 @@ comments: true
 <br/>
 <img src="{{ 'assets/img/quotients/7-3.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
-對於 g(x)/f(x) 的極限，分子趨近於17，而分母趨近於0。這表示著商的極限不存在。
+分子趨近於 17，而分母趨近於 0。這表示著商的極限不存在。
 
 <br/>
 <img src="{{ 'assets/img/quotients/7-4.png' | relative_url }}" alt="" />  = 0 <br class="new">
@@ -45,12 +45,12 @@ comments: true
 
 <img src="{{ 'assets/img/quotients/7-5.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
-分子和分母都趨近於0。僅憑這個訊息我們無法得出任何結論；我們需要做更多的工作來找出極限是什麼。
+分子和分母都趨近於 0。僅憑這個訊息我們無法得出任何結論；我們需要做更多的工作來找出極限是什麼。
 <br/>
 
 <img src="{{ 'assets/img/quotients/7-6.png' | relative_url }}" alt="" />  = 0 <br class="new">
 
-分子趨近於 0+0，而分母趨近於17。這表示著商的極限為 0/17，或者是0。
+分子趨近於 0 + 0，而分母趨近於 17。這表示著商的極限為 0 / 17 = 0。
 <br/>
 
 ### 使用極限除法定律
