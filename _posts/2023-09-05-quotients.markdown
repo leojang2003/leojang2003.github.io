@@ -23,7 +23,7 @@ comments: true
 如果 M = 0 但 L ≠ 0，則 <img src="{{ 'assets/img/quotients/6-4.png' | relative_url }}" alt="" /> 不存在。
 
 如果 M = 0 且 L = 0，則 <img src="{{ 'assets/img/quotients/6-1.png' | relative_url }}" alt="" /> 可能存在，也可能不存在。需要更多的工作來確定最後一種類型的極限是否存在，以及如果存在的話是什麼。
-
+<br/>
 **練習**
 
 假設 <img src="{{ 'assets/img/quotients/7-1.png' | relative_url }}" alt="" />  <br/>
