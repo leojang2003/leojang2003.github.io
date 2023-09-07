@@ -5,7 +5,7 @@ subtitle:
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Continuity','continuous','right-continuous','left-continuous','jump discontinuity','removable discontinuity','Intermediate Value Theorem','IVT']
 comments: true
 ---
-
+<br/>
 ### 連續性 Continuity
 
 我們說一個函數 f 在點 x = a 處是連續的，如果<br class="new">

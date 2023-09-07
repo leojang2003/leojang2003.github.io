@@ -5,7 +5,7 @@ subtitle:
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','derivative','rate of change']
 comments: true
 ---
-
+<br/>
 ### 在一個點的導數 Derivatives at a point
 
 

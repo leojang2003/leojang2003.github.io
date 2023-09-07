@@ -5,7 +5,7 @@ subtitle:
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Limits of quotients','Limit Law for Division']
 comments: true
 ---
-
+<br/>
 ### Quotients of small numbers
 
 讓我們考慮一個一般情況的極限<img src="{{ 'assets/img/quotients/quotients-1.png' | relative_url }}" alt="" />，其中分子和分母都趨近於 0。

@@ -5,7 +5,7 @@ subtitle:
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Introduction to limits','right-hand limit','left-hand limit','Limit Laws']
 comments: true
 ---
-
+<br/>
 {: .note}
 極限考慮的是 x 無限趨近於 a 時，f(x) 的值。不需要考慮 x = a 本身。
 <br class="new">

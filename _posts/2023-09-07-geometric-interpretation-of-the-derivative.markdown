@@ -5,7 +5,7 @@ subtitle:
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives']
 comments: true
 ---
-
+<br/>
 ### 切線 Tangent lines
 
 我們已經看到了我們可以畫一條切線。切線有一種特殊性質，即切線通過函數的某一點，但並不穿過該點的函數曲線。但我們必須小心。<br class="new">
