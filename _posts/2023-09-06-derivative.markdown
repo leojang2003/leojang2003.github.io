@@ -37,13 +37,15 @@ Q: <img src="{{ 'assets/img/unit1/0/13-0.png' | relative_url }}" alt="" /> 預�
 A: 如果貨物的重量增加，卡車的燃油效率將會降低。這表示 <img src="{{ 'assets/img/unit1/0/13-0.png' | relative_url }}" alt="" /> 應該是負數。
 <br/>
 
-### 平均變化率的定義 The Definition of the average rate of change
+### 平均變化率的定義 
+**The Definition of the average rate of change**
 
 函數 f(x) 在區間 a ≤ x ≤ b 上的平均變化率被定義為：<br class="new">
 
 <img src="{{ 'assets/img/unit1/0/9-7.png' | relative_url }}" alt="" />
 
-### 導數的定義 Definition of the derivative
+### 導數的定義
+**Definition of the derivative**
 
 函數 f(x) 在點 x = a 處的導數被定義為：<br class="new">
 
