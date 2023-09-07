@@ -32,7 +32,7 @@ Q: 卡車將要進行一次500公里的行程。如果它裝載了x磅的貨物�
 
 A: 任何函數的導數都以函數的輸出單位除以函數的輸入單位來衡量。這裡的輸出以每加侖英里 mi/g 為單位，輸入以磅 p 為單位，因此導數以每磅每加侖英里 (mi/g)/p 或英里除以(加侖乘以磅) mi/(g⋅p) 為單位。<br class="new">
 
-Q: img src="{{ 'assets/img/unit1/0/13-0.png' | relative_url }}" alt="" /> 預期是正數、負數還是 0?<br class="new">
+Q: <img src="{{ 'assets/img/unit1/0/13-0.png' | relative_url }}" alt="" /> 預期是正數、負數還是 0?<br class="new">
 
 A: 如果貨物的重量增加，卡車的燃油效率將會降低。這表示 <img src="{{ 'assets/img/unit1/0/13-0.png' | relative_url }}" alt="" /> 應該是負數。
 <br/>
