@@ -22,7 +22,8 @@ comments: true
 
 在一個100公尺的大樓向上拋南瓜，南瓜的高度可以使用公式 <img src="{{ 'assets/img/unit1/0/9-3.png' | relative_url }}" alt="" />，其中 t 是秒數，我們知道 f'(3) 是 -10，計算 f'(2) <br class="new">
 
-<img src="{{ 'assets/img/unit1/0/9-6.png' | relative_url }}" alt="" /><br class="new"> 
+<img src="{{ 'assets/img/unit1/0/9-6.png' | relative_url }}" alt="" />
+<br/>
 
 ### Zero Derivative
 
@@ -43,6 +44,8 @@ A: 如果貨物的重量增加，卡車的燃油效率將會降低。這表示 f
 函數 f(x) 在區間 a ≤ x ≤ b 上的平均變化率被定義為：<br class="new">
 
 <img src="{{ 'assets/img/unit1/0/9-7.png' | relative_url }}" alt="" />
+
+<br/>
 
 ### 導數的定義
 **Definition of the derivative**
