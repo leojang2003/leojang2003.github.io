@@ -61,9 +61,11 @@ Q: 這條線是在標記點處切線嗎? 是 <br class="new">
 
 <br/>
 
-### 斜率 Slope
+### 割線的斜率
 
-斜率的定義為 **rise**/**run** = △y/△x<br class="new">
+為了要計算切線的斜率，我們引入了割線的觀念，我們想要計算割線的斜率，斜率的定義為 **rise**/**run** = △y/△x<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/5-1.png' | relative_url }}" alt="" /> <br class="new">
 <br/>
 
 **平均變化率**<br class="new">
