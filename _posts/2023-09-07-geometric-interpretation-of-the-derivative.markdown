@@ -6,6 +6,19 @@ tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','tangent line','secant l
 comments: true
 ---
 <br/>
+
+### 導數的解釋
+
+導數可以有三種不同的解釋<br class="new">
+
+1. 物理上的解釋 : 瞬間變化率<br class="new">
+
+2. 幾何上的解釋 : 切線的斜率<br class="new">
+
+3. 函數對小改變的敏感度(sensitivity of function to small changes)<br class="new">
+
+我們現在要來探討第二種在幾何上導數的意義
+
 ### 切線 Tangent lines
 
 我們已經看到了我們可以畫一條切線。切線有一種特殊性質，即切線通過函數的某一點，但並不穿過該點的函數曲線。<br class="new">
