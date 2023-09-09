@@ -51,6 +51,12 @@ Q: 這條線是在標記點處切線嗎? 是 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-8.png' | relative_url }}" alt="" /> <br class="new">
 
+當 x 為 0 時，是沒有切線的，因為就算我們無限放大這個函數如下圖，函數也沒有變成一條直線
+
+<img src="{{ 'assets/img/unit1/1/4-9.png' | relative_url }}" alt="" /> <br class="new">
+
+因此函數的 f'(0) 不存在
+
 <img src="{{ 'assets/img/unit1/1/4-6.png' | relative_url }}" alt="" /> <br class="new">
 
 <br/>
