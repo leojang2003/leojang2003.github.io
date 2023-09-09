@@ -31,7 +31,7 @@ Q: 這條線是在標記點處切線嗎? 是 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
 
-當我們無限拉近這個點時，我們可以看到藍色的函數越來越接近直線<br class="new">
+當我們拉近這個點時，我們可以看到藍色的函數越來越接近直線<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-3.png' | relative_url }}" alt="" /> <br class="new">
 
@@ -39,9 +39,20 @@ Q: 這條線是在標記點處切線嗎? 是 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-4.png' | relative_url }}" alt="" /> <br class="new">
 
-函數在這個點已經趨近於直線了 <br class="new">
+藍色函數在放大一千倍時，已經趨近於直線了 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-5.png' | relative_url }}" alt="" /> <br class="new">
+
+換另一個例子，函數為 x 取絕對值圖形如下，當 x 為負值時，切線的斜率固定是 -1，可以看到圖上的 f'(x) = -1<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-7.png' | relative_url }}" alt="" /> <br class="new">
+
+當 x 為正值時，切線的斜率固定是 1，可以看到圖上的 f'(x) = 1<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-8.png' | relative_url }}" alt="" /> <br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-6.png' | relative_url }}" alt="" /> <br class="new">
+
 <br/>
 
 ### 斜率 Slope
