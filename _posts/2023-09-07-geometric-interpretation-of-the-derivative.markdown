@@ -79,7 +79,9 @@ Q: 函數 f 在 x = a 和 x = b 之間的平均變化率是? <br class="new">
 
 ### 幾何上的平均變化率
 
-Q: 在函數 f 的圖形上，x = a 和 x = b 對應於點 (a,f(a)) 和 (b,f(b))。平均變化率 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 在幾何上的意義是?<br class="new">
+Q: 在函數 f 的圖形上，x = a 和 x = b 對應於點 (a, f(a)) 和 (b, f(b))。平均變化率 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 在幾何上的意義是?<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/6-1.png' | relative_url }}" alt="" /><br class="new">
 
 A: 割線(Secant Line)的斜率。
 <br/>
