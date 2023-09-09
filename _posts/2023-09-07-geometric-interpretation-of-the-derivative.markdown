@@ -17,7 +17,8 @@ comments: true
 
 3. 函數對小改變的敏感度(sensitivity of function to small changes)<br class="new">
 
-我們現在要來探討第二種在幾何上導數的意義
+我們現在要來探討第二種在幾何上導數的意義為何
+<br/>
 
 ### 切線 Tangent lines
 
