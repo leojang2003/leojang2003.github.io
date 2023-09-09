@@ -5,7 +5,7 @@ subtitle:
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','tangent line','secant line','step function',cornor function','slope','right-side derivative','left-side derivative']
 comments: true
 ---
-
+<br/>
 ### 切線 Tangent lines
 
 我們已經看到了我們可以畫一條切線。切線有一種特殊性質，即切線通過函數的某一點，但並不穿過該點的函數曲線。<br class="new">
@@ -19,6 +19,29 @@ Q: 這條線是切線嗎? 不是 <br class="new">
 <img src="{{ 'assets/img/unit1/1/3-2.png' | relative_url }}" alt="" /><br class="new"> <br class="new">
 
 Q: 這條線是在標記點處切線嗎? 是 <br class="new">
+
+以下圖形為 f(x) = sin(πx)，我們可以看到切線同時通過多個點，因此切線有可能同時是多個點的切線
+
+<img src="{{ 'assets/img/unit1/1/4-1.png' | relative_url }}" alt="" />
+<br/>
+
+### 切線的直覺
+
+我們可以看到 f(x) = 0.5 * x^3 - x 的圖形如下，我們可以看到橘色的線是切線 <br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
+
+當我們無限拉近這個點時，我們可以看到藍色的函數越來越接近直線<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-3.png' | relative_url }}" alt="" /> <br class="new">
+
+越來越近 <br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-4.png' | relative_url }}" alt="" /> <br class="new">
+
+函數在這個點已經趨近於直線了 <br class="new">
+
+<img src="{{ 'assets/img/unit1/1/4-5.png' | relative_url }}" alt="" /> <br class="new">
 <br/>
 
 ### 斜率 Slope
