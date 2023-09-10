@@ -134,15 +134,14 @@ m = f'(a)<br class="new">
 
 現在，當我們定義函數 f 在 a 處的導數 f'(a) 時，當 b 接近 a 時我們取 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 的極限，這個值也是連接點 (a,f(a)) 和 (b,f(b)) 的割線的斜率。<br class="new">
 
-我們現在要的問題是，當 b 接近 a 時，割線的極限是多少?  我們可以從以下模擬器可以略知一二
-
-<br/>
+我們現在要的問題是，當 b 接近 a 時，割線的極限是多少?  我們可以從以下模擬器可以略知一二<br class="new">
 
 我們可以從下圖得知，當 b 無限接近 a 時，割線就趨近於切線，割線的極限就是切線的斜率。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/8-1.png' | relative_url }}" alt="" /><br class="new">
 
 △x 越來越小，割線往切線靠近<br class="new">
+
 <img src="{{ 'assets/img/unit1/1/8-2.png' | relative_url }}" alt="" /><br class="new">
 
 當 △x 趨近於 0 時，割線近乎與切線重疊<br class="new">
