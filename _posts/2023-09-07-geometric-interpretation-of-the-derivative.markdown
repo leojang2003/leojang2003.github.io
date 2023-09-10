@@ -31,11 +31,11 @@ comments: true
 
 <img src="{{ 'assets/img/unit1/1/3-1.png' | relative_url }}" alt="" /><br class="new"> <br class="new">
 
-Q: 上面這條線是切線嗎? 不是 <br class="new">
+上面這條線是切線嗎? 不是 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/3-2.png' | relative_url }}" alt="" /><br class="new"> <br class="new">
 
-Q: 上面這條線是在標記點是切線嗎? 是 <br class="new">
+上面這條線是在標記點是切線嗎? 是 <br class="new">
 <br/>
 
 以下圖形為 f(x) = sin(πx)，我們可以看到切線同時通過多個點，因此切線有可能同時是**多個點**的切線
@@ -45,7 +45,7 @@ Q: 上面這條線是在標記點是切線嗎? 是 <br class="new">
 
 ### 切線與微積分的關係
 
-Q: 假設有一個函數 f(x)，有一個點 a，剛好有一條切線通過點 a，我們要怎麼知道這條切線是什麼?
+假設有一個函數 f(x)，有一個點 a，剛好有一條切線通過點 a，我們要怎麼知道這條切線是什麼?
 
 <img src="{{ 'assets/img/unit1/1/2-1.png' | relative_url }}" alt="" /><br class="new">
 
