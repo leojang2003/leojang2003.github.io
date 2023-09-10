@@ -153,6 +153,8 @@ m = f'(a)<br class="new">
 ### 割線的極限
 
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
+
+<img src="{{ 'assets/img/unit1/1/9-2.png' | relative_url }}" alt="" /><br class="new">
 <br/>
 
 ### 推測導數 Estimate derivatives
