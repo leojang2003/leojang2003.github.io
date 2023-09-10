@@ -114,24 +114,31 @@ m = f'(a)<br class="new">
 
 ### 幾何上的平均變化率
 
-Q: 在函數 f 的圖形上，x = a 和 x = b 對應於點 (a, f(a)) 和 (b, f(b))。平均變化率 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 在幾何上的意義是?<br class="new">
+在函數 f 的圖形上，x = a 和 x = b 對應於點 (a, f(a)) 和 (b, f(b))。平均變化率 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 在幾何上的意義是?<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/6-1.png' | relative_url }}" alt="" /><br class="new">
 
-A: 割線(Secant Line)的斜率。
+平均變化率 = 割線(Secant Line)的斜率。
 <br/>
 
 ### 割線/切線 
 
 我們的目標是找到切線的斜率，但我們不知道怎麼做，所以引入割線的概念。<br class="new">
 
-現在，當我們定義函數 f 在 a 處的導數 f'(a) 時，當 b 接近 a 時我們取 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 的極限，這個值也是連接點 (a,f(a)) 和 (b,f(b)) 的割線的斜率。<br class="new">
-
 <img src="{{ 'assets/img/unit1/1/7-1.png' | relative_url }}" alt="" /><br class="new">
 
+從上述的圖可以看到，割線的斜率 = 相對於 x 的函數 f(x) 的平均變化率<br class="new">
+
+<br/>
+### 割線斜率的極限
+
+現在，當我們定義函數 f 在 a 處的導數 f'(a) 時，當 b 接近 a 時我們取 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 的極限，這個值也是連接點 (a,f(a)) 和 (b,f(b)) 的割線的斜率。<br class="new">
+
+我們現在要的問題是，當 b 接近 a 時，割線的極限是多少?  我們可以從以下模擬器可以略知一二
+
+<br/>
+
 我們可以從下圖得知，當 b 無限接近 a 時，割線就趨近於切線，割線的極限就是切線的斜率。<br class="new">
-
-
 
 <img src="{{ 'assets/img/unit1/1/8-1.png' | relative_url }}" alt="" /><br class="new">
 
@@ -145,12 +152,10 @@ A: 割線(Secant Line)的斜率。
 
 ### 割線的極限
 
-9-YTube 最後的圖
-
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
 <br/>
 
-### 預估倒數 Estimate derivatives
+### 推測導數 Estimate derivatives
 
 以下是函數 g 的圖形<br class="new">
 
