@@ -61,7 +61,7 @@ m = f'(a)<br class="new">
 
 ### 切線的直覺
 
-我們可以看到 f(x) = 0.5 * x^3 - x 的圖形如下，我們可以看到橘色的線是切線 <br class="new">
+使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
 
