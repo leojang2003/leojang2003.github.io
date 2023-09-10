@@ -151,7 +151,11 @@ m = f'(a)<br class="new">
 
 ### 割線的極限
 
+我們可以從下圖知道，當 b 趨近 a 時可以得出三個結論，(1)割線的斜率趨近於切線的斜率，(2)<img src="{{ 'assets/img/unit1/0/9-7.png' | relative_url }}" alt="" /> 趨近於 f'(a)，(3)平均變化率趨近於瞬間變化率
+
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
+
+一開始說導數可以有三種不同的解釋，用以下的圖可以檢視<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-2.png' | relative_url }}" alt="" /><br class="new">
 <br/>
