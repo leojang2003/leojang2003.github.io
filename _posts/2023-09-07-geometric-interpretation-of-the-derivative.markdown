@@ -61,7 +61,7 @@ m = f'(a)<br class="new">
 
 ### 切線的直覺
 
-使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線 <br class="new">
+使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線，藍色的線是函數 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
 
@@ -69,13 +69,14 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-3.png' | relative_url }}" alt="" /> <br class="new">
 
-越來越近 <br class="new">
+持續拉近，我們可以看到藍色的函數越來越接近直線 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-4.png' | relative_url }}" alt="" /> <br class="new">
 
 藍色函數在放大一千倍時，已經趨近於直線了 <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-5.png' | relative_url }}" alt="" /> <br class="new">
+<br/>
 
 換另一個例子，函數為 x 取絕對值圖形如下，當 x 為負值時，切線的斜率固定是 -1，可以看到圖上的 f'(x) = -1<br class="new">
 
@@ -85,11 +86,11 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-8.png' | relative_url }}" alt="" /> <br class="new">
 
-當 x 為 0 時，是沒有切線的，因為就算我們無限放大這個函數如下圖，不管我們怎麼放大，函數還是長一樣，沒有趨近成一條直線<br class="new">
+但是當 x 為 0 時，是沒有切線的，因為就算我們無限放大這個函數如下圖，不管我們怎麼放大，函數還是長一樣，沒有趨近成一條直線<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-9.png' | relative_url }}" alt="" /> <br class="new">
 
-因此函數的 f'(0) 不存在<br class="new">
+因此函數在 x = 0 的 f'(0) 不存在<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-6.png' | relative_url }}" alt="" /> <br class="new">
 
@@ -102,11 +103,11 @@ m = f'(a)<br class="new">
 <img src="{{ 'assets/img/unit1/1/5-1.png' | relative_url }}" alt="" /> <br class="new">
 <br/>
 
-**平均變化率**<br class="new">
+### 平均變化率
 
 我們想要引入函數 f 的圖形，並將其與導數和變化率相連接。讓我們回顧一下我們之前的內容：<br class="new">
 
-Q: 函數 f 在 x = a 和 x = b 之間的平均變化率是? <br class="new">
+函數 f 在 x = a 和 x = b 之間的平均變化率是? <br class="new">
 
 <img src="{{ 'assets/img/unit1/0/9-7.png' | relative_url }}" alt="" />
 <br/>
