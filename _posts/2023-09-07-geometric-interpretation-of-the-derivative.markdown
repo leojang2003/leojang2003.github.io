@@ -220,15 +220,15 @@ m = f'(a)<br class="new">
 
 從圖來看，x 從左側 x → 0 時，我們可以看到**割線**逐漸變成垂直。<br class="new">
 
-<img src="{{ 'assets/img/unit1/1/15-2.png' | relative_url }}" alt="" /> = -1<br class="new">
+<img src="{{ 'assets/img/unit1/1/15-2.png' | relative_url }}" alt="" /><br class="new">
 
 最後 x = 0 變成一條近乎垂直的割線，但沒有切線。<br class="new">
 
-<img src="{{ 'assets/img/unit1/1/15-4.png' | relative_url }}" alt="" /> = -1<br class="new">
+<img src="{{ 'assets/img/unit1/1/15-4.png' | relative_url }}" alt="" /><br class="new">
 
 使用模擬器確認在 x = 0 的切線不存在。<br class="new">
 
-<img src="{{ 'assets/img/unit1/1/15-3.png' | relative_url }}" alt="" /> = -1<br class="new">
+<img src="{{ 'assets/img/unit1/1/15-3.png' | relative_url }}" alt="" /><br class="new">
 
 從右側趨近 0 的切線就是斜率 0，右導數為 0。<br class="new">
 
