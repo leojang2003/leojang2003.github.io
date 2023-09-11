@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unit 1-(1) What is Derivatives
+title: Calculus Unit1-1 - What is Derivatives
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','derivative','rate of change']
 comments: true
