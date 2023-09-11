@@ -157,7 +157,7 @@ m = f'(a)<br class="new">
 (3)平均變化率趨近於瞬間變化率<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
-<br class="new">
+<br/>
 一開始說導數可以有三種不同的解釋，用以下的圖可以檢視 : <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-2.png' | relative_url }}" alt="" /><br class="new">
