@@ -248,8 +248,6 @@ m = f'(a)<br class="new">
 
 ### 當切線存在時...導數有可能不存在
 
-找GOOGLE的 f(x) = 立方根的圖 ↓
-
 考慮 <img src="{{ 'assets/img/continuous/continuous-19-1.png' | relative_url }}" alt="" />，x = 0 的切線為垂直的，因此不存在導數。
 
 <img src="{{ 'assets/img/unit1/1/15-5.png' | relative_url }}" alt="" />
