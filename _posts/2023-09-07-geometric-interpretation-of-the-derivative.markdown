@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Calculus Unit1-2 - 導數在幾何上的詮釋
+title: Calculus Unit1-2  導數在幾何上的詮釋
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','tangent line','secant line','step function',cornor function','slope','right-side derivative','left-side derivative']
 comments: true
@@ -59,15 +59,15 @@ m = f'(a)<br class="new">
 <br/>
 
 ### 直覺上的切線
-
+``
 使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線，藍色的線是函數。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
-
+<br/>
 當我們拉近這個點時，我們可以看到藍色的函數越來越接近直線。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-3.png' | relative_url }}" alt="" /> <br class="new">
-
+<br/>
 持續拉近，我們可以看到藍色的函數越來越接近直線。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-4.png' | relative_url }}" alt="" /> <br class="new">
