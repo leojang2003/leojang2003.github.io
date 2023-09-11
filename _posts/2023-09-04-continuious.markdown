@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Continuity
+title: Unit 0-(2) Continuity
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Continuity','continuous','right-continuous','left-continuous','jump discontinuity','removable discontinuity','Intermediate Value Theorem','IVT']
 comments: true
