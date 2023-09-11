@@ -206,7 +206,7 @@ m = f'(a)<br class="new">
 
 因為在 x = 0 的右極限與左極限不相等，因此 x = 0 的極限不存在，不存在導數。
 
-<img src="{{ 'assets/img/unit1/1/15-1.png' | relative_url }}" alt="" /> = -1<br class="new">
+<img src="{{ 'assets/img/unit1/1/15-1.png' | relative_url }}" alt="" /><br class="new">
 
 <br/>
 
