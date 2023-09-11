@@ -272,7 +272,7 @@ f'(3) = 0.2<br class="new">
 
 一開始我們說到我們的目標是要找到切線的方程式，現在我們知道怎麼取得斜率了，我們現在有能力知道切線的方程式是什麼了。<br class="new">
 
-假設找出函數 <img src="{{ 'assets/img/unit1/1/17-1.png' | relative_url }}" alt="" /> 在 x = 1 的切線，我們知道切線會經過的點是(1, 5)，使用導數的定義來計算 <img src="{{ 'assets/img/unit1/1/17-2.png' | relative_url }}" alt="" /> 的圖在點 x = 1 處的切線斜率是 7。<br class="new">
+假設找出函數 <img src="{{ 'assets/img/unit1/1/17-1.png' | relative_url }}" alt="" /> 在 x = 1 的切線，我們知道切線會經過的點是(1, 5)，使用導數的定義來計算 <img src="{{ 'assets/img/unit1/1/17-2.png' | relative_url }}" alt="" /> 的圖在點 x = 1 的切線斜率是 7。<br class="new">
 
 有了點與斜率，我們可以推出算出切線的函數為 y = mx + b = 7x - 2。
 <br/>
