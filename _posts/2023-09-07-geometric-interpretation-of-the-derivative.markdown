@@ -249,7 +249,7 @@ m = f'(a)<br class="new">
 
 找GOOGLE的 f(x) = 立方根的圖 ↓
 
-考慮  ，x = 0 的切線為垂直的，因此不存在導數。
+考慮 <img src="{{ 'assets/img/continuous/continuous-19-1.png' | relative_url }}" alt="" />，x = 0 的切線為垂直的，因此不存在導數。
 
 <img src="{{ 'assets/img/unit1/1/15-5.png' | relative_url }}" alt="" />
 
