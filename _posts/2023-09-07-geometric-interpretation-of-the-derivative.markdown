@@ -292,7 +292,7 @@ Q: 假設圖形 f 在 x = 3 有切線，切線的方程式是 y = -2x + 1，那�
 
 **割線**
 
-函數 f(x) 在區間 a ≤ x ≤ b 上的割線是通過點 (a,f(a)) 和 (b,f(b)) 的直線。<br class="new">
+函數 f(x) 在區間 a ≤ x ≤ b 上的割線是通過點 (a, f(a)) 和 (b, f(b)) 的直線。<br class="new">
 
 割線的斜率是 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" />，它表示函數 f(x) 在區間 a ≤ x ≤ b 上的平均變化率。<br class="new">
 
