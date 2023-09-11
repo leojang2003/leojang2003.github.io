@@ -310,7 +310,7 @@ Q: 假設圖形 f 在 x = 3 有切線，切線的方程式是 y = -2x + 1，那�
 
 **切線的屬性**
 
-如果函數 f(x) 在 x = a 存在導數，那麼切線也存在。然而，即使在 x = a 處導數未定義，切線仍然可能存在。(例如，函數 <img src="{{ 'assets/img/unit1/1/19-2.png' | relative_url }}" alt="" /> 在 x = 0 有一條垂直切線)。
+如果函數 f(x) 在 x = a 存在導數，那麼切線也存在。然而，即使在 x = a 導數未定義，切線仍然可能存在。(例如，函數 <img src="{{ 'assets/img/continuous/continuous-19-1.png' | relative_url }}" alt="" />在 x = 0 有一條垂直切線)。
 
 <br/>
 <br/>
