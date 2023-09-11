@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Calculus Unit0-3 - 商數的極限
+title: Calculus Unit0-3 商數的極限
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Limits of quotients','Limit Law for Division']
 comments: true
