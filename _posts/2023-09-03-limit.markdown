@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction to limits
+title: [Unit 0][0] Introduction to limits
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Introduction to limits','right-hand limit','left-hand limit','Limit Laws']
 comments: true
