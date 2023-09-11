@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Geometric interpretation of the derivative
+title: Unit 1-(2) Geometric interpretation of the derivative
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','tangent line','secant line','step function',cornor function','slope','right-side derivative','left-side derivative']
 comments: true
