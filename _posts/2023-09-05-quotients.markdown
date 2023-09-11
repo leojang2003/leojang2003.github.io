@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Limit of Quotients
+title: Unit 0-(3) Limit of Quotients
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Limits of quotients','Limit Law for Division']
 comments: true
