@@ -59,7 +59,7 @@ m = f'(a)<br class="new">
 <br/>
 
 ### 直覺上的切線
-``
+
 使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線，藍色的線是函數。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
@@ -127,8 +127,8 @@ m = f'(a)<br class="new">
 <img src="{{ 'assets/img/unit1/1/7-1.png' | relative_url }}" alt="" /><br class="new">
 
 從上述的圖可以看到，割線的斜率 = 相對於 x 的函數 f(x) 的平均變化率。<br class="new">
-
 <br/>
+
 ### 割線斜率的極限
 
 現在，當我們定義函數 f 在 a 處的導數 f'(a) 時，當 b 接近 a 時我們取 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 的極限，這個值也是連接點 (a, f(a)) 和 (b, f(b)) 的割線的斜率。<br class="new">
@@ -158,6 +158,7 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
 <br/>
+
 一開始說導數可以有三種不同的解釋，用以下的圖可以檢視 : <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-2.png' | relative_url }}" alt="" /><br class="new">
@@ -175,10 +176,10 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/12-1.png' | relative_url }}" alt="" /><br class="new">
 
-<img src="{{ 'assets/img/unit1/1/12-2.png' | relative_url }}" alt="" />2<br class="new">
-<img src="{{ 'assets/img/unit1/1/12-3.png' | relative_url }}" alt="" />0<br class="new">
-<img src="{{ 'assets/img/unit1/1/12-4.png' | relative_url }}" alt="" />-1<br class="new">
-<img src="{{ 'assets/img/unit1/1/12-5.png' | relative_url }}" alt="" />0<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-2.png' | relative_url }}" alt="" /> 2<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-3.png' | relative_url }}" alt="" /> 0<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-4.png' | relative_url }}" alt="" /> -1<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-5.png' | relative_url }}" alt="" /> 0<br class="new">
 
 如果圖是一條線 f，斜率是 1/2 如下 : <br class="new">
 
