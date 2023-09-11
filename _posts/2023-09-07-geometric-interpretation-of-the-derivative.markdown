@@ -1,23 +1,23 @@
 ---
 layout: post
-title: Unit 1-(2) Geometric interpretation of the derivative
+title: Calculus Unit1-2 - Geometric interpretation of the derivative
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives','tangent line','secant line','step function',cornor function','slope','right-side derivative','left-side derivative']
 comments: true
 ---
 <br/>
 
-### 導數的解釋
+### 導數的詮釋
 
-導數可以有三種不同的解釋<br class="new">
+導數可以有三種不同的詮釋<br class="new">
 
-1. 物理上的解釋 : 瞬間變化率<br class="new">
+1. 物理上的詮釋 : 瞬間變化率<br class="new">
 
-2. 幾何上的解釋 : 切線的斜率<br class="new">
+2. 幾何上的詮釋 : 切線的斜率<br class="new">
 
-3. 函數對小改變的敏感度(sensitivity of function to small changes)<br class="new">
+3. 函數對微小改變的敏感度(sensitivity of function to small changes)<br class="new">
 
-我們現在要來探討第二種在幾何上導數的意義為何
+在第一個單元已經探討了物理上的詮釋，我們現在要來探討導數在幾何上的意義為何。
 <br/>
 
 ### 切線 Tangent lines
@@ -56,47 +56,46 @@ y - f(a) = m × (x - a)<br class="new">
 如果我們相要知道這個斜率 m 是多少，這時就要利用微積分來幫我們算出這個值了! 後續我們就會知道其實<br class="new">
 
 m = f'(a)<br class="new">
-
 <br/>
 
-### 切線的直覺
+### 直覺上的切線
 
-使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線，藍色的線是函數 <br class="new">
+使用課程提供的模擬器，我們可以看到 f(x) = 0.5 × x^3 - x 的圖形如下，我們可以看到橘色的線是切線，藍色的線是函數。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-2.png' | relative_url }}" alt="" /> <br class="new">
 
-當我們拉近這個點時，我們可以看到藍色的函數越來越接近直線<br class="new">
+當我們拉近這個點時，我們可以看到藍色的函數越來越接近直線。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-3.png' | relative_url }}" alt="" /> <br class="new">
 
-持續拉近，我們可以看到藍色的函數越來越接近直線 <br class="new">
+持續拉近，我們可以看到藍色的函數越來越接近直線。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-4.png' | relative_url }}" alt="" /> <br class="new">
 
-藍色函數在放大一千倍時，已經趨近於直線了 <br class="new">
+藍色函數在放大一千倍時，已經趨近於直線了。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-5.png' | relative_url }}" alt="" /> <br class="new">
 <br/>
 
-換另一個例子，函數為 x 取絕對值圖形如下，當 x 為負值時，切線的斜率固定是 -1，可以看到圖上的 f'(x) = -1<br class="new">
+換另一個例子，函數為 x 取絕對值圖形如下，當 x 為負值時，切線的斜率固定是 -1，可以看到圖上的 f'(x) = -1。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-7.png' | relative_url }}" alt="" /> <br class="new">
 
-當 x 為正值時，切線的斜率固定是 1，可以看到圖上的 f'(x) = 1<br class="new">
+當 x 為正值時，切線的斜率固定是 1，可以看到圖上的 f'(x) = 1。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-8.png' | relative_url }}" alt="" /> <br class="new">
 
-但是當 x 為 0 時，是沒有切線的，因為就算我們無限放大這個函數如下圖，不管我們怎麼放大，函數還是長一樣，沒有趨近成一條直線<br class="new">
+但是當 x 為 0 時，是沒有切線的，因為就算我們無限放大這個函數如下圖，不管我們怎麼放大，函數還是長一樣，沒有趨近成一條直線。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-9.png' | relative_url }}" alt="" /> <br class="new">
 
-因此函數在 x = 0 的 f'(0) 不存在<br class="new">
+因此函數在 x = 0 的 f'(0) 不存在。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/4-6.png' | relative_url }}" alt="" /> <br class="new">
 
 <br/>
 
-### 割線的斜率
+### 割線 Secant lines
 
 為了要計算切線的斜率，我們引入了割線的觀念，我們想要計算割線的斜率，斜率的定義為 **rise**/**run** = △y/△x<br class="new">
 
@@ -118,7 +117,7 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/6-1.png' | relative_url }}" alt="" /><br class="new">
 
-平均變化率 = 割線(Secant Line)的斜率。
+答案 : 平均變化率 = 割線(Secant Line)的斜率。
 <br/>
 
 ### 割線/切線 
@@ -127,24 +126,24 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/7-1.png' | relative_url }}" alt="" /><br class="new">
 
-從上述的圖可以看到，割線的斜率 = 相對於 x 的函數 f(x) 的平均變化率<br class="new">
+從上述的圖可以看到，割線的斜率 = 相對於 x 的函數 f(x) 的平均變化率。<br class="new">
 
 <br/>
 ### 割線斜率的極限
 
 現在，當我們定義函數 f 在 a 處的導數 f'(a) 時，當 b 接近 a 時我們取 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" /> 的極限，這個值也是連接點 (a,f(a)) 和 (b,f(b)) 的割線的斜率。<br class="new">
 
-我們現在要的問題是，當 b 接近 a 時，割線的極限是多少?  我們可以從以下模擬器可以略知一二<br class="new">
+我們現在要的問題是，當 b 接近 a 時，割線的極限是多少?  我們可以從以下模擬器可以略知一二。<br class="new">
 
-我們可以從下圖得知，當 b 無限接近 a 時，割線就趨近於切線，割線的極限就是切線的斜率。<br class="new">
+我們可以從下圖得知，當 b 無限接近 a 時，割線就趨近於切線，割線的極限就是**切線的斜率**。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/8-1.png' | relative_url }}" alt="" /><br class="new">
 
-△x 越來越小，割線往切線靠近<br class="new">
+△x 越來越小，割線往切線靠近。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/8-2.png' | relative_url }}" alt="" /><br class="new">
 
-當 △x 趨近於 0 時，割線近乎與切線重疊<br class="new">
+當 △x 趨近於 0 時，割線近乎與切線重疊。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/8-3.png' | relative_url }}" alt="" /><br class="new">
 <br/>
@@ -155,144 +154,134 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
 
-一開始說導數可以有三種不同的解釋，用以下的圖可以檢視<br class="new">
+一開始說導數可以有三種不同的解釋，用以下的圖可以檢視 : <br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-2.png' | relative_url }}" alt="" /><br class="new">
 <br/>
 
-### 推測導數 Estimate derivatives
+### 練習使用切線的斜率推測導數
 
 以下是函數 g 的圖形<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/12-1.png' | relative_url }}" alt="" /><br class="new">
 
-Q: 切線的斜率在 x = 1 的值是正值、負值還是 0 ?<br class="new">
+切線的斜率在 x = 1 的值是負值。<br class="new">
 
-A: 負值<br class="new">
-
-找出以下點的推測導數為何?<br class="new">
+請推測以下點的導數為何?<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/12-2.png' | relative_url }}" alt="" /><br class="new">
 
-g'(-1) ≒ 2<br class="new">
-g'(0)  ≒ 0<br class="new">
-g'(1)  ≒ -1<br class="new">
-g'(2)  ≒ 0<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-3.png' | relative_url }}" alt="" />2<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-4.png' | relative_url }}" alt="" />0<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-5.png' | relative_url }}" alt="" />-1<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-6.png' | relative_url }}" alt="" />0<br class="new">
 
-### 線性函數
+如果圖是一條線 f，斜率是 1/2 如下 : <br class="new">
 
-如果圖是一條線 f，斜率是 1/2 如下<br class="new">
+<img src="{{ 'assets/img/unit1/1/13-1.png' | relative_url }}" alt="" /><br class="new">
 
-<img src="{{ 'assets/img/unit1/1/12-1.png' | relative_url }}" alt="" /><br class="new">
+如果我們取兩個點，割線的斜率是 0.5，f'(3) 也是 0.5。
+<br/>
 
-Q: 如果我們取兩個點，割線的斜率是?<br class="new">
+### 當點的切線不存在時 => 點的導數不存在
 
-A: 0.5
+切線的斜率，也被稱為導數，只有當切線存在時才存在！讓我們來看一些切線不存在，因此導數也不存在的函數，這裡舉兩個函數，絕對值函數與階躍函數。<br class="new">
 
-Q: f'(3) = ?
-
-A: 0.5
-
-### 當切線不存在時...導數不存在
-
-切線的斜率，也被稱為導數，只有當切線存在時才存在！讓我們探討一些切線不存在(因此導數也不存在)的情況。<br class="new">
-
-{: .note}
-No tangent line => No derivative
-
-
-**絕對值**
+**絕對值函數(cornor function)**
 
 <img src="{{ 'assets/img/unit1/1/14-1.png' | relative_url }}" alt="" />
 
-Q: 這是絕對值函數<img src="{{ 'assets/img/unit1/1/14-2.png' | relative_url }}" alt="" />的圖像。當你向原點拉近時，圖像會越來越像一條直線嗎?<br class="new">
+首先這是絕對值函數<img src="{{ 'assets/img/unit1/1/14-2.png' | relative_url }}" alt="" />的圖像。當我們向 x = 0 拉近時，圖像不會變成一條直線，如預期依然維持原樣，因此函數在 x = 0 是沒有切線(也無導數)。<br class="new">
 
-A: 不，因此在原點沒有切線(因此也無導數)。<br class="new">
+我們接著算出 x = 0 左右割線斜率的極限如下 : <br class="new">
 
-我們知道 <img src="{{ 'assets/img/unit1/1/14-2.png' | relative_url }}" alt="" /> 在 x = 0 時是沒有切線的。這種函數叫做 cornor function。<br class="new">
-<br/>
+右極限(right-sided derivative) <img src="{{ 'assets/img/unit1/1/14-4.png' | relative_url }}" alt="" /> = 1 <br class="new">
 
-**左右極限**
+左極限(left-sided derivative) <img src="{{ 'assets/img/unit1/1/14-5.png' | relative_url }}" alt="" /> = -1 <br class="new">
 
-再來我們計算絕對值函數的左右極限<br class="new">
-
-<img src="{{ 'assets/img/unit1/1/14-3.png' | relative_url }}" alt="" /><br class="new">
-
-算出原點處左右割線斜率的極限<br class="new">
-
-<img src="{{ 'assets/img/unit1/1/14-4.png' | relative_url }}" alt="" /> = 1<br class="new">
-
-<img src="{{ 'assets/img/unit1/1/14-5.png' | relative_url }}" alt="" /> = -1<br class="new">
-
-在原點的左右極限不相等，因此原點的極限不存在，原點不存在導數。但如果我們只看右側的話，切線與割線是同一條線，斜率為 1，因此我們稱 f 在 x = 0 的右導數 (right-side derivative) f'(0+) = 1。同樣可以推測， f 在 x = 0 的左導數 (left-side derivative) f'(0-) = -1。左右導數不相等，因此 f 在 x = 0 無導數。
+因為在 x = 0 的右極限與左極限不相等，因此 x = 0 的極限不存在，不存在導數。
 
 <img src="{{ 'assets/img/unit1/1/15-1.png' | relative_url }}" alt="" /> = -1<br class="new">
 
 <br/>
 
-**跳躍不連續**
+**階躍函數(Heaviside Step function)**
 
-再來看一個例子，以下是 step 函數<br class="new">
+再來看一個例子，同樣是在 x = 0 沒有切線的函數 Heaviside step 函數。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/14-6.png' | relative_url }}" alt="" /> = -1<br class="new">
 
-如果我們在點 (0,1) 處放大，我們會看到一個 Ray。從左側趨近於 0，切線在 x = 0 的時候垂直，因此 f'(0-) = <img src="{{ 'assets/img/unit1/1/15-1.png' | relative_url }}" alt="" />，我們可以說不存在左導數。從右側趨近 0 的切線就是斜率 0，右導數為 0。左右導數不相同，因此 f 在 x = 0 無導數。
+如果我們在點 (0,1) 處放大，我們會看到一個 Ray。從左側趨近於 0，割線在 x 趨近於 0 的時候垂直，在 x = 0 的切線不存在(因為函數在 x = 0 非連續沒有切線)，因此 f'(0-) = 無限大。<br class="new">
 
-x 從左側趨近於 0 時，我們可以看到切線逐漸變成垂直切線<br class="new">
-
-<img src="{{ 'assets/img/unit1/1/15-2.png' | relative_url }}" alt="" /> = -1<br class="new">
-
-x = 0 變成垂直切線<br class="new">
+從圖來看，x 從左側 x → 0 時，我們可以看到**割線**逐漸變成垂直。<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/15-2.png' | relative_url }}" alt="" /> = -1<br class="new">
+
+最後 x = 0 變成一條近乎垂直的割線，但沒有切線。<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/15-3.png' | relative_url }}" alt="" /> = -1<br class="new">
+
+使用模擬器確認在 x = 0 的切線不存在。<br class="new">
+
+<<<插圖 模擬器的 H(X) x = 0>>>
+
+從右側趨近 0 的切線就是斜率 0，右導數為 0。<br class="new">
+
+左導數不等於右導數，因此 f 在 x = 0 無導數。<br class="new">
 
 {:. note}
-垂直切線的斜率不存在
+結論 : 不存在切線 => 不存在導數
+<br/>
 
 ### 連續與可微分的關係
 
 從上述的圖形我們可以知道
 
-- 如果 f 在 x = a 不是連續的，那麼 f 在 x = a 是不可微分的。
-- 如果 f 在 x = a 是連續的，那麼 f 在 x = a 不一定是可微分的。(垂直切線)
+- {: .arrow} 如果 f 在 x = a 不是連續的，那麼 f 在 x = a 是不可微分的
+- {: .arrow} 如果 f 在 x = a 是連續的，那麼 f 在 x = a **不一定**是可微分的。(垂直切線，下詳述)
+<br/>
 
 ### 當切線存在時...導數有可能不存在
 
+找GOOGLE的 f(x) = 立方根的圖 ↓
+
 考慮 <img src="{{ 'assets/img/unit1/1/19-2.png' | relative_url }}" alt="" /> ，x = 0 的切線為垂直的，因此不存在導數。
 
-### 找出以下的 f'(x)
+### 練習找出以下的 f'(x)
 
 <img src="{{ 'assets/img/unit1/1/16-1.png' | relative_url }}" alt="" /><br class="new">
 
 f'(-1) = DNE<br class="new">
+<br class="new">
 f'(0) = 0<br class="new">
+<br class="new">
 f'(1) = DNE<br class="new">
+<br class="new">
 f'(2) = DNE<br class="new">
+<br class="new">
 f'(3) = 0.2<br class="new">
+<br/>
 
 ### 切線的方程式
 
-Q: 找出函數 <img src="{{ 'assets/img/unit1/1/17-1.png' | relative_url }}" alt="" /> 在 x = 1 的切線，我們知道切線會經過的點是? <br class="new">
+一開始我們說到我們的目標是要找到切線的方程式，現在我們知道怎麼取得斜率了，我們現在有能力知道切線的方程式是什麼了。<br class="new">
 
-A: (1,5)<br class="new">
+假設找出函數 <img src="{{ 'assets/img/unit1/1/17-1.png' | relative_url }}" alt="" /> 在 x = 1 的切線，我們知道切線會經過的點是(1,5)，
+使用導數的定義來計算 <img src="{{ 'assets/img/unit1/1/17-2.png' | relative_url }}" alt="" /> 的圖在點 x = 1 處的切線斜率是 7。<br class="new">
 
-使用導數的定義來計算 <img src="{{ 'assets/img/unit1/1/17-2.png' | relative_url }}" alt="" /> 的圖在點 x = 1 處的切線斜率。<br class="new">
-
-A: 7<br class="new">
-
-有了點與斜率，我們可以推出算出 tangent 的函數為 y = mx + b = 7x - 2
+有了點與斜率，我們可以推出算出切線的函數為 y = mx + b = 7x - 2。
+<br/>
 
 ### 練習
 
 <img src="{{ 'assets/img/unit1/1/18-1.png' | relative_url }}" alt="" />
 
-Q: 這是一個水塔在夏季期間水量的圖表。請估算第10天和第40天時水量隨時間的瞬間變化率。不要忘記單位!<br class="new">
+Q: 這是一個水塔在夏季期間水量的圖表。請估算第 10 天和第 40 天時水量隨時間的瞬間變化率。<br class="new">
 
-A: 要推算第 10 天的瞬間變化率，使用公式取 (f(10)-f(x))/10-x 極限當 x -> 10，因為這裡是用天數，所以最趨近於第 10 天就是 x = 9，根據圖表 f(10) ≒ 550,000，f(9) ≒ 540,000，所以我們可以推估 f'(10) = (550000-540000)/(10-9) = 10000，同理 f'(40) = -10000。<br class="new">
+A: 要推算第 10 天的瞬間變化率，使用公式取 (f(10) - f(x))/10 - x 極限當 x → 10，因為這裡是用天數，所以最趨近於第 10 天就是 x = 9，根據圖表 f(10) ≒ 550,000，f(9) ≒ 540,000，所以我們可以推估 f'(10) = (550000-540000)/(10-9) = 10000 加侖/天，同理 f'(40) = -10000 加侖/天。<br class="new">
 
-Q: 假設圖形 f 在 x = 3 有切線，切線的方程式是 y = -2x + 1，那麼 f(3) 與 f'(3) 分別是什麼?<br class="new">
-
-A: f(3) = -5, f'(3) = -2<br class="new">
+假設圖形 f 在 x = 3 有切線，切線的方程式是 y = -2x + 1，那麼 f(3) = -5，f'(3) = -2。
+<br/>
 
 ### 總結
 
@@ -307,7 +296,7 @@ A: f(3) = -5, f'(3) = -2<br class="new">
 
 **切線**
 
-函數 f(x) 在 x = a 的切線是通過點 (a,f(a))的直線，且該線的斜率為 f(x) 在 x = a 的瞬間變化率。這個斜率是你將函數放大到看起來像一條直線時得到的直線的斜率。<br class="new">
+函數 f(x) 在 x = a 的切線是通過點(a,f(a))的直線，且該線的斜率為 f(x) 在 x = a 的瞬間變化率。這個斜率是我們想像將函數無限拉近，拉近到看起來像一條直線時的斜率。<br class="new">
 
 切線的斜率為 f′(a)。<br class="new">
 
