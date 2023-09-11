@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Calculus Unit0-2 - 連續
+title: Calculus Unit0-2 連續
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 0:Limits','Continuity','continuous','right-continuous','left-continuous','jump discontinuity','removable discontinuity','Intermediate Value Theorem','IVT']
 comments: true
