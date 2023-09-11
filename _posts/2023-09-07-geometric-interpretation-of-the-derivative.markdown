@@ -173,12 +173,12 @@ m = f'(a)<br class="new">
 
 請推測以下點的導數為何?<br class="new">
 
-<img src="{{ 'assets/img/unit1/1/12-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/1/12-1.png' | relative_url }}" alt="" /><br class="new">
 
-<img src="{{ 'assets/img/unit1/1/12-3.png' | relative_url }}" alt="" />2<br class="new">
-<img src="{{ 'assets/img/unit1/1/12-4.png' | relative_url }}" alt="" />0<br class="new">
-<img src="{{ 'assets/img/unit1/1/12-5.png' | relative_url }}" alt="" />-1<br class="new">
-<img src="{{ 'assets/img/unit1/1/12-6.png' | relative_url }}" alt="" />0<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-2.png' | relative_url }}" alt="" />2<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-3.png' | relative_url }}" alt="" />0<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-4.png' | relative_url }}" alt="" />-1<br class="new">
+<img src="{{ 'assets/img/unit1/1/12-5.png' | relative_url }}" alt="" />0<br class="new">
 
 如果圖是一條線 f，斜率是 1/2 如下 : <br class="new">
 
@@ -199,9 +199,9 @@ m = f'(a)<br class="new">
 
 我們接著算出 x = 0 左右割線斜率的極限如下 : <br class="new">
 
-右極限(right-sided derivative) <img src="{{ 'assets/img/unit1/1/14-4.png' | relative_url }}" alt="" /> = 1 <br class="new">
+右極限(right-sided derivative) <img src="{{ 'assets/img/unit1/1/14-3.png' | relative_url }}" alt="" /> = 1 <br class="new">
 
-左極限(left-sided derivative) <img src="{{ 'assets/img/unit1/1/14-5.png' | relative_url }}" alt="" /> = -1 <br class="new">
+左極限(left-sided derivative) <img src="{{ 'assets/img/unit1/1/14-4.png' | relative_url }}" alt="" /> = -1 <br class="new">
 
 因為在 x = 0 的右極限與左極限不相等，因此 x = 0 的極限不存在，不存在導數。
 
@@ -211,9 +211,9 @@ m = f'(a)<br class="new">
 
 **階躍函數(Heaviside Step function)**
 
-再來看一個例子，同樣是在 x = 0 沒有切線的函數 Heaviside step 函數。<br class="new">
+<img src="{{ 'assets/img/unit1/1/14-5.png' | relative_url }}" alt="" />
 
-<img src="{{ 'assets/img/unit1/1/14-6.png' | relative_url }}" alt="" /> = -1<br class="new">
+再來看一個例子，同樣是在 x = 0 沒有切線的函數 Heaviside step 函數。<br class="new">
 
 如果我們在點 (0,1) 處放大，我們會看到一個 Ray。從左側趨近於 0，割線在 x 趨近於 0 的時候垂直，在 x = 0 的切線不存在(因為函數在 x = 0 非連續沒有切線)，因此 f'(0-) = 無限大。<br class="new">
 
@@ -223,11 +223,11 @@ m = f'(a)<br class="new">
 
 最後 x = 0 變成一條近乎垂直的割線，但沒有切線。<br class="new">
 
-<img src="{{ 'assets/img/unit1/1/15-3.png' | relative_url }}" alt="" /> = -1<br class="new">
+<img src="{{ 'assets/img/unit1/1/15-4.png' | relative_url }}" alt="" /> = -1<br class="new">
 
 使用模擬器確認在 x = 0 的切線不存在。<br class="new">
 
-<<<插圖 模擬器的 H(X) x = 0>>>
+<img src="{{ 'assets/img/unit1/1/15-3.png' | relative_url }}" alt="" /> = -1<br class="new">
 
 從右側趨近 0 的切線就是斜率 0，右導數為 0。<br class="new">
 
@@ -249,7 +249,9 @@ m = f'(a)<br class="new">
 
 找GOOGLE的 f(x) = 立方根的圖 ↓
 
-考慮 <img src="{{ 'assets/img/unit1/1/19-2.png' | relative_url }}" alt="" /> ，x = 0 的切線為垂直的，因此不存在導數。
+考慮  ，x = 0 的切線為垂直的，因此不存在導數。
+
+<img src="{{ 'assets/img/unit1/1/15-5.png' | relative_url }}" alt="" />
 
 ### 練習找出以下的 f'(x)
 
