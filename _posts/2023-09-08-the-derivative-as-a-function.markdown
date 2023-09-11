@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Calculus Unit1-3 - 導數作為一個函數
+title: Calculus Unit1-3 導數作為一個函數
 subtitle: 
 tags: ['Calculus 1A','18.01','OCW','Unit 1:Derivatives']
 comments: true
