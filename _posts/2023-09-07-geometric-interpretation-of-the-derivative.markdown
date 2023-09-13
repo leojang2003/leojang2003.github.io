@@ -153,7 +153,7 @@ m = f'(a)<br class="new">
 我們可以從下圖知道，當 b 趨近 a 時可以得出三個結論 :<br class="new">
 <br class="new">
 (1)割線的斜率趨近於切線的斜率<br class="new">
-(2)<img src="{{ 'assets/img/unit1/1/9-0.png' | relative_url }}" alt="" />趨近於 f'(a)<br class="new">
+(2)<img src="{{ 'assets/img/unit1/1/9-0.png' | relative_url }}" alt="" /> 趨近於 f'(a)<br class="new">
 (3)平均變化率趨近於瞬間變化率<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/9-1.png' | relative_url }}" alt="" /><br class="new">
@@ -196,7 +196,7 @@ m = f'(a)<br class="new">
 
 <img src="{{ 'assets/img/unit1/1/14-1.png' | relative_url }}" alt="" />
 
-首先這是絕對值函數<img src="{{ 'assets/img/unit1/1/14-2.png' | relative_url }}" alt="" />的圖像。當我們向 x = 0 拉近時，圖像不會變成一條直線，如預期依然維持原樣，因此函數在 x = 0 是沒有切線(也無導數)。<br class="new">
+首先這是絕對值函數 <img src="{{ 'assets/img/unit1/1/14-2.png' | relative_url }}" alt="" /> 的圖像。當我們向 x = 0 拉近時，圖像不會變成一條直線，如預期依然維持原樣，因此函數在 x = 0 是沒有切線(也無導數)。<br class="new">
 
 我們接著算出 x = 0 左右割線斜率的極限如下 : <br class="new">
 
@@ -234,7 +234,7 @@ m = f'(a)<br class="new">
 
 左導數不等於右導數，因此 f 在 x = 0 無導數。<br class="new">
 
-{:. note}
+{: .note}
 結論 : 不存在切線 => 不存在導數
 <br/>
 
@@ -272,7 +272,9 @@ f'(3) = 0.2<br class="new">
 
 一開始我們說到我們的目標是要找到切線的方程式，現在我們知道怎麼取得斜率了，我們現在有能力知道切線的方程式是什麼了。<br class="new">
 
-假設找出函數 <img src="{{ 'assets/img/unit1/1/17-1.png' | relative_url }}" alt="" /> 在 x = 1 的切線，我們知道切線會經過的點是(1, 5)，使用導數的定義來計算 <img src="{{ 'assets/img/unit1/1/17-2.png' | relative_url }}" alt="" /> 的圖在點 x = 1 的切線斜率是 7。<br class="new">
+假設找出函數 <img src="{{ 'assets/img/unit1/1/17-1.png' | relative_url }}" alt="" /> 在 x = 1 的切線，我們知道切線會經過的點是(1, 5)，使用導數的定義來計算函數的圖在點 x = 1 的切線斜率是 7。<br class="new">
+
+<img src="{{ 'assets/img/unit1/1/17-2.png' | relative_url }}" alt="" />
 
 有了點與斜率，我們可以推出算出切線的函數為 y = mx + b = 7x - 2。
 <br/>
