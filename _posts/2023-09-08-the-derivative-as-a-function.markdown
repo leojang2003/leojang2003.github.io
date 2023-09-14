@@ -54,13 +54,15 @@ f' 圖上的這一點，代表了點在 f 上對應的切線的斜率。我們�
 
 <img src="{{ 'assets/img/unit1/2/6-4.png' | relative_url }}" alt="" /><br class="new">
 
+<img src="{{ 'assets/img/unit1/2/8-1.png' | relative_url }}" alt="" /><br class="new">
+
 當 x = 5 時，切線的最陡負斜率出現。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/9-1.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/8-2.png' | relative_url }}" alt="" /><br class="new">
 
 f' 的圖在該點達到最負值。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/9-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/9-1.png' | relative_url }}" alt="" /><br class="new">
 
 當 x = 6 時，斜率為 0，x > 6 之後的斜率又為正。<br class="new">
 
