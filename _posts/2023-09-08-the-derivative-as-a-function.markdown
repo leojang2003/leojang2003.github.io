@@ -88,6 +88,8 @@ f' 的圖在該點達到最負值。<br class="new">
 
 在 x > 1 的任意一點，函數 g 的圖上的切線都是水平的，因此在任何這樣的點上，導數應該為零。<br class="new">
 
+<img src="{{ 'assets/img/unit1/2/14-1.png' | relative_url }}" alt="" /><br class="new">
+
 <br/>
 <br/>
 <br/>
