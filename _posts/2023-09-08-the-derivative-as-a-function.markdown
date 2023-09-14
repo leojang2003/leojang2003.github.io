@@ -67,22 +67,22 @@ f' 的圖在該點達到最負值。<br class="new">
 當 x = 6 時，斜率為 0，x > 6 之後的斜率又為正。<br class="new">
 
 <img src="{{ 'assets/img/unit1/2/10-1.png' | relative_url }}" alt="" /><br class="new">
+<br/>
 
 ### 第二個例子
 
-<img src="{{ 'assets/img/unit1/2/11-1.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/12-1.png' | relative_url }}" alt="" /><br class="new">
 
-我們觀察到一些現象，g'(3) = -2 ，在 x = -3 和 x = -1 之間的每一個點，切線的斜率都是 2。因此，在這個區間內，g′(x) 的值恆為 2。另外，我們可以看到在 x = -1 處，函數 g 的圖有一個 cornor，因此在該點不存在切線，即 g′(−1) 未定義。(雖然存在左導數為正和右導數為負的情況，但整體上導數不存在)。
+我們觀察到一些現象，g'(3) = -2 ，在 x = -3 和 x = -1 之間的每一個點，切線的斜率都是 2。因此，在這個區間內，g′(x) 的值恆為 2。另外，我們可以看到在 x = -1 處，函數 g 的圖有一個轉角，因此在該點不存在切線，即 g′(−1) 未定義。(雖然存在左導數為正和右導數為負的情況，但整體上導數不存在)。
 <br class="new">
 
-當 x < -1 時，g′(x) = 2，因此 g′ 的圖是一條水平線。我們使用一個開放的圓圈來表示由於 g 的圖中的 cornor，導致 g′(−1) 不存在的事實。點 (−1,2) 不在 g′ 的圖上。<br class="new">
+當 x < -1 時，g′(x) = 2，因此 g′ 的圖是一條水平線。我們使用一個開放的圓圈來表示由於 g 的圖中的轉角，導致 g′(−1) 不存在的事實。點 (−1, 2) 不在 g′ 的圖上。<br class="new">
 
-<<第二個圖>>
-<img src="{{ 'assets/img/unit1/2/12-1.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/12-2.png' | relative_url }}" alt="" /><br class="new">
 
 在 -1 < x < 1 的區間內，函數 g 的圖上的所有切線斜率都為負。起初(接近 x = -1)，它們很陡，所以相對於更靠右(接近 x = 1)的地方，斜率較大且為負。當 x 從左側逼近 1 時，切線逐漸接近水平，因此 g′(x) 應該趨近於零。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/12-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/12-3.png' | relative_url }}" alt="" /><br class="new">
 
 其他觀察，在 x = 1 ，函數 g 的圖上存在一條切線，且該切線是水平的。因此，g′(1) = 0。<br class="new">
 
