@@ -297,21 +297,21 @@ A: 要推算第 10 天的瞬間變化率，使用公式取 (f(10) - f(x))/10 - x
 
 割線的斜率是 <img src="{{ 'assets/img/unit1/1/8-0.png' | relative_url }}" alt="" />，它表示函數 f(x) 在區間 a ≤ x ≤ b 上的平均變化率。<br class="new">
 
-割線的方程式為 <img src="{{ 'assets/img/unit1/1/19-0.png' | relative_url }}" alt="" />。<br class="new">
+割線的方程式為 <img src="{{ 'assets/img/unit1/1/19-2.png' | relative_url }}" alt="" />。<br class="new">
 <br/>
 
 **切線**
 
-函數 f(x) 在 x = a 的切線是通過點(a, f(a))的直線，且該線的斜率為 f(x) 在 x = a 的瞬間變化率。這個斜率是我們想像將函數無限拉近，拉近到看起來像一條直線時的斜率。<br class="new">
+函數 f(x) 在 x = a 的切線是通過點 (a, f(a)) 的直線，且該線的斜率為 f(x) 在 x = a 的瞬間變化率。這個斜率是我們想像將函數無限拉近，拉近到看起來像一條直線時的斜率。<br class="new">
 
-切線的斜率為 f′(a)。<br class="new">
+切線的斜率為 <img src="{{ 'assets/img/unit1/1/19-3.png' | relative_url }}" alt="" />。<br class="new">
 
-切線的方程式為 <img src="{{ 'assets/img/unit1/1/19-1.png' | relative_url }}" alt="" />。<br class="new">
+切線的方程式為 <img src="{{ 'assets/img/unit1/1/19-4.png' | relative_url }}" alt="" />。<br class="new">
 <br/>
 
 **切線的屬性**
 
-如果函數 f(x) 在 x = a 存在導數，那麼切線也存在。然而，即使在 x = a 導數未定義，切線仍然可能存在。(例如，函數 <img src="{{ 'assets/img/continuous/continuous-19-1.png' | relative_url }}" alt="" />在 x = 0 有一條垂直切線)。
+如果函數 f(x) 在 x = a 存在導數，那麼切線也存在。然而，即使在 x = a 導數未定義，切線仍然可能存在。(例如，函數 <img src="{{ 'assets/img/unit1/1/19-5.png' | relative_url }}" alt="" /> 在 x = 0 有一條垂直切線)。
 
 <br/>
 <br/>
