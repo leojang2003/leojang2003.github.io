@@ -31,27 +31,28 @@ comments: true
 
 如果我們預測 f'(0) = 3，那表示著我們應該在 f' 的圖上標出點 (0,3) 如下。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/4-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/5-1.png' | relative_url }}" alt="" /><br class="new">
 
 f' 圖上的這一點，代表了點在 f 上對應的切線的斜率。我們可以推測 f'(1) 的值會小於 f'(0) 但還是正數。
 
-<img src="{{ 'assets/img/unit1/2/6-1.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/5-2.png' | relative_url }}" alt="" /><br class="new">
+<br/>
 
 在 x = 1 ，f 圖表的切線不像在 x = 0 那樣斜。因此，f'(1) 小於 f'(0)。我們的 f' 圖表如下所示，向下傾斜。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/6-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/6-1.png' | relative_url }}" alt="" /><br class="new">
 
 我們從上面的圖形，推測 x 在 3 時 f'(x) = 0。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/7-1.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/6-2.png' | relative_url }}" alt="" /><br class="new">
 
 我們知道 f'(3) = 0 是因為 x = 3 是水平切線。因此，f' 在逐漸變小，直到在 x = 3 時變為零。<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/7-2.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/6-3.png' | relative_url }}" alt="" /><br class="new">
 
 我們看到當 x 經過 x = 3 時，f' 變為負數，f 圖表的切線具有負斜率。因此，f' 的圖表應該如下所示<br class="new">
 
-<img src="{{ 'assets/img/unit1/2/8-1.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/2/6-4.png' | relative_url }}" alt="" /><br class="new">
 
 當 x = 5 時，切線的最陡負斜率出現。<br class="new">
 
