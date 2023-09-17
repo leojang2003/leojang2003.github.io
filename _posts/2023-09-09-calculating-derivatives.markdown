@@ -44,6 +44,8 @@ comments: true
 
 我們知道 g'(x) 的圖形是一條非 0 的橫線。<br class="new">
 
+計算 f(x) = mx +　b 的 f'(x)<br class="new">
+
 <img src="{{ 'assets/img/unit1/3/4-3.png' | relative_url }}" alt="" /><br class="new">
 <img src="{{ 'assets/img/unit1/3/4-4.png' | relative_url }}" alt="" /><br class="new">
 <img src="{{ 'assets/img/unit1/3/4-5.png' | relative_url }}" alt="" /><br class="new">
