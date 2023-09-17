@@ -44,6 +44,13 @@ comments: true
 
 我們知道 g'(x) 的圖形是一條非 0 的橫線。<br class="new">
 
+<img src="{{ 'assets/img/unit1/3/4-3.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/3/4-4.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/3/4-5.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/3/4-6.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/3/4-7.png' | relative_url }}" alt="" /><br class="new">
+<img src="{{ 'assets/img/unit1/3/4-8.png' | relative_url }}" alt="" /><br class="new">
+
 {: .note}
 如果 f(x) = ax + b，那麼 f'(x) = a 
 
