@@ -56,7 +56,6 @@ comments: true
 
 {: .note}
 如果 f(x) = ax + b，那麼 f'(x) = a 
-<br/>
 
 ### 使用 Delta Notation 
 
