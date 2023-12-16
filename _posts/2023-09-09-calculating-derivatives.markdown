@@ -59,7 +59,7 @@ comments: true
 
 ### 使用 Delta Notation 
 
-TBD
+<img src="{{ 'assets/img/unit1/5/5-1.png' | relative_url }}" alt="" /><br class="new">
 
 ### 導數的線性度 Linearity of the derivative
 
