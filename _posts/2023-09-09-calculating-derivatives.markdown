@@ -28,6 +28,7 @@ comments: true
 假設我們要算 f'(3)，其算法如下<br class="new">
 
 <img src="{{ 'assets/img/unit1/3/3-3.png' | relative_url }}" alt="" /><br class="new">
+<br/>
 
 假設我們要算 f'(x)，其算法如下<br class="new">
 
