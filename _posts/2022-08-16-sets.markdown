@@ -14,7 +14,7 @@ set 是沒有重複元素的無序集合。
 {} 或 set() 函數可用於建立 set。
 
 {:.note} 
-要建立一個空集，你必須使用 set()，而不是大括號 {}，{} 會建立一個空的 dict。
+要建立一個空集，你必須使用 set( )，而不是大括號 { }，{ } 會建立一個空的 dict。
 
 ```python
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
