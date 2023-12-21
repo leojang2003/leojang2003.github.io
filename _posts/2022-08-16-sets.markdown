@@ -7,7 +7,7 @@ comments: true
 ---
 
 ## 什麼是 set
-<mark>**set**</mark> 是沒有重複元素的無序集合。不支援 indexing，set 的元素必須是 hashable。
+<mark><b>set</b></mark> 是沒有重複元素的無序集合。不支援 indexing，set 的元素必須是 hashable。
 
 <br/>
 
