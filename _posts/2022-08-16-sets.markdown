@@ -71,7 +71,7 @@ a # {'r', 'd'}
 <br/>
 
 ## 建立 set 時，重複的元素會被移除
-
+<br/>
 ```python
 
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
