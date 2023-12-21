@@ -116,12 +116,22 @@ s
 
 ```
 
-remove()
-
+remove(elem)
+elem 不存在會報錯
 ```python
 
 s.remove(4)
 s.remove(2)
+s
+# {1, 3}
+
+```
+
+discard(elem)
+elem 不存在不會報錯
+```python
+
+s.discard(100)
 s
 # {1, 3}
 
@@ -135,6 +145,8 @@ len(s)
 # 2
 
 ```
+
+clear(), pop()
 
 set 是否包含某個物件時，可以用 in / not in
 
