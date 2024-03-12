@@ -98,3 +98,21 @@ public static void OutUsage()
 ```
 <br/><i></i>
 
+### params 關鍵字
+
+可使用 <i>params</i> 使用 <i>parameter array</i>，只能放在最後一個參數，傳入參數長度不一定。
+
+```csharp
+public class Console
+{
+    public static void Write(string fmt, params object[] args) { }
+    public static void WriteLine(string fmt, params object[] args) { }
+    // ...
+}
+```
+
+<br/><i></i>
+
+### virtual 關鍵字
+
+
