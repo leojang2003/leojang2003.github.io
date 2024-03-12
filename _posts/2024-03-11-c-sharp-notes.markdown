@@ -115,4 +115,12 @@ public class Console
 
 ### virtual 關鍵字
 
-
+```csharp
+public class Ford : Car
+{
+    public override void Run()
+    {
+        Console.WriteLine("Ford.Run");            
+    }
+}
+```
