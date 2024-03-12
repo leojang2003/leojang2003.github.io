@@ -115,6 +115,39 @@ public class Console
 
 ### virtual 關鍵字
 
+
+
+```csharp
+public class Car
+{
+    public virtual void Run()
+    {
+        Console.WriteLine("Car.Run");
+    }
+}
+
+public class Ford : Car
+{
+    public void Run()
+    {
+        Console.WriteLine("Ford.Run");            
+    }
+}
+```
+
+
+```csharp
+public class Ford : Car
+{
+    public new void Run()
+    {
+        Console.WriteLine("Ford.Run");            
+    }
+}
+```
+
+
+
 ```csharp
 public class Ford : Car
 {
