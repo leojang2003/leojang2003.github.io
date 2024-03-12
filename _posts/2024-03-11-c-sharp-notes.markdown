@@ -146,7 +146,7 @@ public class Ford : Car
 }
 ```
 
-
+如果要覆寫父類別的方法
 
 ```csharp
 public class Ford : Car
