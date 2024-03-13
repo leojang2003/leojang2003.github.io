@@ -287,6 +287,8 @@ class GTR : Nissan
 
 ### constructor
 
-
-
+```csharp
+MyList<int> a = new(); a = new();
+```
+<br/>
 
