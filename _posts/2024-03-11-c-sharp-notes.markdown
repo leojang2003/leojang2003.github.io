@@ -115,7 +115,7 @@ public class Console
 
 ### virtual 關鍵字
 
-類別的方法預設不是
+類別的方法預設不是 virtual，若要可以覆寫方法，則方法需要定義 virtual。base class 的 method 若有定義 virtual，則 derived class 的同名 method 可以
 
 
 ```csharp
