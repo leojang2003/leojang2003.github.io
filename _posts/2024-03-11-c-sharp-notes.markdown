@@ -51,7 +51,7 @@ public class Color
 
 ### method
 
-單一 expression 的 method 可以使用以下範例
+單一 expression 的 method 可以使用 =>
 
 ```csharp
 public override string ToString() => "This is an object";
@@ -117,15 +117,17 @@ public class Console
 
 ### virtual 關鍵字
 
-類別的方法預設不是 virtual，若要可以覆寫方法，則方法需要定義 virtual。base class 的 method 若有定義 virtual，則 derived class 的同名 method 可以
+類別的方法預設不是 virtual，也就是類別的方法預設不可覆寫。若要可以覆寫方法，則方法需要定義 virtual。父類別的 method 若有定義 virtual，則子類別的同名 method 可以
 
-1. 不加 override 或 new，編譯器視為默認有加 new
+1. 不加 override 或 new，編譯器視為默認有加 new，同 3.
 
-2. 加 override 視為覆寫 base class 的 method
+2. 加 override 視為覆寫父類別的 method
 
-3. 加 new 視為隱藏 base class 的 method
+3. 加 new 視為隱藏父類別的 method
 
 <br/>
+
+以下範例顯示，子類別的 Run() 方法視同有 new，子類別的方法視為一個新的方法
 
 ```csharp
 public class Car
@@ -145,7 +147,7 @@ public class Ford : Car
 }
 ```
 
-這樣是可以的，子類別的 Run() 方法視同有 new，子類別的方法視為一個新的方法
+也可以明確增加 new 如下
 
 ```csharp
 public class Ford : Car
@@ -157,7 +159,7 @@ public class Ford : Car
 }
 ```
 
-如果是要覆寫覆類別的方法，則需使用 override
+如果是要覆寫父類別的方法，則需使用 override
 
 ```csharp
 public class Ford : Car
@@ -168,38 +170,38 @@ public class Ford : Car
     }
 }
 ```
-
+{:.note}
 virtual 不可與 abstract、static、private、override 一起使用。
 
 <br/>
 
 ### abstract
 
-abstract 有以下特性
+abstract 可以修飾類別、方法、屬性。
 
 #### abstract 類別
 
-不可建立 abstract 類別的物件<br class="new">
+- 不可建立 abstract 類別的物件<br class="new">
 
-只有 abstract 類別可以有 abstract 方法與 accessor<br class="new">
+- 只有 abstract 類別可以有 abstract 方法與 accessor<br class="new">
 
-abstract 不可同時為 sealed<br class="new">
+- abstract 不可同時為 sealed<br class="new">
 
-繼承自 abstract 類別的非 abstract 類別虛實作所有繼承的 abstract 方法與 accessor
+繼承自 abstract 類別的非 abstract 類別需實作所有繼承的 abstract 方法與 accessor
 
 #### abstract 方法
 
-abstract 方法就是隱含的 virtual 方法<br class="new">
+- abstract 方法就是隱含的 virtual 方法<br class="new">
 
-abstract 方法只能在 abstract 類別中宣告<br class="new">
+- abstract 方法只能在 abstract 類別中宣告<br class="new">
 
-abstract 方法宣告沒有 {}，實作 abstract 方法要用 override<br class="new">
+- abstract 方法宣告沒有 {}，實作 abstract 方法要用 override<br class="new">
 
-abstract 不可與 static、virtual 共用<br class="new">
+- abstract 不可與 static、virtual 共用<br class="new">
 
 #### abstract 屬性
 
-類似 abstract 方法，要使用 override 覆寫
+- 類似 abstract 方法，要使用 override 覆寫
 
 ```csharp
 abstract class Car
@@ -220,6 +222,8 @@ abstract class Car
 }
 ```
 
+實作 abstract 方法，如同實作 virtual 方法，都是使用 override
+
 ```csharp
 abstract class Ford : Car
 {    
@@ -235,6 +239,8 @@ abstract class Ford : Car
     }
 }
 ```
+
+建立 abstract property
 
 ```csharp
 abstract class Nissan : Car
@@ -273,13 +279,14 @@ class GTR : Nissan
     // expression-bodied member 只有 get，可以不用寫 get 或 return
     public int Tires => _tires;
 
-	// C# 11 之後可以設定 required
-    public required bool LeatherSeats { get; set; }
-
-    public override void Horn()
-    {
-        throw new NotImplementedException();
-    }
+    // C# 11 之後可以設定 required
+    public required bool LeatherSeats { get; set; }    
 }
 ```
+<br/>
+
+### constructor
+
+
+
 
