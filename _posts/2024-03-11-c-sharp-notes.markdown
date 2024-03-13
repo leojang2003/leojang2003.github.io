@@ -115,6 +115,7 @@ public class Console
 
 ### virtual 關鍵字
 
+類別的方法預設不是
 
 
 ```csharp
