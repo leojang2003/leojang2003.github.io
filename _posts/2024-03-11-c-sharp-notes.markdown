@@ -292,3 +292,43 @@ MyList<int> a = new(); a = new();
 ```
 <br/>
 
+### delegate
+
+```csharp
+delegate string Function(string x);
+
+class ToUpper
+{
+    public string Upper(string x) => x.ToUpper();
+}
+
+class ToLower
+{
+    public static string Lower(string x) => x.ToLower();
+}
+
+class DelegateExample
+{
+    // 將 function j
+    static string[] Apply(string[] a, Function f)
+    {
+        var result = new string[a.Length];
+        for (int i = 0; i < a.Length; i++) 
+            result[i] = f(a[i]);
+        return result;
+    }
+
+    public void Deleage()
+    {
+        string[] a = { "Tom", "Harry", "Ron" };
+        ToUpper u = new();
+        var upper = Apply(a, u.Upper); // delegate 可以是類別方法
+        var lower = Apply(a, ToLower.Lower); // delegate 可以是靜態方法
+        var anno = Apply(a, x => x + ","); // delegate 可以是匿名方法或 lamda
+
+        upper.ToList().ForEach(x => Console.WriteLine(x));            
+    }
+}
+```
+<br/>
+
