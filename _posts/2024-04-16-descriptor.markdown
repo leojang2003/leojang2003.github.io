@@ -21,6 +21,8 @@ comments: true
 
 #### 透過 class 存取 class attribute
 
+舉例來說下面的類別 <i>A</i>，類別 <i>A</i> 有一個 <i>class attribute</i> 
+
 ```python
 class Ten:
 
