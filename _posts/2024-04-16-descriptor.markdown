@@ -21,3 +21,5 @@ comments: true
 
 #### 透過 class 存取 class attribute
 
+舉例來說下面的類別 <i>A</i>，
+
