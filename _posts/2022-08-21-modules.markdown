@@ -10,9 +10,10 @@ comments: true
 
 module 是一個包含定義 (definition) 和陳述式 (statement) 的 Python 檔案，舉例來說以下的檔案為 fibo.py
 
-以下是檔案 fibo.py 的內容，module 的名稱就是 fibo 
+以下是檔案 fibo.py 的內容，module 的名稱就是檔案名稱 fibo 
 
 ```python
+
 fibo_exec_by = ''
 fibo_author = 'Mike Williams'
 fibo_time = '2022-08-21'
@@ -30,6 +31,7 @@ if __name__ == "__main__":
     fib(int(sys.argv[1]))
 else:
     fibo_exec_by = 'import'
+
 ```
 
 fibo.py 的 if 區塊內容只有用 script 才會執行，_ _ name _ _ 才會是 _ _ main _ _
@@ -37,27 +39,34 @@ fibo.py 的 if 區塊內容只有用 script 才會執行，_ _ name _ _ 才會�
 
 ### module 的初始化
 
-一個 module 可以包含可執行的陳述式(executable statements)，像是上述的 if 區塊，是用來初始化 module 用的
-他們只有在 import(或是 script)的時候會執行，僅執行一次。
+一個 module 可以包含可執行的陳述式(executable statements)，像是上述的 if 區塊，是用來初始化 module 用的。他們只有在 import(或是 script)的時候會執行，僅執行一次。
+
+<br>
+
+
 
 ### 引入 module 方式 1
 
 ```python
+
 import fibo 
 
 fibo.fib(20)  # 0 1 1 2 3 5 8 13
 fibo.fibo_author   # 'Mike Williams'
 fibo.__name__ # fibo
+
 ```
 <br/>
 ### 引入 module 方式 2
 
-如果 module 名稱後面接 as，則該綁定 module 到該變數名稱
+如果 module 名稱後面接 <mark><b>as</b></mark>，則該綁定 module 到該變數名稱
 
 ```python
+
 import fibo as x
 x.author    # 'Mike Williams'
 fibo.author # 'Mike Williams'
+
 ```
 
 <br/>
@@ -66,21 +75,26 @@ fibo.author # 'Mike Williams'
 另一種 import 的方式，直接將要引入的 module 內的'方法或變數'加入現有 module 的命名空間，使用這種方式，module 的 name 沒有被引入 local 命名空間
 
 ```python
+
 from fibo import fib, fibo_exec_by
 fib(500)
 
 # 以下執行錯誤
 # module 的名稱 fibo 未定義，無法呼叫
 fibo # NameError: name 'fibo' is not defined.  
+
 ```
 
 <br/>
 ### 引入 module 方式 4
 
 as 語法也可以用 from 
+
 ```python
+
 from fibo import fib as fibonacci
 fibonacci(20) # 0 1 1 2 3 5 8 13
+
 ```
 
 <br/>
@@ -88,7 +102,7 @@ fibonacci(20) # 0 1 1 2 3 5 8 13
 
 每個 module 有自己的私有 namespace，有自己的全域變數，使用者不需擔心自己定義的全域變數與 module 的全域變數衝突，使用者也可以用 modname.globalname 的方式存取 module 的全域變數。
 
-module 可以 import 其他的 module ，import 語法不需要寫在一開始，如果 import 語法是寫在 class 與 function外，則被引入的 module 會加入現有 module 的 global namespace 中。這合理，因為如果是在 class 或 function 內引用，外層是看不到的。
+module 可以 import 其他的 module ，import 語法不需要寫在一開始，如果 import 語法是寫在 class 與 function 外，則被引入的 module 會加入現有 module 的 global namespace 中。這合理，因為如果是在 class 或 function 內引用，外層是看不到的。
 
 {:.note}
 盡量不用 from modname import * 的方式，避免造成閱讀不易
@@ -100,12 +114,15 @@ module 可以 import 其他的 module ，import 語法不需要寫在一開始�
 當使用 script 的方式執行 module 時如下，
 
 ```python
+
 python fibo.py <arguments>
+
 ```
 
 module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， _ _ name _ _ 會被設成 _ _ main _ _，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
 
 ```python
+
 if __name__ == "__main__":
     # 以 script 的方式執行
     fibo_exec_by = 'cmd'
@@ -117,6 +134,7 @@ else:
 
 # 使用 script 執行 fibo.py 時，會執行 if 的內容
 $ python fibo.py 50 # 0 1 1 2 3 5 8 13 21 34
+
 ```
 <br/>
 ###  module 搜尋順序
@@ -148,11 +166,17 @@ D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py
 
 ### dir()
 
-如果是在 module 中呼叫內建 dir()，會回傳一個 list ，包含所有 module 的 attribute 的 name，
+{:.note}
+根據定義，沒有傳入參數時，dir()回傳 local scope 的 names。有參數時，回傳參數物件的 attributes。
+
+如果是在 module 中呼叫內建 dir()，會回傳一個清單，包含所有 module 的 attribute 的 name
+
+
 {:.note}
 注意在不同層級呼叫 dir() 會回傳不同的結果。
 
 ```python
+
 import fibo
 
 print(dir(fibo))
@@ -160,21 +184,27 @@ print(dir(fibo))
 ```
 
 若是 dir() 沒有傳入參數，則回傳目前定義的所有名稱
+
 ```python
+
 import fibo
 
 print(dir())
 # ['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fibo']
+
 ```
 
 {:.note}
 注意 dir() 會回傳所有變數、 module 、方法的名稱
 
 dir() 不會回傳內建的方法與變數的名稱，如需要可使用 builtins  module 
+
 ```python
+
 import builtins
 
 print(dir(builtins))
+
 ```
 <br/>
 ### Packages
