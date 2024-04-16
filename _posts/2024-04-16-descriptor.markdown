@@ -45,3 +45,7 @@ A.x
 # 沒有任何輸出，不會呼叫 __getattribute__
 ```
 
+{:.note}
+從上面可以看出，透過類別不論存取的屬性是否為 descriptor，都不會觸發類別的 <i>\_\_getattribute__ ( )</i>，實際上被呼叫的是 <i><b>type.\_\_getattribute__ ( )</b></i>
+
+<br/>
