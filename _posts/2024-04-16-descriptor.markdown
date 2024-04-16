@@ -21,5 +21,5 @@ comments: true
 
 #### 透過 class 存取 class attribute
 
-舉例來說下面的類別 <i>A</i>，
+舉例來說下面的類別 <i>A</i>，類別 <i>A</i> 有一個 <i>class attribute</i> ( 定義在 <i>class</i> 層級的 <i>attribute</i> ) <i>x</i> 與 <i>y</i>。若是呼叫 <i>A.y</i>，傳入 <i>\_\_get__ ( )</i> 的 <i>owner</i> 會是 <i>None</i>，而 <i>ownerType</i> 會是 <i>A</i>。
 
