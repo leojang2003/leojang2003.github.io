@@ -21,5 +21,27 @@ comments: true
 
 #### 透過 class 存取 class attribute
 
+```python
+class Ten:
 
+    def __get__(self, owner, ownerType=None):                
+        return 10
+        
+class A:
+
+    x = 5       # 一般的類別屬性
+    y = Ten()   # descriptor 物件
+        
+    def __getattribute__(self, name):
+        print('A.__getattribute__')
+        return object.__getattribute__(self, name)
+
+A.y
+# self =  <__main__.Ten object at ...>
+# owner =  None , 
+# ownerType =  <class '__main__.A'>
+
+A.x
+# 沒有任何輸出，不會呼叫 __getattribute__
+```
 
