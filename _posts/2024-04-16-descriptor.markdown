@@ -11,3 +11,4 @@ comments: true
 
 ### object.\_\_get__ ( self , owner , ownerType = None )
 
+首先 <i>\_\_get__</i> 方法官網定義如下
