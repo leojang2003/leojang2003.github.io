@@ -17,3 +17,7 @@ comments: true
 
 透過類別或物件去存取 <i>class attribute</i> 時，都會觸發 <i>class attribute</i> 的類別的 <i>\_\_get__</i> 方法，須注意不是所以有類別都有實作 <i>\_\_get__</i>。
 
+<br/>
+
+#### 透過 class 存取 class attribute
+
