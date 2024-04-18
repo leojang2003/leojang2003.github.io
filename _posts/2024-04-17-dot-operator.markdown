@@ -5,7 +5,7 @@ subtitle: Python
 tags: [function, method, MethodType, __getattribute__, __getattr__, bound, bound method, __self__, __func__, __dict__, instance dictionary, class dictionary, mro, method resolution order, class function, class attribute, instance attribute, descriptor, data descriptor, non-data descriptor, AttributeError]
 comments: true
 ---
-
+<br/>
 ### object.\_\_getattribute__ ( self , name )
 
 官網定義如下
@@ -308,12 +308,11 @@ Person.shout(p)
 <br/>
 
 #### instance dictionary
-
+<br/>
 ```python
-
 p.name
-
 ```
+<br/>
 1. 呼叫 \_\_getattribute__ 傳入參數 p 與 name
 
 2. objtype 是 Person
@@ -327,13 +326,11 @@ p.name
 <br/>
 
 #### class function
-
+<br/>
 ```python
-
 p.shout('Hey')
-
 ```
-
+<br/>
 1. 呼叫 \_\_getattribute__ 傳入參數 p 與 shout
 
 2. objtype 是 Person
@@ -437,7 +434,7 @@ class Test():
         return Obj.object_getattribute(self, name)
 
 ```
-
+<br/>
 #### 存取 instance attribute 
 
 定義完後，執行以下程式
@@ -477,6 +474,8 @@ if hasattr(obj, '__dict__') and name in vars(obj):
     print(f'return vars(obj)[{name}]')            
     return vars(obj)[name]
 ```
+
+執行結果如下
 
 ```python
 # STEP 2
@@ -564,7 +563,7 @@ pprint(Test.__dict__)
 
 這個 \_\_dict__ 也是內建的 <class 'getset_descriptor'> 的物件，因此每當我們透過物件存取 \_\_dict__ 時，類別的屬性 \_\_dict__ 會回傳 \_\_get__ 方法的結果，如下所示。
 
-```
+```python
 # [Obj] cls_var = <attribute '__dict__' of 'Test' objects>
 # [Obj] type(cls_var) = <class 'getset_descriptor'>
 # [Obj] descr_get =  <slot wrapper '__get__' of 'getset_descriptor' objects>
@@ -573,19 +572,16 @@ pprint(Test.__dict__)
 #   cls_var=<attribute '__dict__' of 'Test' objects>, 
 #   obj=<__main__.Test object at 0x000002149A2DF9D0>, 
 #   objtype=<class '__main__.Test'>)
-
 ```
 
 我們可以執行以下程式，明確呼叫類別的 \_\_dict__ 屬性的 \_\_get__ 方法，也可以得到物件的 instance dictionary。
 
 ```python
-
 t = Test()
 t.nice = 'car'
 
 Test.__dict__['__dict__'].__get__(t)
 # {'_point': None, 'nice': 'car'}
-
 ```
 
 {:.note}
