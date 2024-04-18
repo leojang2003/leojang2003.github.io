@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dictionary
-subtitle: 
+subtitle: Python
 tags: [dict]
 comments: true
 ---
