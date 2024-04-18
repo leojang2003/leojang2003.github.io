@@ -5,7 +5,7 @@ subtitle: Python
 tags: [inheritance, super]
 comments: true
 ---
-
+<br/>
 ### 不接受參數的 super ( )
 
 super ( ) 回傳一個 proxy 物件，一個暫時的父類別物件，讓我們可以存取父類別的方法
@@ -35,7 +35,7 @@ lisa = Human()
 ```
 
 我們可以看到 super ( ) . \_\_init__ ( 2 )，會將 Human 物件傳入 Animal 的 \_\_init__ ，所以 self . legs = legs 其實是將 legs 加到 Human 物件的 instance dict 中。
-
+<br/>
 ### 接受參數的 super ( )
 
 super ( ) 也可以接受參數如下，type 是 subclass，obj 是 subclass 的實例，第二個參數傳入讓 super 回傳一個 bound method。
@@ -107,7 +107,7 @@ lisa.walk()
 
 {:.note}
 但一般來說，沒有參數的 super ( ) 用法已足夠適用多數的情況
-
+<br/>
 ### 多重繼承中的 super ( ) 與 MRO
 
 現在有一個新的類別繼承 Asian 與類別 Gender，MRO 告訴 Python 如何去搜尋繼承的方法，因為類別 Taiwanese 的 mro ( ) 為 Taiwanese > Gender > Asian > Human > Animal > object，MRO 會告訴 Python 如何依序呼叫 super ( )
