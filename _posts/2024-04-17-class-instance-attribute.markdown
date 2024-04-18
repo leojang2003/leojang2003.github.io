@@ -2,14 +2,14 @@
 ---
 layout: post
 title: Instance Attribute / Class Attribute
-subtitle: 
+subtitle: Python
 tags: []
 comments: true
 ---
 
 ### Class Attribute
 
-instance attribute 是只屬於單一一個物件的 Python 變數。此變數僅能從物件的 scope 存取，通常是在 _ _ init _ _ 方法內定義。class attribute 是屬於類別的 Python 變數，可在多個物件中分享，通常定義於 _ _ init _ _ 之外。 
+instance attribute 是只屬於單一一個物件的 Python 變數。此變數僅能從物件的 scope 存取，通常是在 \_\_init__ 方法內定義。class attribute 是屬於類別的 Python 變數，可在多個物件中分享，通常定義於 \_\_init__ 之外。 
 
 ```python
 
