@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Inheritance & Super
+title: Inheritance & super()
 subtitle: 
 tags: [inheritance, super]
 comments: true
