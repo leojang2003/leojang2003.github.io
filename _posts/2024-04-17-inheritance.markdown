@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Inheritance & super()
-subtitle: 
+subtitle: Python
 tags: [inheritance, super]
 comments: true
 ---
