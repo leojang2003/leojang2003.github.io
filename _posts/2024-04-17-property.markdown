@@ -1,6 +1,6 @@
 ---
 layout: post
-title: property
+title: [Python] Property
 subtitle: 
 tags: [property, string interpolation, managed attribute]
 comments: true
