@@ -629,7 +629,7 @@ c.diameter = 200
 '%s was smaller than %s' % ('one', 'two')
 # one was smaller than two
 ```
-
+<br/>
 ##### %f
 
 %f 表示一個放 float 的佔位符號，可以使用 %.{n}f 顯示小數點後 n 位。
@@ -638,7 +638,7 @@ c.diameter = 200
 'number is %.2f' % (79.521452)
 # number is79.52
 ```
-
+<br/>
 ##### %c
 
 %c 表示一個放單一 character 的佔位符號
@@ -650,7 +650,7 @@ c.diameter = 200
 'My math got %c' % ('AA')
 # TypeError: %c requires int or char
 ```
-
+<br/>
 ##### %i %d
 
 %i / %d 表示一個放 signed decimal integer 的佔位符號
@@ -659,7 +659,7 @@ c.diameter = 200
 'It"s year %i' % (-2024)
 # It"s year -2024
 ```
-
+<br/>
 ##### %u
 
 %u 表示一個放 unsigned decimal integer 的佔位符號
@@ -668,7 +668,7 @@ c.diameter = 200
 'It"s year %u' % (-2024)
 # It"s year 2024
 ```
-
+<br/>
 ##### %o
 
 %o 表示一個顯示為八進位的佔位符號
@@ -677,7 +677,7 @@ c.diameter = 200
 '%i octal is %o' % (256, 256)
 # 256 octal is 400
 ```
-
+<br/>
 ##### %x
 
 %x 表示一個顯示為小寫十六進位的佔位符號
@@ -686,7 +686,7 @@ c.diameter = 200
 '%i hex is %x' % (12, 12)
 '12 hex is c'
 ```
-
+<br/>
 ##### %X
 
 %X 表示一個顯示為大寫十六進位的佔位符號
