@@ -34,7 +34,7 @@ lisa = Human()
 
 ```
 
-我們可以看到 super ( ) . _ _init_ _ ( 2 )，會將 Human 物件傳入 Animal 的 _ _init_ _ ，所以 self . legs = legs 其實是將 legs 加到 Human 物件的 instance dict 中。
+我們可以看到 super ( ) . \_\_init__ ( 2 )，會將 Human 物件傳入 Animal 的 \_\_init__ ，所以 self . legs = legs 其實是將 legs 加到 Human 物件的 instance dict 中。
 
 ### 接受參數的 super ( )
 
@@ -47,7 +47,7 @@ class super(object)
 
 ```
 
-因此 Human 的 _ _init_ _ 可以改寫成如下，據定義 super ( Human , self ) . _ _init_ _( 2 ) 等同於 super ( ) . _ _init_ _( 2 )
+因此 Human 的 \_\_init__ 可以改寫成如下，據定義 super ( Human , self ) . \_\_init__( 2 ) 等同於 super ( ) . \_\_init__( 2 )
 
 ```python
 
