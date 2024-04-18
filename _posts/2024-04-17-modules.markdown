@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Modules and packages
-subtitle: 
+subtitle: Python
 tags: [module, package, dir(), import, sys.path]
 comments: true
 ---
