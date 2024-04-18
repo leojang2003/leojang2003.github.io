@@ -1,7 +1,6 @@
-
 ---
 layout: post
-title: Instance Attribute / Class Attribute
+title: Instance Attribute & Class Attribute
 subtitle: Python
 tags: []
 comments: true
