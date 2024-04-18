@@ -36,7 +36,7 @@ else:
 
 fibo.py 的 if 區塊內容只有用 script 才會執行，\_\_name__ 才會是 \_\_main__
 如果用 import 的方式，則 \_\_name__ 會是 fibo
-
+<br/>
 ### module 的初始化
 
 一個 module 可以包含可執行的陳述式(executable statements)，像是上述的 if 區塊，是用來初始化 module 用的。他們只有在 import(或是 script)的時候會執行，僅執行一次。
@@ -159,11 +159,11 @@ D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py
 ```
 
 初始化後，Python 程式可以修改 sys.path。目前執行的 script 的目錄會被擺在搜索路徑的最前面，優先於 standard library 路徑之前。這表示目錄的 script 會優先於 standard library 目錄中的同名 module 。
-
+<br/>
 ### 編譯後的Python檔案
 
 為了加速 module 的載入時間，編編譯後的檔案置於 \_\_pycache__ 資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
-
+<br/>
 ### dir()
 
 {:.note}
@@ -258,7 +258,7 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 - {: .arrow}import package.subpackage.module
 - {: .arrow}import package.subpackage1.subpackage2.module
 - {: .arrow}import module
-
+<br/>
 ### 使用 * 引入 package
 
 如果 package 的 \_\_init__.py 有定義 \_\_all__，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
@@ -386,7 +386,7 @@ from sound.effects import *
 ### package 內的 absolute import
     
 當 package 要參考同層兄弟的 package 時，可以使用 absolute import 來參考 sibling 的 subpackage。 例如，如果 sound.filters.vocoder  module 需要使用 sound.effects 包中的 echo  module ，則可以使用 from sound.effects import echo。
-
+<br/>
 ### package 內的 relative import
 
 您也可以使用 from module import name 形式做相對導入。這些 import 使用 . 來指示相對導入中涉及的 current 和 parent packages。 例如，從 surround  module 中，您可以使用：
@@ -399,3 +399,8 @@ from .. filters import equalizer
 
 {:.note}
 請注意，relative import 是基於當前 module 的名稱。由於主 module 的名稱始終為"\_\_main__"，因此用作 Python application 的主 module 的 module 必須始終使用 absolute import。   
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
