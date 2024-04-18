@@ -1,6 +1,6 @@
 ---
 layout: post
-title: attribute & dot operator
+title: Attribute & dot operator
 subtitle: Python
 tags: [function, method, MethodType, __getattribute__, __getattr__, bound, bound method, __self__, __func__, __dict__, instance dictionary, class dictionary, mro, method resolution order, class function, class attribute, instance attribute, descriptor, data descriptor, non-data descriptor, AttributeError]
 comments: true
