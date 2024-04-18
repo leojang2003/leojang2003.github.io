@@ -34,8 +34,8 @@ else:
 
 ```
 
-fibo.py 的 if 區塊內容只有用 script 才會執行，_ _ name _ _ 才會是 _ _ main _ _
-如果用 import 的方式，則 _ _ name _ _ 會是 fibo
+fibo.py 的 if 區塊內容只有用 script 才會執行，\_\_name__ 才會是 \_\_main__
+如果用 import 的方式，則 \_\_name__ 會是 fibo
 
 ### module 的初始化
 
@@ -119,7 +119,7 @@ python fibo.py <arguments>
 
 ```
 
-module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， _ _ name _ _ 會被設成 _ _ main _ _，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
+module 的程式碼會被執行，如同 import 一樣，差別在於使用 script 的方式執行時， \_\_name__ 會被設成 \_\_main__，所以在 module 下方加入以下程式，可以讓此 module 判斷執行 module 的方式
 
 ```python
 
@@ -162,7 +162,7 @@ D:\Python\playgound\Scripts\python.exe D:/Python/playgound/main.py
 
 ### 編譯後的Python檔案
 
-為了加速 module 的載入時間，編編譯後的檔案置於 _ _ pycache _ _ 資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
+為了加速 module 的載入時間，編編譯後的檔案置於 \_\_pycache__ 資料夾，格式如 module.version.pyc (像是 fibo.cpython-310.pyc)，Python 會自動檢查是否需要重新編譯
 
 ### dir()
 
@@ -209,7 +209,7 @@ print(dir(builtins))
 <br/>
 ### Packages
 
-Package 是由一系列 module 所構成，一個資料夾必須要有 _ _ init _ _.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 _ _ init _ _.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定 _ _ all _ _ 變數
+Package 是由一系列 module 所構成，一個資料夾必須要有 \_\_init__.py 檔案，Python 才會視資料夾為 Package。最簡單的情況 \_\_init__.py 可以是一個空的檔案，或是初始化 Package 所需的程式或是設定 \_\_all__ 變數
 
 使用 Package 可以單獨引入其中一個 module 
 ```python
@@ -261,7 +261,7 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 
 ### 使用 * 引入 package
 
-如果 package 的 _ _ init _ _.py 有定義 _ _ all _ _，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
+如果 package 的 \_\_init__.py 有定義 \_\_all__，此變數會定義當使用 from package import * 需要匯入的所有 module 名稱
 
 假設我們有 package 結構如下
 
@@ -291,9 +291,9 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 main.py
 ```
 
-main.py 使用 from animal import *，並不像想像中會引入所有 animal 下的 module，實際引入的 module 是看 _ _ init _ _.py 定義的 _ _ all _ _ 變數。
+main.py 使用 from animal import *，並不像想像中會引入所有 animal 下的 module，實際引入的 module 是看 \_\_init__.py 定義的 \_\_all__ 變數。
 
-假設 _ _ all _ _ 定義一個 module 
+假設 \_\_all__ 定義一個 module 
 
 ```python
 # __init__.py 檔案
@@ -301,7 +301,7 @@ main.py 使用 from animal import *，並不像想像中會引入所有 animal �
 __all__ = ['rain']
 ```
 
-那麼執行 _ _ main _ _.py 時，只能使用 rain module，無法使用其他 module
+那麼執行 \_\_main__.py 時，只能使用 rain module，無法使用其他 module
 ```python
 # __main__.py 檔案
 
@@ -311,7 +311,7 @@ animal.sun.sunny(__name__)
 # NameError: name 'animal' is not defined
 ```
 
-假設 _ _ all _ _ 定義一個 subpackage
+假設 \_\_all__ 定義一個 subpackage
 
 ```python
 # __init__.py 檔案
@@ -319,7 +319,7 @@ animal.sun.sunny(__name__)
 __all__ = ['calculate']
 ```
 
-那麼執行 _ _ main _ _.py 時，只能使用 calculate 這個 subpackage，無法使用其他 module
+那麼執行 \_\_main__.py 時，只能使用 calculate 這個 subpackage，無法使用其他 module
 
 ```python
 # __main__.py 檔案
@@ -330,7 +330,7 @@ animal.sun.sunny(__name__)
 # NameError: name 'animal' is not defined
 ```
 
-_ _ all _ _ 也可以定義多個 module/package 如下
+\_\_all__ 也可以定義多個 module/package 如下
 
 ```python
 # __init__.py 檔案
@@ -347,11 +347,11 @@ __all__ = ["echo", "surround", "reverse"]
 # 則呼叫 from sound.effects import * 時，會引入 "echo", "surround", "reverse" 這三個 module 
 ```
   
-如果 package 的 _ _ init _ _.py 沒有定義 _ _ all _ _，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 _ _ init _ _.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
+如果 package 的 \_\_init__.py 沒有定義 \_\_all__，語法 from sound.effects import * 不會 import 所有 sound.effects 的 submodule，他只確保 sound.effects 會被 import，還有其他此 package 定義的名稱，這包含 \_\_init__.py 中定義的名稱以及 submodule，與 import 語法引入的 submodule 
 
-如果 package 的 _ _ init _ _.py 沒有定義 _ _ all _ _，就看 _ _ init _ _.py 定義了 import 哪些 module/subpackage，
+如果 package 的 \_\_init__.py 沒有定義 \_\_all__，就看 \_\_init__.py 定義了 import 哪些 module/subpackage，
 
-假設現在 _ _ init  _ _.py 如下
+假設現在 \_\_init __.py 如下
 ```python
 # __init__.py 檔案
 
@@ -374,7 +374,7 @@ from animal import *
 tornado.twist() 
 ```
 {:.not}
-import 一個 package 可以存取那些 module/subpackage 都看 package 的 _ _ init _ _.py 怎麼定義
+import 一個 package 可以存取那些 module/subpackage 都看 package 的 \_\_init__.py 怎麼定義
 
 
 ```python
@@ -398,4 +398,4 @@ from .. filters import equalizer
 ``` 
 
 {:.note}
-請注意，relative import 是基於當前 module 的名稱。由於主 module 的名稱始終為"_ _ main _ _"，因此用作 Python application 的主 module 的 module 必須始終使用 absolute import。   
+請注意，relative import 是基於當前 module 的名稱。由於主 module 的名稱始終為"\_\_main__"，因此用作 Python application 的主 module 的 module 必須始終使用 absolute import。   
