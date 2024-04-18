@@ -432,7 +432,6 @@ class Test():
         print(' ')
         print(f'[Test] getting the attribute name: {name}')
         return Obj.object_getattribute(self, name)
-
 ```
 <br/>
 #### 存取 instance attribute 
@@ -594,13 +593,13 @@ instance dictionary ( \_\_dict__ ) 是 class dictionary 中的一個屬性。
 若我們新增一個方法 run 並透過物件呼叫它 
 
 ```python    
-    class Test():
+class Test():
 
-    ...
+...
 
-        def run(self, count):
-            print(f'run {count} times')
-    ...
+    def run(self, count):
+        print(f'run {count} times')
+...
 
 t = Test()
 t.run(10)
