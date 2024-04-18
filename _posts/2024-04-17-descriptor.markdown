@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Descriptor
-subtitle: 
+subtitle: Python
 tags: [property, descriptor, first-class object, data descriptor, non-data descriptor]
 comments: true
 ---
