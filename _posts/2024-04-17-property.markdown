@@ -1,7 +1,7 @@
 ---
 layout: post
-title: [Python] Property
-subtitle: 
+title: Property
+subtitle: Python
 tags: [property, string interpolation, managed attribute]
 comments: true
 ---
