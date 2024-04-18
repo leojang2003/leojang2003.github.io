@@ -1,17 +1,17 @@
 ---
 layout: post
 title: dir()
-subtitle: 
+subtitle: Python
 tags: []
 comments: true
 ---
 
-### object . _ _ dict _ _
+### object . \_\_dict__
 
-根據官網定義，_ _ dict _ _ 是 dict 或 mapping object 用來儲存一個物件的屬性。A dictionary or other mapping object used to store an object's (writable) attribute。
+根據官網定義，\_\_dict__ 是 dict 或 mapping object 用來儲存一個物件的屬性。A dictionary or other mapping object used to store an object's (writable) attribute。
 
 {:.note}
-物件的 _ _ dict _ _ 是 dict 型別，物件的 _ _ dict _ _ 是可寫入的，類別的 _ _ dict _ _ 是 mappingproxy，mappingproxy 就是一個沒有 _ _ setattr _ _ 的 dict，因此類別的 _ _ dict _ _ 是無法寫入的。 
+物件的 \_\_dict__ 是 dict 型別，物件的 \_\_dict__ 是可寫入的，類別的 \_\_dict__ 是 mappingproxy，mappingproxy 就是一個沒有 \_\_setattr__ 的 dict，因此類別的 \_\_dict__ 是無法寫入的。 
 
 ```python
 
@@ -36,9 +36,9 @@ dir ( ) 的用途在使用互動命令提示字元時提供必要資訊，並非
 
 根據官網定義，當沒有傳入參數時，會回傳目前<mark><b> Local Scope </b></mark>的 <mark><b>name</b></mark> 清單。當有傳入參數時，會回傳該物件有效的 attribute
 
-另外，如果物件有定義 _ _ dir _ _ ( ) 方法，則呼叫 dir ( 物件 ) 時，會呼叫物件自己定義的 _ _ dir _ _ ( ) 方法。dir ( 物件 ) 會回傳物件的 attribute，包含 _ _ dict _ _ 中的 attribute。
+另外，如果物件有定義 \_\_dir__ ( ) 方法，則呼叫 dir ( 物件 ) 時，會呼叫物件自己定義的 \_\_dir__ ( ) 方法。dir ( 物件 ) 會回傳物件的 attribute，包含 \_\_dict__ 中的 attribute。
 
-如果 object 沒有定義 _ _ dir _ _ ( ) 方法，則 dir ( ) 會試著從 object 的 _ _ dict _ _ 屬性（如果有定義）和其 type object 收集資訊。生成的 list 不一定完整，當 object 有自己定義的 getattr ( ) 方法時，可能會不準確。
+如果 object 沒有定義 \_\_dir__ ( ) 方法，則 dir ( ) 會試著從 object 的 \_\_dict__ 屬性（如果有定義）和其 type object 收集資訊。生成的 list 不一定完整，當 object 有自己定義的 getattr ( ) 方法時，可能會不準確。
 
 ```python
 
@@ -72,7 +72,7 @@ class class2(class1):
 
 ```
 
-呼叫 dir ( class1 ) 結果如下，因為 class1 沒有定義 _ _ dir _ _ 方法，所以呼叫 dir ( class1 ) 會試著從物件的 _ _ dict _ _ 屬性，也就是 class1._ _ dict _ _ 和其 type object 收集資訊 ，也就是 object._ _ dict _ _。
+呼叫 dir ( class1 ) 結果如下，因為 class1 沒有定義 \_\_dir__ 方法，所以呼叫 dir ( class1 ) 會試著從物件的 \_\_dict__ 屬性，也就是 class1.\_\_dict__ 和其 type object 收集資訊 ，也就是 object.\_\_dict__。
 
 假設我們在互動命令提示字元 import 這個 module1 後，dir ( module1 ) 得到結果如下
 
@@ -86,7 +86,7 @@ dir(module1)
 
 ```
 
-dir ( module1 ) 與 module1._ _ dict _ _ 的內容一致
+dir ( module1 ) 與 module1.\_\_dict__ 的內容一致
 
 ```python
 
@@ -98,13 +98,13 @@ sorted(module1.__dict__.keys())
 
 <br/>
 
-- {: .arrow} _ _ annotations _ _ 因為 my_var 有設定 annotation，不然就不會顯示 _ _ annotations _ _
-- {: .arrow} _ _ cached _ _ 顯示暫存檔位置 'D:\\Python\\_ _pycache_ _\\module1.cpython-310.pyc'
-- {: .arrow} _ _ doc _ _ 顯示 docstring ' Module1 Content '
-- {: .arrow} _ _ file _ _ 顯示匯入模組的位置 'D:\\Python\\module1.py'
-- {: .arrow} _ _ loader _ _ 回傳 loader 物件，這物件使用 load_module() 將 module 載入到記憶體中。
-- {: .arrow} _ _ name _ _ 顯示 module 的 name，若是 package 內的 module 會包含路徑。
-- {: .arrow} _ _ package _ _ 顯示檔案所在 package 的 name。
+- {: .arrow} \_\_annotations__ 因為 my_var 有設定 annotation，不然就不會顯示 \_\_annotations__
+- {: .arrow} \_\_cached__ 顯示暫存檔位置 'D:\\Python\\_ _pycache_ _\\module1.cpython-310.pyc'
+- {: .arrow} \_\_doc__ 顯示 docstring ' Module1 Content '
+- {: .arrow} \_\_file__ 顯示匯入模組的位置 'D:\\Python\\module1.py'
+- {: .arrow} \_\_loader__ 回傳 loader 物件，這物件使用 load_module() 將 module 載入到記憶體中。
+- {: .arrow} \_\_name__ 顯示 module 的 name，若是 package 內的 module 會包含路徑。
+- {: .arrow} \_\_package__ 顯示檔案所在 package 的 name。
 
 
 {:.note}
@@ -142,10 +142,10 @@ import mod1
 ```
 
 {:.note}
-這裡可以看到可以執行 sample.py 時，import mod1 會呼叫 dir()，其中的 _ _builtins_ _ 是一個 dict(用法變成 _ _builtins_ _['abs'](-100))，值得注意的是，如果是在 _ _main_ _ 中呼叫 dir() 則，這裡的 _ _builtins_ _ 變成了一個名為 builtins 的 module(_ _builtins_ _.abs(-100))。
+這裡可以看到可以執行 sample.py 時，import mod1 會呼叫 dir()，其中的 \_\_builtins__ 是一個 dict(用法變成 \_\_builtins__['abs'](-100))，值得注意的是，如果是在 \_\_main__ 中呼叫 dir() 則，這裡的 \_\_builtins__ 變成了一個名為 builtins 的 module(\_\_builtins__.abs(-100))。
                                                                           
 {:.note}
-根據 Python Doc，多數 modules 都有名為 _ _builtins_ _ 在 global scope 中，_ _builtins_ _ 的值通常為 builtins 模組，或是該模組的 _ _ dict _ _ 的值，這兩者的差異僅為 Python 的實作細節。
+根據 Python Doc，多數 modules 都有名為 \_\_builtins__ 在 global scope 中，\_\_builtins__ 的值通常為 builtins 模組，或是該模組的 \_\_dict__ 的值，這兩者的差異僅為 Python 的實作細節。
 
 ```python
 # 檔案 sample.py
@@ -208,7 +208,7 @@ print(dir(obj))
 
 <br/>
 
-### 呼叫 dir ( ) 時傳入物件，但物件有自訂的 _ _ dir _ _ ( )
+### 呼叫 dir ( ) 時傳入物件，但物件有自訂的 \_\_dir__ ( )
 
 ```python
 # 檔案 mod3.py ...
