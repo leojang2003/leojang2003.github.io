@@ -6,14 +6,6 @@ tags: []
 comments: true
 ---
 
-請先閱讀 <a href="../2024-04-17-descriptor/">描述器 descriptor</a>
-
-使用 Python 的 property ( )，我們可以在類別建立 managed attribute，managed attribute 也就是所謂的 property，用於在不破壞 public API 下，可以變更內部實作方式。
-
-舉例來說，使用者讀取 A.p 這裡的 p 就是 public API 給外界讀取，我們可以變更 property p 的實作方式，而使用者呼 p 的方式保持不變。
-
-<br/>
-
 ### 服務的生命週期
 
 ```csharp
@@ -56,9 +48,6 @@ builder.Services.AddSingleton<IMyService>(myService);
 Tools > Command Line > Developer Command Prompt > 輸入指令 ildasm > 
 將 StarterM.dll 拖入 > MANIFEST > 拉到最後可以看到 EmbeddedFile 的 aaa.txt 與 bbb.txt 的內容
 
-
-{:.note}
-
 <br>
 
 ###
@@ -78,7 +67,7 @@ Content-Type:application/x-www-form-urlencoded
 CustomerID=windhaven&CompanyName=nvda&Country=USA
 ```
 
-```json
+```txt
 POST {{StarterM_HostAddress}}/api/customers
 Content-Type:application/json
 
@@ -187,6 +176,10 @@ $("#btnInsert").on("click", () => {
 ```
 
 fetch 後面是類似 C# 的選項參數概念，另外 $("#form1").serialize() 會組成 CustomerID=aaa&CompanyName=bbb&Country=ccc
+
+### Session
+
+ASP.Net Core 的 Session 不支援物件，也就是沒辦法把物件存入 Session 中，僅支援 byte array, int32, string
 
 <br/>
 <br/>
